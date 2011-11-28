@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="adminuser" extends="struts-common" namespace="/adminuser">
+		<action name="login" class="loginAction" method="login">
+			<result name="success" type="redirect">/login/main.jsp</result>		
+		</action>	
+		<action name="logOut" class="loginAction" method="logOut">
+			<result name="success" type="redirect">/login/login.jsp</result>		
+		</action>
+		
+		<action name="queryAdminUser" class="adminUserAction" method="queryAdminUser">
+			<result name="success">/module/adminuser/adminuser_list.jsp</result>	
+		</action>	
+		<action name="saveUser" class="adminUserAction" method="saveUser">
+			<result name="success" type= "redirect">/adminuser/queryAdminUser.shtml</result>	
+		</action>	
+		<action name="deleteAdminUserByIds" class="adminUserAction" method="deleteAdminUserByIds">
+			<result name="success"  type="redirect">/adminuser/queryAdminUser.shtml</result>	
+		</action>
+		<action name="findAdminUserById" class="adminUserAction" method="findAdminUserById">
+			<result name="success">/module/adminuser/adminuser_detail.jsp</result>	
+		</action>	
+		
+		
+	</package>
+	
+
+	
+</struts>

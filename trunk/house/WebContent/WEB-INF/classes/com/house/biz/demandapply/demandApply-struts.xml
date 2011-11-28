@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- -->
+	<package name="demandApply" extends="struts-common" namespace="/demandApply">
+		<action name="queryDemandApply" class="demandApplyAction" method="queryDemandApply">
+			<result name="success">/module/demandapply/demandApply_list.jsp</result>	
+		</action>	
+		<action name="saveDemandApply" class="demandApplyAction" method="saveDemandApply">
+			<result name="success" type="redirect">/demandApply/queryDemandApply.shtml</result>	
+		</action>	
+		<action name="findDemandApplyById" class="demandApplyAction" method="findDemandApplyById">
+			<result name="success">/module/demandapply/demandApply_detail.jsp</result>	
+		</action>	
+		<action name="deleteDemandApplyByIds" class="demandApplyAction" method="deleteDemandApplyByIds">
+			<result name="success" type="redirect">/demandApply/queryDemandApply.shtml</result>	
+		</action>	
+	</package>
+	
+
+</struts>

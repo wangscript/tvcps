@@ -1,0 +1,39 @@
+##分页宏定义
+#macro(page $pagination $pageAction $formId) 
+	#set($pageAction = "/" + $appName  + $pageAction)   ##分页action请求地址
+ 	#set($cpageInt = $pagination.currPage) ##当前页
+	#set($prepageInt = $cpageInt-1) ##下一页
+	#set($lastpageInt = $cpageInt+1) ##上一页
+	#set($maxPage = $pagination.maxPage) ##总页数		
+	#set($rowsPerPage = $pagination.rowsPerPage) ##每页行数		
+	#set($maxRowCount = $pagination.maxRowCount) ##总行数
+	<div class="pagination">
+		#if($maxRowCount == 0)
+			<span class="current">共$maxRowCount条记录 , 每页显示$rowsPerPage条, 共$maxPage页 </span>
+		#else
+			<span class="current">共$maxRowCount条记录, 每页显示$rowsPerPage条, 第$cpageInt页/共$maxPage页  </span>
+		#end
+	
+		#if($maxRowCount == 1 || $maxRowCount == 0)
+			<span class="disabled">首页 上一页 下一页 末页</span>
+		#else
+			#if($cpageInt == 1) 
+				<span class="disabled">首页 上一页 </span>
+			#else
+				<a href="#" onclick='submitForm("$formId","1","$pageAction")'>首页</a>
+				<a href="#" onclick='submitForm("$formId","$prepageInt","$pageAction")'>上一页</a> 		
+			#end
+			#if($cpageInt == $maxPage)
+				<span class="disabled">下一页 末页</span>
+			#else
+				<a href="#" onclick='submitForm("$formId","$lastpageInt","$pageAction")'>下一页</a> 
+				<a href="#" onclick='submitForm("$formId","$maxPage',"$pageAction")'>末页</a>
+			#end
+		#end
+		
+		<input id="currPage" type="hidden" name="pagination.currPage"  value="$pagination.currPage"/>
+		<input id="rowsPerPage" type="hidden" name="pagination.rowsPerPage" value="$pagination.rowsPerPage"/>
+		<input id="maxPage" type="hidden" name="pagination.maxPage" value="$pagination.maxPage"/>
+		<input id="maxRowCount" type="hidden" name="pagination.maxRowCount" value="$pagination.maxRowCount"/>
+	</div>
+#end 

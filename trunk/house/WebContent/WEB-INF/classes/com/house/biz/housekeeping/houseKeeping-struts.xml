@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- 家政公司管理 -->
+	<package name="houseKeeping" extends="struts-common" namespace="/houseKeeping">
+		<action name="queryHouseKeeping" class="houseKeepingAction" method="queryHouseKeeping">
+			<result name="success">/module/housekeeping/houseKeeping_list.jsp</result>	
+		</action>	
+		<action name="saveHouseKeeping" class="houseKeepingAction" method="saveHouseKeeping">
+			<result name="success" type="redirect">/houseKeeping/queryHouseKeeping.shtml</result>	
+		</action>	
+		<action name="findHouseKeepingById" class="houseKeepingAction" method="findHouseKeepingById">
+			<result name="success">/module/housekeeping/houseKeeping_detail.jsp</result>	
+		</action>	
+		<action name="deleteHouseKeepingByIds" class="houseKeepingAction" method="deleteHouseKeepingByIds">
+			<result name="success" type="redirect">/houseKeeping/queryHouseKeeping.shtml</result>	
+		</action>	
+	</package>
+	
+	
+
+</struts>

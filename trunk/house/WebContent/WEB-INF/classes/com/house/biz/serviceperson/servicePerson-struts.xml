@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- 家政服务人员管理-->
+	<package name="servicePerson" extends="struts-common" namespace="/servicePerson">
+		<action name="queryServicePerson" class="servicePersonAction" method="queryServicePerson">
+			<result name="success">/module/serviceperson/servicePerson_list.jsp</result>	
+		</action>	
+		<action name="saveServicePerson" class="servicePersonAction" method="saveServicePerson">
+			<result name="success" type="redirect">/servicePerson/queryServicePerson.shtml</result>	
+		</action>	
+		<action name="findServicePersonById" class="servicePersonAction" method="findServicePersonById">
+			<result name="success">/module/serviceperson/servicePerson_detail.jsp</result>	
+		</action>	
+		<action name="deleteServicePersonByIds" class="servicePersonAction" method="deleteServicePersonByIds">
+			<result name="success" type="redirect">/servicePerson/queryServicePerson.shtml</result>	
+		</action>	
+	</package>
+	
+
+</struts>

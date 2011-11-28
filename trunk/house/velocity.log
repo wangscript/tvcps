@@ -1,0 +1,6 @@
+2011-11-16 15:07:58,468 - ResourceManager : unable to find resource 'example2.vm' in any resource loader.
+2011-11-16 15:09:03,296 - ResourceManager : unable to find resource 'example2.vm' in any resource loader.
+2011-11-16 15:10:00,562 - ResourceManager : unable to find resource 'example2.vm' in any resource loader.
+2011-11-16 15:10:16,937 - ResourceManager : unable to find resource 'example2.vm' in any resource loader.
+2011-11-16 15:11:02,968 - ResourceManager : unable to find resource 'D:/workspace/house/WebContent/WEB-INF/classes/test/example2.vm' in any resource loader.
+2011-11-16 15:17:09,625 - ResourceManager : unable to find resource 'example2.vm' in any resource loader.

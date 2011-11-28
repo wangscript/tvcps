@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>样式例子</title>
+#parse("/common/header.vm")
+#parse("/common/page.vm")
+
+</head>
+<body>
+ <form id="villageForm" action="/$appName/village/queryVillage.shtml" method="post">
+	<table class="tableStyle">
+	  <tr  class="firstTr">
+	  	<th class="firstTd"><input type="checkbox" name="allChecked" id="checkbox" onclick="checkedAll(this.checked,'villageId')"/></th>
+	    <th>小区名称</th>
+	    <th>创建时间</th>
+	  </tr>
+      	#foreach($villageEntity in ${pagination.data})
+   		<tr>
+	    <td class="firstTd"><input type="checkbox" name="villageId" id="villageId" value="${villageEntity.villageId}" /></td>
+	    <td><a href="#" onclick="detailVillage('${villageEntity.villageId}')">${villageEntity.villageName}</a></td>
+	   <td>	    	
+	    	$!simpleDateFormat.format($!villageEntity.createTime)	    	
+	    </td>
+	  </tr>
+     #end 
+     </table>
+		#page($pagination "/village/queryVillage.shtml" "villageForm")
+	</form>
+</body>
+</html>

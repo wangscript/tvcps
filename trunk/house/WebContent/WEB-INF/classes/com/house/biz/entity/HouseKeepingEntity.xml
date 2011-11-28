@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="housekeepingentity">
+	<typeAlias alias="houseKeepingEntity" type="com.house.biz.entity.HouseKeepingEntity" />
+
+	<resultMap id="houseKeeping" class="houseKeepingEntity">
+		<result property="houseKeepingId" column="HOUSEKEEPING_ID" nullValue="" />	
+		<result property="companyName" column="COMPANY_NAME" nullValue="" />
+		<result property="phone" column="PHONE" />
+		<result property="price" column="PRICE" />
+		<result property="address" column="ADDRESS" />
+		<result property="siteUrl" column="SITE_URL" />
+		<result property="mail" column="MAIL" />
+		<result property="connectPerson" column="CONNECT_PERSON" />
+		<result property="source" column="SOURCE" />
+		<result property="text1" column="TEXT1" />
+		<result property="text2" column="TEXT2" />
+		<result property="text3" column="TEXT3" />
+		<result property="houseKeepTypeEntity.houseKeepTypeId" column="HOUSEKEEPING_TYPE_ID" />
+		<result property="adminUserEntity.adminuser_id" column="ADMINUSER_ID" />
+		
+	</resultMap>
+	
+	<!-- 查询所有家政公司信息 -->
+	<select id="selectByObjectForPagination" resultMap="houseKeeping"  parameterClass="houseKeepingEntity">
+		select * from t_housekeeping c where 1=1
+		<dynamic>
+		    <isNotEmpty prepend="and" property="companyName">
+		    	<![CDATA[ 
+					c.COMPANY_NAME like '$companyName$%'  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+        <![CDATA[
+		limit #rowscount#, #rowsPerPage#
+		]]>
+	</select>
+	
+	<select id="countByObject" resultClass="Long"  parameterClass="houseKeepingEntity">
+		<![CDATA[
+			select count(*) from t_housekeeping c where 1=1
+		]]>
+		<dynamic>
+		    <isNotEmpty prepend="and" property="companyName">
+		    	<![CDATA[ 
+					c.COMPANY_NAME like '$companyName$%'  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+	</select>
+	
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from t_housekeeping
+		where HOUSEKEEPING_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<update id="updateByObject" parameterClass="houseKeepingEntity" >
+		update t_housekeeping
+		set HOUSEKEEPING_ID=#houseKeepingId#
+		<dynamic>
+			<isNotEmpty prepend="," property="companyName">
+				COMPANY_NAME = #companyName#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="phone">
+				PHONE = #phone#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="price">
+				PRICE = #price#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="address">
+				ADDRESS = #address#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="siteUrl">
+				SITE_URL = #siteUrl#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="mail">
+				MAIL = #mail#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="connectPerson">
+				CONNECT_PERSON = #connectPerson#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="source">
+				SOURCE = #source#
+			</isNotEmpty>		
+		</dynamic>
+		where HOUSEKEEPING_ID=#houseKeepingId#
+	</update>
+	
+	<update id="insert" parameterClass="houseKeepingEntity" >
+		insert into t_housekeeping (HOUSEKEEPING_ID,COMPANY_NAME,PHONE,PRICE,ADDRESS,SITE_URL,MAIL,CONNECT_PERSON,SOURCE) values(#houseKeepingId#,#companyName#,#phone#,#price#,#address#,#siteUrl#,#mail#,#connectPerson#,#source#)	 
+	</update>
+	
+	<select id="selectById" resultMap="houseKeeping" parameterClass="String">
+		select * from t_housekeeping where HOUSEKEEPING_ID =  #value#
+	</select>
+	
+	
+</sqlMap>

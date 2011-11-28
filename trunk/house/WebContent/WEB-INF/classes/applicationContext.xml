@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	default-autowire="byName" default-lazy-init="true" >
+
+	<!-- 加载系统数据源配置文件 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>org.logicalcobwebs.proxool.ProxoolDriver
+			</value>
+		</property>
+		<property name="url">
+			<value>proxool.house</value>
+		</property>
+	</bean>
+	
+	<!-- 事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		  <property name="dataSource">  
+            <ref bean="dataSource"/>  
+        </property>  
+	</bean>
+	
+	<!-- 事务通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">  
+	    <tx:attributes>
+	        <tx:method name="find*" propagation="REQUIRED" timeout="60" rollback-for="Exception"/>
+	        <tx:method name="add*" propagation="REQUIRED" timeout="60" rollback-for="Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" timeout="60" rollback-for="Exception"/>
+			<tx:method name="modify*" propagation="REQUIRED" timeout="60" rollback-for="Exception"/>
+			<tx:method name="save*" propagation="REQUIRED" timeout="60" rollback-for="Exception"/>
+			<tx:method name="insert*" propagation="REQUIRED" timeout="60" rollback-for="Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" timeout="60" rollback-for="Exception"/>
+			<tx:method name="*" read-only="true" timeout="60"/>  
+	    </tx:attributes>  
+	</tx:advice>
+	
+	<!-- aop代理设置 -->  
+	<aop:config proxy-target-class="true">
+	    <aop:pointcut id="txPointcut" expression="execution(* com.house..*ServiceImpl.*(..))"/>  
+	    <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+	</aop:config>
+
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocations" value="WEB-INF/classes/sql-map-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="sqlMapClientTemplate"	class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	
+	<bean id="genericAction" class="com.house.core.action.GenericAction">
+		<property name="genericService">
+			<ref bean="genericService" />
+		</property>
+	</bean>
+	
+	<bean id="genericService" class="com.house.core.service.GenericServiceImpl">
+		<property name="genericDao">
+			<ref bean="genericDao" />
+		</property>
+	</bean>
+	
+	<bean id="genericDao" class="com.house.core.dao.GenericDaoImpl">
+		<property name="sqlMapClientTemplate">
+			<ref bean="sqlMapClientTemplate" />
+		</property>
+	</bean>
+	
+ 
+	
+	<!-- 导入其他配置模块 -->
+	 <import resource="com/house/biz/user/user-spring.xml" />
+	 <import resource="com/house/biz/systemConfig/systemconfig-spring.xml"/>
+	 <import resource="com/house/biz/housekeeping/houseKeeping-spring.xml" />
+	 <import resource="com/house/biz/serviceperson/servicePerson-spring.xml" />
+	 <import resource="com/house/biz/demandapply/demandApply-spring.xml" />
+	
+	 
+</beans>

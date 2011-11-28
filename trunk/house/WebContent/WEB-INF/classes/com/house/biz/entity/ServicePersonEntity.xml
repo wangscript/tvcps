@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="servicepersonentity">
+	<typeAlias alias="servicePersonEntity" type="com.house.biz.entity.ServicePersonEntity" />
+
+	<resultMap id="servicePerson" class="servicePersonEntity">
+		<result property="servicePersonId" column="SERVICEPERSON_ID" nullValue="" />	
+		<result property="recommendInfoId" column="RECOMMEND_INFO_ID" nullValue="" />
+		<result property="personStatusEntity.serviceStatusId" column="SERVICESTATUS_ID" />
+		<result property="contactMethod" column="CONTACT_METHOD" />
+		<result property="servicePersonName" column="SERVICEPERSON_NAME" />
+		<result property="age" column="AGE" />
+		<result property="nativePlace" column="NATIVE_PLACE" />
+		<result property="comment1" column="COMMENT1" />
+		<result property="comment2" column="COMMENT2" />
+		
+	</resultMap>
+	
+	<!-- 查询所有家政公司信息 -->
+	<select id="selectByObjectForPagination" resultMap="servicePerson"  parameterClass="servicePersonEntity">
+		select * from T_SERVICEPERSON c where 1=1
+		<dynamic>
+		    <isNotEmpty prepend="and" property="servicePersonName">
+		    	<![CDATA[ 
+					c.SERVICEPERSON_NAME like '$servicePersonName$%'  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+        <![CDATA[
+		limit #rowscount#, #rowsPerPage#
+		]]>
+	</select>
+	
+	<select id="countByObject" resultClass="Long"  parameterClass="servicePersonEntity">
+		<![CDATA[
+			select count(*) from T_SERVICEPERSON c where 1=1
+		]]>
+		<dynamic>
+		    <isNotEmpty prepend="and" property="servicePersonName">
+		    	<![CDATA[ 
+					c.SERVICEPERSON_NAME like '$servicePersonName$%'   
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+	</select>
+	
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from T_SERVICEPERSON
+		where SERVICEPERSON_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<update id="updateByObject" parameterClass="servicePersonEntity" >
+		update T_SERVICEPERSON
+		set SERVICEPERSON_ID=#servicePersonId#
+		<dynamic>
+			<isNotEmpty prepend="," property="contactMethod">
+				CONTACT_METHOD = #contactMethod#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="servicePersonName">
+				SERVICEPERSON_NAME = #servicePersonName#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="age">
+				AGE = #age#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="nativePlace">
+				NATIVE_PLACE = #nativePlace#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="nativePlace">
+				COMMENT1 = #comment1#
+			</isNotEmpty>		
+		</dynamic>
+		
+		where SERVICEPERSON_ID=#servicePersonId#
+	</update>
+	
+	<update id="insert" parameterClass="servicePersonEntity" >
+		insert into T_SERVICEPERSON (SERVICEPERSON_ID,CONTACT_METHOD,SERVICEPERSON_NAME,AGE,NATIVE_PLACE,COMMENT1) values(#servicePersonId#,#contactMethod#,#servicePersonName#,#age#,#nativePlace#,#comment1#)	 
+	</update>
+	
+	<select id="selectById" resultMap="servicePerson" parameterClass="String">
+		select * from T_SERVICEPERSON where SERVICEPERSON_ID=#servicePersonId#
+	</select>
+	
+	
+</sqlMap>
