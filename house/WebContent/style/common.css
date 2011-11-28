@@ -1,0 +1,230 @@
+@CHARSET "UTF-8";
+/*整体样式：*/
+body{
+	color:black;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+	font-family:Arial;
+	padding:0;
+	margin:0;
+}
+
+/*页面整体超链接样式*/
+a:link,a:visited{
+	color:#0066cc; 
+	text-decoration:none;
+}
+
+/*页面整体链接鼠标指向时样式*/
+a:hover{	
+	text-decoration:none;
+}
+
+/**
+ * 当前位置样式
+ */
+.currentLocationStyle{
+	margin:0;
+	padding:0;
+	padding-top:3px;
+	margin-top:3px;
+	background-image: url(../images/common/currentLocationBg.png);
+	font-size:12px;  
+	/**color:#6699FF;*/
+}
+
+.currentLocationStyle img{ 
+	 margin-left: 5px;
+	 margin-right: 5px;
+	 vertical-align: middle;
+}
+.currentLocationStyle span{
+	color:red;	
+}
+/**
+*查询行布局
+*/
+.findText{
+	margin-top:5px;
+	padding-left:5px;
+	float:left;	
+	width:100%;
+
+}
+
+.findText li{
+	list-style:none;
+	width:350px;
+	float:left;	
+}
+/**
+ *查询行文本框前文字设置
+ */
+.findText  span{
+	padding-left:0px;	 
+	width:120px;
+	display:-moz-inline-box; 
+	display:inline-block;
+	text-align:right;
+	/**color:#6699FF;*/	
+}
+
+/**
+ *查询行文本框具体样式设置
+ */
+.findText  input{
+	width:200px;	
+	border: solid  #6699FF  1px;
+}
+
+/**
+ * 按钮行总体样式
+ */
+.buttonGeneralStyle{ 
+	margin-top:2px;
+	text-align:right;
+	width:100%;
+
+}
+/**
+ * 按钮行按钮间距等
+ */
+.buttonGeneralStyle span{
+	width:50px;
+}
+/**
+ * 按钮行按钮样式
+ */
+.buttonGeneralStyle .buttonStyle{
+	background-color:#2c7dbe;
+	height:25px;
+	width:80px;
+	background-image: url(../images/common/button.png);
+	background-color:transparent;  
+	background-repeat:no-repeat; 
+	border:0px solid;
+}
+
+/**
+ * 表格总体样式
+ */
+table.tableStyle{
+	margin-top:2px;
+	width:100%;
+	border-collapse: collapse; 
+	font-size:13px;  
+	border-top: 2px #6699FF solid;
+	border-bottom: 2px #6699FF solid;		
+}
+
+table.tableStyle .firstTr{
+	background-color:white;
+}
+/**
+ * checkbox列样式
+ */
+table.tableStyle .firstTd{
+	width:10px;
+}
+
+
+/**
+ * 表格某行样式样式
+ */
+table.tableStyle th{
+	text-align: left;
+ 	font-size:14px;	
+	padding: 3px;
+/**	color:#6c82b1;*/
+	border: 1px #6699FF solid;	
+}
+/**
+ * 表格某个单元格样式
+ */
+table.tableStyle td{
+	padding: 3px;
+	border: none;
+	border:1px #6699FF solid;
+}
+table.tableStyle tr{
+	background-color: #f7f7f7;
+}
+ 
+table.tableStyle tr.hover{
+	background-color: #e6ffd3;
+}
+/**
+ * 分页样式
+ */
+.pagination{
+	margin-top:3px;
+	width:100%;
+	text-align:right;	
+}
+.tableDiv{
+	text-align: center;
+}
+/**
+ * 详细页面表单样式
+ */	
+.tableDetail{
+	text-align: center;
+	width:50%; 
+	padding-top:20px;
+	border:0;
+}
+/**
+ * label标签样式
+ */	
+.tableDetail .labelTd{
+	font-size:13px;
+	color:black;	
+	text-align: right;
+	width:200px;
+	height:30px;
+}
+.tableDetail .textTd {
+	width:520px;
+	font-size:12px;
+	color:red;
+	text-align: left;
+}
+/**
+ * 文本框样式
+ */	
+.tableDetail .textTd input{
+	width:300px;	
+	border: solid  #6699FF  1px;
+	text-align:left;
+	align:left;
+}
+
+/**
+ * 文本框样式
+ */	
+.tableDetail .textTd textarea{
+	width:400px;	
+	border: solid  #6699FF  1px;
+	text-align:left;
+	align:left;
+}
+/**
+ * 详细页面按钮样式
+ */
+.tableDetail .buttonStyle{
+	background-color:#2c7dbe;
+	height:25px;
+	width:80px;
+	background-image: url(../images/common/button.png);
+	background-color:transparent;  
+	background-repeat:no-repeat; 
+	border:0px solid;
+}
+.validateNote{
+	position: absolute;
+	z-index: 1;
+	font-size: 12px;
+	height: 25px;
+	line-height: 25px;
+}

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="adminuserentity">
+	<typeAlias alias="adminUserEntity" type="com.house.biz.entity.AdminUserEntity" />
+
+	<resultMap id="adminUser" class="adminUserEntity">
+		<result property="adminuser_id" column="ADMINUSER_ID" nullValue="0" />
+		<result property="loginName" column="LOGINNAME" nullValue="" />
+		<result property="password" column="PASSWORD" nullValue="" />
+		<result property="user_name" column="USER_NAME" />
+		<result property="email" column="EMAIL" />
+		<result property="phone" column="PHONE" />
+		<result property="mobile_phone" column="MOBILE_PHONE" />
+		<result property="create_time" column="CREATE_TIME" />
+		<result property="isdelete" column="ISDELETE" />
+		<result property="desription" column="DESCRIPTION" />
+		<result property="address" column="ADDRESS" />
+		<result property="qq" column="QQ" />
+		<result property="msn" column="MSN" />
+	</resultMap>
+	
+
+	
+	<!-- 通过主键ID 查询记录 -->
+	<select id="selectByObject" resultMap="adminUser"
+		parameterClass="adminUserEntity">
+		    select * from t_adminUser where 1=1
+		    <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>      
+            <isNotEmpty prepend="and" property="password">
+				PASSWORD = #password#  
+            </isNotEmpty>
+	</select>
+	
+	<!-- 查询所有用户记录 -->
+	<select id="selectByObjectForPagination" resultMap="adminUser"  parameterClass="adminUserEntity">
+		select * from T_ADMINUSER t where 1=1
+		<dynamic>
+		    <isNotEmpty prepend="and" property="user_name">
+		    	<![CDATA[ 
+					t.USER_NAME like '$user_name$%'  
+				]]>
+            </isNotEmpty> 
+            <isNotEmpty prepend="and" property="adminuser_id">
+		    	<![CDATA[ 
+					t.ADMINUSER_ID != #adminuser_id#  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+        ORDER BY t.CREATE_TIME DESC
+        <![CDATA[
+		limit #rowscount#, #rowsPerPage#
+		]]>
+	</select>
+	<!-- 查询记录数 -->
+	<select id="countByObject" resultClass="Long"  parameterClass="adminUserEntity">
+		<![CDATA[
+			select count(*) from T_ADMINUSER t where 1=1
+		]]>
+		<dynamic>
+		    <isNotEmpty prepend="and" property="user_name">
+		    	<![CDATA[ 
+					t.USER_NAME like '$user_name$%'
+				]]>
+            </isNotEmpty>  
+             <isNotEmpty prepend="and" property="adminuser_id">
+		    	<![CDATA[ 
+					t.ADMINUSER_ID != #adminuser_id#  
+				]]>
+            </isNotEmpty>
+        </dynamic>
+	</select>
+	<!-- 删除用户信息 -->
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from T_ADMINUSER
+		where ADMINUSER_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+
+	<!-- 修改用户信息 -->
+	<update id="updateByObject" parameterClass="adminUserEntity" >
+		update T_ADMINUSER
+		set ADMINUSER_ID=#adminuser_id#
+		<dynamic>
+			<isNotEmpty prepend="," property="password">
+				PASSWORD = #password#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="user_name">
+				USER_NAME = #user_name#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="email">
+				EMAIL = #email#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="phone">
+				PHONE = #phone#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="mobile_phone">
+				MOBILE_PHONE = #mobile_phone#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="create_time">
+				CREATE_TIME = #create_time#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="isdelete">
+				ISDELETE = #isdelete#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="desription">
+				DESCRIPTION = #desription#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="address">
+				ADDRESS = #address#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="qq">
+				QQ = #qq#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="msn">
+				MSN = #msn#
+			</isNotEmpty>		
+		</dynamic>
+		where ADMINUSER_ID=#adminuser_id#
+	</update>
+	<!-- 增加操作员用户  -->
+	<insert id="insert" parameterClass="adminUserEntity" >
+		insert into T_ADMINUSER 
+		(ADMINUSER_ID,LOGINNAME,PASSWORD,USER_NAME,EMAIL,PHONE,MOBILE_PHONE,CREATE_TIME,ISDELETE,DESCRIPTION,ADDRESS,QQ,MSN) values
+		(#adminuser_id#,#loginName#,#password#,#user_name#,#email#,#phone#,#mobile_phone#,now(),#isdelete#,#desription#,#address#,#qq#,#msn#)	 
+	</insert>
+	
+	<select id="selectById" resultMap="adminUser" parameterClass="String">
+		select * from T_ADMINUSER where ADMINUSER_ID =  #adminuser_id#
+	</select>
+	
+	<!-- 
+ 
+	<select id="selectByObject" resultMap="userInfo"
+		parameterClass="userInfoEntity">
+		    select * from t_userInfo 
+		    where 1=1
+		<dynamic>
+			<isGreaterThan prepend="and" property="id" compareValue="0"> 
+				ID = #id#  
+            </isGreaterThan>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="password">
+				PASSWORD = #password#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="address">
+            	ADDRESS like '%$address$%'   
+            </isNotEmpty>
+		</dynamic>
+	</select>
+	
+ 
+	<select id="selectByObjectForPagination" resultMap="userInfo"
+		parameterClass="userInfoEntity">
+		<![CDATA[
+		select * from (
+			select x.*, rownum rn from (
+			    select * from t_userInfo 
+			    where 1=1
+		]]>
+		<dynamic>
+			<isGreaterThan prepend="and" property="id" compareValue="0"> 
+				ID = #id#  
+            </isGreaterThan>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="address">
+            	ADDRESS like '%$address$%'   
+            </isNotEmpty>
+		</dynamic>
+		<![CDATA[
+			) x where rownum <= (select (#currPage# * #rowsPerPage#) from dual )
+		) where rn >= (select ((#currPage#-1)*#rowsPerPage#+1) from dual)
+		]]>
+	</select>
+	
+	<select id="selectByMap" resultMap="userInfo"
+		parameterClass="java.util.Map">
+		    select * from t_userInfo 
+		    where 1=1
+		<dynamic>
+			<isGreaterThan prepend="and" property="id" compareValue="0"> 
+				ID = #id#  
+            </isGreaterThan>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="address">
+            	ADDRESS like '%$address$%'   
+            </isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="pkSelectByObject" resultClass="java.lang.Long"
+		parameterClass="userInfoEntity">
+		    select id from t_userInfo 
+		    where 1=1
+		<dynamic>
+			<isGreaterThan prepend="and" property="id" compareValue="0"> 
+				ID = #id#  
+            </isGreaterThan>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="address">
+            	ADDRESS like '%$address$%'   
+            </isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="pkSelectByMap" resultClass="java.lang.Long"
+		parameterClass="java.util.Map">
+		    select id from t_userInfo 
+		    where 1=1
+		<dynamic>
+			<isGreaterThan prepend="and" property="id" compareValue="0"> 
+				ID = #id#  
+            </isGreaterThan>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="address">
+            	ADDRESS like '%$address$%'   
+            </isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="count" resultClass="java.lang.Long">
+		    select count(*) from t_userInfo
+	</select>
+	
+	<select id="countByObject" resultClass="java.lang.Long" parameterClass="userInfoEntity">
+		    select count(*) from t_userInfo
+		    <dynamic>
+			<isGreaterThan prepend="and" property="id" compareValue="0"> 
+				ID = #id#  
+            </isGreaterThan>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="address">
+            	ADDRESS like '%$address$%'   
+            </isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="countByMap" resultMap="userInfo"
+		parameterClass="java.util.Map">
+		    select count(*) from t_userInfo 
+		    where 1=1
+		<dynamic>
+			<isGreaterThan prepend="and" property="id" compareValue="0"> 
+				ID = #id#  
+            </isGreaterThan>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="address">
+            	ADDRESS like '%$address$%'   
+            </isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<insert id="insert" parameterClass="userInfoEntity">
+		insert into t_userInfo
+			(ID,LOGINNAME,NAME,AGE,ADDRESS)
+		values
+			(?,?,?,?,?)
+	</insert>
+	
+	<delete id="deleteById" parameterClass="java.lang.Long" >
+		delete t_userInfo
+		where ID = #id#
+	</delete>
+	
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete t_userInfo
+		where ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#[]#
+  		</iterate>
+	</delete>
+	
+	<delete id="deleteByObject" parameterClass="userInfoEntity" >
+		delete t_userInfo
+		where ID = #id# 
+		<dynamic>
+            <isNotEmpty prepend="and" property="loginName">
+				LOGINNAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="name">
+				NAME = #name#  
+            </isNotEmpty>
+    	</dynamic>
+	</delete>
+	
+	<update id="updateByObject" parameterClass="userInfoEntity" >
+		update t_userInfo
+		set id=id
+		<dynamic>
+			<isNotEmpty prepend="," property="name">
+				NAME = #name#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="address">
+				ADDRESS = #address#
+			</isNotEmpty>
+		</dynamic>
+		where ID=#id#
+	</update>
+	
+	<update id="updateByMap" parameterClass="java.util.Map" >
+		update t_userInfo
+		set id=id
+		<dynamic>
+			<isNotEmpty prepend="," property="name">
+				NAME = #name#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="address">
+				ADDRESS = #address#
+			</isNotEmpty>
+		</dynamic>
+		where ID=#id#
+	</update>-->
+</sqlMap>

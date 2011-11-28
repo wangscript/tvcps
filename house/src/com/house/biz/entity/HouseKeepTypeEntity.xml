@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="housekeeptypeentity">
+	<typeAlias alias="houseKeepTypeEntity" type="com.house.biz.entity.HouseKeepTypeEntity" />
+
+	<resultMap id="houseKeepType" class="houseKeepTypeEntity">
+		<result property="houseKeepTypeId" column="HOUSEKEEPING_TYPE_ID" nullValue="" />	
+		<result property="typeName" column="TYPE_NAME" nullValue="" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="description" column="DESCRIPTION" />
+	</resultMap>
+	
+	<!-- 查询所有小区代码表中记录 -->
+	<select id="selectByObjectForPagination" resultMap="houseKeepType"  parameterClass="houseKeepTypeEntity">
+		select * from C_HOUSEKEEPING_TYPE c where 1=1
+        ORDER BY c.CREATE_TIME DESC
+        <![CDATA[
+			limit #rowscount#, #rowsPerPage#
+		]]>
+	</select>
+	
+	<select id="countByObject" resultClass="Long"  parameterClass="houseKeepTypeEntity">
+		<![CDATA[
+			select count(*) from C_HOUSEKEEPING_TYPE c where 1=1
+		]]>
+	</select>
+
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from C_HOUSEKEEPING_TYPE
+		where HOUSEKEEPING_TYPE_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<update id="updateByObject" parameterClass="houseKeepTypeEntity" >
+		update C_HOUSEKEEPING_TYPE
+		set HOUSEKEEPING_TYPE_ID=#houseKeepTypeId#
+		<dynamic>
+			<isNotEmpty prepend="," property="typeName">
+				TYPE_NAME = #typeName#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="description">
+				DESCRIPTION = #description#
+			</isNotEmpty>		
+		</dynamic>
+		where HOUSEKEEPING_TYPE_ID=#houseKeepTypeId#
+	</update>
+	
+	<update id="insert" parameterClass="houseKeepTypeEntity" >
+		insert into c_housekeeping_type(HOUSEKEEPING_TYPE_ID,TYPE_NAME,CREATE_TIME,DESCRIPTION) values(#houseKeepTypeId#,#typeName#,now(),#description#)	 
+	</update>
+	
+	<select id="selectById" resultMap="houseKeepType" parameterClass="String">
+		select * from C_HOUSEKEEPING_TYPE where HOUSEKEEPING_TYPE_ID =  #houseKeepTypeId#
+	</select>
+	
+	
+</sqlMap>

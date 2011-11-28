@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+   "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>	
+	
+	<!-- action 开始  -->	
+	<bean id="houseKeepingAction" class="com.house.biz.housekeeping.action.HouseKeepingAction"  parent="genericAction"  scope="prototype">
+	 <property name="houseKeepingService">
+			<ref bean="houseKeepingService"/>
+		</property> 	
+	</bean>
+	
+	<!-- service 开始  -->
+
+	<bean id="houseKeepingService" class="com.house.biz.housekeeping.service.HouseKeepingServiceImpl"  init-method="setDao" parent="genericService" scope="prototype">
+	   	<property name="houseKeepingDao">
+			<ref bean="houseKeepingDao"/>
+		</property>
+	</bean>
+	
+	<!-- dao 开始   -->
+	<bean id="houseKeepingDao" class="com.house.biz.housekeeping.dao.HouseKeepingDaoImpl" parent="genericDao" scope="prototype"></bean>
+</beans>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+   "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>	
+	
+	<!-- action 开始  -->	
+	<bean id="villageAction" class="com.house.biz.systemConfig.action.VillageAction" parent="genericAction"  scope="prototype">
+		<property name="villageService">
+			<ref bean="villageService"/>
+		</property>
+	</bean> 
+	<bean id="personStatusAction" class="com.house.biz.systemConfig.action.PersonStatusAction"  parent="genericAction"  scope="prototype">
+	 <property name="personStatusService">
+			<ref bean="personStatusService"/>
+		</property> 	
+	</bean>
+	<bean id="houseKeepTypeAction" class="com.house.biz.systemConfig.action.HouseKeepTypeAction"  parent="genericAction"  scope="prototype">
+	 <property name="houseKeepTypeService">
+			<ref bean="houseKeepTypeService"/>
+		</property> 	
+	</bean>
+	
+	<!-- service 开始  -->
+	<bean id="villageService" class="com.house.biz.systemConfig.service.VillageServiceImpl"  init-method="setDao" parent="genericService"  scope="prototype" >
+	  	<property name="villageDao">
+			<ref bean="villageDao"/>
+		</property>
+	</bean> 
+	<bean id="personStatusService" class="com.house.biz.systemConfig.service.PersonStatusServiceImpl"  init-method="setDao" parent="genericService" scope="prototype">
+	   	<property name="personStatusDao">
+			<ref bean="personStatusDao"/>
+		</property>
+	</bean>
+	<bean id="houseKeepTypeService" class="com.house.biz.systemConfig.service.HouseKeepTypeServiceImpl"  init-method="setDao" parent="genericService" scope="prototype">
+	   	<property name="houseKeepTypeDao">
+			<ref bean="houseKeepTypeDao"/>
+		</property>
+	</bean>
+	
+	<!-- dao 开始   -->
+	<bean id="villageDao" class="com.house.biz.systemConfig.dao.VillageDaoImpl" parent="genericDao" scope="prototype"></bean>
+	<bean id="personStatusDao" class="com.house.biz.systemConfig.dao.PersonStatusDaoImpl" parent="genericDao" scope="prototype"></bean>
+	<bean id="houseKeepTypeDao" class="com.house.biz.systemConfig.dao.HouseKeepTypeDaoImpl" parent="genericDao" scope="prototype"></bean>
+</beans>

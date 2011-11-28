@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="false" /> 
+	<constant name="struts.action.extension" value="shtml" />
+
+	<package name="struts-common" extends="struts-default" abstract="true">	
+		<interceptors> 
+			<!-- 自定义异常拦截器 -->
+			<interceptor name="exceptionInterceptor"
+				class="com.house.core.exception.ExceptionInterceptor" />
+			<!-- 拦截器的拦截栈 -->
+			<interceptor-stack name="commonInterceptor">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="exceptionInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 设置默认拦截器 -->
+		<default-interceptor-ref name="commonInterceptor" />
+
+		<global-results>
+			<result name="error">/error/error.jsp</result>
+			<result name="login">/login/login.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.house.core.exception.SystemException" ></exception-mapping>			
+		</global-exception-mappings>
+		
+	</package>
+	
+	<package name="common" extends="struts-common" namespace="/common">
+		<action name="forwardPage" class="commonAction" method="forwardPage">
+		</action>
+	</package>
+	
+	 <include file="com/house/biz/user/user-struts.xml"></include> 
+	 <include file="com/house/biz/systemConfig/systemconfig-struts.xml"></include> 
+	 <include file="com/house/biz/housekeeping/houseKeeping-struts.xml"></include> 
+	 <include file="com/house/biz/serviceperson/servicePerson-struts.xml"></include> 
+	 <include file="com/house/biz/demandapply/demandApply-struts.xml"></include> 
+	 <!-- velocity例子 -->
+	 <package name="test" extends="struts-common" namespace="/test">
+		<action name="test" class="test.Test" method="test">
+			<result name="success" >/module/test/test.vm</result>		
+		</action>	
+	</package>
+	
+</struts>

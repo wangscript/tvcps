@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="demandapplyentity">
+	<typeAlias alias="demandApplyEntity" type="com.house.biz.entity.DemandApplyEntity" />
+
+	<resultMap id="demandApply" class="demandApplyEntity">
+		<result property="demandApplyId" column="DEMAND_APPLY_ID" nullValue="" />	
+		<result property="villageEntity.villageId" column="VILLAGE_ID" nullValue="" />
+		<result property="evolvecaseId" column="EVOLVECASE_ID" />
+		<result property="linkman" column="LINKMAN" />
+		<result property="loginName" column="LOGIN_NAME" />
+		<result property="passWord" column="PASS_WORD" />
+		<result property="tel" column="TEL" />
+		<result property="rate" column="RATE" />
+		<result property="hourLength" column="HOUR_LENGTH" />
+		<result property="houseArea" column="HOUSE_AREA" />
+		<result property="evolveStatus" column="EVOLVE_STATUS" />
+		<result property="demandExplain" column="DEMAND_EXPLAIN" />
+	</resultMap>
+	<!-- 查询所有记录 -->
+	<select id="selectByObjectForPagination" resultMap="demandApply"  parameterClass="demandApplyEntity">
+		select * from T_DEMAND_APPLY c where 1=1
+		<dynamic>
+		    <isNotEmpty prepend="and" property="linkman">
+		    	<![CDATA[ 
+					c.LINKMAN like '$linkman$%'  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+        <![CDATA[
+		limit #rowscount#, #rowsPerPage#
+		]]>
+	</select>
+	
+	<!-- 查询总条数 -->
+	<select id="countByObject" resultClass="Long"  parameterClass="demandApplyEntity">
+		<![CDATA[
+			select count(*) from T_DEMAND_APPLY c where 1=1
+		]]>
+		<dynamic>
+			<isNotEmpty prepend="and" property="linkman">
+			    	<![CDATA[ 
+						c.LINKMAN like '$linkman$%'  
+					]]>
+	        </isNotEmpty>  
+        </dynamic>
+	</select>
+	
+	<!-- 添加服务人员状态记录 -->
+	<insert id="insert" parameterClass="demandApplyEntity" >
+		insert into T_DEMAND_APPLY (DEMAND_APPLY_ID,EVOLVECASE_ID,LINKMAN,LOGIN_NAME,PASS_WORD,TEL,RATE,HOUR_LENGTH,HOUSE_AREA,EVOLVE_STATUS,DEMAND_EXPLAIN) values
+								   (#demandApplyId#,#evolvecaseId#,#linkman#,#loginName#,#passWord#,#tel#,#rate#,#hourLength#,#houseArea#,#evolveStatus#,#demandExplain#)	 
+	</insert>
+	
+	<!-- 删除服务人员状态记录 -->
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from T_DEMAND_APPLY
+		where DEMAND_APPLY_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<!-- 修改服务人员状态信息 -->
+	<update id="updateByObject" parameterClass="demandApplyEntity" >
+		update T_DEMAND_APPLY
+		set DEMAND_APPLY_ID=#demandApplyId#
+		<dynamic>
+			<isNotEmpty prepend="," property="evolvecaseId">
+				EVOLVECASE_ID = #evolvecaseId#
+			</isNotEmpty>	
+			<isNotEmpty prepend="," property="linkman">
+				LINKMAN = #linkman#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="loginName">
+				LOGIN_NAME = #loginName#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="passWord">
+				PASS_WORD = #passWord#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="tel">
+				TEL = #tel#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="rate">
+				RATE = #rate#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="houseArea">
+				HOUR_LENGTH = #houseArea#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="evolveStatus">
+				EVOLVE_STATUS = #evolveStatus#
+			</isNotEmpty>		
+			<isNotEmpty prepend="," property="demandExplain">
+				DEMAND_EXPLAIN = #demandExplain#
+			</isNotEmpty>
+		</dynamic>
+		where DEMAND_APPLY_ID=#demandApplyId#
+	</update>
+	<!-- 根据ID查询出服务人员状态 -->
+	<select id="selectById" resultMap="demandApply" parameterClass="String">
+		select * from T_DEMAND_APPLY where DEMAND_APPLY_ID =  #value#
+	</select>
+</sqlMap>

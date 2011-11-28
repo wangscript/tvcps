@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- 人员服务状态管理 -->
+	<package name="personStatus" extends="struts-common" namespace="/personStatus">
+		<action name="queryPersonStatus" class="personStatusAction" method="queryPersonStatus">
+			<result name="success">/module/systemConfig/personstatus/personStatus_list.jsp</result>	
+		</action>	
+		<action name="savePersonStatus" class="personStatusAction" method="savePersonStatus">
+			<result name="success" type="redirect">/personStatus/queryPersonStatus.shtml</result>	
+		</action>	
+		<action name="findPersonStatusById" class="personStatusAction" method="findPersonStatusById">
+			<result name="success">/module/systemConfig/personstatus/personStatus_detail.jsp</result>	
+		</action>	
+		<action name="deletePersonStatusByIds" class="personStatusAction" method="deletePersonStatusByIds">
+			<result name="success" type="redirect">/personStatus/queryPersonStatus.shtml</result>	
+		</action>	
+	</package>
+	
+	<!-- 小区管理 -->
+	<package name="village" extends="struts-common" namespace="/village">
+		<action name="queryVillage" class="villageAction" method="queryVillage">
+			<result name="success">/module/systemConfig/village/village_list.jsp</result> 
+			<!-- <result name="success" >/module/test/test.vm</result> -->	
+		</action>	
+		<action name="saveVillage" class="villageAction" method="saveVillage">
+			<result name="success" type= "redirect">/village/queryVillage.shtml</result>	
+		</action>	
+		<action name="findVillageById" class="villageAction" method="findVillageById">
+			<result name="success">/module/systemConfig/village/village_detail.jsp</result>	
+		</action>	
+		<action name="deleteVillageByIds" class="villageAction" method="deleteVillageByIds">
+			<result name="success"  type="redirect">/village/queryVillage.shtml</result>	
+		</action>	
+	</package>
+	
+	<!-- 家政服务类型管理 -->
+	<package name="houseKeepType" extends="struts-common" namespace="/houseKeepType">
+		<action name="queryHouseKeepType" class="houseKeepTypeAction" method="queryHouseKeepType">
+			<result name="success">/module/systemConfig/housekeeptype/housekeeptype_list.jsp</result>	
+		</action>	
+		<action name="saveHouseKeepType" class="houseKeepTypeAction" method="saveHouseKeepType">
+			<result name="success" type= "redirect">/houseKeepType/queryHouseKeepType.shtml</result>	
+		</action>	
+		<action name="deleteHouseKeepTypeByIds" class="houseKeepTypeAction" method="deleteHouseKeepTypeByIds">
+			<result name="success"  type="redirect">/houseKeepType/queryHouseKeepType.shtml</result>	
+		</action>	
+		<action name="findHouseKeepTypeById" class="houseKeepTypeAction" method="findHouseKeepTypeById">
+			<result name="success">/module/systemConfig/housekeeptype/housekeeptype_detail.jsp</result>	
+		</action>	
+	</package>
+
+</struts>

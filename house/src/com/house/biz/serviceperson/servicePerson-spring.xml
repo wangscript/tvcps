@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+   "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>	
+	
+	<!-- action 开始  -->	
+	<bean id="servicePersonAction" class="com.house.biz.serviceperson.action.ServicePersonAction"  parent="genericAction"  scope="prototype">
+	 <property name="servicePersonService">
+			<ref bean="servicePersonService"/>
+		</property> 	
+	</bean>
+	
+	<!-- service 开始  -->
+	<bean id="servicePersonService" class="com.house.biz.serviceperson.service.ServicePersonServiceImpl"  init-method="setDao" parent="genericService" scope="prototype">
+	   	<property name="servicePersonDao">
+			<ref bean="servicePersonDao"/>
+		</property>
+	</bean>
+	
+	<!-- dao 开始   -->
+	<bean id="servicePersonDao" class="com.house.biz.serviceperson.dao.ServicePersonDaoImpl" parent="genericDao" scope="prototype"></bean>
+</beans>

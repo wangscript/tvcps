@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="personstatusentity">
+	<typeAlias alias="personStatusEntity" type="com.house.biz.entity.PersonStatusEntity" />
+
+	<resultMap id="personStatus" class="personStatusEntity">
+		<result property="serviceStatusId" column="SERVICESTATUS_ID" nullValue="" />	
+		<result property="statusName" column="STATUS_NAME" nullValue="" />
+		<result property="adminUserEntity.adminuser_id" column="ADMINUSER_ID" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="description" column="DESCRIPTION" />
+	</resultMap>
+	<!-- 查询所有记录 -->
+	<select id="selectByObjectForPagination" resultMap="personStatus"  parameterClass="personStatusEntity">
+		select * from C_SERVICESTATUS c where 1=1
+		<dynamic>
+		    <isNotEmpty prepend="and" property="statusName">
+		    	<![CDATA[ 
+					c.statusName like '$statusName$%'  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+		ORDER BY c.CREATE_TIME DESC
+        <![CDATA[
+		limit #rowscount#, #rowsPerPage#
+		]]>
+	</select>
+	
+	<!-- 查询总条数 -->
+	<select id="countByObject" resultClass="Long"  parameterClass="personStatusEntity">
+		<![CDATA[
+			select count(*) from C_SERVICESTATUS where 1=1
+		]]>
+		<dynamic>
+			<isNotEmpty prepend="and" property="statusName">
+			    	<![CDATA[ 
+						c.statusName like '$statusName$%'  
+					]]>
+	        </isNotEmpty>  
+        </dynamic>
+	</select>
+	
+	<!-- 添加服务人员状态记录 -->
+	<insert id="insert" parameterClass="personStatusEntity" >
+		insert into C_SERVICESTATUS (SERVICESTATUS_ID,STATUS_NAME,DESCRIPTION,CREATE_TIME,ADMINUSER_ID) values(#serviceStatusId#,#statusName#,#description#,now(),#adminUserEntity.adminuser_id#)	 
+	</insert>
+	
+	<!-- 删除服务人员状态记录 -->
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from C_SERVICESTATUS
+		where SERVICESTATUS_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<!-- 修改服务人员状态信息 -->
+	<update id="updateByObject" parameterClass="personStatusEntity" >
+		update C_SERVICESTATUS
+		set SERVICESTATUS_ID=#serviceStatusId#
+		<dynamic>
+			<isNotEmpty prepend="," property="villageName">
+				STATUS_NAME = #statusName#
+			</isNotEmpty>	
+			<isNotEmpty prepend="," property="description">
+				DESCRIPTION = #description#
+			</isNotEmpty>		
+		</dynamic>
+		where SERVICESTATUS_ID=#serviceStatusId#
+	</update>
+	<!-- 根据ID查询出服务人员状态 -->
+	<select id="selectById" resultMap="personStatus" parameterClass="String">
+		select * from C_SERVICESTATUS where SERVICESTATUS_ID =  #value#
+	</select>
+</sqlMap>

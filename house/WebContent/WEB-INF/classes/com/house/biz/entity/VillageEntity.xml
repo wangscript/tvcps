@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="villageentity">
+	<typeAlias alias="villageEntity" type="com.house.biz.entity.VillageEntity" />
+
+	<resultMap id="village" class="villageEntity">
+		<result property="villageId" column="VILLAGE_ID" nullValue="" />	
+		<result property="villageName" column="VILLAGE_NAME" nullValue="" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="adminUserEntity.adminuser_id" column="ADMINUSER_ID" />
+	</resultMap>
+	
+	<!-- 查询所有小区代码表中记录 -->
+	<select id="selectByObjectForPagination" resultMap="village"  parameterClass="villageEntity">
+		select * from C_VILLAGE c where 1=1
+		<dynamic>
+		    <isNotEmpty prepend="and" property="villageName">
+		    	<![CDATA[ 
+					c.VILLAGE_NAME like '$villageName$%'  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+        ORDER BY c.CREATE_TIME DESC
+        <![CDATA[
+		limit #rowscount#, #rowsPerPage#
+		]]>
+	</select>
+	
+	<select id="countByObject" resultClass="Long"  parameterClass="villageEntity">
+		<![CDATA[
+			select count(*) from C_VILLAGE c where 1=1
+		]]>
+		<dynamic>
+		    <isNotEmpty prepend="and" property="villageName">
+		    	<![CDATA[ 
+					c.VILLAGE_NAME like '$villageName$%'
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+	</select>
+<!-- 
+	<select id="queryVillageCount_VillageDao" resultClass="Integer"  parameterClass="villageEntity">
+		<![CDATA[
+			select count(*) from C_VILLAGE c where 1=1
+		]]>
+		<dynamic>
+		    <isNotEmpty prepend="and" property="villageName">
+		    	<![CDATA[ 
+					c.VILLAGE_NAME like #villageName%#  
+				]]>
+            </isNotEmpty>  
+        </dynamic>
+	</select>
+ -->
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from C_VILLAGE
+		where VILLAGE_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<update id="updateByObject" parameterClass="villageEntity" >
+		update C_VILLAGE
+		set VILLAGE_ID=#villageId#
+		<dynamic>
+			<isNotEmpty prepend="," property="villageName">
+				VILLAGE_NAME = #villageName#
+			</isNotEmpty>		
+		</dynamic>
+		<dynamic>
+			<isNotEmpty prepend="," property="description">
+				DESCRIPTION = #description#
+			</isNotEmpty>		
+		</dynamic>
+		where VILLAGE_ID=#villageId#
+	</update>
+	
+	<update id="insert" parameterClass="villageEntity" >
+		insert into C_VILLAGE (VILLAGE_ID,VILLAGE_NAME,CREATE_TIME,DESCRIPTION) values(#villageId#,#villageName#,now(),#description#)	 
+	</update>
+	
+	<select id="selectById" resultMap="village" parameterClass="String">
+		select * from C_VILLAGE where VILLAGE_ID =  #value#
+	</select>
+	
+	
+</sqlMap>
