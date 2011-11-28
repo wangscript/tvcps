@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="MenuFunction" table="menuFunctions">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="functionName" />
+		<many-to-one name="menu" column="menu_id" not-null="true"/>
+	</class>
+	
+	<!-- 根据菜单Id查询出菜单具体功能 -->
+	<query name="findMenuFunctionByMenuId"><![CDATA[
+		 FROM MenuFunction menuFunction
+		WHERE menuFunction.menu.id = :menuId 	
+	]]>		
+	</query>
+
+</hibernate-mapping>

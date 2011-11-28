@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<systemSetting>
+	
+	<system>
+		<nodeId>f014</nodeId>
+		<nodeName>日志管理</nodeName> 
+		<nodeUrl>systemLog.do?dealMethod=</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>
+		<system>
+		<nodeId>f015</nodeId>
+		<nodeName>作者设置</nodeName>
+		<nodeUrl>author.do?dealMethod=</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>
+	<system>
+		<nodeId>f016</nodeId>
+		<nodeName>来源设置</nodeName> 
+		<nodeUrl>author.do?dealMethod=origin</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>
+	
+	<!--  system->
+		<nodeId>picture</nodeId>
+		<nodeName>插入图片设置</nodeName> 
+		<nodeUrl>author.do?dealMethod=picture</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>-->
+	
+	
+	<system>
+		<nodeId>f017</nodeId>
+		<nodeName>热点链接</nodeName> 
+		<nodeUrl>author.do?dealMethod=link</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>
+	
+	<system>
+		<nodeId>f018</nodeId>
+		<nodeName>信息过滤设置</nodeName> 
+		<nodeUrl>infoFilter.do?dealMethod=</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>
+	
+
+	<system>
+		<nodeId>f019001</nodeId>
+		<nodeName>文字水印设置</nodeName> 
+		<nodeUrl>waterMark.do?dealMethod=textWater</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>f019</nodePid>
+	</system>
+	<system>
+		<nodeId>f019002</nodeId>
+		<nodeName>图片水印设置</nodeName> 
+		<nodeUrl>waterMark.do?dealMethod=picWater</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>f019</nodePid>
+	</system>
+	<system>
+		<nodeId>f019003</nodeId>
+		<nodeName>默认设置</nodeName> 
+		<nodeUrl>waterMark.do?dealMethod=defaulted</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>f019</nodePid>
+	</system>
+	<system>
+		<nodeId>f019</nodeId>
+		<nodeName>水印设置</nodeName> 
+		<nodeUrl>waterMark.do?dealMethod=defaulted</nodeUrl>
+		<nodeLeaf>false</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>
+</systemSetting>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- RSS管理 start -->
+	<bean id="sitemanager-siteDao" class="com.baize.ccms.biz.sitemanager.dao.impl.SiteDaoImpl" parent="genericDaoImpl" />
+	<bean id="articlemanager-articleDao" class="com.baize.ccms.biz.articlemanager.dao.impl.ArticleDaoImpl" parent="genericDaoImpl" />
+	<bean id="pluginrss-rssDao" class="com.baize.ccms.plugin.rss.dao.impl.RssDaoImpl" parent="genericDaoImpl"/>
+	<bean id="columnmanager-columnDao" class="com.baize.ccms.biz.columnmanager.dao.impl.ColumnDaoImpl" parent="genericDaoImpl"/>	
+	<bean id="pluginrss-rssService" class="com.baize.ccms.plugin.rss.service.impl.RssServiceImpl" scope="singleton">
+		<property name="rssDao" ref="pluginrss-rssDao" />		
+		<property name="jdbcTemplate" ref="jdbcTemplate" />		
+		<property name="articleDao" ref="articlemanager-articleDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+	</bean>
+	 <bean id="pluginrss-rssBiz" class="com.baize.ccms.plugin.rss.service.RssBiz">
+	 	<property name="rssService" ref="pluginrss-rssService" />
+	 </bean>
+	<!-- 前台action -->
+	<bean name="/rssInner" class="com.baize.ccms.plugin.rss.web.action.RssInnerAction" scope="singleton">  
+    	<property name="baseBiz" ref="pluginrss-rssBiz"/>
+  	</bean>  
+  	
+  	<!-- 后台action -->
+	<bean name="/rssOuter" class="com.baize.ccms.plugin.rss.web.action.RssOuterAction" scope="singleton">  
+    	<property name="rssService" ref="pluginrss-rssService" />
+  	</bean>  
+	<!-- RSS管理 end -->	
+
+</beans>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="Role" table="roles">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="name" />
+		<property name="description" />
+		<property name="defaulted"/>
+		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<many-to-one name="site" column="site_id" />
+	</class>
+
+	<!-- 查询角色列表 -->
+	<query name="findRolePage"><![CDATA[
+	   select role.id,role.name,role.site.name,role.createTime 
+		 FROM Role role
+		WHERE role.site.id = :siteid 
+		  AND role.site.deleted = 0
+	 order by role.createTime desc		 	
+	]]>		
+	</query>
+	
+	<!-- 根据网站id和角色名查询角色 -->
+	<query name="findRoleByNameAndSiteId"><![CDATA[	 
+       FROM Role role
+  LEFT JOIN role.site site
+ 	  WHERE role.name = :roleName
+ 		AND site.id = :siteId 
+	]]>		
+	</query>
+	
+	<!-- 根据角色名查询角色 -->
+	<query name="findSiteAdminRoleByRoleName"><![CDATA[	 
+  		FROM Role role
+ 	   WHERE role.name in (:roleName) 	
+ 	     AND role.site.deleted = 0	 
+	]]>		
+	</query>
+	
+	<!-- 查询角色表的所有网站ID -->
+	<query name="findRoleSiteId"><![CDATA[
+	  SELECT DISTINCT role.site.id
+  		FROM Role role
+  	   WHERE role.site.deleted = 0
+	]]>		
+	</query>
+	
+	<!-- 查询系统管理员角色 -->
+	<query name="findRoleName"><![CDATA[
+	 SELECT role.id,role.name,site.id,site.name
+  		FROM Role role
+  		LEFT JOIN role.site site
+ 		WHERE role.name = :roleName 		
+	]]>		
+	</query>
+	
+	<!-- 根据网站ID查询角色 -->
+	<query name="findRoleBySiteId"><![CDATA[
+	  SELECT role.id,role.name,role.site.id,role.site.name
+  		FROM Role role
+ 	   WHERE role.site.id = :siteId
+ 	     AND role.site.deleted = 0
+	]]>		
+	</query>
+	
+</hibernate-mapping>

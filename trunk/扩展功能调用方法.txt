@@ -1,0 +1,37 @@
+网上调查：（一般调查）
+全部问题: 
+1.带更多页面脚本代码
+
+<script src='/ccms2.0/plugin/onlineSurvey_manager/out/out_normal_online_list.jsp?unit_unitId=2009122517170131211&appName=ccms2.0&display=none'></script>
+样式
+<table width='95%' align='center'><!--for--><tr><td style='border-bottom:1px dotted #CCCCCC;'><!--number-->. <a href='#' onclick='getJsp("<!--url-->")'><!--kindname--></a></td></tr><!--/for--><tr style='display:<!--display-->'><td colspan='2' align='right'><a href='<!--more-->' target='_blank'>更多>></a></td></tr></table>
+2.主题列表分页页面
+<object type='text/x-scriptlet' data='/ccms2.0/outOnlineSurvery.do?dealMethod=getNormalPagination&appName=ccms2.0&unit_unitId=201001271043398434' width='100%' height='300px;'></object>
+
+注：默认使用的是第一种，要使用第二种只需将第二个重新写入，并且将第一种当中的单元id（unit_unitId的值拷过来重新写入）
+
+3.主题列表不带分页页面
+源码
+<script src='/ccms2.0/plugin/onlineSurvey_manager/out/out_answer_online_list.jsp?unit_unitId=2009122517170131212&appName=ccms2.0'></script>
+样式
+<table width='95%' align='center'><!--for--><tr><td style='border-bottom:1px dotted #CCCCCC;'><!--number-->. <a href='#' onclick='getJsp("<!--url-->")'><!--kindname--></a></td></tr><!--/for--><tr style='display:<!--display-->'><td colspan='2' align='right'><a href='<!--more-->' target='_blank'>更多>></a></td></tr></table>
+
+4.问卷调查指定主题
+源码
+<script src='/ccms2.0/plugin/onlineSurvey_manager/out/out_answer_online_list.jsp?unit_unitId=2009122517170131212&appName=ccms2.0&theme=0&display=none'></script>
+样式
+<table width='95%' align='center'><tr><td align='center'><a href='#' onclick='getJsp("<!--url-->")'><!--theme--></a></td></tr><tr><td><!--for--><!--number-->. <!--question--><br><!--/for--></td></tr><tr><td align='center'><table style='display:<!--display-->'><tr><td><input type='button' value='投票' onclick='commit()'>	<input type='button' value='查看' onclick='check()'></td></tr></table></td></tr></table>
+
+
+5.文章评论
+<a href="/ccms2.0/commitComment.do?dealMethod=commentList&articleId=<!--articleId-->"><!--articleComment--></a>
+
+6.rss
+<script type="text/javascript" src="/<!--appName-->/plugin/rss/rss.jsp?siteId=<!--siteId-->&appName=<!--appName-->"></script>
+<div id="rss">&nbsp;</div>
+
+
+
+
+
+

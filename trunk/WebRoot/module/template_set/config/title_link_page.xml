@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baize>
+	<copyright>Baize Net Work</copyright>
+	<title-link-page>
+		<viewStyle></viewStyle>
+		<contextFrom>1</contextFrom>
+		<fixedColumn></fixedColumn>
+		<pageInfoCount>30</pageInfoCount>
+		<titleLimit>20</titleLimit>
+		<briefLimit>20</briefLimit>
+		<titleHead></titleHead>
+		<titleHeadPic>0</titleHeadPic>
+		<titleHeadValidity>-1</titleHeadValidity>	
+		<titleEnd></titleEnd>
+		<titleEndPic>0</titleEndPic>
+		<titleEndValidity>-1</titleEndValidity>
+		<htmlContent></htmlContent>
+		<prefixDate></prefixDate>
+		<suffixDate></suffixDate>
+		<pageSite>center</pageSite>
+	</title-link-page>
+</baize>

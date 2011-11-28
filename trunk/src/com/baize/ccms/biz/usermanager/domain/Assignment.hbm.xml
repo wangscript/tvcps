@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="Assignment" table="assignments">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="operateTime" type="com.baize.common.core.util.DateString" />
+		<many-to-one name="operator"/>
+		<many-to-one name="user" column="user_id" not-null="true" />
+		<many-to-one name="role" column="role_id" not-null="true" />
+	</class>
+	
+
+	<!-- 通过用户id查找角色ID集合 -->
+	<query name="findRoleIdByUserId"><![CDATA[				
+		  FROM Assignment assignment 
+	 	 WHERE assignment.user.id = :id	 	 	 
+	]]></query>
+	
+	<!-- 通过用户id,网站ID查找角色ID集合 -->
+	<query name="findRoleIdByUserIdAndSiteId"><![CDATA[				
+		  FROM Assignment assignment 
+	 	 WHERE assignment.user.id = :id
+	 	 AND (assignment.role.site.id = :siteid or assignment.role.site.id is NULL)
+	]]></query>
+	
+	<!-- 通过用户id查找所有不重复的网站ID集合 -->
+	<query name="findSiteIdByUserId"><![CDATA[				
+		 SELECT DISTINCT  assignment.role.site.id 
+		 FROM Assignment assignment 
+	 	 WHERE assignment.user.id = :id
+
+	]]></query>
+	
+		
+	<!-- 根据用户ID，角色ID查询分配表 -->
+	<query name="findAssignmentByUseridAndRoleid"><![CDATA[
+  		FROM Assignment assignment   	
+ 		WHERE assignment.user.id = :userid
+ 		AND assignment.role.id = :roleid 		
+	]]></query>
+	
+	<!-- 角色ID查询分配表 -->
+	<query name="findAssignmentByRoleid"><![CDATA[
+  		FROM Assignment assignment   	
+ 		WHERE assignment.role.id = :roleId
+ 		AND   assignment.user.deleted = 0
+	]]></query>
+	
+	<!-- 角色ID查询分配表 -->
+	<query name="findAssignmentByDeleteRoleid"><![CDATA[
+  		FROM Assignment assignment   	
+ 		WHERE assignment.role.id in (:roleId)
+	]]></query>
+	
+	<!-- 角色ID查询分配表 -->
+	<query name="findUserIdByRoleId"><![CDATA[
+ SELECT DISTINCT  assignment.user.id  
+  			FROM Assignment assignment   	
+ 		   WHERE assignment.role.id = :roleId
+	]]></query>
+ 
+	
+</hibernate-mapping>

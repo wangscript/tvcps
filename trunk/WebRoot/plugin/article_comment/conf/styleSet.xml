@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin_style>
+	<style>
+		<stylename>评论页样式</stylename>
+		<stylecontent><![CDATA[
+		<table>
+		<tr>
+		<td class="textIndent td_height">发表人：<a><!--author--></a>&nbsp;&nbsp;IP:<!--ip--></td><td class="textRight td_heightt">发表时间:<!--date-->
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2" class="textIndent lineHeight contentSize"><!--content-->
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2" class="textRight td_height">
+		<a onclick="checkSubmitTime('<!--commentId-->',1)" style="cursor:hand;">支持</a>  
+		<div id="<!--commentId-->1" style="width:20px;height:20px"><!--ballot--></div>
+		<a onclick="checkSubmitTime('<!--commentId-->',0)" style="cursor:hand;">反对  </a>
+		<div id="<!--commentId-->0" style="width:20px;height:20px"><!--unsupport--></div>
+		</td>
+		</tr>
+		</table>
+		]]></stylecontent>
+	</style>
+</plugin_style>
+
+
+
+
+
+
+
+
+
+

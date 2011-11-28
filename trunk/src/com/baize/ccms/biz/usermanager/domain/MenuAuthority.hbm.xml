@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="MenuAuthority" table="menuAuthoritys">
+		<id name="id">
+			<generator class="uuid" />
+		</id> 
+		<many-to-one name="role" column="role_id" />
+		<many-to-one name="menuFunction" column="menuFunction_id" not-null="true" />
+	</class>
+	
+	<!-- 根据角色Id和菜单ID查询出这个角色已设置的菜单权限 -->
+	<query name="findMenuAuthorityByRoleIdAndMenuId"><![CDATA[
+		 FROM MenuAuthority menuAuthority
+		WHERE menuAuthority.role.id = :roleId 	
+		  AND menuAuthority.menuFunction.menu.id = :menuId
+	]]>		
+	</query>
+	
+	<!-- 根据角色Id和菜单具体功能权限ID查询出这个角色已设置的菜单权限 -->
+	<query name="findMenuAuthorityByRoleIdAndMenuFunctionId"><![CDATA[
+		 FROM MenuAuthority menuAuthority
+		WHERE menuAuthority.role.id = :roleId 	
+		  AND menuAuthority.menuFunction.id = :menuFunctionId
+	]]>		
+	</query>
+	
+	
+	<!-- 根据角色Id查询出这个角色已设置的菜单权限 -->
+	<query name="findMenuAuthorityByRoleId"><![CDATA[
+		 FROM MenuAuthority menuAuthority
+		WHERE menuAuthority.role.id = :roleId 	 
+	]]>		
+	</query>
+	
+</hibernate-mapping>

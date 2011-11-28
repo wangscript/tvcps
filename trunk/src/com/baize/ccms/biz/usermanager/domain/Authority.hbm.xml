@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="Authority" table="authorities">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="columnExtends"/>
+		<many-to-one name="resource" column="resource_id" not-null="true" />
+		<many-to-one name="operation" column="operation_id" not-null="true" />
+	</class>	
+	
+	<!-- 根据操作ID和资源ID查询权限 -->   
+    <query name="findAuthorityByResourceidAndOperationidAndOperationTypes"><![CDATA[ 			
+ 			FROM Authority auth  			
+			WHERE auth.resource.id = :resourceId 
+			  AND auth.operation.id = :operationId
+			  AND auth.operation.types like (:types)
+	 ]]>	
+    </query>
+    
+    <!-- 根据资源ID查询权限 -->   
+    <query name="findAuthorityByResourceid"><![CDATA[ 			
+ 			FROM Authority auth  			
+			WHERE auth.resource.id = :resourceId			 
+	 ]]>	
+    </query>
+    
+    <!-- 根据操作ID集合和资源ID查询权限 -->   
+    <query name="findAuthorityByResourceidsAndOperationidsAndOperationTypes"><![CDATA[ 			
+ 			FROM Authority auth  			
+			WHERE auth.resource.id in (:resourceIds) 
+			  AND auth.operation.id in (:operationIds)
+			  AND auth.operation.types like (:types)
+	 ]]>	
+    </query>
+	
+	
+		
+	<!-- 根据栏目ID,操作ID和资源类型查询权限 -->   
+    <query name="findAuthorityByColumnidAndOperationidAndOperationTypes"><![CDATA[ 			
+ 			FROM Authority auth  			
+			WHERE auth.resource.identifier in (:columnId) 
+			  AND auth.operation.id in (:operationId)
+			  AND auth.resource.type = :resourceType
+			  AND auth.operation.types like (:types)
+			  AND auth.resource.site.id = :siteId
+	 ]]>	
+    </query>
+    
+    	<!-- 根据栏目ID,操作ID和资源类型查询权限 -->   
+    <query name="findAuthorityByColumnidAndOperationTypes"><![CDATA[ 			
+ 			FROM Authority auth  			
+			WHERE auth.resource.identifier in (:columnId)  
+			  AND auth.resource.type = :resourceType
+			  AND auth.operation.types like (:types)
+	 ]]>	
+    </query>
+</hibernate-mapping>	

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--文档类型 start -->
+	<bean name="/category" class="com.baize.ccms.biz.documentmanager.web.action.CategoryAction" scope="prototype">
+		<property name="baseBiz" ref="documentmanager-categoryBiz"/>
+	</bean>
+	<bean id="documentmanager-categoryBiz" class="com.baize.ccms.biz.documentmanager.service.CategoryBiz" scope="singleton">		
+		<property name="categoryService" ref="documentmanager-categoryService"/>
+	</bean>
+	<bean id="documentmanager-categoryService" class="com.baize.ccms.biz.documentmanager.service.impl.CategoryServiceImpl" scope="singleton">
+		<property name="categoryDao" ref="documentmanager-categoryDao"/>
+		<property name="documentDao" ref="documentmanager-documentDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="userDao" ref="usermanager-userDao"/>
+	</bean>
+	<bean id="documentmanager-categoryDao" class="com.baize.ccms.biz.documentmanager.dao.impl.CategoryDaoImpl" parent="genericDaoImpl"/>
+	<bean id="documentmanager-documentDao" class="com.baize.ccms.biz.documentmanager.dao.impl.DocumentDaoImpl" parent="genericDaoImpl"/>
+	<bean id="documentmanager-breviaryDao" class="com.baize.ccms.biz.documentmanager.dao.impl.BreviaryImgDaoImpl" parent="genericDaoImpl"/>
+	<!-- 文档 类型end -->
+	
+	
+	<!--图片start -->
+	<bean name="/picture" class="com.baize.ccms.biz.documentmanager.web.action.PictureAction" scope="prototype">
+		<property name="baseBiz" ref="documentmanager-pictureBiz"/>
+	</bean>
+	<bean id="documentmanager-pictureBiz" class="com.baize.ccms.biz.documentmanager.service.PictureBiz" scope="singleton">		
+		<property name="documentService" ref="documentmanager-pictureService"/>
+		<property name="waterMarkService" ref="documentmanager-watermarkService"/><!-- 引入水印设置 -->
+	</bean>
+	<bean id="documentmanager-pictureService" class="com.baize.ccms.biz.documentmanager.service.impl.DocumentServiceImpl" scope="singleton">
+		<property name="documentDao" ref="documentmanager-pictureDao"/>
+		<property name="categoryDao" ref="documentmanager-categoryDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="waterMarkDao" ref="documentmanager-watermarkDao"/>
+		<property name="picwaterMarkDao" ref="documentmanager-picmarkDao"/>
+		<property name="breviaryImgDao" ref="documentmanager-breviaryDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+	</bean>
+	<bean id="documentmanager-pictureDao" class="com.baize.ccms.biz.documentmanager.dao.impl.DocumentDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 图片 end -->
+	
+	<!--flash start -->
+	<bean name="/flash" class="com.baize.ccms.biz.documentmanager.web.action.FlashAction" scope="prototype">
+		<property name="baseBiz" ref="documentmanager-flashBiz"/>
+	</bean>
+	<bean id="documentmanager-flashBiz" class="com.baize.ccms.biz.documentmanager.service.FlashBiz" scope="singleton">		
+		<property name="documentService" ref="documentmanager-flashService"/>
+	</bean>
+	<bean id="documentmanager-flashService" class="com.baize.ccms.biz.documentmanager.service.impl.DocumentServiceImpl" scope="singleton">
+		<property name="documentDao" ref="documentmanager-flashDao"/>
+		<property name="categoryDao" ref="documentmanager-categoryDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+	</bean>
+	<bean id="documentmanager-flashDao" class="com.baize.ccms.biz.documentmanager.dao.impl.DocumentDaoImpl" parent="genericDaoImpl"/>	
+	<!-- flash  end -->
+	
+	<!--附件 start -->
+	<bean name="/attachment" class="com.baize.ccms.biz.documentmanager.web.action.AttachmentAction" scope="prototype">
+		<property name="baseBiz" ref="documentmanager-attachmentBiz"/>
+	</bean>
+	<bean id="documentmanager-attachmentBiz" class="com.baize.ccms.biz.documentmanager.service.AttachmentBiz" scope="singleton">		
+		<property name="documentService" ref="documentmanager-attachmentService"/>
+	</bean>
+	<bean id="documentmanager-attachmentService" class="com.baize.ccms.biz.documentmanager.service.impl.DocumentServiceImpl" scope="singleton">
+		<property name="documentDao" ref="documentmanager-attachmentDao"/>
+		<property name="categoryDao" ref="documentmanager-categoryDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+	</bean>
+	<bean id="documentmanager-attachmentDao" class="com.baize.ccms.biz.documentmanager.dao.impl.DocumentDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 附件  end -->
+	
+	
+	<!-- 图片水印 Start -->
+	<bean name="/waterMark" class="com.baize.ccms.biz.documentmanager.web.action.WaterMarkAction" scope="prototype">
+		<property name="baseBiz" ref="document-waterMarkBiz"/>
+	</bean>
+	<bean id="document-waterMarkBiz" class="com.baize.ccms.biz.documentmanager.service.WaterMarkBiz">
+		<property name="waterMarkService" ref="documentmanager-watermarkService"/>
+	</bean>
+	<bean id="documentmanager-watermarkService" class="com.baize.ccms.biz.documentmanager.service.impl.WaterMarkServiceImpl" scope="singleton">
+			<property name="waterMarkDao" ref="documentmanager-watermarkDao"/>
+			<property name="picwaterMarkDao" ref="documentmanager-picmarkDao"/>
+			<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+			<property name="siteDao" ref="sitemanager-siteDao" />
+	</bean>
+	<bean id="documentmanager-watermarkDao" class="com.baize.ccms.biz.documentmanager.dao.impl.WaterMarkDaoImpl" parent="genericDaoImpl"></bean>
+	<bean id="documentmanager-picmarkDao" class="com.baize.ccms.biz.documentmanager.dao.impl.PicWaterMarkDaoImpl" parent="genericDaoImpl"></bean>
+	
+	<!-- 图片水印 end -->
+	
+	<!--js脚本 start -->
+	<bean name="/js" class="com.baize.ccms.biz.documentmanager.web.action.JsAction" scope="prototype">
+		<property name="baseBiz" ref="documentmanager-jsBiz"/>
+	</bean>
+	<bean id="documentmanager-jsBiz" class="com.baize.ccms.biz.documentmanager.service.JsBiz" scope="singleton">		
+		<property name="documentService" ref="documentmanager-jsService"/>
+	</bean>
+	<bean id="documentmanager-jsService" class="com.baize.ccms.biz.documentmanager.service.impl.DocumentServiceImpl" scope="singleton">
+		<property name="documentDao" ref="documentmanager-jsDao"/>
+		<property name="categoryDao" ref="documentmanager-categoryDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+	</bean>
+	<bean id="documentmanager-jsDao" class="com.baize.ccms.biz.documentmanager.dao.impl.DocumentDaoImpl" parent="genericDaoImpl"/>	
+	<!-- js脚本 end -->
+
+</beans>

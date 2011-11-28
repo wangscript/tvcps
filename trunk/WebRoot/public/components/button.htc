@@ -1,0 +1,281 @@
+// 描述 ：      button控件
+// 版本 ：      1.0
+// 作者 ：      娄伟峰
+// 最新更新：   2008-12-18
+// 备注 ：
+
+<PUBLIC:COMPONENT>
+<PUBLIC:ATTACH EVENT="oncontentready" ONEVENT="fnInit()"/>
+<PUBLIC:ATTACH EVENT="ondragstart"    ONEVENT="fnCancel()" />
+<PUBLIC:ATTACH EVENT="ondragend"      ONEVENT="alert('ff')"/>
+<SCRIPT	language="javascript"> 
+
+function fnInit(){
+  element.style.fontsize="9pt";
+  element.style.background="#D0DBED";  
+  element.style.border="none";
+  element.style.height="23px";
+  element.style.width="60px";
+  element.style.color="black";
+  element.style.textIndent="10pt";
+  
+  switch(element.name)
+  {
+
+  	
+    case "button_search":
+		 element.style.backgroundImage="url(images/button/addc.gif)";
+		 element.style.width="80px";
+		 element.value="查询";
+		 element.title="查询";
+	     break;
+    case "button_add":
+		 element.style.backgroundImage="url(images/button/addc.gif)";
+		 element.style.width="80px";
+		 element.value="新增";
+		 element.title="新增";
+	     break;
+    case "button_edit":
+         element.style.backgroundImage="url(images/button/icon1.gif)";
+		 element.style.width="80px";
+		 element.value="修改";
+		 element.title="修改";
+	     break;
+    case "button_delete":
+		 element.style.backgroundImage="url(images/button/icon1.gif)";
+		 element.style.width="80px";
+		 element.value="删除";
+		 element.title="删除";
+		 break;
+    case "button_resh":
+         element.style.backgroundImage="url(images/button/addn.gif)";
+         element.style.width="80px";
+         element.value="刷新";
+	  	 element.title="刷新";
+         break;
+    case "button_close":
+         element.style.backgroundImage="url(images/button/addc.gif)";
+         element.style.width="80px";
+         element.value="关闭";
+	   	 element.title="关闭";
+         break;
+    case "button_save":
+         element.style.backgroundImage="url(images/button/addn.gif)";
+         element.style.width="80px";
+         element.value="保存";
+	     element.title="保存";
+         break;
+    case "button_clear":
+    	 element.style.backgroundImage="url(images/button/addc.gif)";
+       	 element.style.width="80px";
+         element.value="清空";
+	     element.title="清空";
+         break;   
+    case "button_import":
+         element.style.backgroundImage="url(images/button/file.gif)";       
+         element.style.width="80px";
+         element.value="导入";
+	     element.title="导入";
+         break;
+    case "button_print":
+         element.style.backgroundImage="url(images/button/delete.gif)";
+         element.style.width="80px";
+         element.value="打印";
+	     element.title="打印";
+         break;       
+    case "button_exportexl":
+         element.style.backgroundImage="url(images/button/delete.gif)";
+         element.style.width="80px";
+         element.value="导出Excel";
+	     element.title="导出Excel";
+         break;    
+    case "button_return":
+         element.style.backgroundImage="url(images/button/printpage.gif)";
+         element.style.width="80px";
+         element.value="返回";
+	     element.title="返回";
+         break;   
+    case "button_next":
+         element.style.backgroundImage="url(images/button/copylist.gif)";
+         element.style.width="80px";
+         element.value="下一步";
+	     element.title="下一步";
+         break;   
+    case "button_pre":
+      	 element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+      	 element.style.width="80px";
+      	 element.value="上一步";
+	  	 element.title="上一步";
+      	 break;             
+    case "button_importpreview":
+      	 element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+     	 element.style.width="80px";
+         element.value="导入预览";
+	     element.title="导入预览";
+         break;
+    case "button_preview":
+       	 element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="预览";
+	     element.title="预览";
+         break;
+    case "button_quash":
+       	 element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="撤销";
+	     element.title="撤销";
+         break;
+    case "button_reset":
+       	 element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="重置";
+	     element.title="重置";
+         break;   
+    case "button_update":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="更新";
+	     element.title="更新";
+         break;
+    case "button_upfile":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="上传";
+	     element.title="上传";
+         break;
+    case "button_importsave":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="导入保存";
+	     element.title="导入保存";
+         break;
+    case "button_quit":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="退出";
+	     element.title="退出";
+         break;
+    case "button_tempsave":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="暂存";
+	     element.title="暂存";
+         break;
+    case "button_submit":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="提交";
+	     element.title="提交";
+         break;
+    case "button_addrow":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="添加行";
+	     element.title="添加行";
+         break;
+    case "button_deleterow":
+         element.style.backgroundImage="url(images/button/beiwanglu.gif)";
+         element.style.width="80px";
+         element.value="删除行";
+	     element.title="删除行";
+         break;
+    case "button_export":
+         element.style.backgroundImage="url(images/button/icon68.gif)";
+         element.style.width="80px";
+         element.value="导出";
+	     element.title="导出";
+         break;
+    case "button_sure":
+         element.style.backgroundImage="url(images/button/icon68.gif)";
+         element.style.width="80px";
+         element.value="确定";
+	     element.title="确定";
+         break;	
+    case "button_copy":
+	     element.style.backgroundImage="url(images/button/icon68.gif)";
+	     element.style.width="80px";
+	     element.value="复制";
+	     element.title="复制";
+	     break;	
+    case "button_paste":
+	     element.style.backgroundImage="url(images/button/icon68.gif)";
+	     element.style.width="80px";
+	     element.value="粘贴";
+	     element.title="粘贴";
+	     break;	
+    case "button_sort":
+         element.style.backgroundImage="url(images/button/icon68.gif)";
+         element.style.width="80px";
+         element.value="排序";
+	     element.title="排序";
+         break;	
+	case "button_choose":
+         element.style.backgroundImage="url(images/button/icon68.gif)";
+         element.style.width="80px";
+         element.value="选择";
+	     element.title="选择";
+         break;		
+    case "button_recycle":
+         element.style.backgroundImage="url(images/button/icon68.gif)";
+         element.style.width="80px";
+         element.value="回收站";
+	     element.title="回收站";
+         break;	   
+    case "button_revert":
+         element.style.backgroundImage="url(images/button/icon68.gif)";
+         element.style.width="80px";
+         element.value="还原";
+	     element.title="还原";
+         break;
+    case "button_audit":
+         element.style.backgroundImage="url(images/button/icon68.gif)";
+         element.style.width="80px";
+         element.value="审核";
+	     element.title="审核";
+         break;
+	default :
+		element.style.width="auto";
+		break;
+ }
+
+  
+  element.style.backgroundRepeat="no-repeat";
+  element.style.backgroundPositionY="center";
+  if (element.disabled){
+	  element.style.filter="progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=40,finishOpacity=100,startX=0,finishX=100,startY=100,finishY=0); ";
+  }
+  element.attachEvent("onmouseover", function(){fnOver();});
+  element.attachEvent("onmouseout", function(){fnOut();});
+  element.attachEvent("onfocus",function(){parentElement.focus();});
+  
+}
+
+function fnOver(){
+	//element.style.color="blue";98B5E2
+	if (element.disabled){return;}
+	//element.style.backgroundColor="#f2f2f2";
+	element.style.backgroundColor="#F9E4A5";
+
+	element.style.cursor="hand";
+	element.style.borderWidth="1px 1px 1px 1px";
+	element.style.borderStyle="solid";
+	element.style.borderColor="#316AC5";
+	//element.style.filter="progid:DXImageTransform.Microsoft.BasicImage(Opacity=1.0)	progid:DXImageTransform.Microsoft.DropShadow(color=#909DB2, offx=1, offy=1)";
+}
+function fnOut(){
+	element.style.border="none";
+	//element.style.backgroundColor="#ece9d8";
+	element.style.backgroundColor="#D0DBED";
+	
+	element.style.color="#000000";
+	//element.style.filter="";
+}
+
+
+function fnCancel()
+{
+    window.event.returnValue = false;
+}
+
+</SCRIPT>
+</PUBLIC:COMPONENT>

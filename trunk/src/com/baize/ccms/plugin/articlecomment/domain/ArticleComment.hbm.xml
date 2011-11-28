@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.plugin.articlecomment.domain">
+    <class name="ArticleComment" table="article_comment">
+        <id name="id">
+            <generator class="uuid" />
+        </id> 
+		<property name="authorName"/>
+		<property name="content"/>
+		<property name="audit"/>
+		<property name="essence"/>
+		<property name="deleted"/>
+		<property name="supporter"/>
+		<property name="ironfoe"/>
+		<property name="ip"/>
+		<property name="toped"/>
+		<property name="orders"/>
+		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<many-to-one name="article" column="article_id"></many-to-one>
+		<many-to-one name="user" column="user_id" ></many-to-one>
+    </class>   
+    <!-- 根据删除条件ID查找所有文章评论并分页 --> 
+    <query name="findAllArticleCommentByDeletePage"><![CDATA[
+    	SELECT comment.id,comment.article.title, comment.authorName,comment.createTime,comment.article.url
+    	  FROM ArticleComment comment
+    	 WHERE comment.deleted = :deletedid
+      ORDER BY comment.toped DESC,comment.orders DESC,comment.createTime DESC
+    ]]></query>
+    <!-- 根据是否审核查询所有评论分页 -->
+    <query name="findAllArticleCommentByAuditPage"><![CDATA[
+    	SELECT comment.id,comment.article.title,comment.authorName, comment.user.name,comment.createTime,comment.essence,comment.toped,comment.article.url
+    	  FROM ArticleComment comment
+    	 WHERE comment.audit = :auditid
+    	 AND comment.deleted = 0 
+      ORDER BY comment.toped DESC,comment.orders DESC,comment.createTime DESC
+    ]]></query>
+     <!-- 通过文章ids更新一批文章评论的deleted属性 -->
+    <query name="updateArticleCommentDeletedByIds"><![CDATA[
+    	UPDATE ArticleComment article 
+    	   SET article.deleted = :deleted
+    	 WHERE article.id IN (:ids)
+    ]]></query>
+    <!-- 根据IDS集合删除文章评论 -->
+    <query name="deleteCommentByIds"><![CDATA[
+		DELETE 
+		  FROM ArticleComment comment
+	     WHERE comment.id
+	        IN (:ids)
+	]]></query>
+	  <!-- 查找文章评论的最大顺序orders字段值(降序排序)  -->
+	<query name="findMaxArticleCommentOrders"><![CDATA[
+		  FROM ArticleComment comment
+		 WHERE comment.deleted = 0
+	  ORDER BY comment.orders DESC
+	  	   TOP 1
+	]]></query>
+</hibernate-mapping>

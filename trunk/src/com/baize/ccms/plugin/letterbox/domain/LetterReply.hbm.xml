@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.plugin.letterbox.domain">
+    <class name="LetterReply" table="plugin_letterbox_replies">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="content" />   
+        <property name="replyDate" />   
+        <many-to-one name="letter" column="letter_id" not-null="true"/>
+        <many-to-one name="replyor" column="replyor_id" not-null="true"/>
+        <many-to-one name="organization" column="organization_id" not-null="true"/>
+    </class>    
+    
+    <!-- 查询id -->
+	<query name="findReplyById"><![CDATA[
+		SELECT letterReply.id	   
+		  FROM LetterReply letterReply 
+		 WHERE letterReply.letter.id = :id
+	  ORDER BY letterReply.replyDate
+	]]></query>
+	<query name="findReplyContentById"><![CDATA[
+		SELECT letterReply.content	   
+		  FROM LetterReply letterReply 
+		 WHERE letterReply.letter.id = :id
+	]]></query>
+</hibernate-mapping>

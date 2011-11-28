@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<baize>
+	<copyright>Baize Net Work</copyright>
+	<online_survery>
+		<category>0</category>
+		<theme>0</theme>
+		<question></question>
+		<answerCount>1</answerCount>
+		<rowCount>30</rowCount>
+		<colCount>1</colCount>
+		<defaultCount>5</defaultCount>
+		<more></more>
+	</online_survery>
+</baize>
