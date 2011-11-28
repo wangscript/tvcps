@@ -1,0 +1,80 @@
+
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+}
+/********************top*********************************/
+
+.one{
+	background-image:url(stup_06.jpg);
+	background-repeat: repeat-x;
+
+}
+
+.two{
+	background-image:url(stup_22.gif);
+	color:#000;
+    font-size:14px;
+	text-decoration:none;
+	margin-left:20px;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+a.two:link
+{background-image:url(stup_22.gif);color:#000; font-size:14px; text-decoration:none;margin-left:30px;background-repeat: no-repeat;
+	background-position: 15px center;}
+a.two:visited
+{background-image:url(stup_22.gif);color:#000; font-size:14px; text-decoration:none;margin-left:30px;background-repeat: no-repeat;
+	background-position: 15px center;}
+a.two:active
+{background-image:url(stup_22.gif);color:#000; font-size:14px; text-decoration:none;margin-left:30px;background-repeat: no-repeat;
+	background-position: 15px center;}
+a.two:hover
+{color:#ffffff;font-size:14px; text-decoration:underline;margin-left:30px;
+background-repeat: no-repeat;
+	background-position: 15px center;}
+
+.three{
+	color:#000;
+    font-size:14px;
+	text-decoration:none;
+	margin-bottom:15px;
+	display:block;
+}
+a.three:link
+{color:#ffffff; font-size:13px; text-decoration:none;	margin-bottom:15px;}
+a.three:visited
+{color:#ffffff; font-size:13px; text-decoration:none;margin-bottom:15px;}
+a.three:active
+{color:#ffffff; font-size:13px; text-decoration:none;margin-bottom:15px;}
+a.three:hover
+{color:#FFFF00;font-size:13px; text-decoration:underline;margin-bottom:15px;}
+	
+	
+.menuleft {
+	width: 170px;
+	height:30px;
+	float: left;
+	text-align:left;
+	margin-top:30px;
+	
+							}
+							.menuleft a {
+								display:block;
+								height:30px;
+								height:23px;
+								line-height:23px;
+								width:170px;
+								background:none;
+								margin-top:30px;
+							}
+							.menuleft a:hover, #nav a:active, #nav a:visited{
+								background-image:url(stup_11.jpg);
+								width:170px;
+								height:30px;
+								font-weight:bold;
+								background-repeat: no-repeat;
+	background-position:center;
+							}

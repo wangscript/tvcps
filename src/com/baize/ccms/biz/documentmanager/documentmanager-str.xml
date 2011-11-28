@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+	       <form-bean name="documentForm"             type="com.baize.ccms.biz.documentmanager.web.form.DocumentForm"></form-bean>
+	       <form-bean name="categoryForm"             type="com.baize.ccms.biz.documentmanager.web.form.CategoryForm"></form-bean>
+	       <form-bean name="waterMarkForm"            type="com.baize.ccms.biz.documentmanager.web.form.WaterMarkForm"></form-bean>
+	</form-beans>
+	<global-exceptions />
+	<action-mappings>
+          
+           <!-- 文档类型业务action配置  start-->
+          <action path="/category"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="categoryForm"
+                scope="request"
+                validate="false">
+                <forward name="categorySuccess"       		path="/module/document_manager/category_list.jsp"/>	 
+                <forward name="categoryDetail"         		path="/module/document_manager/category_detail.jsp"/>
+                <forward name="deleteCategorySuccess"  		path="/module/document_manager/category_list.jsp"/>
+                <forward name="findCategoryNameSuccess"  	path="/module/document_manager/category_detail.jsp"/>
+          </action>	
+          <!-- 文档类型业务action配置  end -->
+          
+          <!-- picture业务action配置  start-->
+          <action path="/picture"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="documentForm"
+                scope="request"
+                validate="false">
+               <forward name="pictureSuccess"          path="/module/document_manager/picture/picture_list.jsp"/>	
+               <forward name="uploadPictureSuccess"    path="/module/document_manager/picture/picture_detail.jsp"/>
+ 			   <forward name="deletePictureSuccess"    path="/picture.do?dealMethod="/>
+ 			   <forward name="deleteScaleImageSuccess" path="/picture.do?dealMethod=uploadPicList"/>
+ 			   <forward name="uploadPicList"    	   path="/public/common/upload_pic.jsp"/>
+ 			   <forward name="uploadPicMsg"    		   path="/module/document_manager/picture/upload_pic_msg.jsp"/>
+ 			   <forward name="selectChangeMsg"    	   path="/module/document_manager/picture/select_change_msg.jsp"/>
+          </action>	
+          <!-- picture业务action配置  end -->
+          
+          <!-- flash业务action配置  end -->
+          <action path="/flash"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="documentForm"
+                scope="request"
+                validate="false">
+                <forward name="flashSuccess"           path="/module/document_manager/flash/flash_list.jsp"/>	
+                <forward name="uploadFlashSuccess"     path="/module/document_manager/flash/flash_detail.jsp"/>
+ 			    <forward name="deleteFlashSuccess"     path="/flash.do?dealMethod="/>
+ 			    <forward name="deleteFlash"            path="/flash.do?dealMethod=insertFlashList"/>
+ 			    <forward name="insertFlashList"        path="/public/common/upload_flash.jsp"/>
+ 			    <forward name="uploadFlaMsg"    	   path="/module/document_manager/flash/upload_fla_msg.jsp"/>
+          </action>	
+          <!-- flash业务action配置  end -->
+          
+          <!-- attachment业务action配置  end -->
+          <action path="/attachment"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="documentForm"
+                scope="request"
+                validate="false">
+                <forward name="attachmentSuccess"       path="/module/document_manager/attachment/attachment_list.jsp"/>	
+                <forward name="uploadAttachmentSuccess" path="/module/document_manager/attachment/attachment_detail.jsp"/>
+ 			    <forward name="deleteAttachmentSuccess" path="/attachment.do?dealMethod="/>
+ 			    <forward name="deleteScaleImageSuccess" path="/attachment.do?dealMethod=uploadAttachmentList"/>
+ 			    <forward name="uploadAttachmentList"    path="/public/common/upload_file.jsp"/>
+ 			    <forward name="uploadAttMsg"    	    path="/module/document_manager/attachment/upload_att_msg.jsp"/>
+          </action>	
+          <!-- attachment业务action配置  end -->
+                
+          
+            <!-- water业务action配置  start -->
+			<action path="/waterMark" type="org.springframework.web.struts.DelegatingActionProxy"
+			name="waterMarkForm"
+			scope="request"
+			validate="false">
+			<forward name="waterFontList" 		 path="/module/document_manager/picture/water_font_list.jsp"/>
+			<forward name="waterFontdetail" 	 path="/module/document_manager/picture/water_font_detail.jsp"/>
+			<forward name="defaultwater" 		 path="/module/document_manager/picture/default_watermark.jsp"/>
+			<forward name="waterpiclist" 		 path="/module/document_manager/picture/water_pic_list.jsp"/>
+			<forward name="uploadPicMsg2"    	 path="/module/document_manager/picture/show_water_msg.jsp"/>
+			<forward name="deletePictureSuccess" path="/waterMark.do?dealMethod=picWater"/>
+			<forward name="deleteFontSuccess"    path="/waterMark.do?dealMethod=textWater"/>
+			<forward name="modifyDefaultSuccess" path="/waterMark.do?dealMethod=defaulted"/>
+			</action>
+            <!-- water 业务action配置  end -->
+            
+            <!-- js业务action配置  start -->
+          <action path="/js"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="documentForm"
+                scope="request"
+                validate="false">
+                <forward name="jsSuccess"       					path="/module/document_manager/jsFile/js_list.jsp"/>	
+                <forward name="" 									path="/module/document_manager/attachment/attachment_detail.jsp"/>
+ 			    <forward name="deleteInEditorSuccess" 				path="/js.do?dealMethod=uploadScriptList"/>
+ 			    <forward name="deleteJsSuccess" 					path="/js.do?dealMethod="/>
+ 			    <forward name="findJsPaginationInEditorSuccess" 	path="/public/common/insert_script.jsp"/>
+ 			    <forward name="uploadInEditorSuccess"    			path="/public/common/script_detail.jsp"/>
+ 			    <forward name="uploadJsMsg"    	    				path="/module/document_manager/jsFile/upload_js_msg.jsp"/>
+ 			    <forward name="uploadScriptList" 					path="/public/common/insert_script.jsp"/>
+ 			 	<forward name="editjs" 								path="/module/document_manager/jsFile/edit_js.jsp"/>
+          </action>	
+          <!-- js业务action配置  end -->
+            
+	</action-mappings>
+</struts-config>

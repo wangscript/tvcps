@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin> 
+  <articleplugin> 
+    <openType>1</openType>  
+    <isLook>1</isLook>  
+    <ipStyle>2</ipStyle>  
+    <haveReplace>1</haveReplace>  
+    <replaceArea>1</replaceArea>  
+    <articleCommentCount>0</articleCommentCount>  
+    <creamCount>0</creamCount>  
+    <timeOutSet>0</timeOutSet>  
+    <sessionId></sessionId> 
+  </articleplugin> 
+</plugin>

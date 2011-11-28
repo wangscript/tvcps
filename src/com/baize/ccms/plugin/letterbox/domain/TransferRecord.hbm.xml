@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.plugin.letterbox.domain">
+    <class name="TransferRecord" table="plugin_letterbox_transfers">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="note" type="text"/>   
+        <property name="transferDate" />   
+        <many-to-one name="transferUser" column="transfer_user_id" not-null="true"/>
+        <many-to-one name="letter" column="letter_id" not-null="true"/>
+        <many-to-one name="fromOrg" column="from_org_id" not-null="true"/>
+        <many-to-one name="toOrg" column="to_org_id" not-null="true"/>
+    </class>    
+	
+	<!-- 查询转办前后部门名称 -->
+	<query name="findTransferOrgNameById"><![CDATA[
+		SELECT transferRecord.fromOrg.id, transferRecord.fromOrg.name, transferRecord.toOrg.id, transferRecord.toOrg.name, 	transferRecord.note		   
+		  FROM TransferRecord transferRecord 
+		 WHERE transferRecord.letter.id = :id
+	  ORDER BY transferRecord.transferDate
+	]]></query>
+	<!-- 查询转办记录 -->
+	<query name="findTransferRecord"><![CDATA[
+		SELECT transferRecord.fromOrg.name, transferRecord.toOrg.name, 	transferRecord.note		   
+		  FROM TransferRecord transferRecord 
+		 WHERE transferRecord.letter.id = :id
+	  ORDER BY transferRecord.transferDate
+	]]></query>
+	<!-- 查询id -->
+	<query name="findTransferById"><![CDATA[
+		SELECT transferRecord.id	   
+		  FROM TransferRecord transferRecord 
+		 WHERE transferRecord.letter.id = :id
+	  ORDER BY transferRecord.transferDate
+	]]></query>
+	
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="Operation" table="operations">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="name" />
+		<property name="types" />
+		<property name="description" />
+	</class>	
+	<!-- 根据操作名称查询操作数据 -->
+	<query name="findOperationDataByName"><![CDATA[
+		SELECT oper.id, oper.name 
+		  FROM Operation oper		
+		  WHERE oper.name = :name  
+	]]>		
+	</query>
+	
+	<!-- 查询所有的操作 -->
+	<query name="findAllOperationDataByType"><![CDATA[
+		SELECT oper.id, oper.description 
+		  FROM Operation oper
+		 WHERE oper.types like (:type)  
+	]]>		
+	</query>
+	<!-- 根据操作类型查询操作数据 -->
+	<query name="findOperationByType"><![CDATA[
+		  FROM Operation oper		
+		  WHERE oper.types like (:type)  
+	]]>		
+	</query>
+	
+	<!-- 根据操作类型查询操作数据 -->
+	<query name="findOperationByOperationType"><![CDATA[
+		  FROM Operation oper		
+		  WHERE oper.types = :type  
+	]]>		
+	</query>
+	
+</hibernate-mapping>	

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.plugin.onlinesurvey.domain">
+	<class name="OnlineSurveyContentAnswer" table="onlineSurveyContentAnswer">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+       	<!--调查问题答案-->
+		<property name="answer" />
+       	<!--调查投票数-->
+		<property name="voteCount" />
+       	<!--网上调查问题具体内容Id-->
+		<many-to-one name="onlineSurveyContent" column="onlineSurveyContent_Id" />
+	</class>
+	   
+	<!--根据调查问题id删除在线调查答案-->
+	<query name="deleteOnlineSurveyAnswerByQuestionId"><![CDATA[
+		DELETE 
+		  FROM OnlineSurveyContentAnswer online   
+		 WHERE online.onlineSurveyContent.id IN(:requestionId)
+	]]></query>
+
+	<!--根据调查主题id查找在线调查答案-->
+	<query name="findAnswerByOnlineSurveryId"><![CDATA[
+		  FROM OnlineSurveyContentAnswer online   
+		 WHERE online.onlineSurveyContent.onlineSurvey.id IN(:nodeId)
+	]]></query>
+
+    <!--根据网上调查问题Id查找问题答案分页-->
+	<query name="onlineSurveyContentAnswerPage"><![CDATA[
+		SELECT online.id, online.answer, online.voteCount 
+		  FROM OnlineSurveyContentAnswer online   
+		 WHERE online.onlineSurveyContent.id = :questionId
+	]]></query>	
+	
+	<!--网上调查结果分页-->
+	<query name="onlineResultPage"><![CDATA[
+		SELECT online.id, online.onlineSurveyContent.onlineSurvey.name, online.onlineSurveyContent.name, SUM(online.voteCount), online.onlineSurveyContent.id   
+		  FROM OnlineSurveyContentAnswer online
+	  GROUP BY online.onlineSurveyContent.id
+	]]></query>	 
+		
+	<!--网上调查图片结果集-->
+	<query name="findChart"><![CDATA[
+		  FROM OnlineSurveyContentAnswer online
+		 WHERE online.onlineSurveyContent.id = :questionId
+	]]></query>	
+	
+	<!--添加投票的票数-->
+	<query name="addCommit"><![CDATA[
+		UPDATE OnlineSurveyContentAnswer online
+		   SET online.voteCount = online.voteCount+1
+		 WHERE online.id IN(:answerIds)
+	]]></query>	
+		
+	<!--获取单个问题投票总数-->
+	<query name="findCommentCountByQuestionId"><![CDATA[
+		SELECT SUM(online.voteCount)
+		  FROM OnlineSurveyContentAnswer online
+		 WHERE online.onlineSurveyContent.id = :questionId
+	]]></query>	
+		
+		
+		
+		
+	<!--根据网上调查问题具体内容Id查找单选框或多选框的值  -->
+	<query name="findonlineSurveyAnswerId"><![CDATA[
+		SELECT online.id  
+		  FROM OnlineSurveyContentAnswer online 
+		 WHERE online.onlineSurveyContent.id = :id
+	]]></query>
+</hibernate-mapping>

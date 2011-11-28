@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tree id="0">
+  <item id="1" text="company">
+    <userdata name="file"><![CDATA[organization.do]]></userdata>
+    <item id="2" text="soft">
+      <userdata name="file"><![CDATA[ssdfsdf]]></userdata>
+      <item id="4" text="view">
+        <userdata name="file"><![CDATA[sdfsdfsf]]></userdata>
+      </item>
+      <item id="5" text="12222222">
+        <userdata name="file"><![CDATA[sdfsfs]]></userdata>
+      </item>
+    </item>
+    <item id="3" text="sale">
+      <userdata name="file"><![CDATA[sdfsdf]]></userdata>
+      <item id="6" text="11111111">
+        <userdata name="file"><![CDATA[fsafs]]></userdata>
+      </item>
+    </item>
+  </item>
+  <item id="66" text="reeee">
+    <userdata name="file"><![CDATA[userManager.do]]></userdata>
+  </item>
+</tree>
+

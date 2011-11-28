@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="Organization" table="organizations">
+		<id name="id">
+			<generator class="uuid"/>
+		</id>
+		<property name="name" />
+		<property name="description" />
+		<property name="deleted" />
+		<property name="linkAddress" />
+		<property name="leaf" not-null="true" />
+		<property name="checked" not-null="true" />
+		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<many-to-one name="parent" column="pid" />
+		<set name="children" lazy="extra" inverse="true" cascade="delete">
+			<key column="pid" />
+			<one-to-many class="Organization" />
+		</set>
+	</class>
+	
+	<!-- 根据节点ID查询所有机构数据 -->
+	<query name="findOrgPageByNodeid"><![CDATA[
+		SELECT corg.id, corg.name, porg.name
+		  FROM Organization corg
+     	  LEFT JOIN corg.parent porg
+          WHERE porg.id = :nodeid 
+          AND corg.deleted = 0 order by corg.createTime desc
+	]]>		
+	</query>
+
+	<!-- 查询所有机构数据 -->
+	<query name="findOrgPage"><![CDATA[
+		SELECT corg.id, corg.name, porg.name,corg.leaf,corg.checked
+		  FROM Organization corg
+     	  LEFT JOIN corg.parent porg 
+     	  WHERE corg.deleted = 0
+     	  order by corg.id  desc       
+	]]>		
+	</query>
+	
+	
+	
+	<!-- 通过父机构id查找第一级子机构树 -->
+	<query name="findFirstLevelOrgTreeByPid"><![CDATA[
+		SELECT corg.id, corg.name, corg.linkAddress, corg.leaf,corg.checked
+		  FROM Organization corg
+         WHERE corg.parent.id IS NULL
+           AND corg.deleted = 0 
+	]]>		
+	</query>
+	<!-- 通过父机构id查找其一级子机构树 -->
+	<query name="findSubOrgTreeByPid"><![CDATA[
+		SELECT corg.id, corg.name, corg.linkAddress, corg.leaf,corg.checked
+		  FROM Organization corg
+         WHERE corg.parent.id =:pid
+           AND corg.deleted = 0 
+	]]>		
+	</query>
+	
+	<!-- 通过父机构id查找子机构树 -->
+	<query name="findOrganizationByPid"><![CDATA[
+		  FROM Organization corg
+         WHERE corg.parent.id =:pid
+           AND corg.deleted = 0 
+	]]>		
+	</query>
+	
+	<!-- 根据所有的ID查询所有机构数据 -->
+	<query name="findOrganizationByIds"><![CDATA[
+		  FROM Organization corg
+		  WHERE corg.id in (:ids)  
+		    AND corg.deleted = 0   
+	]]>		
+	</query>
+	
+	<!-- 根据所有的ID修改机构数据 -->
+	<query name="updateOrganizationByIds"><![CDATA[
+		  update Organization corg 
+		  	set  corg.deleted = :deleted
+		  WHERE corg.id in (:ids)		       
+	]]>		
+	</query>
+	
+
+	
+	<!-- 通过父机构id查找一级机构 -->
+	<query name="findFirstOrganization"><![CDATA[	
+		  FROM Organization corg
+         WHERE corg.parent.id IS NULL
+           AND corg.deleted = 0 
+	]]>		
+	</query>
+	
+	<!-- 根据ID查询机构名称 -->
+	<query name="findOrgNameById"><![CDATA[
+		  SELECT corg.name
+		    FROM Organization corg
+		   WHERE corg.id = :id    
+	]]>		
+	</query>
+	
+
+</hibernate-mapping>	

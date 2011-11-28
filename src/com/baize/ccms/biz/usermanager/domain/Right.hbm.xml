@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+	<class name="Right" table="rights">
+		<id name="id">
+			<generator class="uuid"/>
+		</id>
+		<many-to-one name="user" column="user_id" />
+		<many-to-one name="authority" column="authority_id" />
+	</class>
+	<!-- 根据用户ID，栏目ID，栏目类型，网站ID查询权力表 -->
+	<query name="findRightByUserIdAndItemIdAndItemTypeAndSiteId"><![CDATA[
+		  FROM Right r  
+		  WHERE r.authority.resource.type = :itemType
+		  AND   r.authority.resource.identifier = :itemId
+		  AND   r.user.id = :userId
+		  AND   r.authority.resource.site.id = :siteId
+	]]>		
+	</query>
+	<!-- 根据资源ID查询权力表 -->
+	<query name="findRightByResourceId"><![CDATA[
+		  FROM Right r  
+		  WHERE r.authority.resource.id = :resourceId
+	]]>		
+	</query>
+	
+	<!-- 根据用户ID查询权力表 -->
+	<query name="findRightByUserId"><![CDATA[
+		  FROM Right r  
+		  WHERE r.user.id = :userId
+	]]>		
+	</query>
+	<!-- 根据栏目ID删除权力表 -->
+	<query name="deleteRightByColumnId"><![CDATA[
+		  DELETE  FROM Right r  
+		  WHERE  r.authority.resource.type = (:itemType)
+		  AND   r.authority.resource.identifier IN (:itemId)
+	]]>		
+	</query>
+		<!-- 根据用户ID查询权力表 -->
+	<query name="findRightByUserIdAndItemId"><![CDATA[
+		  FROM Right r  
+		  WHERE r.user.id = :userId
+		    AND r.authority.resource.identifier = :itemId
+	]]>		
+	</query>
+	
+		<!-- 根据用户ID，栏目ID，栏目类型，网站ID查询权力表 -->
+	<query name="findRightByUserIdAndItemIdAndItemTypeAndSiteIdAndOperationType"><![CDATA[
+		  FROM Right r  
+		  WHERE r.authority.resource.type = :itemType
+		  AND   r.authority.resource.identifier = :itemId
+		  AND   r.user.id = :userId
+		  AND   r.authority.resource.site.id = :siteId
+		  AND   r.authority.operation.types = :types
+	]]>		
+	</query>
+	
+	<!-- 根据栏目IDS查询权力表 -->
+	<query name="findRightByColumnIds"><![CDATA[	
+	  	  FROM Right r  	
+		  WHERE  r.authority.resource.type = :itemType
+		  AND   r.user.id = :userId 
+		  AND   r.authority.resource.identifier IN (:columnIds)
+		  AND   r.authority.operation.types = :types
+		  AND r.authority.resource.site.id = :siteId
+	]]>		
+	</query>
+	
+	<!-- 根据用户ID，网站ID查询权力表 -->
+	<query name="findRightByUserIdAndSiteId"><![CDATA[
+		   FROM Right r  
+		  WHERE r.user.id = :userId
+		    AND r.authority.resource.site.id = :siteId
+	]]>		
+	</query>
+	
+	<!-- 根据用户ID操作ID集合查询权力表 -->
+	<query name="findRightByUserIdAndOperationIds"><![CDATA[
+		  FROM Right r  
+		  WHERE r.user.id = :userId
+		    AND r.authority.operation.id in (:operationIds)
+	]]>		
+	</query>
+	
+	
+	<!-- 根据用户ID,网站ID,资源ID,操作类别,栏目ID查询权力表 -->
+	<query name="findRightByUserIdAndSiteIdAndResourceTypeAndOperationIdsAndColumnId"><![CDATA[
+	 SELECT rig.authority.operation.id
+	   FROM Right rig where rig.user.id = :userId
+	    AND  rig.authority.resource.site.id = :siteId
+	    AND  rig.authority.resource.type = :resourceType
+	    AND rig.authority.operation.types  = :operationTypes
+	    AND rig.authority.resource.identifier = :columnId
+	]]>		
+	</query>
+	<!-- 根据用户ID,网站ID,资源ID,操作类别查询权力表 -->
+	<query name="findRightByUserIdAndSiteIdAndResourceTypeAndOperationIds"><![CDATA[
+	 
+	   FROM Right rig where rig.user.id = :userId
+	    AND  rig.authority.resource.site.id = :siteId
+	    AND  rig.authority.resource.type = :resourceType
+	    AND rig.authority.operation.types  = :operationTypes
+	]]>		
+	</query>
+	
+	<!-- 根据用户ID,网站ID,资源ID,操作类别查询权力表 -->
+	<query name="findRightByItemTypeAndColumnIdAndSiteId"><![CDATA[
+	    FROM Right rig 
+	     WHERE rig.authority.resource.site.id = :siteId
+	     AND rig.authority.resource.type = :resourceType
+	     AND rig.authority.resource.identifier = :columnId
+	]]>		
+	</query>
+	
+	<!-- 根据用户ID，栏目ID，栏目类型，网站ID查询权力表 -->
+	<query name="findRightByUserIdAndItemIdAndItemTypeAndSiteIdAndOperationNoneType"><![CDATA[
+		  FROM Right r  
+		  WHERE r.authority.resource.type = :itemType
+		  AND   r.authority.resource.identifier = :itemId
+		  AND   r.user.id = :userId
+		  AND   r.authority.resource.site.id = :siteId
+		  AND   r.authority.operation.types != :types
+	]]>		
+	</query>
+	
+	<!-- 根据网站ID,资源ID,操作类别查询权力表 -->
+	<query name="findRightBySiteIdAndResourceTypeAndOperationTypes"><![CDATA[	  
+	   FROM Right rig  
+	  WHERE rig.authority.resource.site.id = :siteId
+	    AND rig.authority.resource.type = :resourceType
+	    AND rig.authority.operation.types  = :operationTypes 
+	]]>		
+	</query>
+	
+</hibernate-mapping>	

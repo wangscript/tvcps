@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 栏目 start -->
+	<bean name="/column" class="com.baize.ccms.biz.columnmanager.web.action.ColumnAction" scope="prototype">
+		<property name="baseBiz" ref="columnmanager-columnBiz"/>
+	</bean>
+	<bean id="columnmanager-columnBiz" class="com.baize.ccms.biz.columnmanager.service.ColumnBiz" scope="singleton">		
+		<property name="columnService" ref="columnmanager-columnService"/>
+	</bean>
+	<bean id="columnmanager-columnService" class="com.baize.ccms.biz.columnmanager.service.impl.ColumnServiceImpl" scope="singleton">
+		<property name="rightDao" ref="usermanager-rightDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="resourceDao" ref="usermanager-resourceDao"/>
+		<property name="authorityDao" ref="usermanager-authorityDao"/>
+		<property name="operationDao" ref="usermanager-operationDao"/> 
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao"/> 
+		<property name="assignmentDao" ref="usermanager-assignmentDao"/>
+		<property name="userDao" ref="usermanager-userDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="publisher" ref="publishmanager-staticPublisher"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao"/>
+	</bean>
+	<bean id="columnmanager-columnDao" class="com.baize.ccms.biz.columnmanager.dao.impl.ColumnDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 栏目 end -->
+	
+</beans>

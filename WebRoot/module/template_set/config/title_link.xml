@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baize>
+	<copyright>Baize Net Work</copyright>
+	<title-link>
+		<viewStyle></viewStyle>
+		<contextFrom>1</contextFrom>
+		<columnName></columnName>
+		<moreColumnName></moreColumnName>
+		<start>0</start> 
+		<col>1</col>
+		<row>10</row>
+		<titleLimit>20</titleLimit>
+		<moreLink></moreLink>
+		<moreLinkPic></moreLinkPic>
+		<allLink></allLink>
+		<allLinkWay></allLinkWay>
+		<titleHead></titleHead>
+		<titleHeadPic></titleHeadPic>
+		<titleHeadValidity>-1</titleHeadValidity>	
+		<titleEnd></titleEnd>
+		<titleEndValidity>-1</titleEndValidity>
+		<titleEndPic></titleEndPic>
+		<lineStyle></lineStyle>
+		<lineGroup></lineGroup>
+		<oddColor></oddColor>
+		<evenColor></evenColor>
+		<strongTitle></strongTitle>
+	</title-link>
+</baize>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+		
+	<!-- ******************************** 模块配置文件 ******************************** -->
+    <import resource="com/baize/ccms/biz/usermanager/usermanager-spr.xml" />
+    <import resource="com/baize/ccms/biz/columnmanager/columnmanager-spr.xml" />
+    <import resource="com/baize/ccms/biz/configmanager/configmanager-spr.xml" />
+    <import resource="com/baize/ccms/biz/documentmanager/documentmanager-spr.xml" />
+    <import resource="com/baize/ccms/biz/sitemanager/sitemanager-spr.xml" />
+    <import resource="com/baize/ccms/biz/articlemanager/articlemanager-spr.xml" />
+    <import resource="com/baize/ccms/biz/templatemanager/templatemanager-spr.xml" />
+	<import resource="com/baize/ccms/plugin/guestbookmanager/guestbookmanager-spr.xml" />
+	<import resource="com/baize/ccms/biz/messagemanager/messagemanager-spr.xml" />
+	<import resource="com/baize/ccms/biz/unitmanager/unitmanager-spr.xml" />
+	<import resource="com/baize/ccms/biz/publishmanager/publishmanager-spr.xml" />
+	<import resource="com/baize/ccms/plugin/letterbox/letterbox-spr.xml" />
+	<import resource="com/baize/ccms/plugin/pluginmanager/pluginmanager-spr.xml" />
+	<import resource="com/baize/ccms/plugin/rss/rssmanager-spr.xml" />
+
+    <import resource="com/baize/ccms/plugin/onlinesurvey/onlinesurvery-spr.xml"/>
+
+    <import resource="com/baize/ccms/plugin/articlecomment/articlecomment-spr.xml" />
+    
+    <import resource="com/baize/ccms/plugin/onlineBulletin/onlineBulletin-spr.xml" />
+    
+                      
+    	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>			
+				<value>classpath:conf.properties</value>
+			</list>
+		</property>
+	</bean>
+    
+    
+    
+    
+
+	<!-- ******************************** 公共配置文件 ******************************** -->
+	<!-- 查询导航使用 -->
+	<bean id="guideService" class="com.baize.common.core.web.ui.guide.GuideServiceImpl">
+		<property name="genericDaoImpl" ref="genericDaoImpl"/>
+	</bean>
+	<!-- 查询权限使用 -->
+	<bean id="operationAuthorizationService" class="com.baize.common.core.web.authorization.OperationAuthorizationServiceImpl">
+		<property name="genericDaoImpl" ref="genericDaoImpl"/>
+	</bean>
+	<!-- 树标签使用 -->
+	<bean id="treeService" class="com.baize.common.core.web.ui.tree.TreeServiceImpl" scope="singleton">
+		<property name="genericDaoImpl" ref="genericDaoImpl"/>
+	</bean>
+	<bean id="outSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    	<property name="driverClassName">
+    		<value>org.logicalcobwebs.proxool.ProxoolDriver</value>
+    	</property>
+    	<property name="url">
+    		<value>proxool.outerPool</value>
+    	</property>
+    </bean>
+    <bean id="jdbcTemplate" class ="org.springframework.jdbc.core.JdbcTemplate" > 
+        <property name="dataSource"> 
+             <ref bean="outSource"/> 
+        </property> 
+    </bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocations">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean> 	
+	<bean id="genericDaoImpl" class="com.baize.common.core.dao.GenericDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>	
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="delete*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="modify*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="save*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="audit*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="revert*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="copy*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="cancel*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="publish*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="build*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="import*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="draft*" propagation="REQUIRED" timeout="60"/>
+			<tx:method name="*" read-only="true" timeout="30"/>
+		</tx:attributes>
+	</tx:advice>
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="testTxAop" 
+        expression="execution(* add*(..))||execution(* delete*(..))||execution(* save*(..))||execution(* modify*(..))||execution(* audit*(..))||execution(* revert*(..))||execution(* copy*(..))||execution(* cancel*(..))||execution(* import*(..))||execution(* publish*(..))||execution(* build*(..))||execution(* draft*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="testTxAop"/>
+    </aop:config>
+    
+
+    
+    <!-- 
+   	<bean id="buildTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	    <property name="jobDetail" ref="buildJobDetail" />
+	    <property name="cronExpression" value="0 0 2 * * ?" />
+	</bean>
+    --> 
+    <!-- 生成任务 -->
+    <bean id="buildJob" class="com.baize.ccms.sys.BuildTask" scope="prototype">
+	 	<property name="publisher" ref="publishmanager-staticPublisher"/>
+		<property name="articleBuildListDao" ref="publishmanager-articleBuildListDao"/>
+		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao"/>
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+		<property name="columnDao" ref="columnmanager-columnDao" />
+		<property name="articleDao" ref="articlemanager-articleDao" />	
+	 </bean>
+    <bean id="buildJobDetailTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+   		<property name="targetObject">
+			<ref bean="buildJob" />
+		</property>
+		<property name="targetMethod">
+			<value>${buildTargetMethod}</value>
+		</property>
+		<property name="concurrent" value="false"></property>   
+	</bean>
+	<bean id="buildTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	   <property name="jobDetail">
+	   		<ref local="buildJobDetailTask"/>
+	   </property>
+	   <property name="cronExpression">
+	    	<value>${buildCronTrigger}</value>
+	   </property>
+	</bean>
+	
+	<!-- 发布任务 -->
+	<bean id="publishJob" class="com.baize.ccms.sys.PublishTask" scope="prototype">
+	  <property name="articleDao" ref="articlemanager-articleDao" />
+    	<property name="publisher" ref="publishmanager-staticPublisher"/>
+		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao"/>
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+	 </bean>
+    <bean id="publishJobDetailTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+   		<property name="targetObject">
+			<ref bean="publishJob" />
+		</property>
+		<property name="targetMethod">
+			<value>${publishTargetMethod}</value>
+		</property>
+		<property name="concurrent" value="false"></property>   
+	</bean>
+	<bean id="publishTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	   <property name="jobDetail">
+	   		<ref local="publishJobDetailTask"/>
+	   </property>
+	   <property name="cronExpression">
+	    	<value>${publishCronTrigger}</value>
+	   </property>
+	</bean>
+	
+		
+	<!-- 最新信息任务 -->
+	<bean id="buildLatestInfoJob" class="com.baize.ccms.sys.BuildLatestInfoTask" scope="prototype">
+			 	<property name="siteDao" ref="sitemanager-siteDao" />
+	 	<property name="columnDao" ref="columnmanager-columnDao"/>
+	 	<property name="articleDao" ref="articlemanager-articleDao" />
+	 	<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+	 </bean>
+    <bean id="buildLatestInfoJobDetailTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+   		<property name="targetObject">
+			<ref bean="buildLatestInfoJob" />
+		</property>
+		<property name="targetMethod">
+			<value>${buildLatestInfoTargetMethod}</value>
+		</property>
+		<property name="concurrent" value="false"></property>   
+	</bean>
+	
+	
+	<bean id="buildLatestInfoTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	   <property name="jobDetail">
+	   		<ref local="buildLatestInfoJobDetailTask"/>
+	   </property>
+	   <property name="cronExpression">
+	    	<value>${buildLatestInfoCronTrigger}</value>
+	   </property>
+	</bean>
+    
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	    <property name="triggers">
+	        <list>
+	            <ref bean="publishTrigger" />
+	             
+	            <ref bean="buildLatestInfoTrigger" />
+	             
+	            <ref bean="buildTrigger" />
+	        </list>
+	    </property>
+	</bean>
+    <!-- 
+    <bean id="springLoader" class="com.baize.ccms.sys.SpringLoader" init-method="init">
+    	<property name="articleDao" ref="articlemanager-articleDao" />
+    </bean>
+     -->
+</beans>

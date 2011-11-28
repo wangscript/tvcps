@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 操作 start -->
+	<bean name="/operation"
+		class="com.baize.ccms.biz.configmanager.web.action.OperationAction"
+		scope="singleton">
+		<property name="baseBiz" ref="usermanager-operationBiz"></property>
+	</bean>
+	<bean id="usermanager-operationBiz" class="com.baize.ccms.biz.usermanager.service.OperationBiz"
+		scope="singleton">
+		<property name="operationService" ref="usermanager-operationService" />
+	</bean>
+	<!-- 操作 end -->
+	
+	<!-- 系统设置 start -->
+	<bean name="/init"
+		class="com.baize.ccms.biz.configmanager.web.action.InitAction" scope="prototype">
+		<property name="baseBiz" ref="configmanager-initBiz" />
+	</bean>
+	<bean id="configmanager-initBiz" class="com.baize.ccms.biz.configmanager.service.InitBiz"
+		scope="singleton">
+		<property name="initService" ref="configmanager-initService" />
+	</bean>
+	<bean id="configmanager-initService"
+		class="com.baize.ccms.biz.configmanager.service.impl.InitServiceImpl"
+		scope="singleton">
+		<property name="userDao" ref="usermanager-userDao" />
+		<property name="siteDao" ref="sitemanager-siteDao" />
+	</bean>		
+	<!-- 系统设置end -->
+	
+	
+	<!-- 模块管理 start -->
+	<bean name="/moduleCategory"
+		class="com.baize.ccms.biz.configmanager.web.action.ModuleCategoryAction"
+		scope="prototype">
+		<property name="baseBiz" ref="configmanager-moduleCategoryBiz" />
+	</bean>
+	<bean id="configmanager-moduleCategoryBiz"
+		class="com.baize.ccms.biz.configmanager.service.ModuleCategoryBiz"
+		scope="singleton">
+		<property name="moduleCategoryService" ref="configmanager-moduleCategoryService" />
+	</bean>
+	<bean id="configmanager-moduleCategoryService"
+		class="com.baize.ccms.biz.configmanager.service.impl.ModuleCategoryServiceImpl"
+		scope="singleton">
+		<property name="moduleCategoryDao" ref="configmanager-moduleCategoryDao" />
+	</bean>
+	<bean id="configmanager-moduleCategoryDao"
+		class="com.baize.ccms.biz.configmanager.dao.impl.ModuleCategoryDaoImpl"
+		parent="genericDaoImpl" />
+	<!-- 模块管理 end -->
+	
+	<!-- 日志管理 start -->
+	<bean name="/systemLog"
+		class="com.baize.ccms.biz.configmanager.web.action.SystemLogAction"
+		scope="prototype">
+		<property name="baseBiz" ref="configmanager-systemLogBiz" />
+	</bean>
+	<bean id="configmanager-systemLogBiz" class="com.baize.ccms.biz.configmanager.service.SystemLogBiz"
+		scope="singleton">
+		<property name="systemLogService" ref="configmanager-systemLogService" />
+	</bean>
+	<bean id="configmanager-systemLogService"
+		class="com.baize.ccms.biz.configmanager.service.impl.SystemLogServiceImpl"
+		scope="singleton">
+		<property name="systemLogDao" ref="configmanager-systemLogDao" />
+	</bean>
+	<bean id="configmanager-systemLogDao"
+		class="com.baize.ccms.biz.configmanager.dao.impl.SystemLogDaoImpl"
+		parent="genericDaoImpl">
+		<property name="moduleCategoryDao" ref="configmanager-moduleCategoryDao" />
+	</bean>
+	<!-- 日志管理 end -->
+	
+	
+	<!-- 作者设置 start -->
+	<bean name="/author"
+		class="com.baize.ccms.biz.configmanager.web.action.GeneralSystemSetAction"
+		scope="prototype">
+		<property name="baseBiz" ref="configmanager-generalSystemSetBiz" />
+	</bean>
+	<bean id="configmanager-generalSystemSetBiz"
+		class=" com.baize.ccms.biz.configmanager.service.GeneralSystemSetBiz"
+		scope="singleton">
+		<property name="generalSystemSetService" ref="configmanager-generalSystemSetService" />
+	</bean>
+	<bean id="configmanager-generalSystemSetService"
+		class="com.baize.ccms.biz.configmanager.service.impl.GeneralSystemSetServiceImpl"
+		scope="singleton">
+		<property name="generalSystemSetDao" ref="configmanager-generalSystemSetDao" />
+		<property name="reneralSystemSetCategoryDao" ref="configmanager-reneralSystemSetCategoryDao" />
+	</bean>
+	<bean id="configmanager-generalSystemSetDao"
+		class="com.baize.ccms.biz.configmanager.dao.impl.GeneralSystemSetDaoImpl"
+		parent="genericDaoImpl" />
+	<bean id="configmanager-reneralSystemSetCategoryDao"
+		class="com.baize.ccms.biz.configmanager.dao.impl.ReneralSystemSetCategoryDaoImpl"
+		parent="genericDaoImpl" />
+		                                                             
+	<!-- 作者设置end -->
+	
+<!--信息过滤设置 start -->
+	<bean name="/infoFilter"
+		class="com.baize.ccms.biz.configmanager.web.action.InformationFilterAction"
+		scope="prototype">
+		<property name="baseBiz" ref="configmanager-informationFilterBiz" />
+	</bean>
+	<bean id="configmanager-informationFilterBiz"
+	           
+		class="com.baize.ccms.biz.configmanager.service.InformationFilterBiz"
+		scope="singleton">
+		<property name="informationFilterService" ref="configmanager-informationFilterService" />
+	</bean>
+	<bean id="configmanager-informationFilterService"
+		class="com.baize.ccms.biz.configmanager.service.impl.InformationFilterServiceImpl"
+		scope="singleton">
+		<property name="informationFilterDao" ref="configmanager-informationFilterDao" />
+		<property name="filterCategoryDao" ref="configmanager-filterCategoryDao" />
+	</bean>
+	<bean id="configmanager-informationFilterDao"
+		class="com.baize.ccms.biz.configmanager.dao.impl.InformationFilterDaoImpl"
+		parent="genericDaoImpl" />
+	<bean id="configmanager-filterCategoryDao"
+		class="com.baize.ccms.biz.configmanager.dao.impl.FilterCategoryDaoImpl"
+		parent="genericDaoImpl" />
+		                                                             
+	<!-- 信息过滤设置end -->
+</beans>

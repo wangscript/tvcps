@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 文章格式  -->
+	<bean name="/articleFormat" class="com.baize.ccms.biz.articlemanager.web.action.ArticleFormatAction" scope="prototype">
+		<property name="baseBiz" ref="articlemanager-articleFormatBiz" />
+	</bean>
+	<bean name="articlemanager-articleFormatBiz" class="com.baize.ccms.biz.articlemanager.service.ArticleFormatBiz">
+		<property name="articleFormatService" ref="articlemanager-articleFormatService" />
+	</bean>
+	<bean id="articlemanager-articleFormatService" class="com.baize.ccms.biz.articlemanager.service.impl.ArticleFormatServiceImpl">
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="templateDao" ref="templatemanager-templateDao" />
+		<property name="enumerationDao" ref="articlemanager-enumerationDao"/>
+	</bean>
+	<bean id="articlemanager-articleFormatDao" class="com.baize.ccms.biz.articlemanager.dao.impl.ArticleFormatDaoImpl" parent="genericDaoImpl" />
+	<bean id="templatemanager-templateDao" class="com.baize.ccms.biz.templatemanager.dao.impl.TemplateDaoImpl" parent="genericDaoImpl" />	
+	
+	<!-- 文章属性 -->
+	<bean name="/articleAttribute" class="com.baize.ccms.biz.articlemanager.web.action.ArticleAttributeAction" scope="prototype">
+		<property name="baseBiz" ref="articlemanager-articleAttributeBiz" />
+	</bean>
+	<bean name="articlemanager-articleAttributeBiz" class="com.baize.ccms.biz.articlemanager.service.ArticleAttributeBiz">
+		<property name="articleAttributeService" ref="articlemanager-articleAttributeService" />
+	</bean>
+	<bean id="articlemanager-articleAttributeService" class="com.baize.ccms.biz.articlemanager.service.impl.ArticleAttributeServiceImpl">
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="enumerationDao" ref="articlemanager-enumerationDao"/>
+	</bean>
+	<bean id="articlemanager-articleAttributeDao" class="com.baize.ccms.biz.articlemanager.dao.impl.ArticleAttributeDaoImpl" parent="genericDaoImpl" />
+	
+	<!-- 文章 -->
+	<bean name="/article" class="com.baize.ccms.biz.articlemanager.web.action.ArticleAction" scope="prototype">
+		<property name="baseBiz" ref="articlemanager-articleBiz" />
+	</bean>	
+	<bean name="articlemanager-articleBiz" class="com.baize.ccms.biz.articlemanager.service.ArticleBiz">
+		<property name="articleService" ref="articlemanager-articleService" />
+	</bean>
+	<bean name="articlemanager-articleService" class="com.baize.ccms.biz.articlemanager.service.impl.ArticleServiceImpl">
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao" />
+		<property name="articleBuildListDao" ref="publishmanager-articleBuildListDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="publisher" ref="publishmanager-staticPublisher"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="enumerationDao" ref="articlemanager-enumerationDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="rightDao" ref="articlemanager-rightDao"/>
+		<property name="userDao" ref="articlemanager-userDao"/>	
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+	    <property name="generalSystemSetDao" ref="configmanager-generalSystemSetDao"/>
+	    <property name="informationFilterDao" ref="configmanager-informationFilterDao"/>
+	    <property name="jdbcTemplate" ref="jdbcTemplate" />	
+	    <property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+	</bean>
+	<bean id="articlemanager-articleDao" class="com.baize.ccms.biz.articlemanager.dao.impl.ArticleDaoImpl" parent="genericDaoImpl" />
+	<bean id="articlemanager-rightDao" class="com.baize.ccms.biz.usermanager.dao.impl.RightDaoImpl" parent="genericDaoImpl"/>	
+	<bean id="configmanager-generalSystemSetDao"  class="com.baize.ccms.biz.configmanager.dao.impl.GeneralSystemSetDaoImpl"  parent="genericDaoImpl" />
+	<bean id="configmanager-informationFilterDao" class="com.baize.ccms.biz.configmanager.dao.impl.InformationFilterDaoImpl"  parent="genericDaoImpl" />
+	
+    <!-- 外部文章处理类 -->
+    <bean name="/articleout" class="com.baize.ccms.biz.articlemanager.web.action.ArticleOutAction" scope="prototype">
+		<property name="articleService" ref="articlemanager-articleService" />
+	</bean>	
+	
+	<!-- 枚举类型 -->
+	<bean name="/enumeration" class="com.baize.ccms.biz.articlemanager.web.action.EnumerationAction" scope="prototype">
+		<property name="baseBiz" ref="articlemanager-enumerationBiz" />
+	</bean>
+	<bean name="articlemanager-enumerationBiz" class="com.baize.ccms.biz.articlemanager.service.EnumerationBiz">
+		<property name="enumerationService" ref="articlemanager-enumerationService" />
+	</bean>
+	<bean id="articlemanager-enumerationService" class="com.baize.ccms.biz.articlemanager.service.impl.EnumerationServiceImpl">
+		<property name="enumerationDao" ref="articlemanager-enumerationDao" />
+		<property name="userDao" ref="articlemanager-userDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+	</bean>
+	<bean id="articlemanager-enumerationDao" class="com.baize.ccms.biz.articlemanager.dao.impl.EnumerationDaoImpl" parent="genericDaoImpl" />
+	<bean id="articlemanager-userDao" class="com.baize.ccms.biz.usermanager.dao.impl.UserDaoImpl" parent="genericDaoImpl"/>
+</beans>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.templatemanager.domain">
+    <class name="TemplateInstance" table="template_instances">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="name" />
+        <property name="fileName" />
+        <property name="localPath" />
+        <property name="url" />
+        <property name="createTime" type="com.baize.common.core.util.DateString" />
+        <property name="usedNum" />
+        <many-to-one name="creator" column="creator_id" not-null="true"/>
+        <many-to-one name="template" column="template_id" not-null="true"/>
+        <many-to-one name="site" column="site_id" not-null="true"/>
+    </class>
+    
+    <!-- 按照模板的id查找模板实例并分页  -->
+    <query name="findTemplateInstanceByTemplateIdPage"><![CDATA[
+    	SELECT templateInstance.id, templateInstance.name, creator.name, templateInstance.createTime, templateInstance.url, templateInstance.usedNum
+    	  FROM TemplateInstance templateInstance
+     LEFT JOIN templateInstance.creator creator
+    	 WHERE templateInstance.template.id = :templateId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照模板的id查找模板实例  -->
+    <query name="findTemplateInstanceByTemplateId"><![CDATA[
+    	  FROM TemplateInstance templateInstance
+    	 WHERE templateInstance.template.id = :templateId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    
+     <!-- 通过模板网站ID查找模板实例  -->
+    <query name="findTemplateInstanceBySiteId"><![CDATA[
+    	  FROM TemplateInstance templateInstance
+    	 WHERE templateInstance.site.id = :siteId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照模板实例名称和模板id查找模板实例  -->
+    <query name="findTemplateInstanceByTemplateNameAndTemplateId"><![CDATA[
+    	  FROM TemplateInstance templateInstance
+    	 WHERE templateInstance.name = :templateInstanceName
+    	   AND templateInstance.template.id = :templateId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    
+    
+    
+   <!-- 按照模板的id和网站id查找模板实例并分页  -->
+    <query name="findTemplateInstanceByTemplateIdAndSiteIdPage"><![CDATA[
+    	SELECT templateInstance.id, templateInstance.name, creator.name, templateInstance.createTime, templateInstance.url, templateInstance.usedNum
+    	  FROM TemplateInstance templateInstance
+     LEFT JOIN templateInstance.creator creator
+    	 WHERE templateInstance.template.id = :templateId
+    	   AND templateInstance.site.id = :siteId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    <!-- 按照模板的id和网站id以及用户id查找模板实例并分页  -->
+    <query name="findTemplateInstanceByTemplateIdAndSiteIdAndCreatorIdPage"><![CDATA[
+    	SELECT templateInstance.id, templateInstance.name, creator.name, templateInstance.createTime, templateInstance.url, templateInstance.usedNum
+    	  FROM TemplateInstance templateInstance
+     LEFT JOIN templateInstance.creator creator
+    	 WHERE templateInstance.template.id = :templateId
+    	   AND templateInstance.site.id = :siteId
+    	   AND templateInstance.creator.id = :creatorId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    
+   <!-- 按照模板的id和网站id查找模板实例  -->
+    <query name="findTemplateInstanceByTemplateIdAndSiteId"><![CDATA[
+    	  FROM TemplateInstance templateInstance
+    	 WHERE templateInstance.template.id = :templateId
+    	   AND templateInstance.site.id = :siteId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照模板的id和网站id以及用户id查找模板实例  -->
+    <query name="findTemplateInstanceByTemplateIdAndSiteIdAndCreatorId"><![CDATA[
+    	  FROM TemplateInstance templateInstance
+    	 WHERE templateInstance.template.id = :templateId
+    	   AND templateInstance.site.id = :siteId
+    	   AND templateInstance.creator.id = :creatorId
+      ORDER BY templateInstance.createTime DESC
+    ]]>
+    </query>
+    
+</hibernate-mapping>

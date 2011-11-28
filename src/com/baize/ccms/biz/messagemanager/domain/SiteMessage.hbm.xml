@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.messagemanager.domain">
+	<class name="SiteMessage" table="msg_site_messages" >
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="title" />		
+		<property name="content" />
+		<property name="flag" />
+		<property name="readed" />
+		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<many-to-one name="receiver" column="receiver_id"/>
+		<many-to-one name="sender" column="sender_id"/>
+	</class>
+	
+	<!-- 查询用户列表 -->
+	<query name="findContacterList"><![CDATA[
+		SELECT user.id, user.name, user.loginName		   
+		  FROM User user 
+	     WHERE user.deleted = 0 
+	       AND user.id != :id
+	]]></query>
+	<!-- 查询用户姓名 -->
+	<query name="findUserName"><![CDATA[
+		SELECT user.id, user.name			   
+		  FROM User user 
+	     WHERE user.id = :id
+	]]></query>
+	<!-- 查询已发送消息 -->
+	<query name="findSendBoxMessagesByPage"><![CDATA[
+		SELECT siteMessage.id, siteMessage.title, siteMessage.receiver.name, siteMessage.createTime			   
+		  FROM SiteMessage siteMessage
+		 WHERE siteMessage.flag = 2
+		   AND siteMessage.sender.id = :id
+		   ORDER BY siteMessage.createTime DESC
+	]]></query>
+	<!-- 查询收件箱消息 -->
+	<query name="findReceiveBoxMessagesByPage"><![CDATA[
+		SELECT siteMessage.id, siteMessage.title, siteMessage.sender.name, siteMessage.createTime, siteMessage.readed, siteMessage.sender.id			   
+		  FROM SiteMessage siteMessage
+		 WHERE siteMessage.flag = 1
+		   AND siteMessage.receiver.id = :id
+		   ORDER BY siteMessage.createTime DESC
+	]]></query>
+	<!-- 查看收件箱消息具体内容 -->
+	<query name="findReceiveContentById"><![CDATA[
+		SELECT siteMessage.title, siteMessage.sender.name, siteMessage.content, siteMessage.createTime			   
+		  FROM SiteMessage siteMessage
+	     WHERE siteMessage.id = :id  
+	]]></query>
+	<!-- 查看发件箱消息具体内容 -->
+	<query name="findSendContentById"><![CDATA[
+		SELECT siteMessage.title, siteMessage.receiver.name, siteMessage.content, siteMessage.createTime			   
+		  FROM SiteMessage siteMessage
+	     WHERE siteMessage.id = :id  
+	]]></query>
+	<!-- 根据消息id查看回复时发件人姓名 -->
+	<query name="findReplyNameById"><![CDATA[
+		SELECT siteMessage.sender.name	   
+		  FROM SiteMessage siteMessage
+	     WHERE siteMessage.id = :id  
+	       AND siteMessage.flag = 1
+	]]></query>
+	<!-- 根据消息id查看回复时发件人id -->
+	<query name="findReplyIdsById"><![CDATA[
+		SELECT siteMessage.sender.id	   
+		  FROM SiteMessage siteMessage
+	     WHERE siteMessage.id = :id  
+	       AND siteMessage.flag = 1
+	]]></query>
+	<!-- 根据当前用户id查询未读消息数 -->
+	<query name="findMessages"><![CDATA[
+		SELECT siteMessage.id	   
+		  FROM SiteMessage siteMessage
+	     WHERE siteMessage.readed = false 
+	       AND siteMessage.receiver.id = :id
+	       AND siteMessage.flag = 1
+	]]></query>
+	<!-- 查询常用联系人 -->
+	<query name="findUsefulContacterById"><![CDATA[
+		SELECT contact.receiver.id, contact.receiver.name, contact.receiver.loginName, org.name, contact.receiver.position			   
+		  FROM Contact contact 
+	 LEFT JOIN contact.receiver.organization org
+	     WHERE contact.sender.id = :id
+	]]></query>
+	<!-- 删除常用联系人 -->
+	<query name="deleteUsefulContacterById"><![CDATA[
+		DELETE
+		  FROM Contact contact
+		 WHERE contact.receiver.id 
+		    IN (:ids)
+		   AND contact.sender.id = :id
+	]]></query>
+	
+</hibernate-mapping>
+
+

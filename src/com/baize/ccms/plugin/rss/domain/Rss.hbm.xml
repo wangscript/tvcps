@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.plugin.rss.domain">
+    <class name="Rss" table="rss">
+        <id name="id">
+            <generator class="uuid" />
+        </id> 
+		<property name="xmlSavePath"/>
+		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<property name="columnIdentifier"/>
+		<many-to-one name="sites" column="site_id"></many-to-one>
+    </class>    
+    <!-- 根据自定义columnIdentifier查询RSS信息 -->
+    <query name="findByColumnId"><![CDATA[
+			FROM Rss r
+			WHERE r.columnIdentifier=:columnId
+	]]>		
+	</query>
+</hibernate-mapping>

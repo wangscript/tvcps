@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.baize.ccms.biz.templatemanager.domain">
+    <class name="TemplateUnit" table="template_units">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="name" />
+        <property name="html" type="text"/>
+        <property name="css" type="text"/>
+        <property name="script" type="text"/>
+        <property name="configFile" />
+        <property name="configDir" />
+        <many-to-one name="templateUnitCategory" column="template_unit_category_id"/>
+        <many-to-one name="templateInstance" column="template_instance_id" not-null="true"/>
+        <many-to-one name="site" column="site_id" not-null="true"/>
+        <property name="columnIds" type="text" />
+    </class>
+    
+    <!-- 通过模板实例ID删除单元  -->
+    <query name="deleteTemplateUnitByTemplateInstanceId"><![CDATA[
+    	DELETE 
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.templateInstance.id = :id
+    ]]>
+    </query>
+    
+    <!-- 通过模板实例ID查询模板单元  -->
+    <query name="findTemplateUnitByInstanceId"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.templateInstance.id = :id
+    ]]>
+    </query>
+    
+    <!-- 通过模板单元ID查询模板单元  -->
+    <query name="findTemplateUnitByUnitId"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.id = :unitId
+      ORDER By templateUnit.id
+    ]]>
+    </query>
+    
+    <!-- 通过模板单元名称查询模板单元  -->
+    <query name="findTemplateUnitByUnitName"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.name = :name
+      ORDER By templateUnit.id
+    ]]>
+    </query>
+    
+    <!-- 通过模板单元类别查询模板单元  -->
+    <query name="findTemplateUnitByUnitCategory"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.templateUnitCategory.id = :CategoryId
+      ORDER By templateUnit.id
+    ]]>
+    </query>
+    
+    <!-- 通过模板单元ID,类别查询模板单元  -->
+    <query name="findTemplateUnitByUnitIdAndUnitCategory"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.id = :unitId
+           AND templateUnit.templateUnitCategory.id = :CategoryId
+      ORDER By templateUnit.id
+    ]]>
+    </query>
+    
+    <!--按照网站id和单元类别查询模板单元  -->
+    <query name="findTemplateUnitBySiteIdAndUnitCategory"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.templateUnitCategory.id = :categoryId
+           AND templateUnit.templateInstance.site.id = :siteId 
+      ORDER By templateUnit.id
+    ]]>
+    </query>
+    
+    <!-- 按照模版实例id查找与新模版单元相同的名称 -->
+    <query name="findSameTemplateUnitByTemplateInstanceId"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.name IN (:unitNames)
+           AND templateUnit.templateInstance.id = :templateInstanceId 
+    ]]>
+    </query>
+    
+   <!-- 删除原来模版单元中与更新的模版不同的单元 -->
+    <query name="findDifferentTemplateUnitByTemplateId"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.templateInstance.template.id = :templateId
+           AND templateUnit.name NOT IN (:unitNames)
+    ]]>						
+    </query>
+    
+    <!-- 按照单元名称和模版实例id查找模版单元 -->
+    <query name="findTemplateUnitByUnitNameAndTemplateInstanceId"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.name = :unitName
+           AND templateUnit.templateInstance.id = :templateInstanceId 
+    ]]>						
+    </query>
+    
+    <!-- 按照单栏目IDS查找模版单元 -->
+    <query name="findTemplateUnitBySiteId"><![CDATA[
+    	  FROM TemplateUnit templateUnit
+         WHERE templateUnit.site.id = :siteId 
+           AND :columnId in (templateUnit.columnIds)
+    ]]>						
+    </query>
+</hibernate-mapping>
