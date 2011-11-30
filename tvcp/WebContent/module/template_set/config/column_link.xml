@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baize>
-	<copyright>Baize Net Work</copyright>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
 	<column-link>
 		<column-style>0</column-style>
 		<column-type>2</column-type>
@@ -14,4 +14,4 @@
 		<column-suffix-date>-1</column-suffix-date>
 		<column-suffix-picture>0</column-suffix-picture>
 	</column-link>
-</baize>
+</j2ee.cms>

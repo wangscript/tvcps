@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=utf-8" import="com.baize.common.core.util.StringUtil"%>
+<%@page language="java" contentType="text/html; charset=utf-8" import="com.j2ee.cms.common.core.util.StringUtil"%>
 <html>
 <head>
 <title>新增栏目</title>

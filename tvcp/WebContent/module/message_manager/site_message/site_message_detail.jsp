@@ -1,4 +1,4 @@
-<%@page contentType="text/html; charset=utf-8" language="java" errorPage="" import="com.baize.common.core.util.StringUtil" %>
+<%@page contentType="text/html; charset=utf-8" language="java" errorPage="" import="com.j2ee.cms.common.core.util.StringUtil" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

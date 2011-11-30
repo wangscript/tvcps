@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baize>
-	<copyright>Baize Net Work</copyright>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
 	<title-link-page>
 		<viewStyle></viewStyle>
 		<contextFrom>1</contextFrom>
@@ -19,4 +19,4 @@
 		<suffixDate></suffixDate>
 		<pageSite>center</pageSite>
 	</title-link-page>
-</baize>
+</j2ee.cms>

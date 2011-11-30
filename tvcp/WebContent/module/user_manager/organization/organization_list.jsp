@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" import="com.baize.common.core.util.DateUtil"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" import="com.j2ee.cms.common.core.util.DateUtil"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
