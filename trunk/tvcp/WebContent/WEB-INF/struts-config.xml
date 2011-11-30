@@ -3,7 +3,7 @@
 <struts-config>
 	<form-beans>
 		<!-- 全文 检索form -->
-        <form-bean name="searchForm" type="com.baize.ccms.search.form.SearchForm"/>   
+        <form-bean name="searchForm" type="com.j2ee.cms.search.form.SearchForm"/>   
 	</form-beans>
 	<global-forwards>
 		<forward name="index" path="/index.jsp"/>
@@ -18,12 +18,12 @@
 	</global-forwards>
 	<action-mappings>
 		<!-- 全文 检索action start -->
-		<action path="/searchAction" type="com.baize.ccms.search.action.SearchAction" name="searchForm" scope="request">
+		<action path="/searchAction" type="com.j2ee.cms.search.action.SearchAction" name="searchForm" scope="request">
 	         <forward name="list" path="/search/list.jsp"/>
 	         <forward name="search" path="/search/index.jsp"/>
 	         <forward name="listmsg" path="/search/list_msg.jsp"/>
 	    </action>
-	    <action path="/searchAdminAction" type="com.baize.ccms.search.action.SearchAdminAction" name="searchForm" scope="request">
+	    <action path="/searchAdminAction" type="com.j2ee.cms.search.action.SearchAdminAction" name="searchForm" scope="request">
 	         <forward name="login" path="/search/admin/index.jsp"/>
 	         <forward name="list" path="/search/admin/list.jsp"/> 
 	         <forward name="changePassWord" path="/search/admin/changePassword.jsp"/>
@@ -32,8 +32,8 @@
 	</action-mappings>
 	<controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
     <message-resources parameter="conf.ApplicationResources"/>
-	<message-resources key="complat_exception" parameter="com/baize/ccms/conf/complat_exception"/>
-	<message-resources key="common_exception" parameter="com/baize/ccms/conf/common_exception"/>
-	<plug-in className="com.baize.common.core.web.ConverterPlugIn"/>
+	<message-resources key="complat_exception" parameter="com/j2ee/cms/conf/complat_exception"/>
+	<message-resources key="common_exception" parameter="com/j2ee/cms/conf/common_exception"/>
+	<plug-in className="com.j2ee.cms.common.core.web.ConverterPlugIn"/>
 </struts-config>
 
