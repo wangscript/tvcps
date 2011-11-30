@@ -2,7 +2,7 @@
 	errorPage="error.jsp"%>
 <%@include file="/templates/headers/header.jsp"%>
 <jsp:useBean id="sysparam"
-	class="com.baize.ccms.biz.setupmanager.domain.SysParam" scope="session">
+	class="com.j2ee.cms.biz.setupmanager.domain.SysParam" scope="session">
 </jsp:useBean>
 <c:if test="${sysparam.pwd eq null}">
 	<%

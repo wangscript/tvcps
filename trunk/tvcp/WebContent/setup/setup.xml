@@ -2,20 +2,22 @@
 <systemSetting>
 	<userInfo>
 		<userName>f14cf4eca31dac45702e5b4a24975337</userName>
-		<userpwd>540f6a9942727b4ab6ad88c1f6676ca2</userpwd>
+		<!-- <userpwd>540f6a9942727b4ab6ad88c1f6676ca2</userpwd> -->
+		<userpwd>f14cf4eca31dac45702e5b4a24975337</userpwd>
 	</userInfo>
 	<sysParamset>
 		<syspath>d</syspath>
 		<serverName>tomcat</serverName>
-		<databaseType>mysql</databaseType>
-		<appName>ccms</appName>
+		<databaseType>oracle</databaseType>
+		<appName>cps</appName>
 	</sysParamset>
 	<dataInitialize>
-		<serverIP>127.0.0.1</serverIP>
-		<dataPort>3306</dataPort>
-		<dataBaseName>ccms</dataBaseName>
-		<dataUserName>root</dataUserName>
-		<dataUserPass>root</dataUserPass>
+		<serverIP>192.168.106.128</serverIP>
+		<!-- <dataPort>3306</dataPort> -->
+		<dataPort>1521</dataPort>
+		<dataBaseName>orcl</dataBaseName>
+		<dataUserName>cps</dataUserName>
+		<dataUserPass>cps</dataUserPass>
 		<countId>0</countId>
 	</dataInitialize>
 </systemSetting>

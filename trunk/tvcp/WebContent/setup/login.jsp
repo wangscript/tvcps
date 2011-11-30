@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CCMS后台管理制作端</title>
+<title>CPS后台管理制作端</title>
 <link href="<%=request.getContextPath() %>/images/setupimages/setup.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 input.test { 

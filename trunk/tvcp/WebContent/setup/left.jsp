@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>CCMS</title>
+<title>CPS</title>
 <link href="<%=request.getContextPath() %>/images/setupimages/setup.css" type="text/css" rel="stylesheet" />
 
 <script type="text/javascript">
