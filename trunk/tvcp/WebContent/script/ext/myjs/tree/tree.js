@@ -15,7 +15,7 @@ Ext.onReady(function() {
 		minSize : 140,
 		maxSize : 240,
 		loader : new Ext.tree.TreeLoader({
-			url : '/ccms-server/main/get_treedata.jsp?id=0'
+			url : '/cps-server/main/get_treedata.jsp?id=0'
 		})
 	});
 	function treeClick(node, event) {
@@ -35,7 +35,7 @@ Ext.onReady(function() {
 		var treeId = node.id;
 		alert(treeId);
 		if (treeId != '0') {
-			var url = '/ccms-server/main/get_treedata.jsp?id=' + treeId;
+			var url = '/cps-server/main/get_treedata.jsp?id=' + treeId;
 			alert(url);
 			tree.loader.url = url;
 		}

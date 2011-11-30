@@ -25,7 +25,7 @@
 	function getArticleTextXmlContent(xmlUrl, articleId, page) {
 		importXMLTest(xmlUrl);
 		var article_text = "content-"+articleId;
-	    var xmlfile = xmlDoc.selectNodes("/baize/"+article_text+"/pages");
+	    var xmlfile = xmlDoc.selectNodes("/j2ee.cms/"+article_text+"/pages");
 	    var content = xmlfile[0].getElementsByTagName("page"+page)[0].firstChild.nodeValue;
 	    return content;
 	}

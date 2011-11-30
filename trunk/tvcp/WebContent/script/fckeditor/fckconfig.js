@@ -123,8 +123,8 @@ FCKConfig.ToolbarSets["Basic"] = [
 ] ;
 
 
-//ccms后台使用的高级编辑器Toolbar
-FCKConfig.ToolbarSets["Ccms"] = [
+//cps后台使用的高级编辑器Toolbar
+FCKConfig.ToolbarSets["CPS"] = [
  	['Source','-','Preview','Templates'],
  	['Undo','Redo','-','Find','Replace','-','RemoveFormat'],
  	['Table','Rule','SpecialChar','PageBreak'],
@@ -179,7 +179,7 @@ FCKConfig.ToolbarSets["Gov_picfont"] = [
 	['Table','Rule','SpecialChar','MediaManager','ScriptManager']
 ] ;
 
-FCKConfig.ToolbarSets["Ccms_module"] = [
+FCKConfig.ToolbarSets["CPS_module"] = [
 	['Source','-','Preview'],
 	['Undo','Redo','-','Find','Replace','-','PasteText','PasteWord','RemoveFormat'],
 	['Table','Rule','SpecialChar'],
@@ -190,7 +190,7 @@ FCKConfig.ToolbarSets["Ccms_module"] = [
 	['FitWindow']
 ] ;
 
-FCKConfig.ToolbarSets["Ccms_open"] = [
+FCKConfig.ToolbarSets["CPS_open"] = [
 	['Source','-','Preview'],
 	['Undo','Redo','-','Find','Replace','-','RemoveFormat'],
 	['ImageManager','FlashManager','MediaManager','AttachManager','ScriptManager','Table','Rule','SpecialChar'],
@@ -203,7 +203,7 @@ FCKConfig.ToolbarSets["Ccms_open"] = [
 	['FitWindow']
 ] ;
 
-FCKConfig.ToolbarSets["Ccms_openbasic"] = [
+FCKConfig.ToolbarSets["CPS_openbasic"] = [
 	['Source','DocProps','-','NewPage','Preview','-','Templates'],
 	['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'],
 	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
@@ -216,7 +216,7 @@ FCKConfig.ToolbarSets["Ccms_openbasic"] = [
 	['-','TextColor','BGColor','-','Link','Unlink','-','ImageManager','AttachManager','FlashManager','ScriptManager']	
 ] ;
 
-FCKConfig.ToolbarSets["Ccms_font"] = [['Source','-','TextColor','BGColor','-','Style','FontFormat','FontName','FontSize','ImageManager']                                      
+FCKConfig.ToolbarSets["CPS_font"] = [['Source','-','TextColor','BGColor','-','Style','FontFormat','FontName','FontSize','ImageManager']                                      
                                        ] ;
 
 FCKConfig.ToolbarSets["unit_style"] = [

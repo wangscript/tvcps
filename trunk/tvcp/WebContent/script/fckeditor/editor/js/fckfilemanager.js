@@ -29,7 +29,7 @@ function doOptFileManager(obj,label, queform, url, localhost) {
 				var picwidth = obj.width.value;  //原图的宽度
 				var picheight = obj.height.value;//原图的高度
 				returnvaluestr += " <img src='" + localhost + "' width='"+ picwidth+"' height='"+picheight+"'" ;
-				//returnvaluestr += " <img  width='" + picwidth + "'  height='" + picheight + "' src=\"http://localhost:8080/ccms1.0/release/site2/upload/picture/200905121745002341.jpg\"" ;
+				//returnvaluestr += " <img  width='" + picwidth + "'  height='" + picheight + "' src=\"http://localhost:8080/cps1.0/release/site2/upload/picture/200905121745002341.jpg\"" ;
 			}
 			if(sel_value == 1) {	
 				//插入缩略图
@@ -39,7 +39,7 @@ function doOptFileManager(obj,label, queform, url, localhost) {
 				returnvaluestr += " <img   src='" + localhost + "' width='"+ suoluwidth+"' height='"+suolvheight+"'" ;
 			
 				//document.delhidden.location = "picture.do?dealMethod=scaleImage&picurl=/release/site2/upload/picture/200905121745002341.jpg&width=" + suoluwidth + "&height=" + suolvheight;
-				//returnvaluestr += " <img   width=" + suoluwidth + " height=" + suolvheight + " src=\"http://localhost:8080/ccms1.0/release/site2/upload/picture/200905121745002341.jpg\"";
+				//returnvaluestr += " <img   width=" + suoluwidth + " height=" + suolvheight + " src=\"http://localhost:8080/cps1.0/release/site2/upload/picture/200905121745002341.jpg\"";
 			}
 			//获取对齐方式的值
 			var align = obj.align.value;
