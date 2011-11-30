@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="/WEB-INF/tld/ccms.tld" prefix="ccms"%>
+<%@taglib uri="/WEB-INF/tld/cps.tld" prefix="cps"%>
 <%@taglib uri="http://java.fckeditor.net" prefix="FCK" %>
 <script type="text/javascript" src="<c:url value="/script/fckeditor/fckeditor.js"/>"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value="/script/jquery-tooltip/css/tooltip.css"/>" >
@@ -195,5 +195,5 @@
                      
 
 <ul>
-	<ccms:form article="${articleForm.article}" format="${articleForm.articleFormat}" attributes="${articleForm.attributeList}"/>
+	<cps:form article="${articleForm.article}" format="${articleForm.articleFormat}" attributes="${articleForm.attributeList}"/>
 </ul>

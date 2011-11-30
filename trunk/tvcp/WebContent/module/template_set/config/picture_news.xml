@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baize>
-	<copyright>Baize Net Work</copyright>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
 	<picture-news>
 		<viewStyle>0</viewStyle>
 		<contextFrom>1</contextFrom>
@@ -20,4 +20,4 @@
 		<titleEndValidity>-1</titleEndValidity>
 		<titleEndPic>0</titleEndPic>
 	</picture-news>
-</baize>
+</j2ee.cms>

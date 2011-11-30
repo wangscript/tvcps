@@ -61,7 +61,7 @@
 	<input type="hidden" id="unit_categoryId" name="unit_categoryId" value="${staticUnitForm.unit_categoryId}"/>
 	<input type="hidden" name="dealMethod" id="dealMethod" value="findConfig"/>
 	<input type="hidden" id="hasSaved" name="hasSaved" value="N" />
-	<FCK:editor basePath="/script/fckeditor" instanceName="staticContent" value="${staticUnitForm.staticContent}" toolbarSet="Ccms_openbasic" height="400"></FCK:editor>
+	<FCK:editor basePath="/script/fckeditor" instanceName="staticContent" value="${staticUnitForm.staticContent}" toolbarSet="CPS_openbasic" height="400"></FCK:editor>
 	<center>
 	<input type="button" value="保存"   class="btn_normal"  onclick="btn_save()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type="button" value="站内保存"   class="btn_normal" onclick="saveSite()" />

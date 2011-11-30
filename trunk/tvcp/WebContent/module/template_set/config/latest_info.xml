@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baize>
-	<copyright>Baize Net Work</copyright>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
 	<latest-info>
 		<unitType>1</unitType>
 		<allColumn>0</allColumn>
@@ -23,4 +23,4 @@
 		<moreLinkPic>0</moreLinkPic>
 		<pageSite>center</pageSite>
 	</latest-info>
-</baize>
+</j2ee.cms>

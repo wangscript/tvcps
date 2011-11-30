@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@include file="/templates/headers/header.jsp"%>
-<%@ page import="com.baize.ccms.biz.columnmanager.web.form.ColumnForm,com.baize.ccms.biz.columnmanager.domain.Column" %>
+<%@ page import="com.j2ee.cms.biz.columnmanager.web.form.ColumnForm,com.j2ee.cms.biz.columnmanager.domain.Column" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

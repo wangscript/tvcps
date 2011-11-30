@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<baize>
-	<copyright>Baize Net Work</copyright>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
 	<online_survery>
 		<category>0</category>
 		<theme>0</theme>
@@ -11,4 +11,4 @@
 		<defaultCount>5</defaultCount>
 		<more></more>
 	</online_survery>
-</baize>
+</j2ee.cms>

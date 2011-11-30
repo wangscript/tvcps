@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baize>
-	<copyright>Baize Net Work</copyright>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
 	<title-link>
 		<viewStyle></viewStyle>
 		<contextFrom>1</contextFrom>
@@ -26,4 +26,4 @@
 		<evenColor></evenColor>
 		<strongTitle></strongTitle>
 	</title-link>
-</baize>
+</j2ee.cms>

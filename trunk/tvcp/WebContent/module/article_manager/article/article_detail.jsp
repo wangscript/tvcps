@@ -104,7 +104,7 @@
 			        oFCKeditor.Width = "90%";
 			        oFCKeditor.Height = "300";
 			        oFCKeditor.Value = $(n).val();
-			        oFCKeditor.ToolbarSet="Ccms_openbasic";
+			        oFCKeditor.ToolbarSet="CPS_openbasic";
 			        oFCKeditor.ReplaceTextarea() ;
 				});
 			  },

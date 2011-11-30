@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baize>
-	<copyright>Baize Net Work</copyright>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
 	<magazine-category>
 		<magazineCategory-style>0</magazineCategory-style>
 		<magazineCategory-source>1</magazineCategory-source>
@@ -12,4 +12,4 @@
 		<title-suffix></title-suffix>
 		<title-suffix-picture></title-suffix-picture>
 	</magazine-category> 
-</baize>
+</j2ee.cms>
