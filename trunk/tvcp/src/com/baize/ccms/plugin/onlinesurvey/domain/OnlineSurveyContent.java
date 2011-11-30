@@ -1,17 +1,17 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlinesurvey.domain;
+package com.j2ee.cms.plugin.onlinesurvey.domain;
 
 import java.io.Serializable;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述网上调查实体类</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
- * <p>网址：http://www.baizeweb.com
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  </p>
+ * <p>网址：http://www.j2ee.cmsweb.com
  * @author 包坤涛
  * @version 1.0
  * @since 2009-10-21 下午06:38:29
@@ -26,7 +26,7 @@ public class OnlineSurveyContent  implements Serializable {
 	/**具体调查问题名称*/
 	private String name;
 	 /**是否显示*/
-	private boolean view;
+	private boolean viewed;
 	/**是否带反馈意见*/
 	private boolean feedback;
 	/**显示样式*/
@@ -54,11 +54,11 @@ public class OnlineSurveyContent  implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isView() {
-		return view;
+	public boolean isViewed() {
+		return viewed;
 	}
-	public void setView(boolean view) {
-		this.view = view;
+	public void setViewed(boolean view) {
+		this.viewed = view;
 	}
 	public boolean isFeedback() {
 		return feedback;

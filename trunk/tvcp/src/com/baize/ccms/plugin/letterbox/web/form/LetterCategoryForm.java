@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.letterbox.web.form;
+package com.j2ee.cms.plugin.letterbox.web.form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.plugin.letterbox.domain.LetterCategory;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.plugin.letterbox.domain.LetterCategory;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 信件类别表单</p>
  * <p>描述: 信件类别的表单数据，以便页面和方法中调用</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-6-13 下午04:03:37 

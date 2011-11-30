@@ -1,23 +1,23 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.templatemanager.service;
+package com.j2ee.cms.biz.templatemanager.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 模板实例业务类</p>
  * <p>描述: 负责处理模板实例的一些操作</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-4-9 下午04:00:58

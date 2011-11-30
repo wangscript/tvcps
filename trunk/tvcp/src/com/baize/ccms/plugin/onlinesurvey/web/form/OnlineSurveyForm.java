@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.onlinesurvey.web.form;
+package com.j2ee.cms.plugin.onlinesurvey.web.form;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurvey;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurvey;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 网上调查</p>
  * <p>描述: 网上调查，以便页面和方法中调用</p>
  * <p>模块: 网上调查</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-6-14 下午02:35:25 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.biz.templatemanager.domain">
+<hibernate-mapping package="com.j2ee.cms.biz.templatemanager.domain">
     <class name="Template" table="templates">
         <id name="id">
             <generator class="uuid" />
@@ -10,8 +10,8 @@
         <property name="fileName" />
         <property name="localPath" />
         <property name="url" />
-        <property name="createTime" type="com.baize.common.core.util.DateString" />
-        <property name="updateTime" type="com.baize.common.core.util.DateString" />
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
+        <property name="updateTime" type="com.j2ee.cms.common.core.util.DateString" />
         <many-to-one name="creator" column="creator_id" not-null="true"/>
         <many-to-one name="updator" column="updator_id"/>
         <many-to-one name="templateCategory" column="template_category_id" not-null="true"/>

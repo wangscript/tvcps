@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.configmanager.service.impl;
+package com.j2ee.cms.biz.configmanager.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -15,20 +15,20 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import com.baize.ccms.biz.configmanager.service.InitService;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.ReadSystemXml;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.configmanager.service.InitService;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.ReadSystemXml;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * 
  * <p>标题: —— 系统设置初始化业务层</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 系统设置</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-9-10 下午02:53:20

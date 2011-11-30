@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.usermanager.domain;
+package com.j2ee.cms.biz.usermanager.domain;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import java.util.Date;
  * <p>标题: 会员</p>
  * <p>描述: 前台注册用户</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
+ * <p>版权: Copyright (c) 2009  </p>
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-6-13 下午05:54:25

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
  */
-package com.baize.ccms.plugin.onlinesurvey.web.action;
+package com.j2ee.cms.plugin.onlinesurvey.web.action;
 
 import java.util.List;
 import java.util.Map;
@@ -15,16 +15,16 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
-import com.baize.ccms.plugin.onlinesurvey.service.OnlineSurveyService;
-import com.baize.ccms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.plugin.onlinesurvey.service.OnlineSurveyService;
+import com.j2ee.cms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京瀚沃信息科技有限责任公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009   
  * @author 郑荣华
  * @version 1.0
  * @since 2009-12-25 上午11:03:46

@@ -1,19 +1,19 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
 */
-package com.baize.ccms.plugin.letterbox.service;
+package com.j2ee.cms.plugin.letterbox.service;
 
 import java.util.List;
 
-import com.baize.ccms.plugin.letterbox.domain.LetterCategory;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.plugin.letterbox.domain.LetterCategory;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: 信件类别最高层接口</p>
  * <p>描述: 信件类别表最高层接口</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京瀚沃信息科技有限责任公司
+ * <p>版权: Copyright (c) 2009  
  * @author 杨信
  * @version 1.0
  * @since 2009-6-13 下午03:49:56 

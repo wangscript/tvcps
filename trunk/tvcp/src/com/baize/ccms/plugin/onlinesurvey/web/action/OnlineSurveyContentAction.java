@@ -1,29 +1,29 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.onlinesurvey.web.action;
+package com.j2ee.cms.plugin.onlinesurvey.web.action;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurvey;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurvey;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 
 /**
  * <p>标题: 网上调查Action</p>
  * <p>描述: 网上调查的不同操作，封装请求对象</p>
  * <p>模块: 网上调查</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-6-14 下午02:32:22 
@@ -35,7 +35,7 @@ public class OnlineSurveyContentAction extends GeneralAction {
 	private String dealMethod = "";
 	
 	/* (non-Javadoc)
-	 * @see com.baize.common.core.web.GeneralAction#doFormFillment(org.apache.struts.action.ActionForm, com.baize.common.core.web.event.ResponseEvent, java.lang.String)
+	 * @see com.j2ee.cms.common.core.web.GeneralAction#doFormFillment(org.apache.struts.action.ActionForm, com.j2ee.cms.common.core.web.event.ResponseEvent, java.lang.String)
 	 */
 	@Override
 	protected void doFormFillment(ActionForm actionForm, ResponseEvent responseEvent,

@@ -1,24 +1,24 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.service;
+package com.j2ee.cms.biz.documentmanager.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.documentmanager.domain.DocumentCategory;
-import com.baize.ccms.biz.documentmanager.web.form.DocumentForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.documentmanager.domain.DocumentCategory;
+import com.j2ee.cms.biz.documentmanager.web.form.DocumentForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: flash的biz层</p>
  * <p>描述: 这里是flash的biz层，用于响应action并进行处理</p>
  * <p>模块: 文档管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-3-25 下午04:06:48

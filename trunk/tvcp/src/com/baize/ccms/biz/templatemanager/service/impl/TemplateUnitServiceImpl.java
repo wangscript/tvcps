@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.templatemanager.service.impl;
+package com.j2ee.cms.biz.templatemanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,51 +13,51 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.documentmanager.service.impl.DocumentServiceImpl;
-import com.baize.ccms.biz.publishmanager.service.Publisher;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.Template;
-import com.baize.ccms.biz.templatemanager.domain.TemplateCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.service.TemplateUnitService;
-import com.baize.ccms.biz.unitmanager.analyzer.ArticleTextAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.MagazineCategoryAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.OnlineSurverySetAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.TemplateUnitAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.TitleLinkPageAnalyzer;
-import com.baize.ccms.biz.usermanager.dao.RightDao;
-import com.baize.ccms.biz.usermanager.domain.Operation;
-import com.baize.ccms.biz.usermanager.domain.Resource;
-import com.baize.ccms.biz.usermanager.domain.Right;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.documentmanager.service.impl.DocumentServiceImpl;
+import com.j2ee.cms.biz.publishmanager.service.Publisher;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.Template;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.service.TemplateUnitService;
+import com.j2ee.cms.biz.unitmanager.analyzer.ArticleTextAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.MagazineCategoryAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.OnlineSurverySetAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.TemplateUnitAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.TitleLinkPageAnalyzer;
+import com.j2ee.cms.biz.usermanager.dao.RightDao;
+import com.j2ee.cms.biz.usermanager.domain.Operation;
+import com.j2ee.cms.biz.usermanager.domain.Resource;
+import com.j2ee.cms.biz.usermanager.domain.Right;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>标题: 模板单元服务实现类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-5-13 上午09:34:07

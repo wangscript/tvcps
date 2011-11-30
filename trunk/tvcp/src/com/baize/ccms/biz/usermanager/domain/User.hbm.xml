@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+<hibernate-mapping package="com.j2ee.cms.biz.usermanager.domain">
 	<class name="User" table="users">
 		<id name="id">
 			<generator class="uuid" />
@@ -13,13 +13,13 @@
 		<property name="homeTel" /> 
 		<property name="officeTel" /> 
 		<property name="position" /> 
-		<property name="registerDate" type="com.baize.common.core.util.DateString"/>
+		<property name="registerDate" type="com.j2ee.cms.common.core.util.DateString"/>
 		<property name="personHomePage" />
 		<property name="email" />
 		<property name="deleted" />
 		<property name="menuIds" type="text"/>
 		<property name="systemFunction" type="text"/>
-		<property name="siteIds" type="com.baize.common.core.util.CommaList" length="1000"/>
+		<property name="siteIds" type="com.j2ee.cms.common.core.util.CommaList" length="1000"/>
 		<property name="chooseMenuIds" type="text"/>
 		<many-to-one name="organization" column="organization_id"  />
 	</class>

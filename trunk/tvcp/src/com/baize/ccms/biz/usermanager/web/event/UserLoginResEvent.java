@@ -1,21 +1,21 @@
-package com.baize.ccms.biz.usermanager.web.event;
+package com.j2ee.cms.biz.usermanager.web.event;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * 
  * 利用responseEvent的构造函数来写新生成的sessionid 
  * 利用requestEvetn的setRepCode来保存是否通过验证
- * ccms通用信息管理系统 
- * package: com.baize.ccms.biz.usermanager.web.event
+ * cps通用信息管理系统 
+ * package: com.j2ee.cms.biz.usermanager.web.event
  * File: UserLoginResEvent.java 创建时间:2009-1-12上午10:03:42
  * Title: 标题（要求能简洁地表达出类的功能和职责）
  * Description: 用来返回客户端验证登陆信息的response对象
- * Copyright: Copyright (c) 2009 南京百泽网络科技有限公司
- * Company: 南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2009  
+ * Company:  
  * 模块: 平台架构
  * @author  娄伟峰
  * @version 1.0

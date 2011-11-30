@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">             
-<hibernate-mapping package="com.baize.ccms.plugin.onlineBulletin.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.onlineBulletin.domain">
     <class name="OnlineBulletin" table="onlineBulletin">
        <id name="id">
             <generator class="uuid" />
@@ -11,9 +11,9 @@
         <!--公告内容-->
         <property name="context" type="text"/>
         <!--截止日期-->
-       <property name="endTime" type="com.baize.common.core.util.DateString" /> 
+       <property name="endTime" type="com.j2ee.cms.common.core.util.DateString" /> 
         <!--创建时间-->
-       <property name="createTime" type="com.baize.common.core.util.DateString" /> 
+       <property name="createTime" type="com.j2ee.cms.common.core.util.DateString" /> 
         <!--窗口名称-->
         <property name="windowName" />
         <!--窗口大小(宽度)-->              

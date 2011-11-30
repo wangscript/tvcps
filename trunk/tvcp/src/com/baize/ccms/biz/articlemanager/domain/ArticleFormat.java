@@ -1,22 +1,22 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.articlemanager.domain;
+package com.j2ee.cms.biz.articlemanager.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.ccms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.biz.usermanager.domain.User;
 
 /**
  * <p>标题: 格式</p>
  * <p>描述: 表示某篇文章的格式，一篇文章只能属于一种格式</p>
  * <p>模块: 文章管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 杨信
  * @version 1.0
  * @since 2009-3-10 下午01:40:37

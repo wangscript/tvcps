@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.messagemanager.web.action;
+package com.j2ee.cms.biz.messagemanager.web.action;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -14,19 +14,19 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.messagemanager.domain.SiteMessage;
-import com.baize.ccms.biz.messagemanager.web.form.SiteMessageForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.messagemanager.domain.SiteMessage;
+import com.j2ee.cms.biz.messagemanager.web.form.SiteMessageForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 消息Action</p>
  * <p>描述: 管理消息的不同操作，封装请求对象</p>
  * <p>模块: 消息管理</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-5-18 上午11:28:03 

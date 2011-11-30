@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
 */
-package com.baize.ccms.biz.sitemanager.service.impl;
+package com.j2ee.cms.biz.sitemanager.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,49 +13,49 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.documentmanager.dao.CategoryDao;
-import com.baize.ccms.biz.documentmanager.domain.AttachmentCategory;
-import com.baize.ccms.biz.documentmanager.domain.FlashCategory;
-import com.baize.ccms.biz.documentmanager.domain.JsCategory;
-import com.baize.ccms.biz.documentmanager.domain.PictureCategory;
-import com.baize.ccms.biz.publishmanager.service.remotepublish.client.FtpSender;
-import com.baize.ccms.biz.publishmanager.service.remotepublish.client.Sender;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.sitemanager.service.SiteService;
-import com.baize.ccms.biz.sitemanager.web.form.SiteForm;
-import com.baize.ccms.biz.templatemanager.dao.TemplateCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.usermanager.dao.AssignmentDao;
-import com.baize.ccms.biz.usermanager.dao.AuthorityDao;
-import com.baize.ccms.biz.usermanager.dao.MenuDao;
-import com.baize.ccms.biz.usermanager.dao.MenuFunctionDao;
-import com.baize.ccms.biz.usermanager.dao.OperationDao;
-import com.baize.ccms.biz.usermanager.dao.ResourceDao;
-import com.baize.ccms.biz.usermanager.dao.RoleDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.Assignment;
-import com.baize.ccms.biz.usermanager.domain.Menu;
-import com.baize.ccms.biz.usermanager.domain.Role;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.documentmanager.dao.CategoryDao;
+import com.j2ee.cms.biz.documentmanager.domain.AttachmentCategory;
+import com.j2ee.cms.biz.documentmanager.domain.FlashCategory;
+import com.j2ee.cms.biz.documentmanager.domain.JsCategory;
+import com.j2ee.cms.biz.documentmanager.domain.PictureCategory;
+import com.j2ee.cms.biz.publishmanager.service.remotepublish.client.FtpSender;
+import com.j2ee.cms.biz.publishmanager.service.remotepublish.client.Sender;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.sitemanager.service.SiteService;
+import com.j2ee.cms.biz.sitemanager.web.form.SiteForm;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.usermanager.dao.AssignmentDao;
+import com.j2ee.cms.biz.usermanager.dao.AuthorityDao;
+import com.j2ee.cms.biz.usermanager.dao.MenuDao;
+import com.j2ee.cms.biz.usermanager.dao.MenuFunctionDao;
+import com.j2ee.cms.biz.usermanager.dao.OperationDao;
+import com.j2ee.cms.biz.usermanager.dao.ResourceDao;
+import com.j2ee.cms.biz.usermanager.dao.RoleDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.Assignment;
+import com.j2ee.cms.biz.usermanager.domain.Menu;
+import com.j2ee.cms.biz.usermanager.domain.Role;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>标题: 网站服务接口实现</p>
  * <p>描述: 网站服务接口实现，列出网站处理中的一些方法</p>
  * <p>模块: 网站管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">郑荣华</a>
  * @version 1.0
  * @since 2009-3-13 下午03:30:41
@@ -912,7 +912,7 @@ public class SiteServiceImpl implements SiteService {
 		// 1.)
 		templateUnitStyle.setId(null);
 		templateUnitStyle.setName("正文含日期、信息来源、字号、打印本页、关闭窗口、文章评论");
-		templateUnitStyle.setContent("<script language=\"javascript\">function doZoom(size){document.getElementById(\"zoom\").style.fontSize=size+\"px\";}</script><!--for--><table width=\"90%\" align=\"center\"><tr><td align=\"center\"><!--articletitle--><br><hr size=\"1\" noshade color=\"#dddddd\"></td></tr><tr><td><table border=\"0\" align=\"center\" width=\"90%\"><tr><td width=\"25%\">发布日期：<!--year4-->-<!--month2-->-<!--day2--></td><td><!--if--><!--articlesource-->信息来源：<!--articlesource--><!--else--><!--/if--></td><td width=\"25%\">字号：[ <a href=\"javascript:doZoom(16)\">大</a> <a href=\"javascript:doZoom(14)\">中</a> <a href=\"javascript:doZoom(12)\">小</a>]</td></tr></table><BR><BR></td></tr><tr><td ><div id=\"zoom\"><!--if--><!--pic1--><table align=\"center\"><tr><td><img src=\"<!--pic1-->\" border=\"0\"></td></tr></table><!--else--><!--/if--><!--textArea1--></div></td></tr><tr><td align=\"left\" height=\"10\" style=\"padding-left:60px;\"><br><!--if--><!--attach1--><a href=\"<!--attach1-->\" style=\"font-size:10.5pt;\"><strong>[附件下载]</strong></a><!--else--><!--/if--><br></td></tr></table><BR><BR><table width=\"90%\" align=\"center\"><tr><td align=\"right\" style=\"font-size:10.5pt\"><!--articleComment--><a href=\"javascript:window.print()\" style=\"font-size:10.5pt\">打印本页</a> <a href=\"javascript:window.close()\" style=\"font-size:10.5pt\">关闭窗口</a></td></tr></table><!--/for--><a href=\"/ccms2.0/commitComment.do?dealMethod=commentList&articleId=<!--articleId-->\"><!--articleComment--></a>");
+		templateUnitStyle.setContent("<script language=\"javascript\">function doZoom(size){document.getElementById(\"zoom\").style.fontSize=size+\"px\";}</script><!--for--><table width=\"90%\" align=\"center\"><tr><td align=\"center\"><!--articletitle--><br><hr size=\"1\" noshade color=\"#dddddd\"></td></tr><tr><td><table border=\"0\" align=\"center\" width=\"90%\"><tr><td width=\"25%\">发布日期：<!--year4-->-<!--month2-->-<!--day2--></td><td><!--if--><!--articlesource-->信息来源：<!--articlesource--><!--else--><!--/if--></td><td width=\"25%\">字号：[ <a href=\"javascript:doZoom(16)\">大</a> <a href=\"javascript:doZoom(14)\">中</a> <a href=\"javascript:doZoom(12)\">小</a>]</td></tr></table><BR><BR></td></tr><tr><td ><div id=\"zoom\"><!--if--><!--pic1--><table align=\"center\"><tr><td><img src=\"<!--pic1-->\" border=\"0\"></td></tr></table><!--else--><!--/if--><!--textArea1--></div></td></tr><tr><td align=\"left\" height=\"10\" style=\"padding-left:60px;\"><br><!--if--><!--attach1--><a href=\"<!--attach1-->\" style=\"font-size:10.5pt;\"><strong>[附件下载]</strong></a><!--else--><!--/if--><br></td></tr></table><BR><BR><table width=\"90%\" align=\"center\"><tr><td align=\"right\" style=\"font-size:10.5pt\"><!--articleComment--><a href=\"javascript:window.print()\" style=\"font-size:10.5pt\">打印本页</a> <a href=\"javascript:window.close()\" style=\"font-size:10.5pt\">关闭窗口</a></td></tr></table><!--/for--><a href=\"/cps2.0/commitComment.do?dealMethod=commentList&articleId=<!--articleId-->\"><!--articleComment--></a>");
 		templateUnitStyle.setDisplayEffect("<img src=\"/" + GlobalConfig.appName + "/images/templateStyle/articleTextStyle_1.jpg\"/>");
 		templateUnitStyleDao.saveAndClear(templateUnitStyle);
 		systemLogDao.addLogData(articleTextCategoryName, site.getId(), sessionID, templateUnitStyle.getName());

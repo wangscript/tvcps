@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.templatemanager.service.impl;
+package com.j2ee.cms.biz.templatemanager.service.impl;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,33 +22,33 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.Template;
-import com.baize.ccms.biz.templatemanager.domain.TemplateCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.service.TemplateService;
-import com.baize.ccms.biz.templatemanager.web.form.TemplateForm;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.domain.UploadedFile;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.WebClientUtil;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.Template;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.service.TemplateService;
+import com.j2ee.cms.biz.templatemanager.web.form.TemplateForm;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.domain.UploadedFile;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.WebClientUtil;
 
 /**
  * <p>标题: 模板服务类</p>
  * <p>描述: 这里主要是模板服务的一些功能具体实现</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-4-9 下午03:31:16

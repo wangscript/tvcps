@@ -1,23 +1,23 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.pluginmanager.service;
+package com.j2ee.cms.plugin.pluginmanager.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 
 /**
  * <p>标题: —— 插件管理功能初始化业务流转层</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 插件管理</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-7-17 上午11:45:59 
@@ -54,7 +54,7 @@ public class PluginInitBiz extends BaseService {
 
 	
 	/* (non-Javadoc)
-	 * @see com.baize.common.core.service.BaseService#validateData(com.baize.common.core.web.event.RequestEvent)
+	 * @see com.j2ee.cms.common.core.service.BaseService#validateData(com.j2ee.cms.common.core.web.event.RequestEvent)
 	 */
 	@Override
 	public ResponseEvent validateData(RequestEvent requestEvent)

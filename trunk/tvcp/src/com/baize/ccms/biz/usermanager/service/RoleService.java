@@ -1,23 +1,23 @@
   /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.usermanager.service;
+package com.j2ee.cms.biz.usermanager.service;
 
 import java.util.List;
 
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.Menu;
-import com.baize.ccms.biz.usermanager.domain.Operation;
-import com.baize.ccms.biz.usermanager.domain.Role;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.Menu;
+import com.j2ee.cms.biz.usermanager.domain.Operation;
+import com.j2ee.cms.biz.usermanager.domain.Role;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: —— 角色业务逻辑处理最高接口</p>
  * <p>描述: —— 角色表业务逻辑处理最高接口</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-2-25 上午11:18:14

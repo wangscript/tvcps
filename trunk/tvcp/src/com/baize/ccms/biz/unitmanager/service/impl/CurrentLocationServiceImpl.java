@@ -1,35 +1,35 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.CurrentLocationService;
-import com.baize.ccms.biz.unitmanager.web.form.CurrentLocationForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.CurrentLocationService;
+import com.j2ee.cms.biz.unitmanager.web.form.CurrentLocationForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 当前位置业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-15 上午10:12:36
@@ -179,10 +179,10 @@ public class CurrentLocationServiceImpl implements CurrentLocationService{
 	 */
 	private void setXmlData(String filePath,String newFilePath,CurrentLocationForm currentLocationForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("baize/current_location/viewStyle",currentLocationForm.getViewStyle());
-		xmlUtil.setNodeCDATAText("baize/current_location/contextFrom",currentLocationForm.getContextFrom());
-		xmlUtil.setNodeCDATAText("baize/current_location/columnName",currentLocationForm.getColumnName());
-		xmlUtil.setNodeCDATAText("baize/current_location/titleLimit",currentLocationForm.getTitleLimit());
+		xmlUtil.setNodeCDATAText("j2ee.cms/current_location/viewStyle",currentLocationForm.getViewStyle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/current_location/contextFrom",currentLocationForm.getContextFrom());
+		xmlUtil.setNodeCDATAText("j2ee.cms/current_location/columnName",currentLocationForm.getColumnName());
+		xmlUtil.setNodeCDATAText("j2ee.cms/current_location/titleLimit",currentLocationForm.getTitleLimit());
 		xmlUtil.save(newFilePath);
 	}
 	/**
@@ -193,10 +193,10 @@ public class CurrentLocationServiceImpl implements CurrentLocationService{
 	 */
 	private CurrentLocationForm setXmlData(String filePath ,CurrentLocationForm currentLocationForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
-		currentLocationForm.setViewStyle(xmlUtil.getNodeText("baize/current_location/viewStyle"));
-		currentLocationForm.setContextFrom(xmlUtil.getNodeText("baize/current_location/contextFrom"));
-		currentLocationForm.setColumnName(xmlUtil.getNodeText("baize/current_location/columnName"));
-		currentLocationForm.setTitleLimit(xmlUtil.getNodeText("baize/current_location/titleLimit"));		
+		currentLocationForm.setViewStyle(xmlUtil.getNodeText("j2ee.cms/current_location/viewStyle"));
+		currentLocationForm.setContextFrom(xmlUtil.getNodeText("j2ee.cms/current_location/contextFrom"));
+		currentLocationForm.setColumnName(xmlUtil.getNodeText("j2ee.cms/current_location/columnName"));
+		currentLocationForm.setTitleLimit(xmlUtil.getNodeText("j2ee.cms/current_location/titleLimit"));		
 		return currentLocationForm;
 	}
 	
@@ -204,9 +204,9 @@ public class CurrentLocationServiceImpl implements CurrentLocationService{
 		filePath = GlobalConfig.appRealPath + filePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/current_location/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/current_location/contextFrom");
 		//栏目名称
-		String columnName = xmlUtil.getNodeText("baize/current_location/columnName");
+		String columnName = xmlUtil.getNodeText("j2ee.cms/current_location/columnName");
 		String testColumnId = null;
 		String strColumn[] = columnName.split("##");
 		if(strColumn != null && strColumn.length == 2){

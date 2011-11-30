@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.baize.ccms.biz.usermanager.web.form;
+package com.j2ee.cms.biz.usermanager.web.form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +14,13 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 /**
- * ccms通用信息管理系统 
- * package: com.baize.ccms.biz.login.web.form
+ * cps通用信息管理系统 
+ * package: com.j2ee.cms.biz.login.web.form
  * File: LoginForm.java 创建时间:2009-1-6下午03:21:55
  * Title: 标题（要求能简洁地表达出类的功能和职责）
  * Description: 描述（简要描述类的职责、实现方式、使用注意事项等）
- * Copyright: Copyright (c) 2009 南京百泽网络科技有限公司
- * Company: 南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2009  
+ * Company:  
  * 模块: 用户管理模块
  * @author  娄伟峰
  * @version 1.0

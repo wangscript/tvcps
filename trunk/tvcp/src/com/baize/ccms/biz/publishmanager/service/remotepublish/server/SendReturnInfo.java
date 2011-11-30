@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.publishmanager.service.remotepublish.server;
+package com.j2ee.cms.biz.publishmanager.service.remotepublish.server;
 
 import java.io.*;
 import java.net.*;

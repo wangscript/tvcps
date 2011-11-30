@@ -1,4 +1,4 @@
-package com.baize.ccms.biz.setupmanager.servlet;
+package com.j2ee.cms.biz.setupmanager.servlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.baize.ccms.biz.setupmanager.domain.SysInit;
-import com.baize.ccms.biz.setupmanager.service.SetupBiz;
-import com.baize.common.core.util.FileUtil;
+import com.j2ee.cms.biz.setupmanager.domain.SysInit;
+import com.j2ee.cms.biz.setupmanager.service.SetupBiz;
+import com.j2ee.cms.common.core.util.FileUtil;
 
 /**
  * <p>
@@ -20,13 +20,13 @@ import com.baize.common.core.util.FileUtil;
  * 描述: —— 负责业务控制
  * </p>
  * <p>
- * 模块: CCMS启动模块
+ * 模块: CPS启动模块
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0
@@ -53,8 +53,8 @@ public class CheckInit extends HttpServlet {
 		String m = "";
 		SetupBiz sbiz = new SetupBiz();
 		SysInit sysInit = new SysInit();
-		String serverIP = request.getParameter("ccms_ip");
-		String dataPort = request.getParameter("ccms_port");
+		String serverIP = request.getParameter("cps_ip");
+		String dataPort = request.getParameter("cps_port");
 		String dataBaseName = request.getParameter("dataBaseName");
 		String dataUserName = request.getParameter("dbUser");
 		String dataUserPass = request.getParameter("dbPassword");

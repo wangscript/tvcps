@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.sys;
+package com.j2ee.cms.sys;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,27 +14,27 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
- * <p>网址：http://www.baizeweb.com
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  </p>
+ * <p>网址：http://www.j2ee.cmsweb.com
  * @author <a href="mailto:sean_yang@163.com">杨信</a>
  * @version 1.0
  * @since 2009-8-31 下午06:31:32
@@ -75,15 +75,15 @@ public class BuildLatestInfoTask {
 					FileUtil.makeDirs(destFileDir);
 				}
 				XmlUtil xmlUtil = XmlUtil.getInstance(GlobalConfig.appRealPath + configFile);
-				String unitType = xmlUtil.getNodeText("/baize/latest-info/unitType");
-				String allColumn = xmlUtil.getNodeText("/baize/latest-info/allColumn");
-				String selectCol = xmlUtil.getNodeText("/baize/latest-info/selectCol");
-				String chooseColumn = xmlUtil.getNodeText("/baize/latest-info/chooseColumn");
-				String ispage = xmlUtil.getNodeText("/baize/latest-info/page");
-				String row = xmlUtil.getNodeText("/baize/latest-info/row");
-				String col = xmlUtil.getNodeText("/baize/latest-info/col");
-				String count = xmlUtil.getNodeText("/baize/latest-info/count");   // 显示总数
-				String pageCount = xmlUtil.getNodeText("/baize/latest-info/pageCount");  //  每页显示数目
+				String unitType = xmlUtil.getNodeText("/j2ee.cms/latest-info/unitType");
+				String allColumn = xmlUtil.getNodeText("/j2ee.cms/latest-info/allColumn");
+				String selectCol = xmlUtil.getNodeText("/j2ee.cms/latest-info/selectCol");
+				String chooseColumn = xmlUtil.getNodeText("/j2ee.cms/latest-info/chooseColumn");
+				String ispage = xmlUtil.getNodeText("/j2ee.cms/latest-info/page");
+				String row = xmlUtil.getNodeText("/j2ee.cms/latest-info/row");
+				String col = xmlUtil.getNodeText("/j2ee.cms/latest-info/col");
+				String count = xmlUtil.getNodeText("/j2ee.cms/latest-info/count");   // 显示总数
+				String pageCount = xmlUtil.getNodeText("/j2ee.cms/latest-info/pageCount");  //  每页显示数目
 				// 指定栏目（只有一个）
 				if(unitType.equals("1")) {
 					if(!StringUtil.isEmpty(chooseColumn)) {
@@ -211,10 +211,10 @@ public class BuildLatestInfoTask {
     	// 循环将文章的数据写入xml文件中
     	for(int p = 0; p < page; p++) {
 	    	Document document = DocumentHelper.createDocument();    
-			Element rootElement = document.addElement("baize"); 
+			Element rootElement = document.addElement("j2ee.cms"); 
 			
 			Element copyRight = rootElement.addElement("copyright");
-			copyRight.addCDATA("Baize Net Work");
+			copyRight.addCDATA("j2ee.cms Net Work");
 			if(infoCount < pageCount) {
 				tmp = infoCount;
 			}

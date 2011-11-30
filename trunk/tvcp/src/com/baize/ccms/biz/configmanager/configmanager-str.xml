@@ -4,17 +4,17 @@
 	<form-beans>
 		<!-- 用户操作实体bean start-->
 		<form-bean name="operationForm"
-			type="com.baize.ccms.biz.configmanager.web.form.OperationForm" />
+			type="com.j2ee.cms.biz.configmanager.web.form.OperationForm" />
 		<form-bean name="initForm"
-			type="com.baize.ccms.biz.configmanager.web.form.InitForm" />
+			type="com.j2ee.cms.biz.configmanager.web.form.InitForm" />
 		<form-bean name="generalSystemSetForm"
-			type="com.baize.ccms.biz.configmanager.web.form.GeneralSystemSetForm" />
+			type="com.j2ee.cms.biz.configmanager.web.form.GeneralSystemSetForm" />
 		<form-bean name="moduleCategoryForm"
-			type="com.baize.ccms.biz.configmanager.web.form.ModuleCategoryForm" />
+			type="com.j2ee.cms.biz.configmanager.web.form.ModuleCategoryForm" />
 		<form-bean name="systemLogForm"
-			type="com.baize.ccms.biz.configmanager.web.form.SystemLogForm" />
+			type="com.j2ee.cms.biz.configmanager.web.form.SystemLogForm" />
 		<form-bean name="informationFilterForm"
-			type="com.baize.ccms.biz.configmanager.web.form.InformationFilterForm" />
+			type="com.j2ee.cms.biz.configmanager.web.form.InformationFilterForm" />
 	</form-beans>
 	<global-exceptions />
 	<action-mappings>

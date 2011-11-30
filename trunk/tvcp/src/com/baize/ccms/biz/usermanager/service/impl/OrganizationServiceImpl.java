@@ -1,27 +1,27 @@
   /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.usermanager.service.impl;
+package com.j2ee.cms.biz.usermanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.usermanager.dao.OrganizationDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.service.OrganizationService;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.usermanager.dao.OrganizationDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.service.OrganizationService;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * <p>标题: —— 机构业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-2-16 下午02:59:56

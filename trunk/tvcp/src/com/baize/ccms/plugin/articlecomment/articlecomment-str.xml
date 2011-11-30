@@ -4,7 +4,7 @@
 
 	<form-beans>
 		<!-- 文章业务实体bean start-->  
-        <form-bean name="articleCommentForm" type="com.baize.ccms.plugin.articlecomment.web.form.ArticleCommentForm"/>
+        <form-bean name="articleCommentForm" type="com.j2ee.cms.plugin.articlecomment.web.form.ArticleCommentForm"/>
     </form-beans>
 	<global-exceptions />
 	<action-mappings>

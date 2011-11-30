@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.sys;
+package com.j2ee.cms.sys;
 
 import javax.servlet.ServletContextEvent;
 
@@ -10,7 +10,7 @@ import javax.servlet.ServletContextEvent;
  * <p>标题: 监听启动接口</p>
  * <p>描述: 该接口定义需要在应用启动时做的业务操作.</p>
  * <p>模块: 通用平台</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since Feb 12, 2009 7:59:54 PM

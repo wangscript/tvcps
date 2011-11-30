@@ -4,7 +4,7 @@
 
 	<form-beans>
 		<!-- RSS业务实体bean start-->  
-        <form-bean name="rssForm" type="com.baize.ccms.plugin.rss.web.form.RssForm"/>
+        <form-bean name="rssForm" type="com.j2ee.cms.plugin.rss.web.form.RssForm"/>
     </form-beans>
 	<global-exceptions />
 	<action-mappings>

@@ -1,4 +1,4 @@
-package com.baize.ccms.biz.setupmanager.servlet;
+package com.j2ee.cms.biz.setupmanager.servlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.baize.ccms.biz.setupmanager.service.SetupBiz;
-import com.baize.common.core.domain.RegInfo;
-import com.baize.common.core.util.RSAHelper;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.setupmanager.service.SetupBiz;
+import com.j2ee.cms.common.core.domain.RegInfo;
+import com.j2ee.cms.common.core.util.RSAHelper;
+import com.j2ee.cms.common.core.util.StringUtil;
 import com.oreilly.servlet.MultipartRequest;
 /**
  * <p>
@@ -22,13 +22,13 @@ import com.oreilly.servlet.MultipartRequest;
  * 描述: —— 上传
  * </p>
  * <p>
- * 模块: CCMS启动模块
+ * 模块: CPS启动模块
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0
@@ -64,7 +64,7 @@ public class LicenseServlet extends HttpServlet {
 				maxPostSize);
 		// 声明上传文件名称
 		// 设置上传时候读取文件中的信息，
-		RegInfo regInfo = RSAHelper.readFile(path);	
+		RegInfo regInfo = RSAHelper.readFile(path);
 		// 判断是否获取了注册码
 		if (regInfo != null && regInfo.getRegCode() != null && RSAHelper.decodeString(regInfo.getRegCode())) {
 			if (!RSAHelper.checkDate(regInfo)) {//在有效期内

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
 */
-package com.baize.ccms.biz.sitemanager.domain;
+package com.j2ee.cms.biz.sitemanager.domain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,14 +10,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.ccms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.biz.usermanager.domain.User;
 
 /**
  * <p>标题: 网站</p>
- * <p>描述: ccms中信息承载的最大实体，又主网站和子网站之分</p>
+ * <p>描述: cps中信息承载的最大实体，又主网站和子网站之分</p>
  * <p>模块: 网站管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 杨信
  * @version 1.0
  * @since 2009-3-2 上午10:17:06

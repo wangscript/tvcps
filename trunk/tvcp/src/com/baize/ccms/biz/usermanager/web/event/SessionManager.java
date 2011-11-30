@@ -1,4 +1,4 @@
-package com.baize.ccms.biz.usermanager.web.event;
+package com.j2ee.cms.biz.usermanager.web.event;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,11 +9,11 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.baize.common.core.exception.BaseBizException;
-import com.baize.common.core.exception.BaseSystemException;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.SessionIDGenerator;
-import com.baize.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.exception.BaseBizException;
+import com.j2ee.cms.common.core.exception.BaseSystemException;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.SessionIDGenerator;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
 
 
 /**
@@ -21,12 +21,12 @@ import com.baize.common.core.web.event.RequestEvent;
  * SessionManager是应用了singletone的模式来实现对已经登录系统的用户的管理。已经登录的用户
  * 都是存放在后台的用户登录池中。对这些登录用户进行管理包括：添加或删除一个已登录的用户信息，
  * 检查用户是否已经存在，可以定期清理所有的已登录用户信息。
- * package: com.baize.common.core.web
+ * package: com.j2ee.cms.common.core.web
  * File: SessionManager.java 创建时间:2009-1-12上午10:25:56
  * Title: 标题（要求能简洁地表达出类的功能和职责）
  * Description: 描述（简要描述类的职责、实现方式、使用注意事项等）
- * Copyright: Copyright (c) 2009 南京百泽网络科技有限公司
- * Company: 南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2009  
+ * Company:  
  * 模块: 平台架构
  * @author  娄伟峰
  * @version 1.

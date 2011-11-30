@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.messagemanager.service;
+package com.j2ee.cms.biz.messagemanager.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.baize.ccms.biz.messagemanager.domain.SiteMessage;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.messagemanager.domain.SiteMessage;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>
@@ -27,7 +27,7 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 模块: 消息管理
  * </p>
  * <p>
- * 版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009 
  * 
  * @author 杨信
  * @version 1.0
@@ -250,7 +250,7 @@ public class SiteMessageBiz extends BaseService {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.baize.common.core.service.BaseService#validateData(com.baize.common
+	 * com.j2ee.cms.common.core.service.BaseService#validateData(com.j2ee.cms.common
 	 * .core.web.event.RequestEvent)
 	 */
 	@Override

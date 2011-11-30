@@ -1,39 +1,39 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.TitleLinkService;
-import com.baize.ccms.biz.unitmanager.web.form.TitleLinkForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.TitleLinkService;
+import com.j2ee.cms.biz.unitmanager.web.form.TitleLinkForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * 
  * <p>标题: —— 标题连接业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-3 上午10:38:55
@@ -87,7 +87,7 @@ public class TitleLinkServiceImpl implements TitleLinkService {
 			if(titleLinkForm.getContextFrom() != null){
 				 if(titleLinkForm.getContextFrom().equals("3")){
 					XmlUtil xmlUtil = XmlUtil.getInstance(GlobalConfig.appRealPath+filePath);
-					String columnName = xmlUtil.getNodeText("baize/title-link/moreColumnName");
+					String columnName = xmlUtil.getNodeText("j2ee.cms/title-link/moreColumnName");
 					// 指定一个栏目
 					if(columnName.split("##")[0].split(",").length == 1) {
 						columnId = columnName.split("##")[0];
@@ -173,9 +173,9 @@ public class TitleLinkServiceImpl implements TitleLinkService {
 	private String getColumnId(String columnId, String siteId, String filePath){
 		XmlUtil xmlUtil = XmlUtil.getInstance(GlobalConfig.appRealPath+filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/title-link/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/title-link/contextFrom");
 		//栏目名称
-		String columnName = xmlUtil.getNodeText("baize/title-link/moreColumnName");
+		String columnName = xmlUtil.getNodeText("j2ee.cms/title-link/moreColumnName");
 		String fixedColumnId = "";
 		String strColumn[] = columnName.split("##");
 		if(strColumn != null && strColumn.length == 2){
@@ -302,27 +302,27 @@ public class TitleLinkServiceImpl implements TitleLinkService {
 	 */
 	private void setXmlData(String filePath,String newFilePath,TitleLinkForm titleLinkForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("baize/title-link/viewStyle",titleLinkForm.getViewStyle());
-		xmlUtil.setNodeCDATAText("baize/title-link/contextFrom",titleLinkForm.getContextFrom());
-		xmlUtil.setNodeCDATAText("baize/title-link/columnName",titleLinkForm.getColumnName());
-		xmlUtil.setNodeCDATAText("baize/title-link/moreColumnName",titleLinkForm.getMoreColumnName());
-		xmlUtil.setNodeCDATAText("baize/title-link/start",titleLinkForm.getStart());
-		xmlUtil.setNodeCDATAText("baize/title-link/col",titleLinkForm.getCol());
-		xmlUtil.setNodeCDATAText("baize/title-link/row",titleLinkForm.getRow());
-		xmlUtil.setNodeCDATAText("baize/title-link/titleLimit",titleLinkForm.getTitleLimit());
-		xmlUtil.setNodeCDATAText("baize/title-link/moreLink",titleLinkForm.getMoreLink());
-		xmlUtil.setNodeCDATAText("baize/title-link/moreLinkPic",titleLinkForm.getMoreLinkPic());
-		xmlUtil.setNodeCDATAText("baize/title-link/titleHead",titleLinkForm.getTitleHead());
-		xmlUtil.setNodeCDATAText("baize/title-link/titleHeadPic",titleLinkForm.getTitleHeadPic());
-		xmlUtil.setNodeCDATAText("baize/title-link/titleHeadValidity",titleLinkForm.getTitleHeadValidity());
-		xmlUtil.setNodeCDATAText("baize/title-link/titleEnd",titleLinkForm.getTitleEnd());
-		xmlUtil.setNodeCDATAText("baize/title-link/titleEndValidity",titleLinkForm.getTitleEndValidity());
-		xmlUtil.setNodeCDATAText("baize/title-link/titleEndPic",titleLinkForm.getTitleEndPic());
-		xmlUtil.setNodeCDATAText("baize/title-link/lineStyle",titleLinkForm.getLineStyle());
-		xmlUtil.setNodeCDATAText("baize/title-link/lineGroup",titleLinkForm.getLineGroup());
-		xmlUtil.setNodeCDATAText("baize/title-link/oddColor",titleLinkForm.getOddColor());
-		xmlUtil.setNodeCDATAText("baize/title-link/evenColor",titleLinkForm.getEvenColor());
-		xmlUtil.setNodeCDATAText("baize/title-link/strongTitle",titleLinkForm.getStrongTitle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/viewStyle",titleLinkForm.getViewStyle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/contextFrom",titleLinkForm.getContextFrom());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/columnName",titleLinkForm.getColumnName());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/moreColumnName",titleLinkForm.getMoreColumnName());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/start",titleLinkForm.getStart());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/col",titleLinkForm.getCol());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/row",titleLinkForm.getRow());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/titleLimit",titleLinkForm.getTitleLimit());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/moreLink",titleLinkForm.getMoreLink());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/moreLinkPic",titleLinkForm.getMoreLinkPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/titleHead",titleLinkForm.getTitleHead());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/titleHeadPic",titleLinkForm.getTitleHeadPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/titleHeadValidity",titleLinkForm.getTitleHeadValidity());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/titleEnd",titleLinkForm.getTitleEnd());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/titleEndValidity",titleLinkForm.getTitleEndValidity());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/titleEndPic",titleLinkForm.getTitleEndPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/lineStyle",titleLinkForm.getLineStyle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/lineGroup",titleLinkForm.getLineGroup());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/oddColor",titleLinkForm.getOddColor());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/evenColor",titleLinkForm.getEvenColor());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link/strongTitle",titleLinkForm.getStrongTitle());
 		xmlUtil.save(newFilePath);
 	}
 	/**
@@ -333,27 +333,27 @@ public class TitleLinkServiceImpl implements TitleLinkService {
 	 */
 	private TitleLinkForm setXmlData(String filePath ,TitleLinkForm titleLinkForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
-		titleLinkForm.setViewStyle(xmlUtil.getNodeText("baize/title-link/viewStyle"));
-		titleLinkForm.setContextFrom(xmlUtil.getNodeText("baize/title-link/contextFrom"));
-		titleLinkForm.setColumnName(xmlUtil.getNodeText("baize/title-link/columnName"));
-		titleLinkForm.setMoreColumnName(xmlUtil.getNodeText("baize/title-link/moreColumnName"));
-		titleLinkForm.setStart(xmlUtil.getNodeText("baize/title-link/start"));
-		titleLinkForm.setCol(xmlUtil.getNodeText("baize/title-link/col"));
-		titleLinkForm.setRow(xmlUtil.getNodeText("baize/title-link/row"));
-		titleLinkForm.setTitleLimit(xmlUtil.getNodeText("baize/title-link/titleLimit"));
-		titleLinkForm.setMoreLink(xmlUtil.getNodeText("baize/title-link/moreLink"));
-		titleLinkForm.setMoreLinkPic(xmlUtil.getNodeText("baize/title-link/moreLinkPic"));
-		titleLinkForm.setTitleHead(xmlUtil.getNodeText("baize/title-link/titleHead"));
-		titleLinkForm.setTitleHeadPic(xmlUtil.getNodeText("baize/title-link/titleHeadPic"));
-		titleLinkForm.setTitleHeadValidity(xmlUtil.getNodeText("baize/title-link/titleHeadValidity"));		
-		titleLinkForm.setTitleEnd(xmlUtil.getNodeText("baize/title-link/titleEnd"));
-		titleLinkForm.setTitleEndValidity(xmlUtil.getNodeText("baize/title-link/titleEndValidity"));
-		titleLinkForm.setTitleEndPic(xmlUtil.getNodeText("baize/title-link/titleEndPic"));
-		titleLinkForm.setLineStyle(xmlUtil.getNodeText("baize/title-link/lineStyle"));
-		titleLinkForm.setLineGroup(xmlUtil.getNodeText("baize/title-link/lineGroup"));
-		titleLinkForm.setOddColor(xmlUtil.getNodeText("baize/title-link/oddColor"));
-		titleLinkForm.setEvenColor(xmlUtil.getNodeText("baize/title-link/evenColor"));
-		titleLinkForm.setStrongTitle(xmlUtil.getNodeText("baize/title-link/strongTitle"));
+		titleLinkForm.setViewStyle(xmlUtil.getNodeText("j2ee.cms/title-link/viewStyle"));
+		titleLinkForm.setContextFrom(xmlUtil.getNodeText("j2ee.cms/title-link/contextFrom"));
+		titleLinkForm.setColumnName(xmlUtil.getNodeText("j2ee.cms/title-link/columnName"));
+		titleLinkForm.setMoreColumnName(xmlUtil.getNodeText("j2ee.cms/title-link/moreColumnName"));
+		titleLinkForm.setStart(xmlUtil.getNodeText("j2ee.cms/title-link/start"));
+		titleLinkForm.setCol(xmlUtil.getNodeText("j2ee.cms/title-link/col"));
+		titleLinkForm.setRow(xmlUtil.getNodeText("j2ee.cms/title-link/row"));
+		titleLinkForm.setTitleLimit(xmlUtil.getNodeText("j2ee.cms/title-link/titleLimit"));
+		titleLinkForm.setMoreLink(xmlUtil.getNodeText("j2ee.cms/title-link/moreLink"));
+		titleLinkForm.setMoreLinkPic(xmlUtil.getNodeText("j2ee.cms/title-link/moreLinkPic"));
+		titleLinkForm.setTitleHead(xmlUtil.getNodeText("j2ee.cms/title-link/titleHead"));
+		titleLinkForm.setTitleHeadPic(xmlUtil.getNodeText("j2ee.cms/title-link/titleHeadPic"));
+		titleLinkForm.setTitleHeadValidity(xmlUtil.getNodeText("j2ee.cms/title-link/titleHeadValidity"));		
+		titleLinkForm.setTitleEnd(xmlUtil.getNodeText("j2ee.cms/title-link/titleEnd"));
+		titleLinkForm.setTitleEndValidity(xmlUtil.getNodeText("j2ee.cms/title-link/titleEndValidity"));
+		titleLinkForm.setTitleEndPic(xmlUtil.getNodeText("j2ee.cms/title-link/titleEndPic"));
+		titleLinkForm.setLineStyle(xmlUtil.getNodeText("j2ee.cms/title-link/lineStyle"));
+		titleLinkForm.setLineGroup(xmlUtil.getNodeText("j2ee.cms/title-link/lineGroup"));
+		titleLinkForm.setOddColor(xmlUtil.getNodeText("j2ee.cms/title-link/oddColor"));
+		titleLinkForm.setEvenColor(xmlUtil.getNodeText("j2ee.cms/title-link/evenColor"));
+		titleLinkForm.setStrongTitle(xmlUtil.getNodeText("j2ee.cms/title-link/strongTitle"));
 		return titleLinkForm;
 	}
 	

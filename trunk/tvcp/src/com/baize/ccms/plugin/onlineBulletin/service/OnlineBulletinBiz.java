@@ -1,21 +1,21 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlineBulletin.service;
+package com.j2ee.cms.plugin.onlineBulletin.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.plugin.onlineBulletin.domain.OnlineBulletin;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.plugin.onlineBulletin.domain.OnlineBulletin;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>
@@ -28,7 +28,7 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 模块:网上调
  * </p>
  * <p>
- * 版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009 
  * 
  * @author 包坤涛
  * @version 1.0

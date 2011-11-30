@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,32 +10,32 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.ColumnLinkService;
-import com.baize.ccms.biz.unitmanager.web.form.ColumnLinkForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.ColumnLinkService;
+import com.j2ee.cms.biz.unitmanager.web.form.ColumnLinkForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-6-1 下午05:42:58
@@ -124,17 +124,17 @@ public class ColumnLinkServiceImpl implements ColumnLinkService {
 		log.debug("filePath======================"+filePath);
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		// 获取xml文件中的字段信息
-		String style = xmlUtil.getNodeText("/baize/column-link/column-style");
-		String type = xmlUtil.getNodeText("/baize/column-link/column-type");
-		String fixedColumn = xmlUtil.getNodeText("/baize/column-link/fixedColumn");
-		String row = xmlUtil.getNodeText("/baize/column-link/display-column-row");
-		String col = xmlUtil.getNodeText("/baize/column-link/display-column-col");
-		String prefix = xmlUtil.getNodeText("/baize/column-link/column-prefix");
-		String prefixDate = xmlUtil.getNodeText("/baize/column-link/column-prefix-date");
-		String prefixPic = xmlUtil.getNodeText("/baize/column-link/column-prefix-picture");
-		String suffix = xmlUtil.getNodeText("/baize/column-link/column-suffix");
-		String suffixDate = xmlUtil.getNodeText("/baize/column-link/column-suffix-date");
-		String suffixPic = xmlUtil.getNodeText("/baize/column-link/column-suffix-picture");
+		String style = xmlUtil.getNodeText("/j2ee.cms/column-link/column-style");
+		String type = xmlUtil.getNodeText("/j2ee.cms/column-link/column-type");
+		String fixedColumn = xmlUtil.getNodeText("/j2ee.cms/column-link/fixedColumn");
+		String row = xmlUtil.getNodeText("/j2ee.cms/column-link/display-column-row");
+		String col = xmlUtil.getNodeText("/j2ee.cms/column-link/display-column-col");
+		String prefix = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix");
+		String prefixDate = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix-date");
+		String prefixPic = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix-picture");
+		String suffix = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix");
+		String suffixDate = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix-date");
+		String suffixPic = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix-picture");
 		// 向表单中加入栏目链接的各种信息
 		form.setColumnStyle(style);
 		form.setColumnType(type);
@@ -198,17 +198,17 @@ public class ColumnLinkServiceImpl implements ColumnLinkService {
 	 */
 	private void setXmlData(String filePath, String newFilePath, ColumnLinkForm columnLinkForm) {
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("baize/column-link/column-style", columnLinkForm.getColumnStyle());
-		xmlUtil.setNodeCDATAText("baize/column-link/column-type", columnLinkForm.getColumnType());
-		xmlUtil.setNodeCDATAText("baize/column-link/fixedColumn", columnLinkForm.getFixedColumn());
-		xmlUtil.setNodeCDATAText("baize/column-link/display-column-row", columnLinkForm.getColumnRow());
-		xmlUtil.setNodeCDATAText("baize/column-link/display-column-col", columnLinkForm.getColumnCol());
-		xmlUtil.setNodeCDATAText("baize/column-link/column-prefix", columnLinkForm.getColumnPrefix());
-		xmlUtil.setNodeCDATAText("baize/column-link/column-prefix-date", columnLinkForm.getColumnPrefixDate());
-		xmlUtil.setNodeCDATAText("baize/column-link/column-prefix-picture", columnLinkForm.getColumnPrefixPic());
-		xmlUtil.setNodeCDATAText("baize/column-link/column-suffix", columnLinkForm.getColumnSuffix());
-		xmlUtil.setNodeCDATAText("baize/column-link/column-suffix-date", columnLinkForm.getColumnSuffixDate());
-		xmlUtil.setNodeCDATAText("baize/column-link/column-suffix-picture", columnLinkForm.getColumnSuffixPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-style", columnLinkForm.getColumnStyle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-type", columnLinkForm.getColumnType());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/fixedColumn", columnLinkForm.getFixedColumn());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/display-column-row", columnLinkForm.getColumnRow());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/display-column-col", columnLinkForm.getColumnCol());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-prefix", columnLinkForm.getColumnPrefix());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-prefix-date", columnLinkForm.getColumnPrefixDate());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-prefix-picture", columnLinkForm.getColumnPrefixPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-suffix", columnLinkForm.getColumnSuffix());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-suffix-date", columnLinkForm.getColumnSuffixDate());
+		xmlUtil.setNodeCDATAText("j2ee.cms/column-link/column-suffix-picture", columnLinkForm.getColumnSuffixPic());
 		xmlUtil.save(newFilePath);
 	}
 	
@@ -301,9 +301,9 @@ public class ColumnLinkServiceImpl implements ColumnLinkService {
 		filePath = GlobalConfig.appRealPath + filePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		// 指定栏目
-		String fixedColumn = xmlUtil.getNodeText("/baize/column-link/fixedColumn");
+		String fixedColumn = xmlUtil.getNodeText("/j2ee.cms/column-link/fixedColumn");
 		// 栏目类型
-		String type = xmlUtil.getNodeText("/baize/column-link/column-type");
+		String type = xmlUtil.getNodeText("/j2ee.cms/column-link/column-type");
 		
 		// 判断栏目的类型
 		int columnType = StringUtil.parseInt(type);

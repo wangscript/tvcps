@@ -1,14 +1,14 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlinesurvey.domain;
+package com.j2ee.cms.plugin.onlinesurvey.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
 
 /**
  * <p>
@@ -21,7 +21,7 @@ import com.baize.ccms.biz.usermanager.domain.User;
  * 模块: 网上调查
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * 
  * @author <a href="mailto:xinyang921@gmail.com">包坤涛</a>

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.templatemanager.web.action;
+package com.j2ee.cms.biz.templatemanager.web.action;
 
 import java.util.Map;
 
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.templatemanager.domain.Template;
-import com.baize.ccms.biz.templatemanager.web.form.TemplateForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.templatemanager.domain.Template;
+import com.j2ee.cms.biz.templatemanager.web.form.TemplateForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 模板管理中Action</p>
  * <p>描述: 主要是获得表单的一些处理以及向页面输出信息</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-4-9 下午03:53:17
@@ -34,7 +34,7 @@ public class TemplateAction extends GeneralAction {
 	private String dealMethod = "";
 
 	/* (non-Javadoc)
-	 * @see com.baize.common.core.web.GeneralAction#doFormFillment(org.apache.struts.action.ActionForm, com.baize.common.core.web.event.ResponseEvent, java.lang.String)
+	 * @see com.j2ee.cms.common.core.web.GeneralAction#doFormFillment(org.apache.struts.action.ActionForm, com.j2ee.cms.common.core.web.event.ResponseEvent, java.lang.String)
 	 */
 	@Override
 	protected void doFormFillment(ActionForm actionForm, ResponseEvent responseEvent, String userIndr) {

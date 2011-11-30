@@ -1,24 +1,24 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.guestbookmanager.service.impl;
+package com.j2ee.cms.plugin.guestbookmanager.service.impl;
 
 import java.util.Date;
 import java.util.List;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.plugin.guestbookmanager.dao.GuestBookContentDao;
-import com.baize.ccms.plugin.guestbookmanager.dao.GuestCategoryDao;
-import com.baize.ccms.plugin.guestbookmanager.dao.GuestRevertDao;
-import com.baize.ccms.plugin.guestbookmanager.domain.GuestBookCategory;
-import com.baize.ccms.plugin.guestbookmanager.domain.GuestBookContent;
-import com.baize.ccms.plugin.guestbookmanager.domain.GuestBookRevert;
-import com.baize.ccms.plugin.guestbookmanager.service.GuestCategoryService;
-import com.baize.ccms.plugin.guestbookmanager.web.form.GuestBookForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.plugin.guestbookmanager.dao.GuestBookContentDao;
+import com.j2ee.cms.plugin.guestbookmanager.dao.GuestCategoryDao;
+import com.j2ee.cms.plugin.guestbookmanager.dao.GuestRevertDao;
+import com.j2ee.cms.plugin.guestbookmanager.domain.GuestBookCategory;
+import com.j2ee.cms.plugin.guestbookmanager.domain.GuestBookContent;
+import com.j2ee.cms.plugin.guestbookmanager.domain.GuestBookRevert;
+import com.j2ee.cms.plugin.guestbookmanager.service.GuestCategoryService;
+import com.j2ee.cms.plugin.guestbookmanager.web.form.GuestBookForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * 
@@ -29,13 +29,13 @@ import com.baize.common.core.util.SqlUtil;
  * 描述: —— 简要描述类的职责、实现方式、使用注意事项等
  * </p>
  * <p>
- * 模块: CCMS
+ * 模块: CPS
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0

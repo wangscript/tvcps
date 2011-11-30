@@ -3,10 +3,10 @@
 <struts-config>
 
 	<form-beans>
-		<form-bean name="articleFormatForm" type="com.baize.ccms.biz.articlemanager.web.form.ArticleFormatForm" />
-		<form-bean name="articleAttributeForm" type="com.baize.ccms.biz.articlemanager.web.form.ArticleAttributeForm" />
-		<form-bean name="articleForm" type="com.baize.ccms.biz.articlemanager.web.form.ArticleForm" />
-		<form-bean name="enumerationForm" type="com.baize.ccms.biz.articlemanager.web.form.EnumerationForm" />
+		<form-bean name="articleFormatForm" type="com.j2ee.cms.biz.articlemanager.web.form.ArticleFormatForm" />
+		<form-bean name="articleAttributeForm" type="com.j2ee.cms.biz.articlemanager.web.form.ArticleAttributeForm" />
+		<form-bean name="articleForm" type="com.j2ee.cms.biz.articlemanager.web.form.ArticleForm" />
+		<form-bean name="enumerationForm" type="com.j2ee.cms.biz.articlemanager.web.form.EnumerationForm" />
 	</form-beans>
 	<global-exceptions />
 	<action-mappings>

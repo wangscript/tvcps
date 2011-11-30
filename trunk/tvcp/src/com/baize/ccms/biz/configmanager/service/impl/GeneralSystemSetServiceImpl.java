@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.configmanager.service.impl;
+package com.j2ee.cms.biz.configmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,16 +10,16 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.configmanager.dao.GeneralSystemSetDao;
-import com.baize.ccms.biz.configmanager.dao.ReneralSystemSetCategoryDao;
-import com.baize.ccms.biz.configmanager.domain.GeneralSystemSet;
-import com.baize.ccms.biz.configmanager.domain.ReneralSystemSetCategory;
-import com.baize.ccms.biz.configmanager.service.GeneralSystemSetService;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.configmanager.dao.GeneralSystemSetDao;
+import com.j2ee.cms.biz.configmanager.dao.ReneralSystemSetCategoryDao;
+import com.j2ee.cms.biz.configmanager.domain.GeneralSystemSet;
+import com.j2ee.cms.biz.configmanager.domain.ReneralSystemSetCategory;
+import com.j2ee.cms.biz.configmanager.service.GeneralSystemSetService;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>
@@ -29,13 +29,13 @@ import com.baize.common.core.util.StringUtil;
  * 描述: —— 简要描述类的职责、实现方式、使用注意事项等
  * </p>
  * <p>
- * 模块: CCMS
+ * 模块: CPS
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 包坤涛
  * @version 1.0

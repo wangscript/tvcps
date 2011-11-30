@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.messagemanager.service.impl;
+package com.j2ee.cms.biz.messagemanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,23 +10,23 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.messagemanager.dao.ContactDao;
-import com.baize.ccms.biz.messagemanager.dao.SiteMessageDao;
-import com.baize.ccms.biz.messagemanager.domain.Contact;
-import com.baize.ccms.biz.messagemanager.domain.SiteMessage;
-import com.baize.ccms.biz.messagemanager.service.SiteMessageService;
-import com.baize.ccms.biz.usermanager.dao.AssignmentDao;
-import com.baize.ccms.biz.usermanager.dao.OrganizationDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.biz.messagemanager.dao.ContactDao;
+import com.j2ee.cms.biz.messagemanager.dao.SiteMessageDao;
+import com.j2ee.cms.biz.messagemanager.domain.Contact;
+import com.j2ee.cms.biz.messagemanager.domain.SiteMessage;
+import com.j2ee.cms.biz.messagemanager.service.SiteMessageService;
+import com.j2ee.cms.biz.usermanager.dao.AssignmentDao;
+import com.j2ee.cms.biz.usermanager.dao.OrganizationDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * <p>标题: 消息业务类</p>
  * <p>描述: 负责业务中的一些处理</p>
  * <p>模块: 消息管理</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-5-18 上午11:01:35 

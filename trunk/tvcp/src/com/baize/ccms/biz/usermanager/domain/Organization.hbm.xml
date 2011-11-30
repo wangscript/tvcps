@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+<hibernate-mapping package="com.j2ee.cms.biz.usermanager.domain">
 	<class name="Organization" table="organizations">
 		<id name="id">
 			<generator class="uuid"/>
@@ -13,7 +13,7 @@
 		<property name="linkAddress" />
 		<property name="leaf" not-null="true" />
 		<property name="checked" not-null="true" />
-		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
 		<many-to-one name="parent" column="pid" />
 		<set name="children" lazy="extra" inverse="true" cascade="delete">
 			<key column="pid" />

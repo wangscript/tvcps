@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.util.Date;
 import java.util.List;
@@ -12,32 +12,32 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.ArticleTextLabel;
-import com.baize.ccms.biz.unitmanager.label.ColumnLinkLabel;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.ArticleTextLabel;
+import com.j2ee.cms.biz.unitmanager.label.ColumnLinkLabel;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 栏目链接解析类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
+ * <p>版权: Copyright (c) 2009  </p>
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-6-3 下午05:34:42
@@ -73,13 +73,13 @@ public class ColumnLinkAnalyzer implements TemplateUnitAnalyzer {
 		String filePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		//栏目链接列
-		int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/column-link/display-column-col")));
+		int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/column-link/display-column-col")));
 		//栏目链接行
-		int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/column-link/display-column-row")));
+		int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/column-link/display-column-row")));
 		// 指定栏目
-		String fixedColumn = xmlUtil.getNodeText("/baize/column-link/fixedColumn");
+		String fixedColumn = xmlUtil.getNodeText("/j2ee.cms/column-link/fixedColumn");
 		// 栏目类型
-		String type = xmlUtil.getNodeText("/baize/column-link/column-type");
+		String type = xmlUtil.getNodeText("/j2ee.cms/column-link/column-type");
 		// 获得要解析的html代码
 		String htmlCode = this.findHtmlCode(unitId);
 		htmlCode = StringUtil.trimEnter(htmlCode);
@@ -315,12 +315,12 @@ public class ColumnLinkAnalyzer implements TemplateUnitAnalyzer {
 		String suffixPic = "";
 		Site site = siteDao.getAndClear(siteId);
 		// 获取xml文件中的字段信息
-		prefix = xmlUtil.getNodeText("/baize/column-link/column-prefix");
-		prefixDate = xmlUtil.getNodeText("/baize/column-link/column-prefix-date");
-		prefixPic = xmlUtil.getNodeText("/baize/column-link/column-prefix-picture");
-		suffix = xmlUtil.getNodeText("/baize/column-link/column-suffix");
-		suffixDate = xmlUtil.getNodeText("/baize/column-link/column-suffix-date");
-		suffixPic = xmlUtil.getNodeText("/baize/column-link/column-suffix-picture");
+		prefix = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix");
+		prefixDate = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix-date");
+		prefixPic = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix-picture");
+		suffix = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix");
+		suffixDate = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix-date");
+		suffixPic = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix-picture");
 		StringBuffer sb = new StringBuffer();
 		// 处理for里面的if
 		Pattern ifPattern = Pattern.compile(CommonLabel.IF);
@@ -507,7 +507,7 @@ public class ColumnLinkAnalyzer implements TemplateUnitAnalyzer {
 		Matcher ifMatcher = ifPattern.matcher(ifsrc);
 		TemplateUnit unit = templateUnitDao.getAndClear(unitId);
 		String configFilePath = unit.getConfigFile();
-		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/ccms1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
+		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/cps1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
 		//获取到当前模板实例的xml配置文件路径
 		String filePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
@@ -608,12 +608,12 @@ public class ColumnLinkAnalyzer implements TemplateUnitAnalyzer {
 		String suffixPic = "";
 		Site site = siteDao.getAndClear(siteId);
 		// 获取xml文件中的字段信息
-		prefix = xmlUtil.getNodeText("/baize/column-link/column-prefix");
-		prefixDate = xmlUtil.getNodeText("/baize/column-link/column-prefix-date");
-		prefixPic = xmlUtil.getNodeText("/baize/column-link/column-prefix-picture");
-		suffix = xmlUtil.getNodeText("/baize/column-link/column-suffix");
-		suffixDate = xmlUtil.getNodeText("/baize/column-link/column-suffix-date");
-		suffixPic = xmlUtil.getNodeText("/baize/column-link/column-suffix-picture");
+		prefix = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix");
+		prefixDate = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix-date");
+		prefixPic = xmlUtil.getNodeText("/j2ee.cms/column-link/column-prefix-picture");
+		suffix = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix");
+		suffixDate = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix-date");
+		suffixPic = xmlUtil.getNodeText("/j2ee.cms/column-link/column-suffix-picture");
 		
 		StringBuffer sb = new StringBuffer();
 		String label = "";	

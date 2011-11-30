@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.configmanager.service.impl;
+package com.j2ee.cms.biz.configmanager.service.impl;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,21 +26,21 @@ import jxl.write.WriteException;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.configmanager.domain.SystemLog;
-import com.baize.ccms.biz.configmanager.service.SystemLogService;
-import com.baize.ccms.biz.configmanager.web.form.SystemLogForm;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.configmanager.domain.SystemLog;
+import com.j2ee.cms.biz.configmanager.service.SystemLogService;
+import com.j2ee.cms.biz.configmanager.web.form.SystemLogForm;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-9-5 上午10:12:40

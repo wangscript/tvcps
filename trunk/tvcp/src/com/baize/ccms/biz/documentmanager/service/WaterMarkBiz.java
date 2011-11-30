@@ -1,21 +1,21 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.service;
+package com.j2ee.cms.biz.documentmanager.service;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.baize.ccms.biz.documentmanager.domain.TextWatermark;
-import com.baize.ccms.biz.documentmanager.domain.Watermark;
-import com.baize.ccms.biz.documentmanager.web.form.WaterMarkForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.documentmanager.domain.TextWatermark;
+import com.j2ee.cms.biz.documentmanager.domain.Watermark;
+import com.j2ee.cms.biz.documentmanager.web.form.WaterMarkForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>
@@ -25,13 +25,13 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 描述: —— 简要描述类的职责、实现方式、使用注意事项等
  * </p>
  * <p>
- * 模块: CCMS
+ * 模块: CPS
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0

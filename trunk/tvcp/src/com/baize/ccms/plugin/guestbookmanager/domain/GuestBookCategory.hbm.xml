@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.plugin.guestbookmanager.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.guestbookmanager.domain">
     <class name="GuestBookCategory" table="guestbook_guest_categories">
         <id name="id">
             <generator class="uuid" />

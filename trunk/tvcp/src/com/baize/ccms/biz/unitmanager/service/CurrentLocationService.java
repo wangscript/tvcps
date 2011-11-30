@@ -1,19 +1,19 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.unitmanager.service;
+package com.j2ee.cms.biz.unitmanager.service;
 
 import java.util.List;
 
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.web.form.CurrentLocationForm;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.web.form.CurrentLocationForm;
 
 /**
  * <p>标题: —— 当前位置业务逻辑处理类最高接口</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-15 上午10:12:22

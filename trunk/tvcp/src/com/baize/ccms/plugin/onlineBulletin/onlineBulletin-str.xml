@@ -3,7 +3,7 @@
 <struts-config>
 	<form-beans>
 		<form-bean name="onlineBulletinForm"
-			type="com.baize.ccms.plugin.onlineBulletin.web.form.OnlineBulletinForm">
+			type="com.j2ee.cms.plugin.onlineBulletin.web.form.OnlineBulletinForm">
 		</form-bean>
 	</form-beans>
 	<global-exceptions />

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.onlinesurvey.web.action;
+package com.j2ee.cms.plugin.onlinesurvey.web.action;
 
 import java.util.Map;
 
@@ -10,21 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
-import com.baize.ccms.plugin.onlinesurvey.web.form.OnlineSurveyContentAnswerForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
+import com.j2ee.cms.plugin.onlinesurvey.web.form.OnlineSurveyContentAnswerForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 
 /**
  * <p>标题: 信件Action</p>
  * <p>描述:调查问题答案对象</p>
  * <p>模块:网上问题调查/p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-6-14 下午02:32:22 

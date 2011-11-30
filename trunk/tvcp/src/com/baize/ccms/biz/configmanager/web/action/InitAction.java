@@ -1,24 +1,24 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.configmanager.web.action;
+package com.j2ee.cms.biz.configmanager.web.action;
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.configmanager.web.form.InitForm;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.configmanager.web.form.InitForm;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 系统设置Action</p>
  * <p>描述: 控制系统左侧树的生成</p>
  * <p>模块: 系统设置</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-7-15 下午04:12:33 
@@ -61,7 +61,7 @@ public class InitAction extends GeneralAction {
 	
 	
 	/* (non-Javadoc)
-	 * @see com.baize.common.core.web.GeneralAction#init(java.lang.String)
+	 * @see com.j2ee.cms.common.core.web.GeneralAction#init(java.lang.String)
 	 */
 	@Override
 	protected void init(String userIndr) throws Exception {

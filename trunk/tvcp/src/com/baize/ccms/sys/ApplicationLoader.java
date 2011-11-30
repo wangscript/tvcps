@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
  */
-package com.baize.ccms.sys;
+package com.j2ee.cms.sys;
 
 import java.io.File;
 import java.sql.Connection;
@@ -16,16 +16,16 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import com.baize.ccms.biz.articlemanager.service.impl.ArticleServiceImpl;
-import com.baize.ccms.biz.setupmanager.dao.SetDB;
-import com.baize.common.core.domain.RegInfo;
-import com.baize.ccms.biz.setupmanager.domain.SysParam;
-import com.baize.ccms.biz.setupmanager.service.SetupBiz;
-import com.baize.common.core.exception.StartException;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.JdbcUtil;
-import com.baize.common.core.util.RSAHelper;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.service.impl.ArticleServiceImpl;
+import com.j2ee.cms.biz.setupmanager.dao.SetDB;
+import com.j2ee.cms.common.core.domain.RegInfo;
+import com.j2ee.cms.biz.setupmanager.domain.SysParam;
+import com.j2ee.cms.biz.setupmanager.service.SetupBiz;
+import com.j2ee.cms.common.core.exception.StartException;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.JdbcUtil;
+import com.j2ee.cms.common.core.util.RSAHelper;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>
@@ -38,7 +38,7 @@ import com.baize.common.core.util.StringUtil;
  * 模块: 通用平台
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * 
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0

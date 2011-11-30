@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
  */
-package com.baize.ccms.biz.publishmanager.service.impl;
+package com.j2ee.cms.biz.publishmanager.service.impl;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,47 +23,47 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.publishmanager.dao.ArticleBuildListDao;
-import com.baize.ccms.biz.publishmanager.dao.ArticlePublishListDao;
-import com.baize.ccms.biz.publishmanager.domain.ArticleBuildList;
-import com.baize.ccms.biz.publishmanager.service.Publisher;
-import com.baize.ccms.biz.publishmanager.service.remotepublish.client.FtpSender;
-import com.baize.ccms.biz.publishmanager.service.remotepublish.client.Sender;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.unitmanager.analyzer.ArticleTextAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.MagazineCategoryAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.OnlineSurverySetAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.TemplateUnitAnalyzer;
-import com.baize.ccms.biz.unitmanager.analyzer.TitleLinkPageAnalyzer;
-import com.baize.ccms.plugin.onlineBulletin.dao.OnlineBulletinDao;
-import com.baize.ccms.plugin.onlineBulletin.domain.OnlineBulletin;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.publishmanager.dao.ArticleBuildListDao;
+import com.j2ee.cms.biz.publishmanager.dao.ArticlePublishListDao;
+import com.j2ee.cms.biz.publishmanager.domain.ArticleBuildList;
+import com.j2ee.cms.biz.publishmanager.service.Publisher;
+import com.j2ee.cms.biz.publishmanager.service.remotepublish.client.FtpSender;
+import com.j2ee.cms.biz.publishmanager.service.remotepublish.client.Sender;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.unitmanager.analyzer.ArticleTextAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.MagazineCategoryAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.OnlineSurverySetAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.TemplateUnitAnalyzer;
+import com.j2ee.cms.biz.unitmanager.analyzer.TitleLinkPageAnalyzer;
+import com.j2ee.cms.plugin.onlineBulletin.dao.OnlineBulletinDao;
+import com.j2ee.cms.plugin.onlineBulletin.domain.OnlineBulletin;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 import org.apache.log4j.Logger;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 发布管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
+ * <p>版权: Copyright (c) 2009  </p>
  * @author <a href="mailto:sean_yang@163.com">杨信</a>
  * @version 1.0
  * @since 2009-6-18 上午11:19:42
@@ -145,7 +145,7 @@ public class StaticPublisher implements Publisher {
 	/*
 	 * 定时发布
 	 * (non-Javadoc)
-	 * @see com.baize.ccms.biz.publishmanager.service.Publisher#publish()
+	 * @see com.j2ee.cms.biz.publishmanager.service.Publisher#publish()
 	 */
 	public void publish() {
 		
@@ -343,7 +343,7 @@ public class StaticPublisher implements Publisher {
 		
 		String titleRegex = "<title>(.*)</title[^>]*>";
 		String title = column.getName();
-		String keywords = "<meta name=\"keywords\" content=\""+title+"政府门户、内容管理、百泽CMS、CCMS、百泽内容管理、百泽门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、百泽网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"百泽CCMS内容管理\"><meta name=\"Author\" content=\"百泽网络\">";
+		String keywords = "<meta name=\"keywords\" content=\""+title+"政府门户、内容管理、CMS、CPS、内容管理、门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"CPS内容管理\"><meta name=\"Author\" content=\"网络\">";
 		String newApp = "";
 		if(site.getPublishWay().equals("local")){
 			newApp = site.getPublishDir().split("/")[site.getPublishDir().split("/").length-2];
@@ -580,7 +580,7 @@ public class StaticPublisher implements Publisher {
     private String createXml(List list, String articleId, String articleDir, String siteId) {
     	int pageCount = list.size();
     	Document document = DocumentHelper.createDocument();    
-		Element rootElement = document.addElement("baize"); 
+		Element rootElement = document.addElement("j2ee.cms"); 
 		Element content = rootElement.addElement("content-"+articleId);
 		Element pages = content.addElement("pages");
 		Element page = pages.addElement("page");
@@ -719,7 +719,7 @@ public class StaticPublisher implements Publisher {
 		
 		// 替换域名
 /*		if (needRelaceDomain) {
-			String reg = File.separator + GlobalConfig.appName + File.separator+ com.baize.ccms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH;
+			String reg = File.separator + GlobalConfig.appName + File.separator+ com.j2ee.cms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH;
 		//	Pattern pattern = Pattern.compile(reg);
 //			Matcher matcher = pattern.matcher(content);
 //			String label = "";
@@ -827,7 +827,7 @@ public class StaticPublisher implements Publisher {
 		if(article != null){
 			String title = article.getTitle();
 			String description = "<meta name=\"description\" content=\""+article.getBrief()+"\"/>";
-			String keywords = "<meta name=\"keywords\" content="+article.getKeyword()+"\"政府门户、内容管理、百泽CMS、CCMS、百泽内容管理、百泽门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、百泽网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"百泽CCMS内容管理\"><meta name=\"Author\" content=\"百泽网络\">";
+			String keywords = "<meta name=\"keywords\" content="+article.getKeyword()+"\"政府门户、内容管理、CPS、CMS、CPS、内容管理、门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"CPS内容管理\"><meta name=\"Author\" content=\"网络\">";
 			page = page.replaceFirst(titleRegex, description+keywords+"<title>"+title+"</title>");
 		}
 				
@@ -869,7 +869,7 @@ public class StaticPublisher implements Publisher {
 	 * @param dir
 	 */
 	private void filterPublishUploadFile(String page, String siteId, String dir) {
-		Pattern pattern = Pattern.compile(com.baize.ccms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH);
+		Pattern pattern = Pattern.compile(com.j2ee.cms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH);
 		Matcher matcher = pattern.matcher(page);
 		List list = new ArrayList();
 		String label = "";
@@ -907,7 +907,7 @@ public class StaticPublisher implements Publisher {
 	 * @param dir
 	 */
 	private void filterBuildUploadFile(String page, String siteId, String dir) {
-		Pattern pattern = Pattern.compile(com.baize.ccms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH);
+		Pattern pattern = Pattern.compile(com.j2ee.cms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH);
 		Matcher matcher = pattern.matcher(page);
 		List list = new ArrayList();
 		String label = "";
@@ -1088,7 +1088,7 @@ public class StaticPublisher implements Publisher {
 		page = page.replaceFirst(headRegex, js +  "</head>");
 		String titleRegex = "<title>(.*)</title[^>]*>";
 		String title = siteDao.getAndClear(siteId).getHomePageTitle();
-		String keywords = "<meta name=\"keywords\" content=\""+site.getHomePageTitle()+",政府门户、内容管理、百泽CMS、CCMS、百泽内容管理、百泽门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、百泽网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"百泽CCMS内容管理\"><meta name=\"Author\" content=\"百泽网络\">";
+		String keywords = "<meta name=\"keywords\" content=\""+site.getHomePageTitle()+",政府门户、内容管理、CPS、CMS、CPS、内容管理、门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"CPS内容管理\"><meta name=\"Author\" content=\"网络\">";
 		String description = "<META NAME=\"Description\" CONTENT=\""+site.getDescription()+"\">";
 		//网站发布的根目录
 		String newApp = "";
@@ -1315,7 +1315,7 @@ public class StaticPublisher implements Publisher {
 		String titleRegex = "<title>(.*)</title[^>]*>";
 		String title = article.getTitle();
 	
-		String keywords = "<meta name=\"keywords\" content=\""+article.getKeyword()+"政府门户、内容管理、百泽CMS、CCMS、百泽内容管理、百泽门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、百泽网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"百泽CCMS内容管理\"><meta name=\"Author\" content=\"百泽网络\">";
+		String keywords = "<meta name=\"keywords\" content=\""+article.getKeyword()+"政府门户、内容管理、CMS、CPS、内容管理、门户建设方案、门户建设、教育门户、政府门户建设、信息公开、政务公开、信息采集、信息雷达、信息采编、企业门户CMS、集团门户CMS、站群建设、系统集成、网络、门户管理专家、校园门户、OA、视频系统\" /><meta name=\"Generator\" content=\"CPS内容管理\"><meta name=\"Author\" content=\"网络\">";
 		String description = "<meta name=\"description\" content=\""+article.getBrief()+"\"/>";
 		page = page.replaceFirst(titleRegex, description+keywords+"<title>"+title+"</title>");
 		String newApp = "";
@@ -1382,7 +1382,7 @@ public class StaticPublisher implements Publisher {
 		String content = FileUtil.read(url);
 		
 		// 匹配页面中的所有文档
-		String reg = com.baize.ccms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH;
+		String reg = com.j2ee.cms.biz.documentmanager.domain.Document.REGX_UPLOAD_PATH;
 		Pattern pattern = Pattern.compile(reg);
 		Matcher matcher = pattern.matcher(content);
 		String label = "";
@@ -1622,8 +1622,8 @@ public class StaticPublisher implements Publisher {
 
 	/**
 	 * 将字符串中的绝对路径转换为域名路径
-	 * 先         /ccms1.0/release/site20090112321/build/static   -> (http://www.g.cn)|""
-	 * 然后    /ccms1.0/release/site20090112321   -> (http://www.g.cn)|""
+	 * 先         /cps1.0/release/site20090112321/build/static   -> (http://www.g.cn)|""
+	 * 然后    /cps1.0/release/site20090112321   -> (http://www.g.cn)|""
 	 * @param siteId
 	 * @param str 需要被替换的字符串
 	 * @param domainName 域名
@@ -1636,7 +1636,7 @@ public class StaticPublisher implements Publisher {
 	
 	/**
 	 * 将域名路径转换为符串中的绝对路径
-	 * 如： http://www.g.cn    ->   /ccms1.0/release/site20090112321/build/static
+	 * 如： http://www.g.cn    ->   /cps1.0/release/site20090112321/build/static
 	 * @param siteId
 	 * @param str 需要被替换的字符串
 	 * @param domainName 域名
@@ -1764,8 +1764,8 @@ public class StaticPublisher implements Publisher {
 	}
 	
 	public static void main(String[] args) {
-//		GlobalConfig.appName = "ccms1.0";
-//		String s = "/ccms1.0/release/site1324123/upload/sdfsdf.jspg";
+//		GlobalConfig.appName = "cps1.0";
+//		String s = "/cps1.0/release/site1324123/upload/sdfsdf.jspg";
 //		String s1 = "http://www.g.cn/upload/sdfsdf.jspg";
 //		System.out.println(path2domain("1324123", s, "http://www.g.cn"));
 //		System.out.println(domain2path("1324123", s1, "http://www.g.cn"));

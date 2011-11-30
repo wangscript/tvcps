@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.baize.ccms.biz.usermanager.web.action;
+package com.j2ee.cms.biz.usermanager.web.action;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -21,28 +21,28 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.documentmanager.service.CategoryService;
-import com.baize.ccms.biz.messagemanager.service.MessageTipsService;
-import com.baize.ccms.biz.setupmanager.service.SetupBiz;
-import com.baize.ccms.biz.usermanager.domain.Menu;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.biz.usermanager.service.LoginService;
-import com.baize.ccms.biz.usermanager.service.MenuService;
-import com.baize.ccms.biz.usermanager.service.UserService;
-import com.baize.ccms.biz.usermanager.web.event.SessionManager;
-import com.baize.ccms.biz.usermanager.web.event.UserEntry;
-import com.baize.ccms.biz.usermanager.web.event.UserLoginReqEvent;
-import com.baize.ccms.biz.usermanager.web.form.LoginForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.domain.RegInfo;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.RSAHelper;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.BizDelegate;
-import com.baize.common.core.web.WebSessionManager;
-import com.baize.common.core.web.event.ExternalSessionManager;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.documentmanager.service.CategoryService;
+import com.j2ee.cms.biz.messagemanager.service.MessageTipsService;
+import com.j2ee.cms.biz.setupmanager.service.SetupBiz;
+import com.j2ee.cms.biz.usermanager.domain.Menu;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.usermanager.service.LoginService;
+import com.j2ee.cms.biz.usermanager.service.MenuService;
+import com.j2ee.cms.biz.usermanager.service.UserService;
+import com.j2ee.cms.biz.usermanager.web.event.SessionManager;
+import com.j2ee.cms.biz.usermanager.web.event.UserEntry;
+import com.j2ee.cms.biz.usermanager.web.event.UserLoginReqEvent;
+import com.j2ee.cms.biz.usermanager.web.form.LoginForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.domain.RegInfo;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.RSAHelper;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.BizDelegate;
+import com.j2ee.cms.common.core.web.WebSessionManager;
+import com.j2ee.cms.common.core.web.event.ExternalSessionManager;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 
 /** 
@@ -56,13 +56,13 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 调用参数mapping的findForward方法作为返回值（参数为“loginfailed”）。如果responseCode为“0”， 那么继续下面步骤
  * 4.得到LoginResEvent中的sessionId属性，将它放入request的seesion中；
  * 5.调用参数mapping的findForward方法作为返回值（参数为“success”）。
- * ccms通用信息管理系统--登录控制类 
- * package: com.baize.ccms.biz.login.web.action
+ * cps通用信息管理系统--登录控制类 
+ * package: com.j2ee.cms.biz.login.web.action
  * File: LoginAction.java 创建时间:2009-1-6下午02:59:14
  * Title: 标题（要求能简洁地表达出类的功能和职责）
  * Description: 描述（简要描述类的职责、实现方式、使用注意事项等）
- * Copyright: Copyright (c) 2009 南京百泽网络科技有限公司
- * Company: 南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2009  
+ * Company:  
  * 模块: 用户管理模块
  * @author  娄伟峰
  * @version 1.0

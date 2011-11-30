@@ -1,13 +1,13 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.rss.service;
+package com.j2ee.cms.plugin.rss.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.plugin.rss.web.form.RssForm;
+import com.j2ee.cms.plugin.rss.web.form.RssForm;
 
 /**
  * <p>
@@ -17,13 +17,13 @@ import com.baize.ccms.plugin.rss.web.form.RssForm;
  * 描述: —— RSS 业务层
  * </p>
  * <p>
- * 模块: CCMS 插件
+ * 模块: CPS 插件
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0

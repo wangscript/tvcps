@@ -1,20 +1,20 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlineBulletin.domain;
+package com.j2ee.cms.plugin.onlineBulletin.domain;
         
 import java.io.Serializable;
 import java.util.Date;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
 
 /**
  * <p>标题:网上公告</p>
  * <p>描述:网上公告包含的内容</p>
  * <p>模块:网上公告</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
+ * <p>版权: Copyright (c) 2009  </p>
  * @author <a href="mailto:xinyang921@gmail.com">包坤涛</a>
  * @version 1.0
  * @since 2009-10-3 下午04:24:10

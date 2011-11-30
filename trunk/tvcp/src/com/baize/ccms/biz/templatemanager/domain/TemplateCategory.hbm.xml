@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.biz.templatemanager.domain">
+<hibernate-mapping package="com.j2ee.cms.biz.templatemanager.domain">
     <class name="TemplateCategory" table="template_categories">
         <id name="id">
             <generator class="uuid" />
         </id>
         <property name="name" />   
-        <property name="createTime" type="com.baize.common.core.util.DateString" />
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
         <many-to-one name="site" column="site_id" not-null="true"/>
         <many-to-one name="creator" column="creator_id" not-null="true"/>             
     </class>

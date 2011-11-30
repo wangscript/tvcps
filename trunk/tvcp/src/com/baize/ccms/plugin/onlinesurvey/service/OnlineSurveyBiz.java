@@ -1,29 +1,29 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.onlinesurvey.service;
+package com.j2ee.cms.plugin.onlinesurvey.service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurvey;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurvey;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 网上调业务处理类</p>
  * <p>描述: 网上调的查看,删除等功能</p>
  * <p>模块:网上调</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-6-14 下午02:26:33 

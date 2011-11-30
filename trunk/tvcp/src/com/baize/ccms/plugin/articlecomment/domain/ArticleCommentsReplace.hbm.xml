@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.plugin.articlecomment.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.articlecomment.domain">
     <class name="ArticleCommentsReplace" table="article_comments_replaceword">
         <id name="id">
             <generator class="uuid" />
         </id> 
 		<property name="filterWord"/>
 		<property name="replaceWord"/>
-		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
 		<many-to-one name="user" column="user_id"></many-to-one>
 		<many-to-one name="site" column="site_id"></many-to-one>
     </class>   

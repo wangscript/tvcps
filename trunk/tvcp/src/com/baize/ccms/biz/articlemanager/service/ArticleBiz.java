@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.articlemanager.service;
+package com.j2ee.cms.biz.articlemanager.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,26 +12,26 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.articlemanager.web.form.ArticleForm;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.WebClientServlet;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.articlemanager.web.form.ArticleForm;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.WebClientServlet;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 文章业务类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 文章管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-3-30 下午03:47:39

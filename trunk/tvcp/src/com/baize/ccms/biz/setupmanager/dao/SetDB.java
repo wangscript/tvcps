@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.setupmanager.dao;
+package com.j2ee.cms.biz.setupmanager.dao;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +30,7 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.dom4j.tree.DefaultElement;
 
-import com.baize.ccms.biz.setupmanager.service.SetupBiz;
+import com.j2ee.cms.biz.setupmanager.service.SetupBiz;
 
 /**
  * <p>
@@ -40,13 +40,13 @@ import com.baize.ccms.biz.setupmanager.service.SetupBiz;
  * 描述: ——该类当中有四种数据库，根据各种不同的数据库修改相关配置文件
  * </p>
  * <p>
- * 模块: CCMS数据库启动模块
+ * 模块: CPS数据库启动模块
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0
@@ -382,15 +382,21 @@ public class SetDB {
 	 * @return true存在 false不存在
 	 */
 	public boolean isDBexists(String path) {
+		System.out.println(path);
 		Connection conn = null;
 		try {
 			Map<String, String> map = getDBInfo(path + File.separator + "setup"+File.separator + "setup.xml");
+			System.out.println(map.get("driver"));
+			System.out.println(map.get("url"));
+			System.out.println(map.get("username"));
+			System.out.println(map.get("password"));
+			
 			Class.forName(map.get("driver"));
 			conn = DriverManager.getConnection(map.get("url"), map
 					.get("username"), map.get("password"));
 			return true;
 		} catch (ClassNotFoundException e) {
-			log.info("数据库不存在");
+			log.info("数据库驱动不存在");
 			return false;
 		} catch (SQLException e) {
 			log.info("数据库不存在");
@@ -404,6 +410,11 @@ public class SetDB {
 			} catch (SQLException e) {
 			}
 		}
+	}
+	
+	public static void main(String[] args) {
+		SetDB se = new SetDB();
+		System.out.println(se.isDBexists("E:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/tvcp1"));
 	}
 
 	/**

@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- 栏目 start -->
-	<bean name="/column" class="com.baize.ccms.biz.columnmanager.web.action.ColumnAction" scope="prototype">
+	<bean name="/column" class="com.j2ee.cms.biz.columnmanager.web.action.ColumnAction" scope="prototype">
 		<property name="baseBiz" ref="columnmanager-columnBiz"/>
 	</bean>
-	<bean id="columnmanager-columnBiz" class="com.baize.ccms.biz.columnmanager.service.ColumnBiz" scope="singleton">		
+	<bean id="columnmanager-columnBiz" class="com.j2ee.cms.biz.columnmanager.service.ColumnBiz" scope="singleton">		
 		<property name="columnService" ref="columnmanager-columnService"/>
 	</bean>
-	<bean id="columnmanager-columnService" class="com.baize.ccms.biz.columnmanager.service.impl.ColumnServiceImpl" scope="singleton">
+	<bean id="columnmanager-columnService" class="com.j2ee.cms.biz.columnmanager.service.impl.ColumnServiceImpl" scope="singleton">
 		<property name="rightDao" ref="usermanager-rightDao"/>
 		<property name="siteDao" ref="sitemanager-siteDao" />
 		<property name="columnDao" ref="columnmanager-columnDao"/>
@@ -25,7 +25,7 @@
 		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
 		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao"/>
 	</bean>
-	<bean id="columnmanager-columnDao" class="com.baize.ccms.biz.columnmanager.dao.impl.ColumnDaoImpl" parent="genericDaoImpl"/>	
+	<bean id="columnmanager-columnDao" class="com.j2ee.cms.biz.columnmanager.dao.impl.ColumnDaoImpl" parent="genericDaoImpl"/>	
 	<!-- 栏目 end -->
 	
 </beans>

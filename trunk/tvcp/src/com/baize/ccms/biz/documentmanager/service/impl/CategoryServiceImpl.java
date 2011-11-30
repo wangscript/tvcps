@@ -1,31 +1,31 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.service.impl;
+package com.j2ee.cms.biz.documentmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.documentmanager.dao.CategoryDao;
-import com.baize.ccms.biz.documentmanager.dao.DocumentDao;
-import com.baize.ccms.biz.documentmanager.domain.DocumentCategory;
-import com.baize.ccms.biz.documentmanager.service.CategoryService;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.documentmanager.dao.CategoryDao;
+import com.j2ee.cms.biz.documentmanager.dao.DocumentDao;
+import com.j2ee.cms.biz.documentmanager.domain.DocumentCategory;
+import com.j2ee.cms.biz.documentmanager.service.CategoryService;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 
 /**
  * <p>标题: 类别的service实现</p>
  * <p>描述: 类别的一些实现，通过类别dao的方法</p>
  * <p>模块: 文档管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-3-26 上午10:57:20

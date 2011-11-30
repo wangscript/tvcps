@@ -1,22 +1,22 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
  */
-package com.baize.ccms.biz.sitemanager.web.form;
+package com.j2ee.cms.biz.sitemanager.web.form;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京瀚沃信息科技有限责任公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009   
  * @author 郑荣华
  * @version 1.0
  * @since 2009-4-3 下午03:26:52

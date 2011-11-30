@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!--信件处理start -->
-	<bean name="/letter" class="com.baize.ccms.plugin.letterbox.web.action.LetterAction" scope="prototype">
+	<bean name="/letter" class="com.j2ee.cms.plugin.letterbox.web.action.LetterAction" scope="prototype">
 		<property name="baseBiz" ref="letterbox-letterBiz"/>
 	</bean>
-	<bean id="letterbox-letterBiz" class="com.baize.ccms.plugin.letterbox.service.LetterBiz" scope="singleton">		
+	<bean id="letterbox-letterBiz" class="com.j2ee.cms.plugin.letterbox.service.LetterBiz" scope="singleton">		
 		<property name="letterService" ref="letterbox-letterService"/>
 	</bean>
-	<bean id="letterbox-letterService" class="com.baize.ccms.plugin.letterbox.service.impl.LetterServiceImpl" scope="singleton">
+	<bean id="letterbox-letterService" class="com.j2ee.cms.plugin.letterbox.service.impl.LetterServiceImpl" scope="singleton">
 		<property name="letterDao" ref="letterbox-letterDao"/>
 		<property name="organizationDao" ref="letterbox-organizationDao"/>
 		<property name="letterReplyDao" ref="letterbox-letterReplyDao"/>
@@ -19,36 +19,36 @@
 		<property name="letterCategoryDao" ref="letterbox-categoryDao"/>
 		<property name="siteDao" ref="sitemanager-siteDao"/>
 	</bean>
-	<bean id="letterbox-letterDao" class="com.baize.ccms.plugin.letterbox.dao.impl.LetterDaoImpl" parent="genericDaoImpl"/>
-	<bean id="letterbox-organizationDao" class="com.baize.ccms.biz.usermanager.dao.impl.OrganizationDaoImpl" parent="genericDaoImpl"/>
-	<bean id="letterbox-letterReplyDao" class="com.baize.ccms.plugin.letterbox.dao.impl.LetterReplyDaoImpl" parent="genericDaoImpl"/>
-	<bean id="letterbox-userDao" class="com.baize.ccms.biz.usermanager.dao.impl.UserDaoImpl" parent="genericDaoImpl"/>
-	<bean id="letterbox-transferRecordDao" class="com.baize.ccms.plugin.letterbox.dao.impl.TransferRecordDaoImpl" parent="genericDaoImpl"/>
-	<bean id="letterbox-categoryDao" class="com.baize.ccms.plugin.letterbox.dao.impl.LetterCategoryDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterbox-letterDao" class="com.j2ee.cms.plugin.letterbox.dao.impl.LetterDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterbox-organizationDao" class="com.j2ee.cms.biz.usermanager.dao.impl.OrganizationDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterbox-letterReplyDao" class="com.j2ee.cms.plugin.letterbox.dao.impl.LetterReplyDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterbox-userDao" class="com.j2ee.cms.biz.usermanager.dao.impl.UserDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterbox-transferRecordDao" class="com.j2ee.cms.plugin.letterbox.dao.impl.TransferRecordDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterbox-categoryDao" class="com.j2ee.cms.plugin.letterbox.dao.impl.LetterCategoryDaoImpl" parent="genericDaoImpl"/>
 	<!-- 信件处理end -->
 	
 	<!--信件类型 start -->
-	<bean name="/letterCategory" class="com.baize.ccms.plugin.letterbox.web.action.LetterCategoryAction" scope="prototype">
+	<bean name="/letterCategory" class="com.j2ee.cms.plugin.letterbox.web.action.LetterCategoryAction" scope="prototype">
 		<property name="baseBiz" ref="letterbox-letterCategoryBiz"/>
 	</bean>
-	<bean id="letterbox-letterCategoryBiz" class="com.baize.ccms.plugin.letterbox.service.LetterCategoryBiz" scope="singleton">		
+	<bean id="letterbox-letterCategoryBiz" class="com.j2ee.cms.plugin.letterbox.service.LetterCategoryBiz" scope="singleton">		
 		<property name="letterCategoryService" ref="letterbox-letterCategoryService"/>
 	</bean>
-	<bean id="letterbox-letterCategoryService" class="com.baize.ccms.plugin.letterbox.service.impl.LetterCategoryServiceImpl" scope="singleton">
+	<bean id="letterbox-letterCategoryService" class="com.j2ee.cms.plugin.letterbox.service.impl.LetterCategoryServiceImpl" scope="singleton">
 		<property name="letterCategoryDao" ref="letterbox-letterCategoryDao"/>
 		<property name="organizationDao" ref="letterCategory-organizationDao"/>
 		<property name="letterDao" ref="letterCategory-letterDao"/>
 	</bean>
-	<bean id="letterbox-letterCategoryDao" class="com.baize.ccms.plugin.letterbox.dao.impl.LetterCategoryDaoImpl" parent="genericDaoImpl"/>
-	<bean id="letterCategory-organizationDao" class="com.baize.ccms.biz.usermanager.dao.impl.OrganizationDaoImpl" parent="genericDaoImpl"/>
-	<bean id="letterCategory-letterDao" class="com.baize.ccms.plugin.letterbox.dao.impl.LetterDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterbox-letterCategoryDao" class="com.j2ee.cms.plugin.letterbox.dao.impl.LetterCategoryDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterCategory-organizationDao" class="com.j2ee.cms.biz.usermanager.dao.impl.OrganizationDaoImpl" parent="genericDaoImpl"/>
+	<bean id="letterCategory-letterDao" class="com.j2ee.cms.plugin.letterbox.dao.impl.LetterDaoImpl" parent="genericDaoImpl"/>
 	<!-- 信件类型end -->
 
 	<!-- 外网用户信件 start -->
-	<bean name="/userLetter" class="com.baize.ccms.plugin.letterbox.web.action.UserLetterAction" scope="singleton">  
+	<bean name="/userLetter" class="com.j2ee.cms.plugin.letterbox.web.action.UserLetterAction" scope="singleton">  
     	<property name="letterService" ref="letterbox-userLetterService" />
   	</bean>  
-  	<bean id="letterbox-userLetterService" class="com.baize.ccms.plugin.letterbox.service.impl.LetterServiceImpl" scope="singleton">
+  	<bean id="letterbox-userLetterService" class="com.j2ee.cms.plugin.letterbox.service.impl.LetterServiceImpl" scope="singleton">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />				
 	</bean>
 	<!-- 外网用户信件end -->	

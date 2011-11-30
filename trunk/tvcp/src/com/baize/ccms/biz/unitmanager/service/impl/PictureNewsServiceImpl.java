@@ -1,40 +1,40 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.PictureNewsService;
-import com.baize.ccms.biz.unitmanager.web.form.PictureNewsForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.PictureNewsService;
+import com.j2ee.cms.biz.unitmanager.web.form.PictureNewsForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * 
  * <p>标题: —— 图片新闻业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-3 上午10:38:55
@@ -225,21 +225,21 @@ public class PictureNewsServiceImpl implements PictureNewsService {
 	 */
 	private void setXmlData(String filePath,String newFilePath,PictureNewsForm pictureNewsForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("baize/picture-news/viewStyle",pictureNewsForm.getViewStyle());
-		xmlUtil.setNodeCDATAText("baize/picture-news/contextFrom",pictureNewsForm.getContextFrom());
-		xmlUtil.setNodeCDATAText("baize/picture-news/columnName",pictureNewsForm.getColumnName());
-		xmlUtil.setNodeCDATAText("baize/picture-news/start",pictureNewsForm.getStart());
-		xmlUtil.setNodeCDATAText("baize/picture-news/col",pictureNewsForm.getCol());
-		xmlUtil.setNodeCDATAText("baize/picture-news/row",pictureNewsForm.getRow());
-		xmlUtil.setNodeCDATAText("baize/picture-news/titleLimit",pictureNewsForm.getTitleLimit());
-		xmlUtil.setNodeCDATAText("baize/picture-news/moreLink",pictureNewsForm.getMoreLink());
-		xmlUtil.setNodeCDATAText("baize/picture-news/moreLinkPic",pictureNewsForm.getMoreLinkPic());
-		xmlUtil.setNodeCDATAText("baize/picture-news/titleHead",pictureNewsForm.getTitleHead());
-		xmlUtil.setNodeCDATAText("baize/picture-news/titleHeadPic",pictureNewsForm.getTitleHeadPic());
-		xmlUtil.setNodeCDATAText("baize/picture-news/titleHeadValidity",pictureNewsForm.getTitleHeadValidity());
-		xmlUtil.setNodeCDATAText("baize/picture-news/titleEnd",pictureNewsForm.getTitleEnd());
-		xmlUtil.setNodeCDATAText("baize/picture-news/titleEndValidity",pictureNewsForm.getTitleEndValidity());
-		xmlUtil.setNodeCDATAText("baize/picture-news/titleEndPic",pictureNewsForm.getTitleEndPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/viewStyle",pictureNewsForm.getViewStyle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/contextFrom",pictureNewsForm.getContextFrom());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/columnName",pictureNewsForm.getColumnName());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/start",pictureNewsForm.getStart());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/col",pictureNewsForm.getCol());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/row",pictureNewsForm.getRow());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/titleLimit",pictureNewsForm.getTitleLimit());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/moreLink",pictureNewsForm.getMoreLink());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/moreLinkPic",pictureNewsForm.getMoreLinkPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/titleHead",pictureNewsForm.getTitleHead());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/titleHeadPic",pictureNewsForm.getTitleHeadPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/titleHeadValidity",pictureNewsForm.getTitleHeadValidity());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/titleEnd",pictureNewsForm.getTitleEnd());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/titleEndValidity",pictureNewsForm.getTitleEndValidity());
+		xmlUtil.setNodeCDATAText("j2ee.cms/picture-news/titleEndPic",pictureNewsForm.getTitleEndPic());
 
 		xmlUtil.save(newFilePath);
 	}
@@ -251,21 +251,21 @@ public class PictureNewsServiceImpl implements PictureNewsService {
 	 */
 	private PictureNewsForm setXmlData(String filePath ,PictureNewsForm pictureNewsForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
-		pictureNewsForm.setViewStyle(xmlUtil.getNodeText("baize/picture-news/viewStyle"));
-		pictureNewsForm.setContextFrom(xmlUtil.getNodeText("baize/picture-news/contextFrom"));
-		pictureNewsForm.setColumnName(xmlUtil.getNodeText("baize/picture-news/columnName"));
-		pictureNewsForm.setStart(xmlUtil.getNodeText("baize/picture-news/start"));
-		pictureNewsForm.setCol(xmlUtil.getNodeText("baize/picture-news/col"));
-		pictureNewsForm.setRow(xmlUtil.getNodeText("baize/picture-news/row"));
-		pictureNewsForm.setTitleLimit(xmlUtil.getNodeText("baize/picture-news/titleLimit"));
-		pictureNewsForm.setMoreLink(xmlUtil.getNodeText("baize/picture-news/moreLink"));
-		pictureNewsForm.setMoreLinkPic(xmlUtil.getNodeText("baize/picture-news/moreLinkPic"));
-		pictureNewsForm.setTitleHead(xmlUtil.getNodeText("baize/picture-news/titleHead"));
-		pictureNewsForm.setTitleHeadPic(xmlUtil.getNodeText("baize/picture-news/titleHeadPic"));
-		pictureNewsForm.setTitleHeadValidity(xmlUtil.getNodeText("baize/picture-news/titleHeadValidity"));		
-		pictureNewsForm.setTitleEnd(xmlUtil.getNodeText("baize/picture-news/titleEnd"));
-		pictureNewsForm.setTitleEndValidity(xmlUtil.getNodeText("baize/picture-news/titleEndValidity"));
-		pictureNewsForm.setTitleEndPic(xmlUtil.getNodeText("baize/picture-news/titleEndPic"));
+		pictureNewsForm.setViewStyle(xmlUtil.getNodeText("j2ee.cms/picture-news/viewStyle"));
+		pictureNewsForm.setContextFrom(xmlUtil.getNodeText("j2ee.cms/picture-news/contextFrom"));
+		pictureNewsForm.setColumnName(xmlUtil.getNodeText("j2ee.cms/picture-news/columnName"));
+		pictureNewsForm.setStart(xmlUtil.getNodeText("j2ee.cms/picture-news/start"));
+		pictureNewsForm.setCol(xmlUtil.getNodeText("j2ee.cms/picture-news/col"));
+		pictureNewsForm.setRow(xmlUtil.getNodeText("j2ee.cms/picture-news/row"));
+		pictureNewsForm.setTitleLimit(xmlUtil.getNodeText("j2ee.cms/picture-news/titleLimit"));
+		pictureNewsForm.setMoreLink(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLink"));
+		pictureNewsForm.setMoreLinkPic(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLinkPic"));
+		pictureNewsForm.setTitleHead(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHead"));
+		pictureNewsForm.setTitleHeadPic(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHeadPic"));
+		pictureNewsForm.setTitleHeadValidity(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHeadValidity"));		
+		pictureNewsForm.setTitleEnd(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEnd"));
+		pictureNewsForm.setTitleEndValidity(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEndValidity"));
+		pictureNewsForm.setTitleEndPic(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEndPic"));
 		return pictureNewsForm;
 	}
 	
@@ -279,9 +279,9 @@ public class PictureNewsServiceImpl implements PictureNewsService {
 	private String getColumnId(String columnId, String siteId, String filePath) {
 		XmlUtil xmlUtil = XmlUtil.getInstance(GlobalConfig.appRealPath+filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/picture-news/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/picture-news/contextFrom");
 		//栏目名称
-		String columnName = xmlUtil.getNodeText("baize/picture-news/columnName");
+		String columnName = xmlUtil.getNodeText("j2ee.cms/picture-news/columnName");
 		String fixedColumnId = "";
 		String strColumn[] = columnName.split("##");
 		if(strColumn != null && strColumn.length == 2){

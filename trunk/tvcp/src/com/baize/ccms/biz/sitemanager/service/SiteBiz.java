@@ -1,29 +1,29 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
  */
-package com.baize.ccms.biz.sitemanager.service;
+package com.j2ee.cms.biz.sitemanager.service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.sitemanager.web.form.SiteForm;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.sitemanager.web.form.SiteForm;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 网站管理的biz层</p>
  * <p>描述: 网站管理的biz层，用于处理网站，调用服务接口中的一些方法</p>
  * <p>模块: 网站管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-4-3 下午03:06:19

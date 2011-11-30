@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.plugin.articlecomment.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.articlecomment.domain">
     <class name="ArticleComment" table="article_comment">
         <id name="id">
             <generator class="uuid" />
         </id> 
 		<property name="authorName"/>
 		<property name="content"/>
-		<property name="audit"/>
+		<property name="audited"/>
 		<property name="essence"/>
 		<property name="deleted"/>
 		<property name="supporter"/>
@@ -16,7 +16,7 @@
 		<property name="ip"/>
 		<property name="toped"/>
 		<property name="orders"/>
-		<property name="createTime" type="com.baize.common.core.util.DateString" />
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
 		<many-to-one name="article" column="article_id"></many-to-one>
 		<many-to-one name="user" column="user_id" ></many-to-one>
     </class>   
@@ -31,7 +31,7 @@
     <query name="findAllArticleCommentByAuditPage"><![CDATA[
     	SELECT comment.id,comment.article.title,comment.authorName, comment.user.name,comment.createTime,comment.essence,comment.toped,comment.article.url
     	  FROM ArticleComment comment
-    	 WHERE comment.audit = :auditid
+    	 WHERE comment.audited = :auditid
     	 AND comment.deleted = 0 
       ORDER BY comment.toped DESC,comment.orders DESC,comment.createTime DESC
     ]]></query>

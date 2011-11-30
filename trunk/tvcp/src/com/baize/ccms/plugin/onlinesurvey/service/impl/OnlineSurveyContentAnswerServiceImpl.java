@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlinesurvey.service.impl;
+package com.j2ee.cms.plugin.onlinesurvey.service.impl;
 
 import java.awt.Font;
 import java.awt.Shape;
@@ -36,11 +36,11 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.util.Rotation;
 
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyAnswerContentDao;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
-import com.baize.ccms.plugin.onlinesurvey.service.OnlineSurveyContentAnswerService;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyAnswerContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
+import com.j2ee.cms.plugin.onlinesurvey.service.OnlineSurveyContentAnswerService;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * <p>
@@ -52,7 +52,7 @@ import com.baize.common.core.util.SqlUtil;
  * <p>
  * 模块: 网上调查问题/p>
  * <p>
- * 版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009 
  * 
  * @author 包坤涛
  * @version 1.0

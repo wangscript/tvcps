@@ -1,20 +1,20 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.configmanager.web.action;
+package com.j2ee.cms.biz.configmanager.web.action;
 
 import java.util.Map;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.configmanager.domain.GeneralSystemSet;
-import com.baize.ccms.biz.configmanager.domain.InformationFilter;
-import com.baize.ccms.biz.configmanager.web.form.InformationFilterForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.configmanager.domain.GeneralSystemSet;
+import com.j2ee.cms.biz.configmanager.domain.InformationFilter;
+import com.j2ee.cms.biz.configmanager.web.form.InformationFilterForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>
@@ -27,7 +27,7 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 模块: 系统安装程序
  * </p>
  * <p>
- * 版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009 
  * 
  * @author 杨信
  * @version 1.0

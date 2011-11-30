@@ -3,22 +3,22 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean name="/publish" class="com.baize.ccms.biz.publishmanager.web.action.PublishAction" scope="prototype">
+	<bean name="/publish" class="com.j2ee.cms.biz.publishmanager.web.action.PublishAction" scope="prototype">
 		<property name="baseBiz" ref="publishmanager-publishBiz" />
 	</bean>
-	<bean id="publishmanager-publishBiz" class="com.baize.ccms.biz.publishmanager.service.PublishBiz">
+	<bean id="publishmanager-publishBiz" class="com.j2ee.cms.biz.publishmanager.service.PublishBiz">
 		<property name="publishService" ref="publishmanager-templateUnitService" />
 	</bean>
-	<bean id="publishmanager-templateUnitService" class="com.baize.ccms.biz.publishmanager.service.impl.PublishServiceImpl">
+	<bean id="publishmanager-templateUnitService" class="com.j2ee.cms.biz.publishmanager.service.impl.PublishServiceImpl">
 		<property name="publisher" ref="publishmanager-staticPublisher"/>
 		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao"/>
 		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
 		<property name="siteDao" ref="sitemanager-siteDao" />
 		<property name="articleDao" ref="articlemanager-articleDao" />
 	</bean>
-	<bean id="publishmanager-articlePublishListDao" class="com.baize.ccms.biz.publishmanager.dao.impl.ArticlePublishListDaoImpl" parent="genericDaoImpl"/>
-	<bean id="publishmanager-articleBuildListDao" class="com.baize.ccms.biz.publishmanager.dao.impl.ArticleBuildListDaoImpl" parent="genericDaoImpl"/>
-	<bean id="publishmanager-staticPublisher" class="com.baize.ccms.biz.publishmanager.service.impl.StaticPublisher">
+	<bean id="publishmanager-articlePublishListDao" class="com.j2ee.cms.biz.publishmanager.dao.impl.ArticlePublishListDaoImpl" parent="genericDaoImpl"/>
+	<bean id="publishmanager-articleBuildListDao" class="com.j2ee.cms.biz.publishmanager.dao.impl.ArticleBuildListDaoImpl" parent="genericDaoImpl"/>
+	<bean id="publishmanager-staticPublisher" class="com.j2ee.cms.biz.publishmanager.service.impl.StaticPublisher">
 		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
 		<property name="templateCategoryDao" ref="templatemanager-templateCategoryDao" />
 		<property name="templateDao" ref="templatemanager-templateDao" />
@@ -44,13 +44,13 @@
 	</bean>
 	
 	<!-- 生成列表管理  start-->
-	<bean name="/build" class="com.baize.ccms.biz.publishmanager.web.action.BuildAction" scope="prototype">
+	<bean name="/build" class="com.j2ee.cms.biz.publishmanager.web.action.BuildAction" scope="prototype">
 		<property name="baseBiz" ref="publishmanager-buildBiz" />
 	</bean>
-	<bean id="publishmanager-buildBiz" class="com.baize.ccms.biz.publishmanager.service.BuildBiz">
+	<bean id="publishmanager-buildBiz" class="com.j2ee.cms.biz.publishmanager.service.BuildBiz">
 		<property name="buildService" ref="publishmanager-buildService" />
 	</bean>
-	<bean id="publishmanager-buildService" class="com.baize.ccms.biz.publishmanager.service.impl.BuildServiceImpl"> 
+	<bean id="publishmanager-buildService" class="com.j2ee.cms.biz.publishmanager.service.impl.BuildServiceImpl"> 
 		<property name="articleBuildListDao" ref="publishmanager-articleBuildListDao"/>
 		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
 	</bean>

@@ -1,4 +1,4 @@
-package com.baize.ccms.biz.configmanager.web.action;
+package com.j2ee.cms.biz.configmanager.web.action;
 
 import java.util.Map;
 
@@ -6,18 +6,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.configmanager.web.form.OperationForm;
-import com.baize.ccms.biz.usermanager.domain.Operation;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.configmanager.web.form.OperationForm;
+import com.j2ee.cms.biz.usermanager.domain.Operation;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 系统参数Action</p>
  * <p>描述: 管理系统参数的不同操作，封装请求对象</p>
  * <p>模块: 系统参数管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 魏仲芹
  * @version 1.0
  * @since 2009-4-8 上午09:24:08

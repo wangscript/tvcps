@@ -1,24 +1,24 @@
   /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.columnmanager.service;
+package com.j2ee.cms.biz.columnmanager.service;
 
 import java.io.IOException;
 import java.util.List;
 
 import jxl.read.biff.BiffException;
 
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.columnmanager.web.form.ColumnForm;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.columnmanager.web.form.ColumnForm;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: 栏目最高层接口</p>
  * <p>描述: 栏目表最高层接口</p>
  * <p>模块: 栏目管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 魏仲芹
  * @version 1.0
  * @since 2009-4-2 下午04:03:29

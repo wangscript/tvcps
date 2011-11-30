@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.sys;
+package com.j2ee.cms.sys;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
 
-import com.baize.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
 
 /**
  * <p>
@@ -23,7 +23,7 @@ import com.baize.common.core.util.FileUtil;
  * 模块: 通用平台
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * 
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0

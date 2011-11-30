@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlinesurvey.service.impl;
+package com.j2ee.cms.plugin.onlinesurvey.service.impl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,17 +19,17 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyAnswerContentDao;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.plugin.onlinesurvey.service.OnlineSurveyContentService;
-import com.baize.ccms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyAnswerContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.plugin.onlinesurvey.service.OnlineSurveyContentService;
+import com.j2ee.cms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * <p>
@@ -42,7 +42,7 @@ import com.baize.common.core.util.SqlUtil;
  * 模块: 网上调查
  * </p>
  * <p>
- * 版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009 
  * 
  * @author 包坤涛
  * @version 1.0
@@ -73,7 +73,7 @@ public class OnlineSurveyContentServiceImpl implements OnlineSurveyContentServic
 	public void modifyOnlineSurveyContent(OnlineSurveyContent onlineSurveyContent, String requestionId) {
 		OnlineSurveyContent onlineSurveyContentEntitly = onlineSurveyContentDao.getAndClear(requestionId);
 		onlineSurveyContentEntitly.setName(onlineSurveyContent.getName());
-		onlineSurveyContentEntitly.setView(onlineSurveyContent.isView());
+		onlineSurveyContentEntitly.setViewed(onlineSurveyContent.isViewed());
 		onlineSurveyContentEntitly.setFeedback(onlineSurveyContent.isFeedback());
 		onlineSurveyContentEntitly.setStyle(onlineSurveyContent.getStyle());
 		onlineSurveyContentEntitly.setRequired(onlineSurveyContent.isRequired());

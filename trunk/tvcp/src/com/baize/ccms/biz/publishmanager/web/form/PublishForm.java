@@ -1,20 +1,20 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
  */
-package com.baize.ccms.biz.publishmanager.web.form;
+package com.j2ee.cms.biz.publishmanager.web.form;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 发布管理</p>
- * <p>版权: Copyright (c) 2009 南京瀚沃信息科技有限责任公司</p>
+ * <p>版权: Copyright (c) 2009   </p>
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-6-18 上午10:35:43

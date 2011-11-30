@@ -1,8 +1,8 @@
   /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.columnmanager.service.impl;
+package com.j2ee.cms.biz.columnmanager.service.impl;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -34,43 +34,43 @@ import jxl.write.biff.RowsExceededException;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.columnmanager.service.ColumnService;
-import com.baize.ccms.biz.columnmanager.web.form.ColumnForm;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.publishmanager.service.Publisher;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.ccms.biz.usermanager.dao.AssignmentDao;
-import com.baize.ccms.biz.usermanager.dao.AuthorityDao;
-import com.baize.ccms.biz.usermanager.dao.OperationDao;
-import com.baize.ccms.biz.usermanager.dao.ResourceDao;
-import com.baize.ccms.biz.usermanager.dao.RightDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.Operation;
-import com.baize.ccms.biz.usermanager.domain.Resource;
-import com.baize.ccms.biz.usermanager.domain.Right;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.columnmanager.service.ColumnService;
+import com.j2ee.cms.biz.columnmanager.web.form.ColumnForm;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.publishmanager.service.Publisher;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.biz.usermanager.dao.AssignmentDao;
+import com.j2ee.cms.biz.usermanager.dao.AuthorityDao;
+import com.j2ee.cms.biz.usermanager.dao.OperationDao;
+import com.j2ee.cms.biz.usermanager.dao.ResourceDao;
+import com.j2ee.cms.biz.usermanager.dao.RightDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.Operation;
+import com.j2ee.cms.biz.usermanager.domain.Resource;
+import com.j2ee.cms.biz.usermanager.domain.Right;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 
 /**
  * <p>标题: 栏目业务类</p>
  * <p>描述: 负责业务中的一些处理</p>
  * <p>模块: 栏目管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-4-2 下午04:07:22

@@ -1,21 +1,21 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.templatemanager.web.form;
+package com.j2ee.cms.biz.templatemanager.web.form;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 模板实例表单</p>
  * <p>描述: 模板实例表单的一些属性</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-4-9 下午04:14:02

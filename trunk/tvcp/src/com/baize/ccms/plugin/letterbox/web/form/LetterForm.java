@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.letterbox.web.form;
+package com.j2ee.cms.plugin.letterbox.web.form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.plugin.letterbox.domain.Letter;
-import com.baize.ccms.plugin.letterbox.domain.LetterCategory;
-import com.baize.ccms.plugin.letterbox.domain.LetterReply;
-import com.baize.ccms.plugin.letterbox.domain.TransferRecord;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.plugin.letterbox.domain.Letter;
+import com.j2ee.cms.plugin.letterbox.domain.LetterCategory;
+import com.j2ee.cms.plugin.letterbox.domain.LetterReply;
+import com.j2ee.cms.plugin.letterbox.domain.TransferRecord;
 
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 信件表单</p>
  * <p>描述: 信件的表单数据，以便页面和方法中调用</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-6-14 下午02:35:25 

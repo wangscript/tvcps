@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.web.action;
+package com.j2ee.cms.biz.documentmanager.web.action;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -13,25 +13,25 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.documentmanager.domain.AttachmentCategory;
-import com.baize.ccms.biz.documentmanager.domain.DocumentCategory;
-import com.baize.ccms.biz.documentmanager.domain.FlashCategory;
-import com.baize.ccms.biz.documentmanager.domain.JsCategory;
-import com.baize.ccms.biz.documentmanager.domain.PictureCategory;
-import com.baize.ccms.biz.documentmanager.web.form.CategoryForm;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.documentmanager.domain.AttachmentCategory;
+import com.j2ee.cms.biz.documentmanager.domain.DocumentCategory;
+import com.j2ee.cms.biz.documentmanager.domain.FlashCategory;
+import com.j2ee.cms.biz.documentmanager.domain.JsCategory;
+import com.j2ee.cms.biz.documentmanager.domain.PictureCategory;
+import com.j2ee.cms.biz.documentmanager.web.form.CategoryForm;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 类别的action</p>
  * <p>描述: 类别的action处理，用于平台</p>
  * <p>模块: 文档管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-3-26 上午11:16:18

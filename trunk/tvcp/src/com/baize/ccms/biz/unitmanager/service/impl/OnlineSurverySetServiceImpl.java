@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,27 +20,27 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.unitmanager.service.OnlineSurverySetService;
-import com.baize.ccms.biz.unitmanager.web.form.OnlineSurverySetForm;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyDao;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurvey;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.unitmanager.service.OnlineSurverySetService;
+import com.j2ee.cms.biz.unitmanager.web.form.OnlineSurverySetForm;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyDao;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurvey;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-6-1 下午05:42:58
@@ -120,14 +120,14 @@ public class OnlineSurverySetServiceImpl implements OnlineSurverySetService{
 	private OnlineSurverySetForm setXmlData(String filePath, OnlineSurverySetForm form){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		// 获取xml文件中的字段信息
-		form.setCategory(xmlUtil.getNodeText("/baize/online_survery/category"));
-		form.setTheme(xmlUtil.getNodeText("/baize/online_survery/theme"));
-		form.setQuestion(xmlUtil.getNodeText("/baize/online_survery/question"));
-		form.setAnswerCount(xmlUtil.getNodeText("/baize/online_survery/answerCount"));
-		form.setRowCount(xmlUtil.getNodeText("/baize/online_survery/rowCount"));
-		form.setColCount(xmlUtil.getNodeText("/baize/online_survery/colCount"));
-		form.setDefaultCount(xmlUtil.getNodeText("/baize/online_survery/defaultCount"));
-		form.setMore(xmlUtil.getNodeText("/baize/online_survery/more"));
+		form.setCategory(xmlUtil.getNodeText("/j2ee.cms/online_survery/category"));
+		form.setTheme(xmlUtil.getNodeText("/j2ee.cms/online_survery/theme"));
+		form.setQuestion(xmlUtil.getNodeText("/j2ee.cms/online_survery/question"));
+		form.setAnswerCount(xmlUtil.getNodeText("/j2ee.cms/online_survery/answerCount"));
+		form.setRowCount(xmlUtil.getNodeText("/j2ee.cms/online_survery/rowCount"));
+		form.setColCount(xmlUtil.getNodeText("/j2ee.cms/online_survery/colCount"));
+		form.setDefaultCount(xmlUtil.getNodeText("/j2ee.cms/online_survery/defaultCount"));
+		form.setMore(xmlUtil.getNodeText("/j2ee.cms/online_survery/more"));
 		return form;
 	}
 	
@@ -184,14 +184,14 @@ public class OnlineSurverySetServiceImpl implements OnlineSurverySetService{
 	
 	private void setXmlData(String filePath, String newFilePath, OnlineSurverySetForm form){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("baize/online_survery/category",form.getCategory());
-		xmlUtil.setNodeCDATAText("baize/online_survery/theme",form.getTheme());
-		xmlUtil.setNodeCDATAText("baize/online_survery/question",form.getQuestion());
-		xmlUtil.setNodeCDATAText("baize/online_survery/answerCount",form.getAnswerCount());
-		xmlUtil.setNodeCDATAText("baize/online_survery/rowCount",form.getRowCount());
-		xmlUtil.setNodeCDATAText("baize/online_survery/colCount",form.getColCount());
-		xmlUtil.setNodeCDATAText("baize/online_survery/defaultCount",form.getDefaultCount());
-		xmlUtil.setNodeCDATAText("baize/online_survery/more",form.getMore());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/category",form.getCategory());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/theme",form.getTheme());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/question",form.getQuestion());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/answerCount",form.getAnswerCount());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/rowCount",form.getRowCount());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/colCount",form.getColCount());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/defaultCount",form.getDefaultCount());
+		xmlUtil.setNodeCDATAText("j2ee.cms/online_survery/more",form.getMore());
 		xmlUtil.save(newFilePath);
 	}
 	

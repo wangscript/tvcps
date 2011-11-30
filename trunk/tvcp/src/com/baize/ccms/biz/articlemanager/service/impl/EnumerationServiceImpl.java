@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.articlemanager.service.impl;
+package com.j2ee.cms.biz.articlemanager.service.impl;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,30 +14,30 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.EnumerationDao;
-import com.baize.ccms.biz.articlemanager.domain.Enumeration;
-import com.baize.ccms.biz.articlemanager.service.EnumerationService;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.EnumerationDao;
+import com.j2ee.cms.biz.articlemanager.domain.Enumeration;
+import com.j2ee.cms.biz.articlemanager.service.EnumerationService;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 import org.apache.log4j.Logger;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
- * <p>网址：http://www.baizeweb.com
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  </p>
+ * <p>网址：http://www.j2ee.cmsweb.com
  * @author <a href="mailto:sean_yang@163.com">杨信</a>
  * @version 1.0
  * @since 2009-9-2 上午11:29:15
@@ -286,7 +286,7 @@ public class EnumerationServiceImpl implements EnumerationService {
 							log.debug("path=============================================="+path);
 							XmlUtil xmlUtil = XmlUtil.getInstance(path);
 							// infoCategory  (  2009092915375476524##aa:::2009092915375476525##分类1:::2009092915375476525##分类2:::2009092915375476525##分类3:::2009092915375476526##bb )
-							String infoCategory = xmlUtil.getNodeText("/baize/magazine-category/infoCategory");
+							String infoCategory = xmlUtil.getNodeText("/j2ee.cms/magazine-category/infoCategory");
 							if(!StringUtil.isEmpty(infoCategory)) {
 								String[] str = infoCategory.split(":::");
 								if(str.length != 0 && !StringUtil.isEmpty(str[0])) {
@@ -317,7 +317,7 @@ public class EnumerationServiceImpl implements EnumerationService {
 										}		
 									}
 									infoCategory = infoCategory.replaceAll(temp, newEnum);
-									xmlUtil.setNodeText("/baize/magazine-category/infoCategory", infoCategory);
+									xmlUtil.setNodeText("/j2ee.cms/magazine-category/infoCategory", infoCategory);
 									xmlUtil.save();
 								}// end if
 							}

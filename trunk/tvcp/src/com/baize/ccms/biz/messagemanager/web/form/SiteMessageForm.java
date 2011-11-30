@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.messagemanager.web.form;
+package com.j2ee.cms.biz.messagemanager.web.form;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,15 +11,15 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
-import com.baize.ccms.biz.messagemanager.domain.SiteMessage;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.messagemanager.domain.SiteMessage;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 消息表单</p>
  * <p>描述: 消息的表单数据，以便页面和方法中调用</p>
  * <p>模块: 消息管理</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-5-18 上午11:32:05 
@@ -233,7 +233,7 @@ public class SiteMessageForm extends GeneralForm {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.baize.common.core.web.GeneralForm#validateData(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
+	 * @see com.j2ee.cms.common.core.web.GeneralForm#validateData(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
 	protected void validateData(ActionMapping arg0, HttpServletRequest arg1) {

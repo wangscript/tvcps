@@ -1,29 +1,29 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
 */
-package com.baize.ccms.plugin.letterbox.service;
+package com.j2ee.cms.plugin.letterbox.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.plugin.letterbox.domain.Letter;
-import com.baize.ccms.plugin.letterbox.domain.LetterCategory;
-import com.baize.ccms.plugin.letterbox.domain.LetterReply;
-import com.baize.ccms.plugin.letterbox.domain.TransferRecord;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.plugin.letterbox.domain.Letter;
+import com.j2ee.cms.plugin.letterbox.domain.LetterCategory;
+import com.j2ee.cms.plugin.letterbox.domain.LetterReply;
+import com.j2ee.cms.plugin.letterbox.domain.TransferRecord;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 信件业务处理类</p>
  * <p>描述: 信件的查看,删除,回复等功能</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京瀚沃信息科技有限责任公司
+ * <p>版权: Copyright (c) 2009  
  * @author 杨信
  * @version 1.0
  * @since 2009-6-14 下午02:26:33 

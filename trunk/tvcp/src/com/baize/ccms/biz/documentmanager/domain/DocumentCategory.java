@@ -1,20 +1,20 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.documentmanager.domain;
+package com.j2ee.cms.biz.documentmanager.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
 
 /**
  * <p>标题: 文档类别</p>
  * <p>描述: 对文档进行分门别类</p>
  * <p>模块: 文档管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-3-26 上午10:00:46
