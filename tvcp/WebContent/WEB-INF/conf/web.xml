@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-  <display-name>ccms</display-name>
+  <display-name>cps</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>/setup/login.jsp</welcome-file>
     <welcome-file>index.htm</welcome-file>
   </welcome-file-list>
   <listener>
-    <listener-class>com.baize.ccms.sys.StartListener</listener-class>
+    <listener-class>com.j2ee.cms.sys.StartListener</listener-class>
   </listener>
   <servlet>
     <servlet-name>action</servlet-name>
@@ -16,24 +16,24 @@
       <param-name>config</param-name>
       <param-value>
       	/WEB-INF/struts-config.xml,
-      	/WEB-INF/classes/com/baize/ccms/plugin/guestbookmanager/guestbookmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/usermanager/usermanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/sitemanager/sitemanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/columnmanager/columnmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/configmanager/configmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/documentmanager/documentmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/articlemanager/articlemanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/templatemanager/templatemanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/publishmanager/publishmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/messagemanager/messagemanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/biz/unitmanager/unitmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/plugin/guestbookmanager/guestbookmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/plugin/letterbox/letterbox-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/plugin/pluginmanager/pluginmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/plugin/rss/rssmanager-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/plugin/articlecomment/articlecomment-str.xml,    
-      	/WEB-INF/classes/com/baize/ccms/plugin/onlinesurvey/onlinesurvery-str.xml,
-      	/WEB-INF/classes/com/baize/ccms/plugin/onlineBulletin/onlineBulletin-str.xml
+      	/WEB-INF/classes/com/j2ee/cms/plugin/guestbookmanager/guestbookmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/usermanager/usermanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/sitemanager/sitemanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/columnmanager/columnmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/configmanager/configmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/documentmanager/documentmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/articlemanager/articlemanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/templatemanager/templatemanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/publishmanager/publishmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/messagemanager/messagemanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/biz/unitmanager/unitmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/plugin/guestbookmanager/guestbookmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/plugin/letterbox/letterbox-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/plugin/pluginmanager/pluginmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/plugin/rss/rssmanager-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/plugin/articlecomment/articlecomment-str.xml,    
+      	/WEB-INF/classes/com/j2ee/cms/plugin/onlinesurvey/onlinesurvery-str.xml,
+      	/WEB-INF/classes/com/j2ee/cms/plugin/onlineBulletin/onlineBulletin-str.xml
       </param-value>
     </init-param>
     <init-param>
@@ -91,7 +91,7 @@
   <!-- 
   <filter>
   	<filter-name>SystemFilter</filter-name>
-  	<filter-class>com.baize.ccms.sys.SystemFilter</filter-class>  	
+  	<filter-class>com.j2ee.cms.sys.SystemFilter</filter-class>  	
   </filter>
   <filter-mapping>
   	<filter-name>SystemFilter</filter-name>
@@ -122,7 +122,7 @@
   
    <servlet>
     <servlet-name>webClientServlet</servlet-name>
-    <servlet-class>com.baize.common.core.web.WebClientServlet</servlet-class>
+    <servlet-class>com.j2ee.cms.common.core.web.WebClientServlet</servlet-class>
   </servlet>
   <servlet>
 		<description>
@@ -131,13 +131,13 @@
 		CheckInit</display-name>
 		<servlet-name>CheckInit</servlet-name>
 		<servlet-class>
-		com.baize.ccms.biz.setupmanager.servlet.CheckInit</servlet-class>
+		com.j2ee.cms.biz.setupmanager.servlet.CheckInit</servlet-class>
 	</servlet>
    <servlet>
    	<description></description>
    	<display-name>SetupServlet</display-name>
    	<servlet-name>SetupServlet</servlet-name>
-   	<servlet-class>com.baize.ccms.biz.setupmanager.servlet.SetupServlet</servlet-class>
+   	<servlet-class>com.j2ee.cms.biz.setupmanager.servlet.SetupServlet</servlet-class>
    </servlet>
    <servlet>
    	<description>
@@ -146,7 +146,7 @@
    	upload</display-name>
    	<servlet-name>upload</servlet-name>
    	<servlet-class>
-   	com.baize.ccms.biz.setupmanager.servlet.upload</servlet-class>
+   	com.j2ee.cms.biz.setupmanager.servlet.upload</servlet-class>
    </servlet>
    <servlet-mapping>
 		<servlet-name>CheckInit</servlet-name>
@@ -171,8 +171,8 @@
       <taglib-location>/WEB-INF/tlds/complat.tld</taglib-location>
     </taglib>
     <taglib>
-      <taglib-uri>/WEB-INF/tlds/ccms.tld</taglib-uri>
-      <taglib-location>/WEB-INF/tlds/ccms.tld</taglib-location>
+      <taglib-uri>/WEB-INF/tlds/cps.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/cps.tld</taglib-location>
     </taglib>
   </jsp-config>
   <session-config>
