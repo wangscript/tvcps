@@ -8,26 +8,26 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 		
 	<!-- ******************************** 模块配置文件 ******************************** -->
-    <import resource="com/baize/ccms/biz/usermanager/usermanager-spr.xml" />
-    <import resource="com/baize/ccms/biz/columnmanager/columnmanager-spr.xml" />
-    <import resource="com/baize/ccms/biz/configmanager/configmanager-spr.xml" />
-    <import resource="com/baize/ccms/biz/documentmanager/documentmanager-spr.xml" />
-    <import resource="com/baize/ccms/biz/sitemanager/sitemanager-spr.xml" />
-    <import resource="com/baize/ccms/biz/articlemanager/articlemanager-spr.xml" />
-    <import resource="com/baize/ccms/biz/templatemanager/templatemanager-spr.xml" />
-	<import resource="com/baize/ccms/plugin/guestbookmanager/guestbookmanager-spr.xml" />
-	<import resource="com/baize/ccms/biz/messagemanager/messagemanager-spr.xml" />
-	<import resource="com/baize/ccms/biz/unitmanager/unitmanager-spr.xml" />
-	<import resource="com/baize/ccms/biz/publishmanager/publishmanager-spr.xml" />
-	<import resource="com/baize/ccms/plugin/letterbox/letterbox-spr.xml" />
-	<import resource="com/baize/ccms/plugin/pluginmanager/pluginmanager-spr.xml" />
-	<import resource="com/baize/ccms/plugin/rss/rssmanager-spr.xml" />
+    <import resource="com/j2ee/cms/biz/usermanager/usermanager-spr.xml" />
+    <import resource="com/j2ee/cms/biz/columnmanager/columnmanager-spr.xml" />
+    <import resource="com/j2ee/cms/biz/configmanager/configmanager-spr.xml" />
+    <import resource="com/j2ee/cms/biz/documentmanager/documentmanager-spr.xml" />
+    <import resource="com/j2ee/cms/biz/sitemanager/sitemanager-spr.xml" />
+    <import resource="com/j2ee/cms/biz/articlemanager/articlemanager-spr.xml" />
+    <import resource="com/j2ee/cms/biz/templatemanager/templatemanager-spr.xml" />
+	<import resource="com/j2ee/cms/plugin/guestbookmanager/guestbookmanager-spr.xml" />
+	<import resource="com/j2ee/cms/biz/messagemanager/messagemanager-spr.xml" />
+	<import resource="com/j2ee/cms/biz/unitmanager/unitmanager-spr.xml" />
+	<import resource="com/j2ee/cms/biz/publishmanager/publishmanager-spr.xml" />
+	<import resource="com/j2ee/cms/plugin/letterbox/letterbox-spr.xml" />
+	<import resource="com/j2ee/cms/plugin/pluginmanager/pluginmanager-spr.xml" />
+	<import resource="com/j2ee/cms/plugin/rss/rssmanager-spr.xml" />
 
-    <import resource="com/baize/ccms/plugin/onlinesurvey/onlinesurvery-spr.xml"/>
+    <import resource="com/j2ee/cms/plugin/onlinesurvey/onlinesurvery-spr.xml"/>
 
-    <import resource="com/baize/ccms/plugin/articlecomment/articlecomment-spr.xml" />
+    <import resource="com/j2ee/cms/plugin/articlecomment/articlecomment-spr.xml" />
     
-    <import resource="com/baize/ccms/plugin/onlineBulletin/onlineBulletin-spr.xml" />
+    <import resource="com/j2ee/cms/plugin/onlineBulletin/onlineBulletin-spr.xml" />
     
                       
     	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -44,15 +44,15 @@
 
 	<!-- ******************************** 公共配置文件 ******************************** -->
 	<!-- 查询导航使用 -->
-	<bean id="guideService" class="com.baize.common.core.web.ui.guide.GuideServiceImpl">
+	<bean id="guideService" class="com.j2ee.cms.common.core.web.ui.guide.GuideServiceImpl">
 		<property name="genericDaoImpl" ref="genericDaoImpl"/>
 	</bean>
 	<!-- 查询权限使用 -->
-	<bean id="operationAuthorizationService" class="com.baize.common.core.web.authorization.OperationAuthorizationServiceImpl">
+	<bean id="operationAuthorizationService" class="com.j2ee.cms.common.core.web.authorization.OperationAuthorizationServiceImpl">
 		<property name="genericDaoImpl" ref="genericDaoImpl"/>
 	</bean>
 	<!-- 树标签使用 -->
-	<bean id="treeService" class="com.baize.common.core.web.ui.tree.TreeServiceImpl" scope="singleton">
+	<bean id="treeService" class="com.j2ee.cms.common.core.web.ui.tree.TreeServiceImpl" scope="singleton">
 		<property name="genericDaoImpl" ref="genericDaoImpl"/>
 	</bean>
 	<bean id="outSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -73,7 +73,7 @@
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
 	</bean> 	
-	<bean id="genericDaoImpl" class="com.baize.common.core.dao.GenericDaoImpl">
+	<bean id="genericDaoImpl" class="com.j2ee.cms.common.core.dao.GenericDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -113,7 +113,7 @@
 	</bean>
     --> 
     <!-- 生成任务 -->
-    <bean id="buildJob" class="com.baize.ccms.sys.BuildTask" scope="prototype">
+    <bean id="buildJob" class="com.j2ee.cms.sys.BuildTask" scope="prototype">
 	 	<property name="publisher" ref="publishmanager-staticPublisher"/>
 		<property name="articleBuildListDao" ref="publishmanager-articleBuildListDao"/>
 		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao"/>
@@ -140,7 +140,7 @@
 	</bean>
 	
 	<!-- 发布任务 -->
-	<bean id="publishJob" class="com.baize.ccms.sys.PublishTask" scope="prototype">
+	<bean id="publishJob" class="com.j2ee.cms.sys.PublishTask" scope="prototype">
 	  <property name="articleDao" ref="articlemanager-articleDao" />
     	<property name="publisher" ref="publishmanager-staticPublisher"/>
 		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao"/>
@@ -166,7 +166,7 @@
 	
 		
 	<!-- 最新信息任务 -->
-	<bean id="buildLatestInfoJob" class="com.baize.ccms.sys.BuildLatestInfoTask" scope="prototype">
+	<bean id="buildLatestInfoJob" class="com.j2ee.cms.sys.BuildLatestInfoTask" scope="prototype">
 			 	<property name="siteDao" ref="sitemanager-siteDao" />
 	 	<property name="columnDao" ref="columnmanager-columnDao"/>
 	 	<property name="articleDao" ref="articlemanager-articleDao" />
@@ -204,7 +204,7 @@
 	    </property>
 	</bean>
     <!-- 
-    <bean id="springLoader" class="com.baize.ccms.sys.SpringLoader" init-method="init">
+    <bean id="springLoader" class="com.j2ee.cms.sys.SpringLoader" init-method="init">
     	<property name="articleDao" ref="articlemanager-articleDao" />
     </bean>
      -->
