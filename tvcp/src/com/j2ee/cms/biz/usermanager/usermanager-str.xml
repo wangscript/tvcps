@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+	<form-beans>
+		<!-- 登录业务实体bean start-->  
+        <form-bean name="loginbean" type="com.j2ee.cms.biz.usermanager.web.form.LoginForm"/>      
+		<form-bean name="userForm" type="com.j2ee.cms.biz.usermanager.web.form.UserForm" />
+		<form-bean name="organizationForm" type="com.j2ee.cms.biz.usermanager.web.form.OrganizationForm" />
+		<form-bean name="roleForm" type="com.j2ee.cms.biz.usermanager.web.form.RoleForm" />
+		<form-bean name="menuForm" type="com.j2ee.cms.biz.usermanager.web.form.MenuForm" />
+	</form-beans>
+	<global-exceptions />
+	<action-mappings>
+	
+	  <!-- 登录业务action配置  start-->
+        <action path="/loginaction"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="loginbean"
+                scope="session"
+                validate="false"
+        >
+          <forward name="success" 		  path="/main/mainframe.jsp" />
+          <forward name="loginfailed" 	  path="/error/loginfailed.jsp" />
+          <forward name="createSite"      path="/site_null.jsp" />
+          <forward name="useispass"       path="/error/logintimepass.jsp"></forward>
+          <forward name="loginout"        path="/index.jsp" redirect="true"/>
+          <forward name="loginSiteFailed" path="/error/loginSiteFailed.jsp" />
+          <forward name="loginMenuFailed" path="/error/loginMenuFailed.jsp" />
+          <forward name="login_rand_msg"  path="/login_rand_msg.jsp" />
+        </action>	
+        <!-- 登录业务action配置  end -->
+	
+	
+		<!-- 用户管理业务action配置  start-->
+		<action path="/user"
+				type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="userForm"
+                scope="request"
+                validate="false"
+		>
+			<forward name="addsuccess"			 path="/module/user_manager/user/user_detail.jsp"/>	
+			<forward name="success" 			 path="/module/user_manager/user/user_list.jsp"/>
+			<forward name="findRole" 			 path="/module/user_manager/user/set_role.jsp"/>
+			<forward name="findColumn"  		 path="/module/user_manager/user/set_column.jsp"/>			
+			<forward name="operationdetail" 	 path="/module/user_manager/user/operation_list.jsp"/>
+			<forward name="return" 				 path="/user.do?dealMethod="/>
+			<forward name="saverolemsg"    		 path="/module/user_manager/user/save_role_msg.jsp"/>	
+			<forward name="showdetail"  		 path="/module/user_manager/user/user_detail.jsp"/>		
+			<forward name="findInfoSuccess" 	 path="/module/user_manager/personalInfo_set/info_detail.jsp"/>	
+			<forward name="modifyInfoSuccess" 	 path="/module/user_manager/personalInfo_set/info_detail.jsp"/>
+			<forward name="findSystemFunction"   path="/module/user_manager/user/set_systemFunction.jsp"/>				
+			<forward name="currentLineUsers"  	 path="/module/user_manager/user/current_line_user_list.jsp"/>
+			
+		</action>
+		<!-- 用户管理业务action配置  start-->
+		
+			
+		<!-- 机构管理业务action配置  start-->
+		<action path="/organization"
+				type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="organizationForm"
+                scope="request"
+                validate="false"
+		>
+			<forward name="addsuccess" path="/module/user_manager/organization/organization_detail.jsp"/>
+			<forward name="success" path="/module/user_manager/organization/organization_list.jsp"/>
+			<forward name="return" path="/organization.do?dealMethod=return"/>
+			<forward name="saveorgmsg" path="/module/user_manager/organization/save_organization_msg.jsp"/>
+			<forward name="showdetail" path="/module/user_manager/organization/organization_detail.jsp"/>		
+		</action>
+		<!-- 机构管理业务action配置  end-->
+		
+
+		<!-- 角色管理业务action配置  start-->
+		<action path="/role"
+				type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="roleForm"
+                scope="request"
+                validate="false"
+		>
+			<forward name="addsuccess" path="/module/user_manager/role/role_detail.jsp"/>
+			<forward name="success" path="/module/user_manager/role/role_list.jsp"/>
+			<forward name="setauthority" path="/module/user_manager/role/set_authority.jsp"/>	
+			<forward name="operationdetail" path="/module/user_manager/role/operation_list.jsp"/>
+			<forward name="return" path="/role.do?dealMethod="/>		
+			<forward name="getsitetree" path="/module/user_manager/role/index.jsp"/>
+			<forward name="showdetail" path="/module/user_manager/role/role_detail.jsp"/>
+			<forward name="roleMessage" path="/module/user_manager/role/save_role_msg.jsp"/>		
+							
+		</action>
+		<!-- 角色管理业务action配置  end-->
+
+		<!-- 菜单管理业务action配置  start-->
+		<action path="/menu"
+				type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="menuForm"
+                scope="request"
+                validate="false">
+			<forward name="listMenu" path="/module/user_manager/menu/menu_manage.jsp"/>	
+		</action>
+		<!-- 菜单管理业务action配置  end-->
+	</action-mappings>
+</struts-config>
+

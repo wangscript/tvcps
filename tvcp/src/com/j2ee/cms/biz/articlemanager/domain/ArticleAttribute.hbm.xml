@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.articlemanager.domain">
+	<class name="ArticleAttribute" table="article_attributes">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="attributeName" not-null="true"/>
+		<property name="attributeType" not-null="true"/>
+		<property name="fieldName" not-null="true"/>
+		<property name="showed" />
+		<property name="modified" />
+		<property name="tip" />
+		<property name="empty" />
+		<property name="validValue" />
+		<property name="orders" />
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
+		<many-to-one name="articleFormat" column="article_format_id" not-null="true"/>
+		<many-to-one name="enumeration"   column="enumeration_id"/>
+	</class>
+	
+	<!-- 查询属性分页 -->
+	<query name="findAttributePage"><![CDATA[
+		SELECT attribute.id, attribute.attributeName, attribute.attributeType, attribute.tip, attribute.validValue, attribute.showed, attribute.modified, 
+			   attribute.empty, attribute.articleFormat.id, attribute.articleFormat.fields
+		  FROM ArticleAttribute attribute
+		 WHERE attribute.articleFormat.id = :formatId
+	  ORDER BY attribute.orders ASC, attribute.createTime DESC
+	]]></query>
+	
+	<!-- 通过格式ID删除属性 -->
+	<query name="deleteAttributeByFormatId"><![CDATA[
+		DELETE 
+		  FROM ArticleAttribute attribute
+		 WHERE attribute.articleFormat.id = :id
+	]]></query>
+	
+	<!-- 通过格式ID集合批量删除格式 -->
+	<query name="deleteAttributeByFormatIds"><![CDATA[
+		DELETE 
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.articleFormat.id
+	        IN (:ids)
+	]]></query>
+	
+	<!-- 通过格式ID查找其属性 -->
+	<query name="findAttributesByFormatId"><![CDATA[
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.articleFormat.id = :formatId
+	  ORDER BY attribute.orders ASC, attribute.createTime 
+	]]></query>
+	
+	<!-- 通过格式ID和属性名称查找其属性 -->
+	<query name="findAttributeByFormateIdAndAttributeName"><![CDATA[
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.articleFormat.id = :formateId
+	       AND attribute.attributeName = :attributeName
+	  ORDER BY attribute.orders ASC, attribute.createTime 
+	]]></query>
+	
+	<!-- 根据枚举类别查找文章属性 -->
+	<query name="findArticleAttributeByEnumIdAndFormatId"><![CDATA[
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.enumeration.id = :enumId
+	       AND attribute.articleFormat.id = :formatId
+	  ORDER BY attribute.orders ASC, attribute.createTime DESC
+	]]></query>
+	
+	<!-- 根据格式id查找枚举id -->
+	<query name="findEnumerationIdByFormatId"><![CDATA[
+		SELECT attribute.id, attribute.attributeType
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.articleFormat.id = :formatId
+	]]></query>
+	
+	<!-- 根据格式id查找枚举信息 -->
+	<query name="findAttributeInfoByFormatId"><![CDATA[
+		SELECT attribute.id, attribute.attributeName
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.articleFormat.id = :formatId
+	  ORDER BY attribute.orders ASC, attribute.createTime DESC
+	]]></query>
+	
+	<!-- 通过格式ID查找所有属性 -->
+	<query name="findAttributeNameStrByFormatId"><![CDATA[
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.articleFormat.id = :formatId
+	  ORDER BY attribute.orders ASC, attribute.createTime 
+	]]></query>
+	
+	<!-- 通过属性名称查找属性id -->
+	<query name="findDefaultAttrIdsByNames"><![CDATA[
+		SELECT attribute.id
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.articleFormat.id = :formatId
+	       AND attribute.attributeName IN (:attrName)
+	  ORDER BY attribute.orders ASC, attribute.createTime 
+	]]></query>
+	
+	<!-- 查找枚举信息 -->
+	<query name="findExportEnumsByFieldName"><![CDATA[
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.fieldName = :fieldName
+	]]></query>
+	
+	<!-- 按照枚举id查找属性 -->
+	<query name="findArticleAttributeByEnumerationId"><![CDATA[
+		  FROM ArticleAttribute attribute
+	     WHERE attribute.enumeration.id IN (:enumerationIds)
+	  ORDER BY attribute.createTime
+	]]></query>
+	
+</hibernate-mapping>

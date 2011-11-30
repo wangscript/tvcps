@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	   
+	<!-- 菜单管理 start -->
+  	<bean name="/menu" class="com.j2ee.cms.biz.usermanager.web.action.MenuAction" scope="prototype">  
+    	<property name="baseBiz" ref="usermanager-menuBiz" />
+  	</bean>  
+  	<bean id="usermanager-menuBiz" class="com.j2ee.cms.biz.usermanager.service.MenuBiz" scope="singleton">
+		<property name="menuService" ref="usermanager-menuService1" />				
+	</bean> 
+	<bean id="usermanager-menuService1" class="com.j2ee.cms.biz.usermanager.service.impl.MenuServiceImpl" scope="singleton">
+		<property name="userDao" ref="usermanager-userDao"/>	
+		<property name="menuDao" ref="usermanager-menuDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<!-- 菜单管理 end -->	
+	
+	<!-- 登陆系统 start -->
+  	<bean name="/loginaction" class="com.j2ee.cms.biz.usermanager.web.action.LoginAction" scope="prototype">  
+    	<property name="loginService" ref="login-LoginService" /> 
+    	<property name="menuService" ref="usermanager-menuService" />
+    	<property name="userService" ref="usermanager-userService" />
+    	<property name="messageTipsService" ref="usermanager-messageTipsService" />
+    	<property name="categoryService" ref="usermanager-categoryService"></property>
+  	</bean> 
+	<bean id="login-LoginService" class="com.j2ee.cms.biz.usermanager.service.LoginService" scope="singleton">
+		<property name="loginDao" ref="login-LoginDao" />
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+		<property name="assignmentDao" ref="usermanager-assignmentDao" />				
+	</bean>
+	<bean id="usermanager-categoryService" class="com.j2ee.cms.biz.documentmanager.service.impl.CategoryServiceImpl">
+		<property name="categoryDao" ref="documentmanager-categoryDao"></property>
+		<property name="documentDao" ref="documentmanager-documentDao"></property>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"></property>
+		<property name="userDao" ref="usermanager-userDao"></property>
+	</bean>
+	<bean id="usermanager-messageTipsService" class="com.j2ee.cms.biz.messagemanager.service.impl.MessageTipsServiceImpl" scope="singleton">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />				
+	</bean>  
+	<bean id="login-LoginDao" class="com.j2ee.cms.biz.usermanager.dao.impl.LoginDaoImpl" parent="genericDaoImpl"  scope="singleton" />  
+	
+	
+	<!-- 登陆系统 end -->	
+	
+	
+	<!-- 机构管理 start -->
+	<bean name="/organization" class="com.j2ee.cms.biz.usermanager.web.action.OrganizationAction" scope="prototype">  
+    	<property name="baseBiz" ref="usermanager-organizationBiz" /> 
+  	</bean>  
+  	<bean id="usermanager-organizationBiz" class="com.j2ee.cms.biz.usermanager.service.OrganizationBiz" scope="singleton">
+		<property name="organizationService" ref="usermanager-organizationService"/>
+	</bean>
+	<bean id="usermanager-organizationService" class="com.j2ee.cms.biz.usermanager.service.impl.OrganizationServiceImpl" scope="singleton">
+		<property name="organizationDao" ref="usermanager-organizationDao" />	
+		<property name="userDao" ref="usermanager-userDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>		
+	</bean>
+	<bean id="usermanager-organizationDao" class="com.j2ee.cms.biz.usermanager.dao.impl.OrganizationDaoImpl" parent="genericDaoImpl" scope="singleton" />      	 
+	<!-- 机构管理 end -->
+	
+	
+	<!-- 用户管理 start -->
+	<bean name="/user" class="com.j2ee.cms.biz.usermanager.web.action.UserAction" scope="prototype">
+		<property name="baseBiz" ref="usermanager-userBiz"/>
+	</bean>
+	<bean id="usermanager-userBiz" class="com.j2ee.cms.biz.usermanager.service.UserBiz" scope="singleton">
+		<property name="userService" ref="usermanager-userService"/>
+	</bean>
+	<bean id="usermanager-userService" class="com.j2ee.cms.biz.usermanager.service.impl.UserServiceImpl" scope="singleton">
+		<property name="userDao" ref="usermanager-userDao"/>
+		<property name="organizationDao" ref="usermanager-organizationDao"/>
+		<property name="assignmentDao" ref="usermanager-assignmentDao"/>
+		<property name="roleDao" ref="usermanager-roleDao"/>		
+		<property name="authorityDao" ref="usermanager-authorityDao"/>
+		<property name="resourceDao" ref="usermanager-resourceDao"/>
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="operationDao" ref="usermanager-operationDao"/>
+		<property name="rightDao" ref="usermanager-rightDao"/>		
+		<property name="menuDao" ref="usermanager-menuDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="menuFunctionDao" ref="usermanager-menuFunctionDao"/>
+		<property name="menuAuthorityDao" ref="usermanager-menuAuthorityDao"/>	
+	</bean>
+	<bean id="usermanager-userDao" class="com.j2ee.cms.biz.usermanager.dao.impl.UserDaoImpl" parent="genericDaoImpl"/>
+	<!-- 用户管理 end -->
+	
+	<!-- 角色分配 start -->
+
+	<bean id="usermanager-assignmentDao" class="com.j2ee.cms.biz.usermanager.dao.impl.AssignmentDaoImpl" parent="genericDaoImpl"/>	
+	
+	<!-- 角色分配 end -->
+	
+	<!-- 角色 start -->
+	<bean name="/role" class="com.j2ee.cms.biz.usermanager.web.action.RoleAction" scope="prototype">
+		<property name="baseBiz" ref="usermanager-roleBiz"/>
+	</bean>
+	<bean id="usermanager-roleBiz" class="com.j2ee.cms.biz.usermanager.service.RoleBiz" scope="singleton">		
+		<property name="roleService" ref="usermanager-roleService"/>		
+	</bean>
+	<bean id="usermanager-roleService" class="com.j2ee.cms.biz.usermanager.service.impl.RoleServiceImpl" scope="singleton">
+		<property name="roleDao" ref="usermanager-roleDao"/>
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+		<property name="resourceDao" ref="usermanager-resourceDao"/>		
+		<property name="authorityDao" ref="usermanager-authorityDao"/>
+		<property name="operationDao" ref="usermanager-operationDao"/>
+		<property name="menuDao" ref="usermanager-menuDao"/>
+		<property name="assignmentDao" ref="usermanager-assignmentDao"/>
+		<property name="userDao" ref="usermanager-userDao"/>
+		<property name="menuFunctionDao" ref="usermanager-menuFunctionDao"/>
+		<property name="menuAuthorityDao" ref="usermanager-menuAuthorityDao"/>	
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="usermanager-roleDao" class="com.j2ee.cms.biz.usermanager.dao.impl.RoleDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 角色 end -->	
+	
+
+	<!-- 权限 start -->
+	<bean name="/authority" class="com.j2ee.cms.biz.usermanager.web.action.AuthorityAction" scope="prototype">
+		<property name="baseBiz" ref="usermanager-authorityBiz"/>
+	</bean>
+	<bean id="usermanager-authorityBiz" class="com.j2ee.cms.biz.usermanager.service.AuthorityBiz" scope="singleton">		
+		<property name="authorityService" ref="usermanager-authorityService"/>
+	</bean>
+	<bean id="usermanager-authorityService" class="com.j2ee.cms.biz.usermanager.service.impl.AuthorityServiceImpl" scope="singleton">
+		<property name="authorityDao" ref="usermanager-authorityDao"/>
+	</bean>
+	<bean id="usermanager-authorityDao" class="com.j2ee.cms.biz.usermanager.dao.impl.AuthorityDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 权限 end -->
+	
+	<!-- 资源 start -->
+	<bean id="usermanager-resourceService" class="com.j2ee.cms.biz.usermanager.service.impl.ResourceServiceImpl" scope="singleton">	
+		<property name="resourceDao" ref="usermanager-resourceDao"/>
+	</bean>
+	<bean id="usermanager-resourceDao" class="com.j2ee.cms.biz.usermanager.dao.impl.ResourceDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 资源 end -->
+	
+	<!-- 操作 start -->
+	<bean id="usermanager-operationService" class="com.j2ee.cms.biz.usermanager.service.impl.OperationServiceImpl" scope="singleton">
+		<property name="operationDao" ref="usermanager-operationDao"/>
+	</bean>
+	<bean id="usermanager-operationDao" class="com.j2ee.cms.biz.usermanager.dao.impl.OperationDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 操作 end -->
+	
+	<!-- 菜单 start -->
+	<bean id="usermanager-menuService" class="com.j2ee.cms.biz.usermanager.service.impl.MenuServiceImpl" scope="singleton">
+		<property name="menuDao" ref="usermanager-menuDao"/>
+	</bean>
+	<bean id="usermanager-menuDao" class="com.j2ee.cms.biz.usermanager.dao.impl.MenuDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 菜单 end -->
+	
+	<!-- 权力 start -->
+	<bean id="usermanager-rightService" class="com.j2ee.cms.biz.usermanager.service.impl.RightServiceImpl" scope="singleton">
+		<property name="rightDao" ref="usermanager-rightDao"/>
+	</bean>
+	<bean id="usermanager-rightDao" class="com.j2ee.cms.biz.usermanager.dao.impl.RightDaoImpl" parent="genericDaoImpl"/>	
+	<!-- 权力 end -->
+
+	<!-- 菜单具体功能dao start-->
+	<bean id="usermanager-menuFunctionDao" class="com.j2ee.cms.biz.usermanager.dao.impl.MenuFunctionDaoImpl" parent="genericDaoImpl"/>
+	<!-- 菜单具体功能dao end-->
+	
+	<!-- 菜单角色权限dao start-->
+	<bean id="usermanager-menuAuthorityDao" class="com.j2ee.cms.biz.usermanager.dao.impl.MenuAuthorityDaoImpl" parent="genericDaoImpl"/>
+	<!-- 菜单角色权限dao end-->
+	
+</beans>

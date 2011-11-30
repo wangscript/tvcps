@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.templatemanager.domain">
+	<class name="TemplateUnitStyle" table="template_unit_styles">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="name" />
+		<property name="content" type="text"/>
+		<property name="displayEffect" type="text"/>
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
+		<many-to-one name="creator" column="creator_id"/>
+		<many-to-one name="templateUnitCategory" column="template_unit_category_id" not-null="true"/>
+		<many-to-one name="site" column="site_id" not-null="true"/>
+	</class>
+	
+	
+	<!-- 查询所有模板单元样式-->
+	<query name="findTemplateUnitStylePage"><![CDATA[
+		SELECT org.id, org.name, org.creator.name,org.createTime,org.templateUnitCategory.name
+		  FROM TemplateUnitStyle org   
+		 WHERE org.templateUnitCategory.id = :unit_categoryId
+		   AND org.site.id = :siteId   	
+		   ORDER BY org.id desc  
+	]]>		
+	</query>
+	<!-- 根据模板单元类别ID和网站ID查询 -->
+	<query name="findTemplateUnitStyleByCategoryIdAndSiteId"><![CDATA[		
+		  FROM TemplateUnitStyle org   
+		 WHERE org.templateUnitCategory.id = :unit_categoryId
+		   AND org.site.id = :siteId   	
+		   ORDER BY org.id desc  
+	]]>		
+	</query>
+	<!-- 根据模板单元类别ID,网站ID,样式名称查询 -->
+	<query name="findTemplateUnitStyleByCategoryIdAndSiteIdAndName"><![CDATA[		
+		  FROM TemplateUnitStyle org   
+		 WHERE org.templateUnitCategory.id = :unit_categoryId
+		   AND org.site.id = :siteId  
+		   AND org.content = :content 	
+		   ORDER BY org.id desc  
+	]]>		
+	</query>
+	<!-- 查询所有样式名称-->
+	<query name="findStyleNameStr"><![CDATA[		
+		SELECT templateUnitStyle.name
+		  FROM TemplateUnitStyle templateUnitStyle
+		 WHERE templateUnitStyle.templateUnitCategory.id =:categoryId     
+	]]>		
+	</query>
+	
+	
+	<!-- 根据样式ID，模板单元类别ID和网站ID查询 -->
+	<query name="findTemplateUnitStyleByStyleIdAndCategoryIdAndSiteId"><![CDATA[		
+		  FROM TemplateUnitStyle org   
+		 WHERE org.id = :styleId 
+		   AND 	org.templateUnitCategory.id = :unit_categoryId
+		   AND org.site.id = :siteId   	
+		   ORDER BY org.id desc  
+	]]>		
+	</query>
+</hibernate-mapping>
