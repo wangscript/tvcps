@@ -1,40 +1,40 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.ArticleTextService;
-import com.baize.ccms.biz.unitmanager.web.form.ArticleTextForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.ArticleTextService;
+import com.j2ee.cms.biz.unitmanager.web.form.ArticleTextForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-7-23 上午11:06:46
@@ -146,10 +146,10 @@ public class ArticleTextServiceImpl implements ArticleTextService {
 	private ArticleTextForm setXmlData(String filePath, ArticleTextForm form) {
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		// 获取xml文件中的字段信息
-		String style = xmlUtil.getNodeText("/baize/article-text/article-text-style");
-		String comment = xmlUtil.getNodeText("/baize/article-text/article-text-comment");
-		String commentPic = xmlUtil.getNodeText("/baize/article-text/article-text-comment-pic");
-		String pageSize = xmlUtil.getNodeText("/baize/article-text/article-text-pageSize");
+		String style = xmlUtil.getNodeText("/j2ee.cms/article-text/article-text-style");
+		String comment = xmlUtil.getNodeText("/j2ee.cms/article-text/article-text-comment");
+		String commentPic = xmlUtil.getNodeText("/j2ee.cms/article-text/article-text-comment-pic");
+		String pageSize = xmlUtil.getNodeText("/j2ee.cms/article-text/article-text-pageSize");
 		int size = StringUtil.parseInt(pageSize);
 		// 向表单中加入栏目链接的各种信息
 		form.setArticleTextStyle(style);
@@ -207,10 +207,10 @@ public class ArticleTextServiceImpl implements ArticleTextService {
 	 */
 	private void setXmlData(String filePath, String newFilePath, ArticleTextForm articleTextForm) {
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("baize/article-text/article-text-style", articleTextForm.getArticleTextStyle());
-		xmlUtil.setNodeCDATAText("baize/article-text/article-text-comment", articleTextForm.getArticleTextComment());
-		xmlUtil.setNodeCDATAText("baize/article-text/article-text-comment-pic", articleTextForm.getArticleTextCommentPic());
-		xmlUtil.setNodeCDATAText("baize/article-text/article-text-pageSize", String.valueOf(articleTextForm.getPageSize()));
+		xmlUtil.setNodeCDATAText("j2ee.cms/article-text/article-text-style", articleTextForm.getArticleTextStyle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/article-text/article-text-comment", articleTextForm.getArticleTextComment());
+		xmlUtil.setNodeCDATAText("j2ee.cms/article-text/article-text-comment-pic", articleTextForm.getArticleTextCommentPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/article-text/article-text-pageSize", String.valueOf(articleTextForm.getPageSize()));
 		xmlUtil.save(newFilePath);
 	}
 	

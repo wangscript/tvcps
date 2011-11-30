@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.rss.service.impl;
+package com.j2ee.cms.plugin.rss.service.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,21 +29,21 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.plugin.rss.dao.RssDao;
-import com.baize.ccms.plugin.rss.domain.Rss;
-import com.baize.ccms.plugin.rss.service.RssService;
-import com.baize.ccms.plugin.rss.web.form.RssForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.plugin.rss.dao.RssDao;
+import com.j2ee.cms.plugin.rss.domain.Rss;
+import com.j2ee.cms.plugin.rss.service.RssService;
+import com.j2ee.cms.plugin.rss.web.form.RssForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
 
 /**
  * <p>
@@ -53,13 +53,13 @@ import com.baize.common.core.util.IDFactory;
  * 描述: —— RSS 业务层
  * </p>
  * <p>
- * 模块: CCMS 插件
+ * 模块: CPS 插件
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0
@@ -562,7 +562,7 @@ public class RssServiceImpl implements RssService {
 			writer.close();
 			input.close();
 			
-			// 拷贝文件到/ccms/plugin/rss/conf/saveRss.xml
+			// 拷贝文件到/cps/plugin/rss/conf/saveRss.xml
 			String conf = GlobalConfig.appRealPath + "/plugin/rss/conf/"+siteId+".xml";
 			if(FileUtil.isExist(conf)) {
 				FileUtil.delete(conf);

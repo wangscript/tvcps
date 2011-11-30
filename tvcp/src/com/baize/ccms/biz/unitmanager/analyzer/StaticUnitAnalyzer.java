@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -10,12 +10,12 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.ArticleTextLabel;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.ArticleTextLabel;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>
@@ -28,7 +28,7 @@ import com.baize.common.core.util.StringUtil;
  * 模块: 模板管理
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * 
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0

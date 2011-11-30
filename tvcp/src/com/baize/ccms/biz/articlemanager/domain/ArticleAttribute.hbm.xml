@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.biz.articlemanager.domain">
+<hibernate-mapping package="com.j2ee.cms.biz.articlemanager.domain">
 	<class name="ArticleAttribute" table="article_attributes">
 		<id name="id">
 			<generator class="uuid" />
@@ -15,7 +15,7 @@
 		<property name="empty" />
 		<property name="validValue" />
 		<property name="orders" />
-		<property name="createTime" type="com.baize.common.core.util.DateString"/>
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
 		<many-to-one name="articleFormat" column="article_format_id" not-null="true"/>
 		<many-to-one name="enumeration"   column="enumeration_id"/>
 	</class>

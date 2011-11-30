@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,37 +19,37 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.ArticleTextLabel;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.biz.unitmanager.label.TitleLinkLabel;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.ArticleTextLabel;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.biz.unitmanager.label.TitleLinkLabel;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-7-23 上午11:08:25
@@ -197,13 +197,13 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 		String filePath = GlobalConfig.appRealPath+ configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		// 文章正文样式
-		String articleStyle = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-style"));
+		String articleStyle = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-style"));
 		// 文章评论
-		String articleComment = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-comment"));
+		String articleComment = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-comment"));
 		// 文章评论是否图片
-		String articleCommentPic = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-comment-pic"));
+		String articleCommentPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-comment-pic"));
 		// 文章正文每页显示字数
-		String pageSize = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-pageSize"));
+		String pageSize = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-pageSize"));
 		int size = StringUtil.parseInt(pageSize);
 		if(size < 0) {
 			size = 0;
@@ -493,7 +493,7 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 					getOtherValue = m.group(1);
 					String articleId = article.getId();
 					article = articleDao.getAndNonClear(articleId);
-					Object obj = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", getOtherValue);
+					Object obj = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", getOtherValue);
 					// 是日期
 					if (obj instanceof Date) {
 						obj = DateUtil.toString((Date)obj, "yyyy-MM-dd HH:mm:ss");
@@ -614,7 +614,7 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 		Matcher ifMatcher = ifPattern.matcher(ifsrc);
 		TemplateUnit unit = templateUnitDao.getAndClear(unitId);
 		String configFilePath = unit.getConfigFile();
-		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/ccms1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
+		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/cps1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
 		//获取到当前模板实例的xml配置文件路径
 		String filePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
@@ -705,13 +705,13 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 	 */
 	private String getIfStartOrIfEnd(String src, String unitId, XmlUtil xmlUtil, Article article, String siteId) {
 		// 文章正文样式
-		String articleStyle = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-style"));
+		String articleStyle = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-style"));
 		// 文章评论
-		String articleComment = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-comment"));
+		String articleComment = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-comment"));
 		// 文章评论是否图片
-		String articleCommentPic = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-comment-pic"));
+		String articleCommentPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-comment-pic"));
 		// 文章正文每页显示字数
-		String pageSize = String.valueOf(xmlUtil.getNodeText("baize/article-text/article-text-pageSize"));
+		String pageSize = String.valueOf(xmlUtil.getNodeText("j2ee.cms/article-text/article-text-pageSize"));
 		int size = StringUtil.parseInt(pageSize);
 		if(size < 0) {
 			size = 0;
@@ -967,7 +967,7 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 				String getOtherValue = "";
 				if(m.find()) {
 					getOtherValue = m.group(1);
-					Object obj = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", getOtherValue);
+					Object obj = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", getOtherValue);
 					// 是日期
 					if (obj instanceof Date) {
 						obj = DateUtil.toString((Date)obj, "yyyy-MM-dd HH:mm:ss");
@@ -1093,7 +1093,7 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
     private String createXml(String fileName, String[] tmp, String articleId, String siteId, String divId, String localPath) {
     	int pageCount = tmp.length;
     	Document document = DocumentHelper.createDocument();    
-		Element rootElement = document.addElement("baize"); 
+		Element rootElement = document.addElement("j2ee.cms"); 
 		Element content = rootElement.addElement("content-"+articleId);
 		Element pages = content.addElement("pages");
 		Element page = pages.addElement("page");

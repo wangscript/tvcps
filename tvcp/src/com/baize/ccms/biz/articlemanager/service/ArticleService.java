@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.articlemanager.service;
+package com.j2ee.cms.biz.articlemanager.service;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -10,18 +10,18 @@ import java.util.Map;
 
 import org.jdom.JDOMException;
 
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.articlemanager.web.form.ArticleForm;
-import com.baize.ccms.biz.configmanager.domain.GeneralSystemSet;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.articlemanager.web.form.ArticleForm;
+import com.j2ee.cms.biz.configmanager.domain.GeneralSystemSet;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: 文章服务</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 文章管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 杨信
  * @version 1.0
  * @since 2009-3-10 下午05:25:42

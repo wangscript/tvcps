@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,31 +13,31 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.biz.unitmanager.label.MagazineCategoryLabel;
-import com.baize.ccms.biz.unitmanager.label.TitleLinkLabel;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.biz.unitmanager.label.MagazineCategoryLabel;
+import com.j2ee.cms.biz.unitmanager.label.TitleLinkLabel;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 期刊</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-9-8 上午10:44:59
@@ -84,9 +84,9 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 		String filePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		// 期刊来源
-		String source = xmlUtil.getNodeText("/baize/magazine-category/magazineCategory-source");
+		String source = xmlUtil.getNodeText("/j2ee.cms/magazine-category/magazineCategory-source");
 		// 指定栏目
-		String fixedColumn = xmlUtil.getNodeText("/baize/magazine-category/fixedColumn");
+		String fixedColumn = xmlUtil.getNodeText("/j2ee.cms/magazine-category/fixedColumn");
 		if(source.equals("2")) {
 			String[] str = fixedColumn.split("##");
 			columnId = str[0];
@@ -99,7 +99,7 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 			// 找到for
 			if(forMatcher.find()) {
 				// 信息分类
-				String infoCategory = xmlUtil.getNodeText("/baize/magazine-category/infoCategory");
+				String infoCategory = xmlUtil.getNodeText("/j2ee.cms/magazine-category/infoCategory");
 				// 分类不为空
 				if(!StringUtil.isEmpty(infoCategory)) {
 					sb.append(this.subInfoCategory(columnId, infoCategory, htmlCode, siteId, xmlUtil));
@@ -182,8 +182,8 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 			
 			// 标题前缀	
 			} else if(label.equals(TitleLinkLabel.ARTICLEHEADER)) {
-				String titlePrefix = xmlUtil.getNodeText("/baize/magazine-category/title-prefix");
-				String titlePrefixPic = xmlUtil.getNodeText("/baize/magazine-category/title-prefix-picture");
+				String titlePrefix = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-prefix");
+				String titlePrefixPic = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-prefix-picture");
 				String prefix = "";
 				if(article != null && article.getId() != null) {
 					// 前缀不是图片
@@ -198,8 +198,8 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 				
 			// 标题后缀	
 			} else if(label.equals(TitleLinkLabel.ARTICLEENDER)) {
-				String titleSuffix = xmlUtil.getNodeText("/baize/magazine-category/title-suffix");
-				String titleSuffixPic = xmlUtil.getNodeText("/baize/magazine-category/title-suffix-picture");
+				String titleSuffix = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-suffix");
+				String titleSuffixPic = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-suffix-picture");
 				String suffix = "";
 				if(article != null && article.getId() != null) {
 					// 前缀不是图片
@@ -267,7 +267,7 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 					// 文章列表
 					for(int k = 0; k < articlelist.size(); k++) {
 						article = articlelist.get(k);
-						Object obj = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", fieldName);
+						Object obj = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", fieldName);
 						if(obj != null) {
 							if(obj.toString().equals(enuValue)) {
 								articleList.add(article);
@@ -336,7 +336,7 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 						if(m.find()) {
 							String fieldName = m.group(1);
 							String data = "";
-							Object obj = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", fieldName);
+							Object obj = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", fieldName);
 							if(obj != null) {
 								// 是日期
 								if (obj instanceof Date) {
@@ -363,7 +363,7 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 									}
 									// 标题控制字数
 									if(fieldName.equals("title")){
-										String titleSize = xmlUtil.getNodeText("/baize/magazine-category/titleSize");
+										String titleSize = xmlUtil.getNodeText("/j2ee.cms/magazine-category/titleSize");
 										if(!StringUtil.isEmpty(titleSize)){
 											int size = StringUtil.parseInt(titleSize);
 											if(data.length() > size) {

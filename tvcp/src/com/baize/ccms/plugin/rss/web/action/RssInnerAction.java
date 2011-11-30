@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.rss.web.action;
+package com.j2ee.cms.plugin.rss.web.action;
 
 import java.util.List;
 import java.util.Map;
@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.plugin.rss.web.form.RssForm;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.plugin.rss.web.form.RssForm;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>
@@ -24,13 +24,13 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 描述: —— RSS订阅
  * </p>
  * <p>
- * 模块: CCMS插件
+ * 模块: CPS插件
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0

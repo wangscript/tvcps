@@ -1,31 +1,31 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.articlemanager.service.impl;
+package com.j2ee.cms.biz.articlemanager.service.impl;
 
 import java.util.List;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.dao.EnumerationDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.articlemanager.domain.Enumeration;
-import com.baize.ccms.biz.articlemanager.service.ArticleAttributeService;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.dao.EnumerationDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.articlemanager.domain.Enumeration;
+import com.j2ee.cms.biz.articlemanager.service.ArticleAttributeService;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 import org.apache.log4j.Logger;
 
 /**
  * <p>标题: 属性数据访问对象</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 文章管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-3-30 下午04:35:57
@@ -80,7 +80,7 @@ public class ArticleAttributeServiceImpl implements ArticleAttributeService {
 			format.setFields(fields);
 			String field = "curr" + StringUtil.firstUpperCase(attribute.getAttributeType());
 			BeanUtil.setFieldValue(format, 
-					"com.baize.ccms.biz.articlemanager.domain.ArticleFormat", 
+					"com.j2ee.cms.biz.articlemanager.domain.ArticleFormat", 
 					field, currTypeNum, new Class[]{int.class});
 			articleFormatDao.updateFormatFieldsAndCurrNumByAttribute(attribute);
 			
@@ -121,7 +121,7 @@ public class ArticleAttributeServiceImpl implements ArticleAttributeService {
 		
 		String field = "curr" + StringUtil.firstUpperCase(attribute.getAttributeType());
 		BeanUtil.setFieldValue(format, 
-				"com.baize.ccms.biz.articlemanager.domain.ArticleFormat", 
+				"com.j2ee.cms.biz.articlemanager.domain.ArticleFormat", 
 				field, currTypeNum, new Class[]{int.class});
 		articleFormatDao.updateFormatFieldsAndCurrNumByAttribute(attribute);
 		

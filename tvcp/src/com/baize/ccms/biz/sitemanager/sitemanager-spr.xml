@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- 网站  start -->
-	<bean name="/site" class="com.baize.ccms.biz.sitemanager.web.action.SiteAction" scope="prototype">
+	<bean name="/site" class="com.j2ee.cms.biz.sitemanager.web.action.SiteAction" scope="prototype">
 		<property name="baseBiz" ref="sitemanager-siteBiz" />
 	</bean>
-	<bean id="sitemanager-siteBiz" class="com.baize.ccms.biz.sitemanager.service.SiteBiz" scope="singleton">
+	<bean id="sitemanager-siteBiz" class="com.j2ee.cms.biz.sitemanager.service.SiteBiz" scope="singleton">
 		<property name="siteService" ref="sitemanager-siteService" />
 	</bean>
-	<bean id="sitemanager-siteService" class="com.baize.ccms.biz.sitemanager.service.impl.SiteServiceImpl" scope="singleton">
+	<bean id="sitemanager-siteService" class="com.j2ee.cms.biz.sitemanager.service.impl.SiteServiceImpl" scope="singleton">
 		<property name="siteDao" ref="sitemanager-siteDao" />
 		<property name="menuDao" ref="usermanager-menuDao"/>
 		<property name="userDao" ref="usermanager-userDao"/>
@@ -27,9 +27,9 @@
 		<property name="menuFunctionDao" ref="usermanager-menuFunctionDao"/>
 		
 	</bean>
-	<bean id="sitemanager-siteDao" class="com.baize.ccms.biz.sitemanager.dao.impl.SiteDaoImpl" parent="genericDaoImpl" />
-	<bean id="usermanager-templateCategoryDao" class="com.baize.ccms.biz.templatemanager.dao.impl.TemplateCategoryDaoImpl" parent="genericDaoImpl" />
-	<bean id="usermanager-templateDao" class="com.baize.ccms.biz.templatemanager.dao.impl.TemplateDaoImpl" parent="genericDaoImpl" />
+	<bean id="sitemanager-siteDao" class="com.j2ee.cms.biz.sitemanager.dao.impl.SiteDaoImpl" parent="genericDaoImpl" />
+	<bean id="usermanager-templateCategoryDao" class="com.j2ee.cms.biz.templatemanager.dao.impl.TemplateCategoryDaoImpl" parent="genericDaoImpl" />
+	<bean id="usermanager-templateDao" class="com.j2ee.cms.biz.templatemanager.dao.impl.TemplateDaoImpl" parent="genericDaoImpl" />
 	<!-- 网站  end -->
 	
 </beans>

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.letterbox.service.impl;
+package com.j2ee.cms.plugin.letterbox.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,36 +11,36 @@ import org.apache.commons.collections.map.ListOrderedMap;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.dao.OrganizationDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.plugin.letterbox.dao.LetterCategoryDao;
-import com.baize.ccms.plugin.letterbox.dao.LetterDao;
-import com.baize.ccms.plugin.letterbox.dao.LetterReplyDao;
-import com.baize.ccms.plugin.letterbox.dao.TransferRecordDao;
-import com.baize.ccms.plugin.letterbox.domain.Letter;
-import com.baize.ccms.plugin.letterbox.domain.LetterCategory;
-import com.baize.ccms.plugin.letterbox.domain.LetterReply;
-import com.baize.ccms.plugin.letterbox.domain.TransferRecord;
-import com.baize.ccms.plugin.letterbox.service.LetterService;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.ReadSystemXml;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.pager.PageQuery;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.dao.OrganizationDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.plugin.letterbox.dao.LetterCategoryDao;
+import com.j2ee.cms.plugin.letterbox.dao.LetterDao;
+import com.j2ee.cms.plugin.letterbox.dao.LetterReplyDao;
+import com.j2ee.cms.plugin.letterbox.dao.TransferRecordDao;
+import com.j2ee.cms.plugin.letterbox.domain.Letter;
+import com.j2ee.cms.plugin.letterbox.domain.LetterCategory;
+import com.j2ee.cms.plugin.letterbox.domain.LetterReply;
+import com.j2ee.cms.plugin.letterbox.domain.TransferRecord;
+import com.j2ee.cms.plugin.letterbox.service.LetterService;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.ReadSystemXml;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.pager.PageQuery;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 
 /**
  * <p>标题: 信件的业务类</p>
  * <p>描述: 负责信件的审查,回复等业务</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-6-14 下午02:30:23 

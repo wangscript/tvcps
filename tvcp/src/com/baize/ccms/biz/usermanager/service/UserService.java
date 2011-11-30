@@ -1,33 +1,33 @@
 /**
  * <p>
- * ccms_2 信息管理系统
+ * cps 信息管理系统
  * </p>
  * <p>
  * UserService.java Create on Jan 19, 2009 9:31:15 AM
  * </p>
  * <p>
- * Copyright: Copyright (c) 2008；南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2008； 
  * </p>
  * <p>
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  * </p>
  */
-package com.baize.ccms.biz.usermanager.service;
+package com.j2ee.cms.biz.usermanager.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.usermanager.domain.Assignment;
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.usermanager.domain.Assignment;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: —— 用户业务逻辑处理类接口</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since Feb 6, 2009 12:17:02 PM

@@ -1,27 +1,27 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.web.form;
+package com.j2ee.cms.biz.documentmanager.web.form;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.documentmanager.domain.AttachmentCategory;
-import com.baize.ccms.biz.documentmanager.domain.DocumentCategory;
-import com.baize.ccms.biz.documentmanager.domain.FlashCategory;
-import com.baize.ccms.biz.documentmanager.domain.JsCategory;
-import com.baize.ccms.biz.documentmanager.domain.PictureCategory;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.documentmanager.domain.AttachmentCategory;
+import com.j2ee.cms.biz.documentmanager.domain.DocumentCategory;
+import com.j2ee.cms.biz.documentmanager.domain.FlashCategory;
+import com.j2ee.cms.biz.documentmanager.domain.JsCategory;
+import com.j2ee.cms.biz.documentmanager.domain.PictureCategory;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 类别的form</p>
  * <p>描述: 类别的表单数据，以便页面和方法中调用</p>
  * <p>模块: 文档管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-3-26 上午11:10:06

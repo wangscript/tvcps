@@ -1,17 +1,17 @@
-package com.baize.ccms.biz.usermanager.web.event;
+package com.j2ee.cms.biz.usermanager.web.event;
 
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 /**
  * 
- * ccms通用信息管理系统 
- * package: com.baize.ccms.biz.usermanager.web.event
+ * cps通用信息管理系统 
+ * package: com.j2ee.cms.biz.usermanager.web.event
  * File: UserEntry.java 创建时间:2009-1-12上午10:27:40
  * Title: 标题（要求能简洁地表达出类的功能和职责）
  * Description: 描述（简要描述类的职责、实现方式、使用注意事项等）
- * Copyright: Copyright (c) 2009 南京百泽网络科技有限公司
- * Company: 南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2009  
+ * Company:  
  * 模块: 平台架构
  * @author  娄伟峰
  * @version 1.0

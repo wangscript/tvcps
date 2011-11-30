@@ -1,17 +1,17 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.configmanager.service;
+package com.j2ee.cms.biz.configmanager.service;
 
 import java.util.Map;
 
-import com.baize.ccms.biz.configmanager.domain.GeneralSystemSet;
-import com.baize.ccms.biz.configmanager.domain.InformationFilter;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.configmanager.domain.GeneralSystemSet;
+import com.j2ee.cms.biz.configmanager.domain.InformationFilter;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>
@@ -24,7 +24,7 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 模块: 用户管理
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * 
  * @author 娄伟峰
  * @version 1.0

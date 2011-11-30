@@ -1,17 +1,17 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.letterbox.web.form;
+package com.j2ee.cms.plugin.letterbox.web.form;
 
-import com.baize.ccms.plugin.letterbox.domain.Letter;
-import com.baize.ccms.plugin.letterbox.domain.LetterReply;
+import com.j2ee.cms.plugin.letterbox.domain.Letter;
+import com.j2ee.cms.plugin.letterbox.domain.LetterReply;
 
 /**
  * <p>标题: 回复信件</p>
  * <p>描述: 回复信件的表单数据，以便页面和方法中调用</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-6-18 下午05:03:00 

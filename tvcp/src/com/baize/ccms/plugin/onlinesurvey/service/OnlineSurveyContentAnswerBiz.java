@@ -1,28 +1,28 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.onlinesurvey.service;
+package com.j2ee.cms.plugin.onlinesurvey.service;
 
 import java.io.File;
 import java.util.Map;
 
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题:网上调查处理类</p>
  * <p>描述: 网上调查查看,删除,回复等功能</p>
  * <p>模块: 网上调查</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-6-14 下午02:26:33 

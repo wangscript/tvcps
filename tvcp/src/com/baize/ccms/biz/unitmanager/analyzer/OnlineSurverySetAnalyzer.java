@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,37 +13,37 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.ColumnLinkLabel;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.biz.unitmanager.label.OnlineSurverySetLabel;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyDao;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurvey;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.ColumnLinkLabel;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.biz.unitmanager.label.OnlineSurverySetLabel;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyDao;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurvey;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 栏目链接解析类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
+ * <p>版权: Copyright (c) 2009  </p>
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-6-3 下午05:34:42
@@ -115,7 +115,7 @@ public class OnlineSurverySetAnalyzer implements TemplateUnitAnalyzer {
 		String label = "";
 		
 		StringBuffer sb = new StringBuffer();
-		String category = xmlUtil.getNodeText("/baize/online_survery/category");
+		String category = xmlUtil.getNodeText("/j2ee.cms/online_survery/category");
 		//问卷指定主题问题列表
 		List<OnlineSurvey> listThemes = new ArrayList<OnlineSurvey>();
 		//一般调查全部问题列表
@@ -123,9 +123,9 @@ public class OnlineSurverySetAnalyzer implements TemplateUnitAnalyzer {
 		
 		//一般调查指定主题
 		if(category.equals("1")){
-			String theme = xmlUtil.getNodeText("/baize/online_survery/theme");
+			String theme = xmlUtil.getNodeText("/j2ee.cms/online_survery/theme");
 			listThemes = onlineSurveyDao.findByDefine("findThemesByThemeId", "id", SqlUtil.toSqlString(theme));
-			String question = xmlUtil.getNodeText("/baize/online_survery/question");
+			String question = xmlUtil.getNodeText("/j2ee.cms/online_survery/question");
 			question = question.split("###")[0];
 			listQuestion = onlineSurveyContentDao.findByDefine("findQuestionByQuestionIds", "ids", SqlUtil.toSqlString(question));
 			
@@ -137,7 +137,7 @@ public class OnlineSurverySetAnalyzer implements TemplateUnitAnalyzer {
 			
 		//问卷调查指定主题	
 		}else if(category.equals("3")){
-			String theme = xmlUtil.getNodeText("/baize/online_survery/theme");
+			String theme = xmlUtil.getNodeText("/j2ee.cms/online_survery/theme");
 			listThemes = onlineSurveyDao.findByDefine("findThemesByThemeId", "id", SqlUtil.toSqlString(theme));
 			listQuestion = onlineSurveyContentDao.findByNamedQuery("findQuestionByThemeId", "themeId", theme);
 			

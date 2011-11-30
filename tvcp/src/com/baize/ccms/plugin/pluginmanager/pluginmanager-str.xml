@@ -3,7 +3,7 @@
 <struts-config>
 
 	<form-beans>     
-        <form-bean name="pluginInitForm" type="com.baize.ccms.plugin.pluginmanager.web.form.PluginInitForm"/> 
+        <form-bean name="pluginInitForm" type="com.j2ee.cms.plugin.pluginmanager.web.form.PluginInitForm"/> 
     </form-beans>
 	<global-exceptions />
 	<action-mappings>

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.articlemanager.web.action;
+package com.j2ee.cms.biz.articlemanager.web.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,13 +12,13 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
-import com.baize.ccms.biz.articlemanager.service.ArticleService;
+import com.j2ee.cms.biz.articlemanager.service.ArticleService;
 
 /**
  * <p>标题: —— 在外网显示及增加文章访问次数</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 文章管理</p>
- * <p>版权: Copyright (c) 2010 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2010  
  * @author 娄伟峰
  * @version 1.0
  * @since 2010-1-22 下午02:44:56

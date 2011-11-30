@@ -1,8 +1,8 @@
   /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.columnmanager.web.action;
+package com.j2ee.cms.biz.columnmanager.web.action;
 
 import java.util.Date;
 import java.util.List;
@@ -12,23 +12,23 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.columnmanager.web.form.ColumnForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.domain.UploadedFile;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.ParseEncoding;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.WebClientUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.columnmanager.web.form.ColumnForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.domain.UploadedFile;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.ParseEncoding;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.WebClientUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 /**
  * <p>标题: 栏目Action</p>
  * <p>描述: 管理栏目的不同操作，封装请求对象</p>
  * <p>模块: 栏目管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 魏仲芹
  * @version 1.0
  * @since 2009-4-2 下午03:24:23

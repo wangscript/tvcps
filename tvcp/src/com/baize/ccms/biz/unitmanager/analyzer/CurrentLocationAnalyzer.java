@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,27 +13,27 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.ArticleTextLabel;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.biz.unitmanager.label.CurrentLocationLabel;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.ArticleTextLabel;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.biz.unitmanager.label.CurrentLocationLabel;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 当前位置解析类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-15 上午10:05:10
@@ -113,7 +113,7 @@ public class CurrentLocationAnalyzer  implements TemplateUnitAnalyzer{
 	public String getObjName(String src,String columnId,String filePath, String siteId){
 		StringBuffer sb = new StringBuffer();
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
-		String titleLimit = xmlUtil.getNodeText("baize/current_location/titleLimit");
+		String titleLimit = xmlUtil.getNodeText("j2ee.cms/current_location/titleLimit");
 		String sign = "";
 		log.debug("siteId======="+siteId);
 		Site site = siteDao.getAndClear(siteId);
@@ -193,9 +193,9 @@ public class CurrentLocationAnalyzer  implements TemplateUnitAnalyzer{
 	private String getColumnId(String columnId, String filePath){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/current_location/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/current_location/contextFrom");
 		//栏目名称
-		String columnName = xmlUtil.getNodeText("baize/current_location/columnName");
+		String columnName = xmlUtil.getNodeText("j2ee.cms/current_location/columnName");
 		String testColumnId = null;
 		String strColumn[] = columnName.split("##");
 		if(strColumn != null && strColumn.length == 2){

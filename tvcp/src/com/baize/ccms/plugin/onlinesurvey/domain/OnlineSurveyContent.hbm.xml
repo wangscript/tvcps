@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.plugin.onlinesurvey.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.onlinesurvey.domain">
     <class name="OnlineSurveyContent" table="onlineSurveyContent">
         <id name="id">
             <generator class="uuid" />
@@ -9,7 +9,7 @@
        <!--具体调查问题名称--> 
 	   <property name="name" />
 	    <!--是否显示-->
-	    <property name="view" />
+	    <property name="viewed" />
 	    <!--是否带反馈意见 -->
 	    <property name="feedback" />
 	    <!--显示样式-->       
@@ -28,7 +28,7 @@
 	
 	<!--按照调查主题查找网上调查问题分页-->
 	<query name="findonlineAnswerQuestionsPage"><![CDATA[
-			SELECT online.id, online.name, online.view, online.style, onlineSurvey.name, onlineSurvey.stopTime
+			SELECT online.id, online.name, online.viewed, online.style, onlineSurvey.name, onlineSurvey.stopTime
 			  FROM OnlineSurveyContent online
 	     LEFT JOIN online.onlineSurvey onlineSurvey  
 	         WHERE online.onlineSurvey.id = :id

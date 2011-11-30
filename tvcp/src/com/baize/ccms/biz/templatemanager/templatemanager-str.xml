@@ -3,11 +3,11 @@
 <struts-config>
 
 	<form-beans>
-		<form-bean name="templateCategoryForm"     type="com.baize.ccms.biz.templatemanager.web.form.TemplateCategoryForm" />
-		<form-bean name="templateForm"             type="com.baize.ccms.biz.templatemanager.web.form.TemplateForm" />
-		<form-bean name="templateInstanceForm"     type="com.baize.ccms.biz.templatemanager.web.form.TemplateInstanceForm" />
-		<form-bean name="templateUnitForm"         type="com.baize.ccms.biz.templatemanager.web.form.TemplateUnitForm" />
-		<form-bean name="templateUnitStyleForm"    type="com.baize.ccms.biz.templatemanager.web.form.TemplateUnitStyleForm" />
+		<form-bean name="templateCategoryForm"     type="com.j2ee.cms.biz.templatemanager.web.form.TemplateCategoryForm" />
+		<form-bean name="templateForm"             type="com.j2ee.cms.biz.templatemanager.web.form.TemplateForm" />
+		<form-bean name="templateInstanceForm"     type="com.j2ee.cms.biz.templatemanager.web.form.TemplateInstanceForm" />
+		<form-bean name="templateUnitForm"         type="com.j2ee.cms.biz.templatemanager.web.form.TemplateUnitForm" />
+		<form-bean name="templateUnitStyleForm"    type="com.j2ee.cms.biz.templatemanager.web.form.TemplateUnitStyleForm" />
 	</form-beans>
 	<global-exceptions />
 	

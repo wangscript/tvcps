@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.articlecomment.service.impl;
+package com.j2ee.cms.plugin.articlecomment.service.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,26 +31,26 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.configmanager.domain.InformationFilter;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.plugin.articlecomment.dao.ArticelCommentReplaceDao;
-import com.baize.ccms.plugin.articlecomment.dao.ArticleCommentDao;
-import com.baize.ccms.plugin.articlecomment.domain.ArticleComment;
-import com.baize.ccms.plugin.articlecomment.domain.ArticleCommentsReplace;
-import com.baize.ccms.plugin.articlecomment.service.ArticleCommentService;
-import com.baize.ccms.plugin.articlecomment.web.form.ArticleCommentForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.pager.PageQuery;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.configmanager.domain.InformationFilter;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.plugin.articlecomment.dao.ArticelCommentReplaceDao;
+import com.j2ee.cms.plugin.articlecomment.dao.ArticleCommentDao;
+import com.j2ee.cms.plugin.articlecomment.domain.ArticleComment;
+import com.j2ee.cms.plugin.articlecomment.domain.ArticleCommentsReplace;
+import com.j2ee.cms.plugin.articlecomment.service.ArticleCommentService;
+import com.j2ee.cms.plugin.articlecomment.web.form.ArticleCommentForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.pager.PageQuery;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * <p>
@@ -61,13 +61,13 @@ import com.baize.common.core.util.SqlUtil;
  * 前台不能直接获取到用户的ID和网站ID要通过手动查找数据库才能找到，修改时请慎重
  * </p>
  * <p>
- * 模块: CCMS 文章评论
+ * 模块: CPS 文章评论
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0
@@ -321,9 +321,9 @@ public class ArticleCommentServiceImpl implements ArticleCommentService {
 		for (int j = 0; j < id.length; j++) {
 			ArticleComment article = articleCommentDao.getAndClear(id[j]);
 			if (flag.equals("1")) {// 审核通过
-				article.setAudit(true);
+				article.setAudited(true);
 			} else {// 审核未通过
-				article.setAudit(false);
+				article.setAudited(false);
 			}
 			articleCommentDao.update(article);
 		}
@@ -590,14 +590,14 @@ public class ArticleCommentServiceImpl implements ArticleCommentService {
 		Map<String, String> map = getCommentSet(siteId);
 		String userId = map.get("sessionId");
 		String isLook = map.get("isLook");// 是否审核 0不审核，1审核
-		articleComment.setAudit(isLook.equals("0"));// 如果=0就是向数据库插入直接审核通过
+		articleComment.setAudited(isLook.equals("0"));// 如果=0就是向数据库插入直接审核通过
 		String haveReplace = map.get("haveReplace");// 获取过滤词设置
 		String replaceArea = map.get("replaceArea");// 取词范围,1为评论内,0为系统内
 
 		if (isFilter(articleComment.getContent(), replaceArea.equals("1"))) {// 有过滤词
 			if (haveReplace.equals("0")) {// 回收站
 				articleComment.setDeleted(true);// 1代表 放入回收站
-				articleComment.setAudit(false);// 设置为未审核
+				articleComment.setAudited(false);// 设置为未审核
 				mess = "发表的评论中含有非法词语,已经将评论放入回收站";
 			} else if (haveReplace.equals("1")) {// 替换发布
 				String c = isHaveReplace(articleComment.getContent(), true,

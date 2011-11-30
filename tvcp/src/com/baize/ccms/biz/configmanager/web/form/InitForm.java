@@ -1,20 +1,20 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.configmanager.web.form;
+package com.j2ee.cms.biz.configmanager.web.form;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 系统设置初始化程序表单</p>
  * <p>描述: 系统设置程序表单数据</p>
  * <p>模块: 系统设置</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-7-15 下午04:13:06 
@@ -31,7 +31,7 @@ public class InitForm extends GeneralForm{
 	
 
 	/* (non-Javadoc)
-	 * @see com.baize.common.core.web.GeneralForm#validateData(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
+	 * @see com.j2ee.cms.common.core.web.GeneralForm#validateData(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
 	protected void validateData(ActionMapping arg0, HttpServletRequest arg1) {

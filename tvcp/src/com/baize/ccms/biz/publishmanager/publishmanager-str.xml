@@ -2,8 +2,8 @@
 <!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
 	<form-beans>
-		 <form-bean name="publishForm" type="com.baize.ccms.biz.publishmanager.web.form.PublishForm" />
-		 <form-bean name="buildForm" type="com.baize.ccms.biz.publishmanager.web.form.BuildForm" />
+		 <form-bean name="publishForm" type="com.j2ee.cms.biz.publishmanager.web.form.PublishForm" />
+		 <form-bean name="buildForm" type="com.j2ee.cms.biz.publishmanager.web.form.BuildForm" />
 	</form-beans>
 	<global-exceptions />
 	<action-mappings>

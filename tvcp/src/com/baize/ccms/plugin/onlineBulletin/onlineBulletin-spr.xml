@@ -5,24 +5,24 @@
 	
 	<!--2.4	网上公告start -->      
 	         
-	<bean name="/onlineBulletin" class="com.baize.ccms.plugin.onlineBulletin.web.action.OnlineBulletinAction" scope="prototype">
+	<bean name="/onlineBulletin" class="com.j2ee.cms.plugin.onlineBulletin.web.action.OnlineBulletinAction" scope="prototype">
 		<property name="baseBiz" ref="onlineBulletin-onlineBulletinBiz"/>
 	</bean>                                           
-	<bean id="onlineBulletin-onlineBulletinBiz" class="com.baize.ccms.plugin.onlineBulletin.service.OnlineBulletinBiz" scope="singleton">		
+	<bean id="onlineBulletin-onlineBulletinBiz" class="com.j2ee.cms.plugin.onlineBulletin.service.OnlineBulletinBiz" scope="singleton">		
 		<property name="onlineBulletinService" ref="onlineBulletin-onlineBulletinService"/>
 	</bean>                                              
-	<bean id="onlineBulletin-onlineBulletinService" class="com.baize.ccms.plugin.onlineBulletin.service.impl.OnlineBulletinServiceImpl" scope="singleton">
+	<bean id="onlineBulletin-onlineBulletinService" class="com.j2ee.cms.plugin.onlineBulletin.service.impl.OnlineBulletinServiceImpl" scope="singleton">
 	  	<property name="onlineBulletinDao"  ref="onlineBulletin-onlineBulletinDao"/>
 	  	<property name="siteDao" ref="sitemanager-siteDao"/>	
 	</bean>
 	<bean id="onlineBulletin-onlineBulletinDao"
-		   class="com.baize.ccms.plugin.onlineBulletin.dao.imp.OnlineBulletinDaoImpl" 
+		   class="com.j2ee.cms.plugin.onlineBulletin.dao.imp.OnlineBulletinDaoImpl" 
 		   parent="genericDaoImpl" />
 		   
 	<!--网上公告end -->	
 	
 	<!-- 前台action -->
-	<bean name="/onlineBulletinOut" class="com.baize.ccms.plugin.onlineBulletin.web.action.OnlineBulletinOutAction" scope="singleton">  
+	<bean name="/onlineBulletinOut" class="com.j2ee.cms.plugin.onlineBulletin.web.action.OnlineBulletinOutAction" scope="singleton">  
     	<property name="onlineBulletinService" ref="onlineBulletin-onlineBulletinService"/>
   	</bean>  
 	<!-- 管理 end -->	

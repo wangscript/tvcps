@@ -1,22 +1,22 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlineBulletin.service.impl;
+package com.j2ee.cms.plugin.onlineBulletin.service.impl;
 
 import java.util.Date;
 import java.util.regex.Pattern;
 
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.plugin.onlineBulletin.dao.OnlineBulletinDao;
-import com.baize.ccms.plugin.onlineBulletin.domain.OnlineBulletin;
-import com.baize.ccms.plugin.onlineBulletin.service.OnlineBulletinService;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.plugin.onlineBulletin.dao.OnlineBulletinDao;
+import com.j2ee.cms.plugin.onlineBulletin.domain.OnlineBulletin;
+import com.j2ee.cms.plugin.onlineBulletin.service.OnlineBulletinService;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>
@@ -29,7 +29,7 @@ import com.baize.common.core.util.StringUtil;
  * 模块: 网上公告
  * </p>
  * <p>
- * 版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009 
  * 
  * @author 包坤涛
  * @version 1.0

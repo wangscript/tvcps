@@ -1,26 +1,26 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.usermanager.service;
+package com.j2ee.cms.biz.usermanager.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.usermanager.domain.Menu;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.ReadSystemXml;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.usermanager.domain.Menu;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.ReadSystemXml;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-5-18 下午03:37:36

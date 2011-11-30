@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.usermanager.service.impl;
+package com.j2ee.cms.biz.usermanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,45 +12,45 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.dao.AssignmentDao;
-import com.baize.ccms.biz.usermanager.dao.AuthorityDao;
-import com.baize.ccms.biz.usermanager.dao.MenuAuthorityDao;
-import com.baize.ccms.biz.usermanager.dao.MenuDao;
-import com.baize.ccms.biz.usermanager.dao.MenuFunctionDao;
-import com.baize.ccms.biz.usermanager.dao.OperationDao;
-import com.baize.ccms.biz.usermanager.dao.OrganizationDao;
-import com.baize.ccms.biz.usermanager.dao.ResourceDao;
-import com.baize.ccms.biz.usermanager.dao.RightDao;
-import com.baize.ccms.biz.usermanager.dao.RoleDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.Assignment;
-import com.baize.ccms.biz.usermanager.domain.Authority;
-import com.baize.ccms.biz.usermanager.domain.MenuAuthority;
-import com.baize.ccms.biz.usermanager.domain.MenuFunction;
-import com.baize.ccms.biz.usermanager.domain.Operation;
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.Resource;
-import com.baize.ccms.biz.usermanager.domain.Right;
-import com.baize.ccms.biz.usermanager.domain.Role;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.biz.usermanager.service.UserService;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.dao.AssignmentDao;
+import com.j2ee.cms.biz.usermanager.dao.AuthorityDao;
+import com.j2ee.cms.biz.usermanager.dao.MenuAuthorityDao;
+import com.j2ee.cms.biz.usermanager.dao.MenuDao;
+import com.j2ee.cms.biz.usermanager.dao.MenuFunctionDao;
+import com.j2ee.cms.biz.usermanager.dao.OperationDao;
+import com.j2ee.cms.biz.usermanager.dao.OrganizationDao;
+import com.j2ee.cms.biz.usermanager.dao.ResourceDao;
+import com.j2ee.cms.biz.usermanager.dao.RightDao;
+import com.j2ee.cms.biz.usermanager.dao.RoleDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.Assignment;
+import com.j2ee.cms.biz.usermanager.domain.Authority;
+import com.j2ee.cms.biz.usermanager.domain.MenuAuthority;
+import com.j2ee.cms.biz.usermanager.domain.MenuFunction;
+import com.j2ee.cms.biz.usermanager.domain.Operation;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.Resource;
+import com.j2ee.cms.biz.usermanager.domain.Right;
+import com.j2ee.cms.biz.usermanager.domain.Role;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.usermanager.service.UserService;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: —— 用户业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since Feb 6, 2009 12:17:02 PM

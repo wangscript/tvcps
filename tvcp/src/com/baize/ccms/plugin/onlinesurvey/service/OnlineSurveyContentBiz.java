@@ -1,19 +1,19 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlinesurvey.service;
+package com.j2ee.cms.plugin.onlinesurvey.service;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.plugin.onlinesurvey.web.form.OnlineSurveyContentForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>
@@ -26,7 +26,7 @@ import com.baize.common.core.web.event.ResponseEvent;
  * 模块:网上调查
  * </p>
  * <p>
- * 版权: Copyright (c) 2009南京百泽信息科技有限责任公司
+ * 版权: Copyright (c) 2009
  * 
  * @author 包坤涛
  * @version 1.0

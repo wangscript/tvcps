@@ -1,21 +1,21 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.configmanager.web.form;
+package com.j2ee.cms.biz.configmanager.web.form;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.configmanager.domain.FilterCategory;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.configmanager.domain.FilterCategory;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * <p>标题: 系统安装程序表单</p>
  * <p>描述: 系统安装程序表单数据</p>
  * <p>模块: 系统安装程序</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-9-04 下午03:15:06 

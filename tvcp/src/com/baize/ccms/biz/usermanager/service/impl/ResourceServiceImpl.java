@@ -1,21 +1,21 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.usermanager.service.impl;
+package com.j2ee.cms.biz.usermanager.service.impl;
 
 import java.util.List;
 
-import com.baize.ccms.biz.usermanager.dao.ResourceDao;
-import com.baize.ccms.biz.usermanager.domain.Resource;
-import com.baize.ccms.biz.usermanager.service.ResourceService;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.usermanager.dao.ResourceDao;
+import com.j2ee.cms.biz.usermanager.domain.Resource;
+import com.j2ee.cms.biz.usermanager.service.ResourceService;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: —— 资源业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 通用平台</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 杨信
  * @version 1.0
  * @since 2009-3-4 上午10:09:18
@@ -30,7 +30,7 @@ public class ResourceServiceImpl implements ResourceService {
 
 
 	/* (non-Javadoc)
-	 * @see com.baize.ccms.biz.usermanager.service.ResourceService#findResourceByKey(int)
+	 * @see com.j2ee.cms.biz.usermanager.service.ResourceService#findResourceByKey(int)
 	 */
 	public Resource findResourceByKey(String id) {
 		// TODO Auto-generated method stub
@@ -38,7 +38,7 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.baize.ccms.biz.usermanager.service.ResourceService#findResourceData(com.baize.common.core.dao.Pagination)
+	 * @see com.j2ee.cms.biz.usermanager.service.ResourceService#findResourceData(com.j2ee.cms.common.core.dao.Pagination)
 	 */
 	public Pagination findResourceData(Pagination pagination) {
 		// TODO Auto-generated method stub
@@ -46,7 +46,7 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.baize.ccms.biz.usermanager.service.ResourceService#modifyResource(com.baize.ccms.biz.usermanager.domain.Resource)
+	 * @see com.j2ee.cms.biz.usermanager.service.ResourceService#modifyResource(com.j2ee.cms.biz.usermanager.domain.Resource)
 	 */
 	public void modifyResource(Resource resource) {
 		// TODO Auto-generated method stub
@@ -73,7 +73,7 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 		/* (non-Javadoc)
-		 * @see com.baize.ccms.biz.usermanager.service.ResourceService#deleteResource(int)
+		 * @see com.j2ee.cms.biz.usermanager.service.ResourceService#deleteResource(int)
 		 */
 	public void deleteResource(String id) {
 		// TODO Auto-generated method stub
@@ -81,7 +81,7 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 		/* (non-Javadoc)
-		 * @see com.baize.ccms.biz.usermanager.service.ResourceService#findAll()
+		 * @see com.j2ee.cms.biz.usermanager.service.ResourceService#findAll()
 		 */
 	public List<Resource> findAll() {
 		// TODO Auto-generated method stub

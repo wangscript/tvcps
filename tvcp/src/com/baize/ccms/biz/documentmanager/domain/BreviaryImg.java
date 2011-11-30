@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.domain;
+package com.j2ee.cms.biz.documentmanager.domain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,9 +10,9 @@ import java.util.Date;
 /**
  * <p>标题: —— 缩略图</p>
  * <p>描述: —— 实现图片缩放功能</p>
- * <p>模块: CCMS文档管理模块</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
- * <p>网址：http://www.baizeweb.com
+ * <p>模块: CPS文档管理模块</p>
+ * <p>版权: Copyright (c) 2009  </p>
+ * <p>网址：http://www.j2ee.cmsweb.com
  * @author 曹名科
  * @version 1.0
  * @since 2009-9-29 上午11:37:21

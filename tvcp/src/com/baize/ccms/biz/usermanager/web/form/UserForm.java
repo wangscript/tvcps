@@ -1,18 +1,18 @@
 /**
  * <p>
- * ccms_2 信息管理系统
+ * cps 信息管理系统
  * </p>
  * <p>
  * UserForm.java Create on Jan 19, 2009 9:33:41 AM
  * </p>
  * <p>
- * Copyright: Copyright (c) 2008；南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2008； 
  * </p>
  * <p>
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  * </p>
  */
-package com.baize.ccms.biz.usermanager.web.form;
+package com.j2ee.cms.biz.usermanager.web.form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,16 +21,16 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /**
  * 
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-9-6 下午08:46:54

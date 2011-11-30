@@ -4,7 +4,7 @@
 
 	<form-beans>
 		<!-- 留言板业务实体bean start-->  
-        <form-bean name="guestBookForm" type="com.baize.ccms.plugin.guestbookmanager.web.form.GuestBookForm"/>
+        <form-bean name="guestBookForm" type="com.j2ee.cms.plugin.guestbookmanager.web.form.GuestBookForm"/>
     </form-beans>
 	<global-exceptions />
 	<action-mappings>

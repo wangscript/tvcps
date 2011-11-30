@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.plugin.guestbookmanager.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.guestbookmanager.domain">
     <class name="GuestBookSensitiveWord" table="guestbook_sensitive_word">
         <id name="id">
             <generator class="uuid" />
         </id> 
         <property name="sensitiveWord"/>
-        <property name="createTime" type="com.baize.common.core.util.DateString"/>
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
         <many-to-one name="sites" column="site_id" />
     </class>    
     <!-- 敏感词分页 -->

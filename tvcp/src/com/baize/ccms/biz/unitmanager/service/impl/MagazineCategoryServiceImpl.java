@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,33 +11,33 @@ import java.util.Map;
 
 import org.dom4j.Node;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.dao.EnumerationDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.articlemanager.domain.Enumeration;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.MagazineCategoryService;
-import com.baize.ccms.biz.unitmanager.web.form.MagazineCategoryForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.dao.EnumerationDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.articlemanager.domain.Enumeration;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.MagazineCategoryService;
+import com.j2ee.cms.biz.unitmanager.web.form.MagazineCategoryForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-9-8 上午11:03:18
@@ -204,15 +204,15 @@ public class MagazineCategoryServiceImpl implements MagazineCategoryService {
 	 */
 	private void setXmlData(String filePath, String newFilePath, MagazineCategoryForm magazineCategoryForm) {
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/magazineCategory-style", magazineCategoryForm.getMagazineCategoryStyle());
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/magazineCategory-source", magazineCategoryForm.getContentSource());
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/fixedColumn", magazineCategoryForm.getFixedColumn());
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/infoCategory", magazineCategoryForm.getInfoCategory());
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/titleSize", String.valueOf(magazineCategoryForm.getTitleSize()));
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/title-prefix", magazineCategoryForm.getTitlePrefix());
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/title-prefix-picture", magazineCategoryForm.getTitlePrefixPic());
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/title-suffix", magazineCategoryForm.getTitleSuffix());
-		xmlUtil.setNodeCDATAText("/baize/magazine-category/title-suffix-picture", magazineCategoryForm.getTitleSuffixPic());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/magazineCategory-style", magazineCategoryForm.getMagazineCategoryStyle());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/magazineCategory-source", magazineCategoryForm.getContentSource());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/fixedColumn", magazineCategoryForm.getFixedColumn());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/infoCategory", magazineCategoryForm.getInfoCategory());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/titleSize", String.valueOf(magazineCategoryForm.getTitleSize()));
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/title-prefix", magazineCategoryForm.getTitlePrefix());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/title-prefix-picture", magazineCategoryForm.getTitlePrefixPic());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/title-suffix", magazineCategoryForm.getTitleSuffix());
+		xmlUtil.setNodeCDATAText("/j2ee.cms/magazine-category/title-suffix-picture", magazineCategoryForm.getTitleSuffixPic());
 		xmlUtil.save(newFilePath);
 	}
 	
@@ -225,15 +225,15 @@ public class MagazineCategoryServiceImpl implements MagazineCategoryService {
 	private MagazineCategoryForm setXmlData(String filePath, MagazineCategoryForm form) {
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		// 获取xml文件中的字段信息
-		String style = xmlUtil.getNodeText("/baize/magazine-category/magazineCategory-style");
-		String type = xmlUtil.getNodeText("/baize/magazine-category/magazineCategory-source");
-		String fixedColumn = xmlUtil.getNodeText("/baize/magazine-category/fixedColumn");
-		String infoCategory = xmlUtil.getNodeText("/baize/magazine-category/infoCategory");
-		String titleSize = xmlUtil.getNodeText("/baize/magazine-category/titleSize");
-		String titlePrefix = xmlUtil.getNodeText("/baize/magazine-category/title-prefix");
-		String titlePrefixPic = xmlUtil.getNodeText("/baize/magazine-category/title-prefix-picture");
-		String titleSuffix = xmlUtil.getNodeText("/baize/magazine-category/title-suffix");
-		String titleSuffixPic = xmlUtil.getNodeText("/baize/magazine-category/title-suffix-picture");
+		String style = xmlUtil.getNodeText("/j2ee.cms/magazine-category/magazineCategory-style");
+		String type = xmlUtil.getNodeText("/j2ee.cms/magazine-category/magazineCategory-source");
+		String fixedColumn = xmlUtil.getNodeText("/j2ee.cms/magazine-category/fixedColumn");
+		String infoCategory = xmlUtil.getNodeText("/j2ee.cms/magazine-category/infoCategory");
+		String titleSize = xmlUtil.getNodeText("/j2ee.cms/magazine-category/titleSize");
+		String titlePrefix = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-prefix");
+		String titlePrefixPic = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-prefix-picture");
+		String titleSuffix = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-suffix");
+		String titleSuffixPic = xmlUtil.getNodeText("/j2ee.cms/magazine-category/title-suffix-picture");
 		
 		// 向表单中加入期刊分类的各种信息
 		form.setMagazineCategoryStyle(style);
@@ -265,17 +265,17 @@ public class MagazineCategoryServiceImpl implements MagazineCategoryService {
 				filePath = templateUnit.getConfigFile();
 				if(FileUtil.isExist(GlobalConfig.appRealPath + filePath)) {
 					XmlUtil xmlUtil = XmlUtil.getInstance(GlobalConfig.appRealPath+filePath);
-					Node node = xmlUtil.getNode("/baize/magazine-category");
+					Node node = xmlUtil.getNode("/j2ee.cms/magazine-category");
 					// 是期刊分类类别 
 					if(node != null) {
-						String source = xmlUtil.getNodeText("/baize/magazine-category/magazineCategory-source");
+						String source = xmlUtil.getNodeText("/j2ee.cms/magazine-category/magazineCategory-source");
 						// 指定栏目	
 						if(source.equals("2")) {
-							String fixedColumn = xmlUtil.getNodeText("/baize/magazine-category/fixedColumn");
+							String fixedColumn = xmlUtil.getNodeText("/j2ee.cms/magazine-category/fixedColumn");
 							String[] str = fixedColumn.split("##");
 							columnId = str[0];
 						}
-						String infoCategory = xmlUtil.getNodeText("/baize/magazine-category/infoCategory");
+						String infoCategory = xmlUtil.getNodeText("/j2ee.cms/magazine-category/infoCategory");
 						
 						// 对栏目
 						if(!StringUtil.isEmpty(columnId) && !columnId.equals("0") && !columnId.equals("null")) {
@@ -433,9 +433,9 @@ public class MagazineCategoryServiceImpl implements MagazineCategoryService {
 		configFilePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(configFilePath);
 		// 期刊来源
-		String source = xmlUtil.getNodeText("/baize/magazine-category/magazineCategory-source");
+		String source = xmlUtil.getNodeText("/j2ee.cms/magazine-category/magazineCategory-source");
 		// 指定栏目
-		String fixedColumn = xmlUtil.getNodeText("/baize/magazine-category/fixedColumn");
+		String fixedColumn = xmlUtil.getNodeText("/j2ee.cms/magazine-category/fixedColumn");
 		if(source.equals("2")) {
 			String[] str = fixedColumn.split("##");
 			columnId = str[0];

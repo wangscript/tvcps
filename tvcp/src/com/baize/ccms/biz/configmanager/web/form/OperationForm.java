@@ -1,4 +1,4 @@
-package com.baize.ccms.biz.configmanager.web.form;
+package com.j2ee.cms.biz.configmanager.web.form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.usermanager.domain.Operation;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.usermanager.domain.Operation;
+import com.j2ee.cms.common.core.web.GeneralForm;
 
 /* <p>标题: —— 操作管理form</p>
  * <p>模块: 用户管理</p> */

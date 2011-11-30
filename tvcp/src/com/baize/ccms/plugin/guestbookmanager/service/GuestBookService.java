@@ -1,17 +1,17 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.guestbookmanager.service;
+package com.j2ee.cms.plugin.guestbookmanager.service;
 
-import com.baize.ccms.plugin.guestbookmanager.domain.GuestBookSensitiveWord;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.plugin.guestbookmanager.domain.GuestBookSensitiveWord;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: —— 留言板业务处理类最高接口</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 插件管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 曹名科
  * @version 1.0
  * @since 2009-5-18 下午04:20:28

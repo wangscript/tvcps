@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,38 +13,38 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.documentmanager.dao.CategoryDao;
-import com.baize.ccms.biz.documentmanager.dao.DocumentDao;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.ColumnLinkLabel;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.biz.unitmanager.label.TitleLinkLabel;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.documentmanager.dao.CategoryDao;
+import com.j2ee.cms.biz.documentmanager.dao.DocumentDao;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.ColumnLinkLabel;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.biz.unitmanager.label.TitleLinkLabel;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * 
  * <p>标题: —— 图片新闻解析类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-9 上午09:39:41
@@ -99,11 +99,11 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 		if(!StringUtil.isEmpty(newColumnId) && !newColumnId.equals("0")) {
 			XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 			//信息起始
-			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/start")));
+			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/start")));
 			//列
-			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/col")));
+			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/col")));
 			//行
-			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/row")));
+			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/row")));
 			//一共多少条记录
 			int count = col * row;
 			//根据栏目ID查询文章
@@ -223,19 +223,19 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		
 		//信息起始
-		int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/start")));
+		int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/start")));
 		//列
-		int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/col")));
+		int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/col")));
 		//行
-		int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/row")));
+		int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/row")));
 		//标题后缀
-		String titleEnd = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleEnd"));
+		String titleEnd = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEnd"));
 		//标题前缀
-		String titleHead = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleHead"));
+		String titleHead = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHead"));
 		//标题字数
-		String titleLimit = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleLimit"));
+		String titleLimit = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleLimit"));
 		//更多
-		String moreLink = String.valueOf(xmlUtil.getNodeText("baize/picture-news/moreLink"));
+		String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLink"));
 		//一共多少条记录
 		int count = col * row;	
 		//根据栏目ID查询文章
@@ -323,19 +323,19 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 		String filePath = GlobalConfig.appRealPath+ configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		//标题后缀
-		String titleEnd = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleEnd"));
+		String titleEnd = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEnd"));
 		//标题前缀
-		String titleHead = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleHead"));
+		String titleHead = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHead"));
 		//标题字数
-		String titleLimit = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleLimit"));
+		String titleLimit = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleLimit"));
 		//列
-		int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/col")));
+		int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/col")));
 		//行
-		int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/picture-news/row")));
+		int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/row")));
 		//前缀是否图片
-		String headPic = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleHeadPic"));
+		String headPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHeadPic"));
 		//后缀是否图片
-		String endPic = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleEndPic"));
+		String endPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEndPic"));
 
 		// 处理for里面的if
 		Pattern ifPattern = Pattern.compile(CommonLabel.IF);
@@ -429,7 +429,7 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 			}else if(label.equals(TitleLinkLabel.ARTICLEENDER)){
 				if(article.getId() != null) {
 					//标题后缀						
-					String titleEndValidity = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleEndValidity"));
+					String titleEndValidity = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEndValidity"));
 					if(!StringUtil.isEmpty(titleEnd)) {
 						String newdate = DateUtil.getAddDaysDateFormat(DateUtil.toStringTrim(new Date(), "yyyy-MM-dd"), StringUtil.parseInt(titleEndValidity));
 						int isSuffixPic = StringUtil.parseInt(endPic);
@@ -460,7 +460,7 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 			}else if(label.equals(TitleLinkLabel.ARTICLEHEADER)){
 				if(article.getId() != null) {
 					// 标题前缀
-					String titleHeadValidity = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleHeadValidity"));
+					String titleHeadValidity = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHeadValidity"));
 					if(!StringUtil.isEmpty(titleHead)) {
 						String newdate = DateUtil.getAddDaysDateFormat(DateUtil.toStringTrim(new Date(), "yyyy-MM-dd"), StringUtil.parseInt(titleHeadValidity));
 						int isprefixPic = StringUtil.parseInt(headPic);
@@ -689,9 +689,9 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 			}else if(label.equals(TitleLinkLabel.MORELINK)){
 				if(displayMore) {
 					//更多内容 
-					String moreLink = String.valueOf(xmlUtil.getNodeText("baize/picture-news/moreLink"));
+					String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLink"));
 					//是否是图片
-					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("baize/picture-news/moreLinkPic"));
+					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLinkPic"));
 					String url = column.getUrl();
 					if(moreLinkPic != null && !moreLinkPic.equals("") && !moreLinkPic.equals("0")) {
 						String newUrl = "";
@@ -788,7 +788,7 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 				if(article.getId() != null) {
 					if(m.find()) {
 						getOtherValue = m.group(1);
-						Object obj = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", getOtherValue);
+						Object obj = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", getOtherValue);
 						if (obj instanceof Date) {
 							obj = DateUtil.toString((Date)obj, "yyyy-MM-dd HH:mm:ss");
 							String str = String.valueOf(obj);
@@ -843,9 +843,9 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 			//更多内容 
 			if(label.equals(TitleLinkLabel.MORELINK)) {
 				if(displayMore) {
-					String moreLink = String.valueOf(xmlUtil.getNodeText("baize/picture-news/moreLink"));
+					String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLink"));
 					//是否是图片
-					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("baize/picture-news/moreLinkPic"));
+					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLinkPic"));
 					if(column != null){
 						String url = column.getUrl();
 						if(moreLinkPic != null && !moreLinkPic.equals("") && !moreLinkPic.equals("0")) {
@@ -976,7 +976,7 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 		Matcher ifMatcher = ifPattern.matcher(ifsrc);
 		TemplateUnit unit = templateUnitDao.getAndClear(unitId);
 		String configFilePath = unit.getConfigFile();
-		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/ccms1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
+		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/cps1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
 		//获取到当前模板实例的xml配置文件路径
 		String filePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
@@ -1070,15 +1070,15 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 	 */
 	private String getIfStartOrIfEnd(String src, String unitId, Column column, XmlUtil xmlUtil, Article article,String siteId) {
 		//标题后缀
-		String titleEnd = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleEnd"));
+		String titleEnd = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEnd"));
 		//标题前缀
-		String titleHead = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleHead"));
+		String titleHead = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHead"));
 		//标题字数
-		String titleLimit = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleLimit"));
+		String titleLimit = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleLimit"));
 		//前缀是否图片
-		String headPic = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleHeadPic"));
+		String headPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHeadPic"));
 		//后缀是否图片
-		String endPic = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleEndPic"));
+		String endPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEndPic"));
 		Site site = siteDao.getAndClear(siteId);
 
 		String label = "";	
@@ -1155,7 +1155,7 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 			//标题后缀
 			}else if(label.equals(TitleLinkLabel.ARTICLEENDER)) {
 				if(article.getId() != null) {
-					String titleEndValidity = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleEndValidity"));
+					String titleEndValidity = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleEndValidity"));
 					str = this.proccessTitlePrefixOrSuffix(labelMatcher, str, a, titleEndValidity, endPic, titleEnd, sb);
 				} else {
 					labelMatcher.appendReplacement(sb, "");
@@ -1164,7 +1164,7 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 			//标题前缀
 			}else if(label.equals(TitleLinkLabel.ARTICLEHEADER)) {
 				if(article.getId() != null) {
-					String titleHeadValidity = String.valueOf(xmlUtil.getNodeText("baize/picture-news/titleHeadValidity"));
+					String titleHeadValidity = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/titleHeadValidity"));
 					str = this.proccessTitlePrefixOrSuffix(labelMatcher, str, a, titleHeadValidity, headPic, titleHead, sb);
 				} else {
 					labelMatcher.appendReplacement(sb, "");
@@ -1173,9 +1173,9 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 			//更多内容
 			}else if(label.equals(TitleLinkLabel.MORELINK)) {
 				if(displayMore) {
-					String moreLink = String.valueOf(xmlUtil.getNodeText("baize/picture-news/moreLink"));
+					String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLink"));
 					//是否是图片
-					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("baize/picture-news/moreLinkPic"));
+					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/picture-news/moreLinkPic"));
 					String url = column.getUrl();
 					String str1 = "<a href=\""+ SiteResource.getUrl(url, true) + "\"><img src=\""+ SiteResource.getUrl(moreLink, true) +"\"/></a>";
 					String str2 = "<a href=\""+ SiteResource.getUrl(url, true) + "\">"+ moreLink +"</a>";
@@ -1429,7 +1429,7 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 				if(article.getId() != null) {
 					if(m.find()) {
 						getOtherValue = m.group(1);
-						Object obj = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", getOtherValue);
+						Object obj = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", getOtherValue);
 						if(obj instanceof Date) {
 							obj = DateUtil.toString((Date)obj, "yyyy-MM-dd HH:mm:ss");
 							String tmp = String.valueOf(obj);
@@ -1560,9 +1560,9 @@ public class PictureNewsAnalyzer implements TemplateUnitAnalyzer {
 	private String getColumnId(String columnId, String siteId,String filePath){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/picture-news/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/picture-news/contextFrom");
 		//栏目名称
-		String columnName = xmlUtil.getNodeText("baize/picture-news/columnName");
+		String columnName = xmlUtil.getNodeText("j2ee.cms/picture-news/columnName");
 		String fixedColumnId = null;
 		String strColumn[] = columnName.split("##");
 		Column column = null;

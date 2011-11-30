@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
 */
-package com.baize.ccms.biz.sitemanager.web.action;
+package com.j2ee.cms.biz.sitemanager.web.action;
 
 import java.util.List;
 import java.util.Map;
@@ -12,19 +12,19 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.sitemanager.web.form.SiteForm;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.sitemanager.web.form.SiteForm;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 网站管理的action</p>
  * <p>描述: 网站管理的action，用于处理网站，接受表单等页面中传过来的值，然后再传回表单</p>
  * <p>模块: 网站管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">郑荣华</a>
  * @version 1.0
  * @since 2009-3-13 下午04:10:27

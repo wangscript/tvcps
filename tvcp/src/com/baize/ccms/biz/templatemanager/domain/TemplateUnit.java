@@ -1,19 +1,19 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.templatemanager.domain;
+package com.j2ee.cms.biz.templatemanager.domain;
 
 import java.io.File;
 import java.io.Serializable;
 
-import com.baize.ccms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
 
 /**
  * <p>标题: 模板单元</p>
  * <p>描述: 是模板实例的基本组成元素，和模板实例是多对一的关系</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-5-12 下午02:24:18

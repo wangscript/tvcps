@@ -1,30 +1,30 @@
 /**
  * 
  */
-package com.baize.ccms.biz.usermanager.service;
+package com.j2ee.cms.biz.usermanager.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.usermanager.dao.AssignmentDao;
-import com.baize.ccms.biz.usermanager.dao.LoginDao;
-import com.baize.ccms.biz.usermanager.domain.Assignment;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.biz.usermanager.web.event.SessionManager;
-import com.baize.ccms.biz.usermanager.web.event.UserLoginReqEvent;
-import com.baize.common.core.service.BaseService;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.usermanager.dao.AssignmentDao;
+import com.j2ee.cms.biz.usermanager.dao.LoginDao;
+import com.j2ee.cms.biz.usermanager.domain.Assignment;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.usermanager.web.event.SessionManager;
+import com.j2ee.cms.biz.usermanager.web.event.UserLoginReqEvent;
+import com.j2ee.cms.common.core.service.BaseService;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
- * 登录业务处理类 package: com.baize.ccms.biz.login.service File: LoginServiceImpl.java
+ * 登录业务处理类 package: com.j2ee.cms.biz.login.service File: LoginServiceImpl.java
  * 创建时间:2009-1-6下午03:01:24 Title: 标题（要求能简洁地表达出类的功能和职责） Description:
- * 描述（简要描述类的职责、实现方式、使用注意事项等） Copyright: Copyright (c) 2009 南京百泽网络科技有限公司
- * Company: 南京百泽网络科技有限公司 模块: 用户管理模块
+ * 描述（简要描述类的职责、实现方式、使用注意事项等） Copyright: Copyright (c) 2009  
+ * Company:   模块: 用户管理模块
  * 
  * @author 娄伟峰
  * @version 1.0

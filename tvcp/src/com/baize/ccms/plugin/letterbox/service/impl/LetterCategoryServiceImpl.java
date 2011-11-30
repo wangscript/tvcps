@@ -1,26 +1,26 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.letterbox.service.impl;
+package com.j2ee.cms.plugin.letterbox.service.impl;
 
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.usermanager.dao.OrganizationDao;
-import com.baize.ccms.plugin.letterbox.dao.LetterCategoryDao;
-import com.baize.ccms.plugin.letterbox.dao.LetterDao;
-import com.baize.ccms.plugin.letterbox.domain.LetterCategory;
-import com.baize.ccms.plugin.letterbox.service.LetterCategoryService;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.biz.usermanager.dao.OrganizationDao;
+import com.j2ee.cms.plugin.letterbox.dao.LetterCategoryDao;
+import com.j2ee.cms.plugin.letterbox.dao.LetterDao;
+import com.j2ee.cms.plugin.letterbox.domain.LetterCategory;
+import com.j2ee.cms.plugin.letterbox.service.LetterCategoryService;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * <p>标题: 信件类别业务类</p>
  * <p>描述: 负责业务中的一些处理</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-6-13 下午03:52:44 

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.setupmanager.service;
+package com.j2ee.cms.biz.setupmanager.service;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,11 +32,11 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import com.baize.ccms.biz.setupmanager.dao.SetDB;
-import com.baize.ccms.biz.setupmanager.domain.RegInfo;
-import com.baize.ccms.biz.setupmanager.domain.SysInit;
-import com.baize.ccms.biz.setupmanager.domain.SysParam;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.setupmanager.dao.SetDB;
+import com.j2ee.cms.biz.setupmanager.domain.RegInfo;
+import com.j2ee.cms.biz.setupmanager.domain.SysInit;
+import com.j2ee.cms.biz.setupmanager.domain.SysParam;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>
@@ -46,13 +46,13 @@ import com.baize.common.core.util.StringUtil;
  * 描述: —— 负责业务操作
  * </p>
  * <p>
- * 模块: CCMS后台数据启动模块
+ * 模块: CPS后台数据启动模块
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0
@@ -360,7 +360,7 @@ public class SetupBiz {
 	}
 
 	/**
-	 * ccms系统后台登陆验证 .
+	 * cps系统后台登陆验证 .
 	 * 
 	 * @param userName
 	 *            用户名
@@ -416,15 +416,15 @@ public class SetupBiz {
 		String mac = getMACMD5(); // MAC.
 		InputStream is = null;
 		try {
-			File file = new File(path + File.separator + "WEB-INF"+File.separator+"ccms.licence");
+			File file = new File(path + File.separator + "WEB-INF"+File.separator+"cps.licence");
 			if (!file.exists()) {
-				log.info("ccms.licence文件不存在");
+				log.info("cps.licence文件不存在");
 				return null;
 			}
-			is = new FileInputStream(path +  File.separator + "WEB-INF"+ File.separator+"ccms.licence");
+			is = new FileInputStream(path +  File.separator + "WEB-INF"+ File.separator+"cps.licence");
 		} catch (FileNotFoundException e) {
 			System.out.println();
-			log.error("没有找到文件ccms.licence"+e);
+			log.error("没有找到文件cps.licence"+e);
 		}
 		// 将文件的内容读取并且比较
 		List<String> list = readToBuffer(is);

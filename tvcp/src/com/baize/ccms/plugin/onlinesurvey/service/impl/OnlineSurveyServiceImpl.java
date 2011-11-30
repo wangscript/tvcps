@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlinesurvey.service.impl;
+package com.j2ee.cms.plugin.onlinesurvey.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,34 +19,34 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.biz.unitmanager.label.OnlineSurverySetLabel;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyAnswerContentDao;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlineSurveyDao;
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlinefeedbackContentDao;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurvey;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContent;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
-import com.baize.ccms.plugin.onlinesurvey.domain.OnlinefeedbackContent;
-import com.baize.ccms.plugin.onlinesurvey.service.OnlineSurveyService;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.pager.PageQuery;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.biz.unitmanager.label.OnlineSurverySetLabel;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyAnswerContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlineSurveyDao;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlinefeedbackContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurvey;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContent;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlineSurveyContentAnswer;
+import com.j2ee.cms.plugin.onlinesurvey.domain.OnlinefeedbackContent;
+import com.j2ee.cms.plugin.onlinesurvey.service.OnlineSurveyService;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.pager.PageQuery;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>标题: 网上调查业务类</p>
  * <p>描述: 网上调查的内容,答案，等业务</p>
  * <p>模块: 网上调查</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-6-14 下午02:30:23 

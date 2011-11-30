@@ -1,20 +1,20 @@
 /**
  * project：通用内容管理系统
- * Company: 南京瀚沃信息科技有限责任公司
+ * Company:   
 */
-package com.baize.ccms.biz.articlemanager.domain;
+package com.j2ee.cms.biz.articlemanager.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import com.baize.ccms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.usermanager.domain.User;
 
 /**
  * <p>标题: 枚举类型</p>
  * <p>描述: 用于丰富文章格式中字段属性的类型</p>
  * <p>模块: 文章管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-4-6 下午03:19:35

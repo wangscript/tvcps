@@ -1,22 +1,22 @@
 /**
  * 
  */
-package com.baize.ccms.biz.usermanager.dao.impl;
+package com.j2ee.cms.biz.usermanager.dao.impl;
 
 
-import com.baize.ccms.biz.usermanager.dao.LoginDao;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.dao.GenericDaoImpl;
+import com.j2ee.cms.biz.usermanager.dao.LoginDao;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.dao.GenericDaoImpl;
 
 
 /**
- * ccms通用信息管理系统 -- 登录系统数据库操作类
- * package: com.baize.ccms.biz.login.dao
+ * cps通用信息管理系统 -- 登录系统数据库操作类
+ * package: com.j2ee.cms.biz.login.dao
  * File: LoginDaoImpl.java 创建时间:2009-1-6下午03:03:07
  * Title: 标题（要求能简洁地表达出类的功能和职责）
  * Description: 描述（简要描述类的职责、实现方式、使用注意事项等）
- * Copyright: Copyright (c) 2009 南京百泽网络科技有限公司
- * Company: 南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2009  
+ * Company:  
  * 模块: 用户管理模块
  * @author  娄伟峰
  * @version 1.0

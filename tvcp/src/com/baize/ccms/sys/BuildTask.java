@@ -1,36 +1,36 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.sys;
+package com.j2ee.cms.sys;
 
 import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.publishmanager.dao.ArticleBuildListDao;
-import com.baize.ccms.biz.publishmanager.dao.ArticlePublishListDao;
-import com.baize.ccms.biz.publishmanager.domain.ArticleBuildList;
-import com.baize.ccms.biz.publishmanager.domain.ArticlePublishList;
-import com.baize.ccms.biz.publishmanager.service.Publisher;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.publishmanager.dao.ArticleBuildListDao;
+import com.j2ee.cms.biz.publishmanager.dao.ArticlePublishListDao;
+import com.j2ee.cms.biz.publishmanager.domain.ArticleBuildList;
+import com.j2ee.cms.biz.publishmanager.domain.ArticlePublishList;
+import com.j2ee.cms.biz.publishmanager.service.Publisher;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
- * <p>网址：http://www.baizeweb.com
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  </p>
+ * <p>网址：http://www.j2ee.cmsweb.com
  * @author <a href="mailto:sean_yang@163.com">杨信</a>
  * @version 1.0
  * @since 2009-8-31 下午04:10:23

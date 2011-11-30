@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,33 +10,33 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.TitleLinkPageService;
-import com.baize.ccms.biz.unitmanager.web.form.PictureNewsForm;
-import com.baize.ccms.biz.unitmanager.web.form.TitleLinkPageForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.TitleLinkPageService;
+import com.j2ee.cms.biz.unitmanager.web.form.PictureNewsForm;
+import com.j2ee.cms.biz.unitmanager.web.form.TitleLinkPageForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * 
  * <p>标题: —— 标题连接业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-3 上午10:38:55
@@ -215,22 +215,22 @@ public class TitleLinkPageServiceImpl implements TitleLinkPageService {
 		String prefixDate = DateUtil.getAddDaysDateFormat(DateUtil.toStringTrim(new Date(), "yyyy-MM-dd"), StringUtil.parseInt(titleLinkPageForm.getTitleHeadValidity()));
 		String suffixDate = DateUtil.getAddDaysDateFormat(DateUtil.toStringTrim(new Date(), "yyyy-MM-dd"), StringUtil.parseInt(titleLinkPageForm.getTitleEndValidity()));
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);		
-		xmlUtil.setNodeCDATAText("baize/title-link-page/viewStyle",titleLinkPageForm.getViewStyle());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/contextFrom",titleLinkPageForm.getContextFrom());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/fixedColumn",titleLinkPageForm.getFixedColumn());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/pageInfoCount",titleLinkPageForm.getPageInfoCount()); 
-		xmlUtil.setNodeCDATAText("baize/title-link-page/titleLimit",titleLinkPageForm.getTitleLimit());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/briefLimit",titleLinkPageForm.getBriefLimit());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/titleHead",titleLinkPageForm.getTitleHead());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/titleHeadPic",titleLinkPageForm.getTitleHeadPic());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/titleHeadValidity",titleLinkPageForm.getTitleHeadValidity());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/titleEnd",titleLinkPageForm.getTitleEnd());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/titleEndValidity",titleLinkPageForm.getTitleEndValidity());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/titleEndPic",titleLinkPageForm.getTitleEndPic());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/htmlContent",titleLinkPageForm.getHtmlContent());
-		xmlUtil.setNodeCDATAText("baize/title-link-page/prefixDate", prefixDate);
-		xmlUtil.setNodeCDATAText("baize/title-link-page/suffixDate", suffixDate);
-		xmlUtil.setNodeCDATAText("baize/title-link-page/pageSite", titleLinkPageForm.getPageSite());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/viewStyle",titleLinkPageForm.getViewStyle());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/contextFrom",titleLinkPageForm.getContextFrom());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/fixedColumn",titleLinkPageForm.getFixedColumn());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/pageInfoCount",titleLinkPageForm.getPageInfoCount()); 
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/titleLimit",titleLinkPageForm.getTitleLimit());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/briefLimit",titleLinkPageForm.getBriefLimit());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/titleHead",titleLinkPageForm.getTitleHead());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/titleHeadPic",titleLinkPageForm.getTitleHeadPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/titleHeadValidity",titleLinkPageForm.getTitleHeadValidity());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/titleEnd",titleLinkPageForm.getTitleEnd());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/titleEndValidity",titleLinkPageForm.getTitleEndValidity());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/titleEndPic",titleLinkPageForm.getTitleEndPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/htmlContent",titleLinkPageForm.getHtmlContent());
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/prefixDate", prefixDate);
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/suffixDate", suffixDate);
+		xmlUtil.setNodeCDATAText("j2ee.cms/title-link-page/pageSite", titleLinkPageForm.getPageSite());
 		xmlUtil.save(newFilePath);
 	}
 	/**
@@ -241,20 +241,20 @@ public class TitleLinkPageServiceImpl implements TitleLinkPageService {
 	 */
 	private TitleLinkPageForm setXmlData(String filePath, TitleLinkPageForm titleLinkPageForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
-		titleLinkPageForm.setViewStyle(xmlUtil.getNodeText("baize/title-link-page/viewStyle"));
-		titleLinkPageForm.setContextFrom(xmlUtil.getNodeText("baize/title-link-page/contextFrom"));
-		titleLinkPageForm.setFixedColumn(xmlUtil.getNodeText("baize/title-link-page/fixedColumn"));
-		titleLinkPageForm.setTitleLimit(xmlUtil.getNodeText("baize/title-link-page/titleLimit"));
-		titleLinkPageForm.setPageInfoCount(xmlUtil.getNodeText("baize/title-link-page/pageInfoCount"));
-		titleLinkPageForm.setBriefLimit(xmlUtil.getNodeText("baize/title-link-page/briefLimit"));
-		titleLinkPageForm.setTitleHead(xmlUtil.getNodeText("baize/title-link-page/titleHead"));
-		titleLinkPageForm.setTitleHeadPic(xmlUtil.getNodeText("baize/title-link-page/titleHeadPic"));
-		titleLinkPageForm.setTitleHeadValidity(xmlUtil.getNodeText("baize/title-link-page/titleHeadValidity"));		
-		titleLinkPageForm.setTitleEnd(xmlUtil.getNodeText("baize/title-link-page/titleEnd"));
-		titleLinkPageForm.setTitleEndValidity(xmlUtil.getNodeText("baize/title-link-page/titleEndValidity"));
-		titleLinkPageForm.setTitleEndPic(xmlUtil.getNodeText("baize/title-link-page/titleEndPic"));
-		titleLinkPageForm.setHtmlContent(xmlUtil.getNodeText("baize/title-link-page/htmlContent"));
-		titleLinkPageForm.setPageSite(xmlUtil.getNodeText("baize/title-link-page/pageSite"));
+		titleLinkPageForm.setViewStyle(xmlUtil.getNodeText("j2ee.cms/title-link-page/viewStyle"));
+		titleLinkPageForm.setContextFrom(xmlUtil.getNodeText("j2ee.cms/title-link-page/contextFrom"));
+		titleLinkPageForm.setFixedColumn(xmlUtil.getNodeText("j2ee.cms/title-link-page/fixedColumn"));
+		titleLinkPageForm.setTitleLimit(xmlUtil.getNodeText("j2ee.cms/title-link-page/titleLimit"));
+		titleLinkPageForm.setPageInfoCount(xmlUtil.getNodeText("j2ee.cms/title-link-page/pageInfoCount"));
+		titleLinkPageForm.setBriefLimit(xmlUtil.getNodeText("j2ee.cms/title-link-page/briefLimit"));
+		titleLinkPageForm.setTitleHead(xmlUtil.getNodeText("j2ee.cms/title-link-page/titleHead"));
+		titleLinkPageForm.setTitleHeadPic(xmlUtil.getNodeText("j2ee.cms/title-link-page/titleHeadPic"));
+		titleLinkPageForm.setTitleHeadValidity(xmlUtil.getNodeText("j2ee.cms/title-link-page/titleHeadValidity"));		
+		titleLinkPageForm.setTitleEnd(xmlUtil.getNodeText("j2ee.cms/title-link-page/titleEnd"));
+		titleLinkPageForm.setTitleEndValidity(xmlUtil.getNodeText("j2ee.cms/title-link-page/titleEndValidity"));
+		titleLinkPageForm.setTitleEndPic(xmlUtil.getNodeText("j2ee.cms/title-link-page/titleEndPic"));
+		titleLinkPageForm.setHtmlContent(xmlUtil.getNodeText("j2ee.cms/title-link-page/htmlContent"));
+		titleLinkPageForm.setPageSite(xmlUtil.getNodeText("j2ee.cms/title-link-page/pageSite"));
 		return titleLinkPageForm;
 	}
 	
@@ -268,9 +268,9 @@ public class TitleLinkPageServiceImpl implements TitleLinkPageService {
 	private String getColumnId(String columnId, String siteId, String filePath){
 		XmlUtil xmlUtil = XmlUtil.getInstance(GlobalConfig.appRealPath + filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/title-link-page/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/title-link-page/contextFrom");
 		//栏目名称
-		String fixedColumn = xmlUtil.getNodeText("baize/title-link-page/fixedColumn");
+		String fixedColumn = xmlUtil.getNodeText("j2ee.cms/title-link-page/fixedColumn");
 		String fixedColumnId = "";
 		String strColumn[] = fixedColumn.split("##");
 		if(strColumn != null && strColumn.length == 2){

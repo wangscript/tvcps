@@ -1,12 +1,12 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.sys;
+package com.j2ee.cms.sys;
 
 import java.io.File;
 
-import com.baize.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
 
 import org.apache.log4j.Logger;
 
@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
  * <p>标题: 网站资源</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 系统配置</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:sean_yang@163.com">杨信</a>
  * @version 1.0
  * @since 2009-4-29 下午02:26:44
@@ -408,12 +408,12 @@ public final class SiteResource {
 	 * 获取网站前台需要的浏览器资源脚本(这里是为了给发布后的js使用)
 	 * 如："<script type="text/javascript" src="/script/client/latestInfo/latestInfo.js"></script>
 	 * @param withAppName 资源路径是否带应用名   
-	 * 		  true: src="/ccms1.0/script/client/..."
+	 * 		  true: src="/cps1.0/script/client/..."
 	 * 		  false: src="/script/client/..."
 	 * @return
 	 */
 	public static String getFrontScript(boolean withAppName) {
-		// 应用名  如：/ccms1.0
+		// 应用名  如：/cps1.0
 		String appName = withAppName ? File.separator+""+GlobalConfig.appName : "";
 		return new StringBuffer()
     	    .append("<script type=\"text/javascript\" src=\"").append(appName).append("/script/client/jquery-1.2.6.js\"></script>")
@@ -430,12 +430,12 @@ public final class SiteResource {
 	 * 获取网站前台需要的浏览器资源脚本(这里是为了在站内预览等地方使用的js)
 	 * 如："<script type="text/javascript" src="/script/preview/latestInfo/latestInfo.js"></script>
 	 * @param withAppName 资源路径是否带应用名   
-	 * 		  true: src="/ccms1.0/script/client/..."
+	 * 		  true: src="/cps1.0/script/client/..."
 	 * 		  false: src="/script/client/..."
 	 * @return
 	 */
 	public static String getPreviewFrontScript(boolean withAppName){
-		// 应用名  如：/ccms1.0
+		// 应用名  如：/cps1.0
 		String appName = withAppName ? File.separator+GlobalConfig.appName : "";
 		return new StringBuffer()
     	    .append("<script type=\"text/javascript\" src=\"/").append(appName).append("/script/client/jquery-1.2.6.js\"></script>")
@@ -511,7 +511,7 @@ public final class SiteResource {
 	
 	/**
 	 * 获取资源的url
-	 * 如：/ccms1.0/release/build/static/link.js
+	 * 如：/cps1.0/release/build/static/link.js
 	 *     /release/build/static/link.js
 	 *     http://www.sina.com 
 	 * @param url         

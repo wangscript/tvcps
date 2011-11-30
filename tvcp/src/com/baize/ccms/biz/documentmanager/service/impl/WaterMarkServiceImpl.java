@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.service.impl;
+package com.j2ee.cms.biz.documentmanager.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,32 +11,32 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.documentmanager.dao.PicWaterMarkDao;
-import com.baize.ccms.biz.documentmanager.dao.WaterMarkDao;
-import com.baize.ccms.biz.documentmanager.dao.impl.WaterMarkDaoImpl;
-import com.baize.ccms.biz.documentmanager.domain.Document;
-import com.baize.ccms.biz.documentmanager.domain.PictureWatermark;
-import com.baize.ccms.biz.documentmanager.domain.TextWatermark;
-import com.baize.ccms.biz.documentmanager.domain.Watermark;
-import com.baize.ccms.biz.documentmanager.service.WaterMarkService;
-import com.baize.ccms.biz.documentmanager.web.form.WaterMarkForm;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.domain.Template;
-import com.baize.ccms.biz.templatemanager.domain.TemplateCategory;
-import com.baize.ccms.biz.templatemanager.service.TemplateService;
-import com.baize.ccms.biz.templatemanager.web.form.TemplateForm;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.domain.UploadedFile;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.web.WebClientUtil;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.documentmanager.dao.PicWaterMarkDao;
+import com.j2ee.cms.biz.documentmanager.dao.WaterMarkDao;
+import com.j2ee.cms.biz.documentmanager.dao.impl.WaterMarkDaoImpl;
+import com.j2ee.cms.biz.documentmanager.domain.Document;
+import com.j2ee.cms.biz.documentmanager.domain.PictureWatermark;
+import com.j2ee.cms.biz.documentmanager.domain.TextWatermark;
+import com.j2ee.cms.biz.documentmanager.domain.Watermark;
+import com.j2ee.cms.biz.documentmanager.service.WaterMarkService;
+import com.j2ee.cms.biz.documentmanager.web.form.WaterMarkForm;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.domain.Template;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateCategory;
+import com.j2ee.cms.biz.templatemanager.service.TemplateService;
+import com.j2ee.cms.biz.templatemanager.web.form.TemplateForm;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.domain.UploadedFile;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.web.WebClientUtil;
 
 /**
  * <p>
@@ -46,13 +46,13 @@ import com.baize.common.core.web.WebClientUtil;
  * 描述: —— 简要描述类的职责、实现方式、使用注意事项等
  * </p>
  * <p>
- * 模块: CCMS水印模块
+ * 模块: CPS水印模块
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * </p>
  * <p>
- * 网址：http://www.baizeweb.com
+ * 网址：http://www.j2ee.cmsweb.com
  * 
  * @author 曹名科
  * @version 1.0

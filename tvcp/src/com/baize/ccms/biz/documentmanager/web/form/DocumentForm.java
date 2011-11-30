@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.web.form;
+package com.j2ee.cms.biz.documentmanager.web.form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,22 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import com.baize.ccms.biz.documentmanager.domain.Attachment;
-import com.baize.ccms.biz.documentmanager.domain.Document;
-import com.baize.ccms.biz.documentmanager.domain.DocumentCategory;
-import com.baize.ccms.biz.documentmanager.domain.Flash;
-import com.baize.ccms.biz.documentmanager.domain.Js;
-import com.baize.ccms.biz.documentmanager.domain.Picture;
-import com.baize.ccms.biz.documentmanager.domain.PictureWatermark;
-import com.baize.ccms.biz.documentmanager.domain.TextWatermark;
-import com.baize.ccms.biz.documentmanager.domain.Watermark;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.common.core.web.GeneralForm;
+import com.j2ee.cms.biz.documentmanager.domain.Attachment;
+import com.j2ee.cms.biz.documentmanager.domain.Document;
+import com.j2ee.cms.biz.documentmanager.domain.DocumentCategory;
+import com.j2ee.cms.biz.documentmanager.domain.Flash;
+import com.j2ee.cms.biz.documentmanager.domain.Js;
+import com.j2ee.cms.biz.documentmanager.domain.Picture;
+import com.j2ee.cms.biz.documentmanager.domain.PictureWatermark;
+import com.j2ee.cms.biz.documentmanager.domain.TextWatermark;
+import com.j2ee.cms.biz.documentmanager.domain.Watermark;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.common.core.web.GeneralForm;
 /**
  * <p>标题: 文档的form</p>
  * <p>描述: 文档的表单数据，以便页面和方法中调用</p>
  * <p>模块: 文档管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-3-23 上午11:00:00

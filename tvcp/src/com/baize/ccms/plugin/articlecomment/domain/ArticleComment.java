@@ -1,21 +1,21 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.articlecomment.domain;
+package com.j2ee.cms.plugin.articlecomment.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.usermanager.domain.User;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
- * <p>模块: CCMS</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司</p>
- * <p>网址：http://www.baizeweb.com
+ * <p>模块: CPS</p>
+ * <p>版权: Copyright (c) 2009  </p>
+ * <p>网址：http://www.j2ee.cmsweb.com
  * @author 曹名科
  * @version 1.0
  * @since 2009-10-20 上午11:43:58
@@ -30,7 +30,7 @@ public class ArticleComment implements Serializable{
 	/**评论内容*/
 	private String content;
 	/**是否审核*/
-	private boolean audit;
+	private boolean audited;
 	/**是否精华*/
 	private boolean essence;
 	/**是否删除*/
@@ -90,14 +90,14 @@ public class ArticleComment implements Serializable{
 	/**
 	 * @return the audit
 	 */
-	public boolean isAudit() {
-		return audit;
+	public boolean isAudited() {
+		return audited;
 	}
 	/**
 	 * @param audit the audit to set
 	 */
-	public void setAudit(boolean audit) {
-		this.audit = audit;
+	public void setAudited(boolean audit) {
+		this.audited = audit;
 	}
 	/**
 	 * @return the essence

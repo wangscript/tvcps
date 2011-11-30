@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.biz.configmanager.domain">
+<hibernate-mapping package="com.j2ee.cms.biz.configmanager.domain">
         <class name="InformationFilter" table="information_Filter">
 		<id name="id">
 			<generator class="uuid" />
@@ -17,7 +17,7 @@
      <!--状态-->
        <property name="status" />
      <!--创建时间-->   
-      <property name="createTime" type="com.baize.common.core.util.DateString" />  
+      <property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />  
       <!--过滤类别id-->   
       <many-to-one name="filterCategory" column="filterCategoryId"/>	
       <!--网站id-->

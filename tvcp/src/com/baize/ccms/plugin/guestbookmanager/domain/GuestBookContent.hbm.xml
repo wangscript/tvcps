@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.plugin.guestbookmanager.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.guestbookmanager.domain">
     <class name="GuestBookContent" table="guestbook_contents">
         <id name="id">
             <generator class="uuid" />
@@ -15,7 +15,7 @@
         <property name="replyStatus" />
         <property name="area" />
         <property name="address" />
-        <property name="createTime" type="com.baize.common.core.util.DateString"/>
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
         <property name="ip" />   
         <property name="userId" />   
         <many-to-one name="guestBookCategory" column="guest_category_id" not-null="true"/>

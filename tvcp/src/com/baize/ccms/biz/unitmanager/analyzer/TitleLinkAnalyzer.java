@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.unitmanager.analyzer;
+package com.j2ee.cms.biz.unitmanager.analyzer;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,35 +13,35 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateInstanceDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.unitmanager.label.CommonLabel;
-import com.baize.ccms.biz.unitmanager.label.TitleLinkLabel;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateInstanceDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.unitmanager.label.CommonLabel;
+import com.j2ee.cms.biz.unitmanager.label.TitleLinkLabel;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * 
  * <p>标题: —— 标题链接解析类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-9 上午09:39:41
@@ -83,18 +83,18 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 		String filePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/title-link/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/title-link/contextFrom");
 		// 获得新的栏目id
 		String newColumnId = "";		
 		newColumnId = this.getColumnId(columnId, siteId, filePath);
 		
 		if(!StringUtil.isEmpty(newColumnId) && !newColumnId.equals("0")) {
 			//信息起始
-			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/start")));
+			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/start")));
 			//列
-			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/col")));
+			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/col")));
 			//行
-			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/row")));
+			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/row")));
 			//一共多少条记录
 			int count = col * row;
 			//根据栏目ID查询文章
@@ -102,7 +102,7 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			int size1 = 0;
 			if(!StringUtil.isEmpty(contextFrom) && contextFrom.equals("3")) {
 				// 多信息标题链接不需要更多链接
-				String morecolumnName = xmlUtil.getNodeText("baize/title-link/moreColumnName");
+				String morecolumnName = xmlUtil.getNodeText("j2ee.cms/title-link/moreColumnName");
 				String morestrColumn[] = morecolumnName.split("##");
 				if(morestrColumn[0].split(",").length > 1) {
 					displayMore = false; 
@@ -269,29 +269,29 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 			
 			//信息起始
-			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/start")));
+			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/start")));
 			//列
-			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/col")));
+			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/col")));
 			//行
-			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/row")));
+			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/row")));
 			//标题后缀
-			String titleEnd = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleEnd"));
+			String titleEnd = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleEnd"));
 			//标题前缀
-			String titleHead = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleHead"));
+			String titleHead = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleHead"));
 			//标题字数
-			String titleLimit = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleLimit"));
+			String titleLimit = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleLimit"));
 			//更多
-			String moreLink = String.valueOf(xmlUtil.getNodeText("baize/title-link/moreLink"));
+			String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/moreLink"));
 			//底线样式
-			String lineStyle = String.valueOf(xmlUtil.getNodeText("baize/title-link/lineStyle"));
+			String lineStyle = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/lineStyle"));
 			//底线隔行
-			String lineGroup = String.valueOf(xmlUtil.getNodeText("baize/title-link/lineGroup"));
+			String lineGroup = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/lineGroup"));
 			//奇行背景色
-			String oddColor = xmlUtil.getNodeText("baize/title-link/oddColor");
+			String oddColor = xmlUtil.getNodeText("j2ee.cms/title-link/oddColor");
 			//偶行背景色
-			String evenColor = xmlUtil.getNodeText("baize/title-link/evenColor");
+			String evenColor = xmlUtil.getNodeText("j2ee.cms/title-link/evenColor");
 			//指定行加粗
-			String strongTitle = xmlUtil.getNodeText("baize/title-link/strongTitle");
+			String strongTitle = xmlUtil.getNodeText("j2ee.cms/title-link/strongTitle");
 			
 			//一共多少条记录
 			int count = col * row;	
@@ -457,29 +457,29 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 			
 			//信息起始
-			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/start")));
+			int start = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/start")));
 			//列
-			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/col")));
+			int col = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/col")));
 			//行
-			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("baize/title-link/row")));
+			int row = StringUtil.parseInt(String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/row")));
 			//标题后缀
-			String titleEnd = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleEnd"));
+			String titleEnd = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleEnd"));
 			//标题前缀
-			String titleHead = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleHead"));
+			String titleHead = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleHead"));
 			//标题字数
-			String titleLimit = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleLimit"));
+			String titleLimit = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleLimit"));
 			//更多
-			String moreLink = String.valueOf(xmlUtil.getNodeText("baize/title-link/moreLink"));
+			String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/moreLink"));
 			//底线样式
-			String lineStyle = String.valueOf(xmlUtil.getNodeText("baize/title-link/lineStyle"));
+			String lineStyle = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/lineStyle"));
 			//底线隔行
-			String lineGroup = String.valueOf(xmlUtil.getNodeText("baize/title-link/lineGroup"));
+			String lineGroup = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/lineGroup"));
 			//奇行背景色
-			String oddColor = xmlUtil.getNodeText("baize/title-link/oddColor");
+			String oddColor = xmlUtil.getNodeText("j2ee.cms/title-link/oddColor");
 			//偶行背景色
-			String evenColor = xmlUtil.getNodeText("baize/title-link/evenColor");
+			String evenColor = xmlUtil.getNodeText("j2ee.cms/title-link/evenColor");
 			//指定行加粗
-			String strongTitle = xmlUtil.getNodeText("baize/title-link/strongTitle");
+			String strongTitle = xmlUtil.getNodeText("j2ee.cms/title-link/strongTitle");
 			//一共多少条记录
 			int count = col * row;	
 			//根据栏目ID查询文章
@@ -656,9 +656,9 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			//更多内容 
 			if(label.equals(TitleLinkLabel.MORELINK)) {
 				if(displayMore) {
-					String moreLink = String.valueOf(xmlUtil.getNodeText("baize/title-link/moreLink"));
+					String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/moreLink"));
 					//是否是图片
-					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("baize/title-link/moreLinkPic"));
+					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/moreLinkPic"));
 					if(column != null){
 						String url = column.getUrl();
 						if(moreLinkPic != null && !moreLinkPic.equals("") && !moreLinkPic.equals("0")) {
@@ -729,15 +729,15 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 		if(article == null || article.getId() == null) {
 			return "";
 		}
-		String titleEnd = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleEnd"));
+		String titleEnd = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleEnd"));
 		//标题前缀
-		String titleHead = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleHead"));
+		String titleHead = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleHead"));
 		//标题字数
-		String titleLimit = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleLimit"));
+		String titleLimit = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleLimit"));
 		//前缀是否图片
-		String headPic = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleHeadPic"));
+		String headPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleHeadPic"));
 		//后缀是否图片
-		String endPic = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleEndPic"));
+		String endPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleEndPic"));
 		String str = "";
 		if(label.equals(TitleLinkLabel.ARTICLEARTICLEAUTHOR)){	
 			//信息作者 
@@ -813,7 +813,7 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			
 		}else if(label.equals(TitleLinkLabel.ARTICLEENDER)){
 			//标题后缀						
-			String titleEndValidity = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleEndValidity"));
+			String titleEndValidity = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleEndValidity"));
 			if(!StringUtil.isEmpty(titleEnd)) {
 				String newdate = DateUtil.getAddDaysDateFormat(DateUtil.toStringTrim(new Date(), "yyyy-MM-dd"), StringUtil.parseInt(titleEndValidity));
 				int isSuffixPic = StringUtil.parseInt(endPic);
@@ -836,7 +836,7 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			
 		}else if(label.equals(TitleLinkLabel.ARTICLEHEADER)){
 			// 标题前缀
-			String titleHeadValidity = String.valueOf(xmlUtil.getNodeText("baize/title-link/titleHeadValidity"));
+			String titleHeadValidity = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/titleHeadValidity"));
 			if(!StringUtil.isEmpty(titleHead)) {
 				String newdate = DateUtil.getAddDaysDateFormat(DateUtil.toStringTrim(new Date(), "yyyy-MM-dd"), StringUtil.parseInt(titleHeadValidity));
 				int isprefixPic = StringUtil.parseInt(headPic);
@@ -1040,7 +1040,7 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			if(m.find()) {
 				getOtherValue = m.group(1);
 				if(!getOtherValue.equals("if") && !getOtherValue.equals("for")){
-					Object obj = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", getOtherValue);
+					Object obj = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", getOtherValue);
 					log.debug("obj========"+obj);
 					// 是日期
 					if (obj instanceof Date) {
@@ -1114,7 +1114,7 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 		Matcher ifMatcher = ifPattern.matcher(ifsrc);
 		TemplateUnit unit = templateUnitDao.getAndClear(unitId);
 		String configFilePath = unit.getConfigFile();
-		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/ccms1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
+		//"D:/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp2/wtpwebapps/cps1.0/release/site1/template_instance/1244619970656/conf/20090616190926187450861579.xml"; 
 		//获取到当前模板实例的xml配置文件路径
 		String filePath = GlobalConfig.appRealPath + configFilePath;
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
@@ -1219,9 +1219,9 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 			// 更多链接
 			if(label.equals(TitleLinkLabel.MORELINK)) {
 				if(displayMore) {
-					String moreLink = String.valueOf(xmlUtil.getNodeText("baize/title-link/moreLink"));
+					String moreLink = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/moreLink"));
 					//是否是图片
-					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("baize/title-link/moreLinkPic"));
+					String moreLinkPic = String.valueOf(xmlUtil.getNodeText("j2ee.cms/title-link/moreLinkPic"));
 					String url = "";
 					String str1 = "";
 					String str2 = "";
@@ -1326,15 +1326,15 @@ public class TitleLinkAnalyzer implements TemplateUnitAnalyzer {
 	private String getColumnId(String columnId, String siteId,String filePath){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
 		//内容来源
-		String contextFrom = xmlUtil.getNodeText("baize/title-link/contextFrom");
+		String contextFrom = xmlUtil.getNodeText("j2ee.cms/title-link/contextFrom");
 		//栏目名称
-		String columnName = xmlUtil.getNodeText("baize/title-link/columnName");
+		String columnName = xmlUtil.getNodeText("j2ee.cms/title-link/columnName");
 		String fixedColumnId = "";
 		String strColumn[] = columnName.split("##");
 		if(strColumn != null && strColumn.length == 2){
 			fixedColumnId = strColumn[0];
 		}
-		String morecolumnName = xmlUtil.getNodeText("baize/title-link/moreColumnName");
+		String morecolumnName = xmlUtil.getNodeText("j2ee.cms/title-link/moreColumnName");
 		String morefixedColumnId = "";
 		String morestrColumn[] = morecolumnName.split("##");
 		if(morestrColumn != null && morestrColumn.length == 2){

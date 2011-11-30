@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.plugin.letterbox.domain">
+<hibernate-mapping package="com.j2ee.cms.plugin.letterbox.domain">
     <class name="Letter" table="plugin_letterbox_letters">
         <id name="id">
             <generator class="uuid" />
@@ -10,7 +10,7 @@
         <property name="content" type="text"/>   
         <property name="opened" />   
         <property name="letterStatus" />   
-        <property name="submitDate" type="com.baize.common.core.util.DateString"/>
+        <property name="submitDate" type="com.j2ee.cms.common.core.util.DateString"/>
         <property name="userIP" />
         <property name="replyCode" unique="true"/>
         <property name="mobileTel" />

@@ -1,19 +1,19 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.documentmanager.service;
+package com.j2ee.cms.biz.documentmanager.service;
 
 import java.util.List;
 
-import com.baize.ccms.biz.documentmanager.domain.DocumentCategory;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.documentmanager.domain.DocumentCategory;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: 类别service</p>
  * <p>描述: 类别的接口，用于存放方法</p>
  * <p>模块: 文档管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-3-26 上午10:54:19

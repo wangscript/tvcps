@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.baize.ccms.biz.usermanager.domain">
+<hibernate-mapping package="com.j2ee.cms.biz.usermanager.domain">
 	<class name="Assignment" table="assignments">
 		<id name="id">
 			<generator class="uuid" />
 		</id>
-		<property name="operateTime" type="com.baize.common.core.util.DateString" />
+		<property name="operateTime" type="com.j2ee.cms.common.core.util.DateString" />
 		<many-to-one name="operator"/>
 		<many-to-one name="user" column="user_id" not-null="true" />
 		<many-to-one name="role" column="role_id" not-null="true" />

@@ -1,18 +1,18 @@
 /**
  * <p>
- * ccms_2 信息管理系统
+ * cps_2 信息管理系统
  * </p>
  * <p>
  * UserAction.java Create on Jan 19, 2009 9:33:34 AM
  * </p>
  * <p>
- * Copyright: Copyright (c) 2008；南京百泽网络科技有限公司
+ * Copyright: Copyright (c) 2008； 
  * </p>
  * <p>
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  * </p>
  */
-package com.baize.ccms.biz.usermanager.web.action;
+package com.j2ee.cms.biz.usermanager.web.action;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,20 +21,20 @@ import java.util.Map;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.biz.usermanager.web.form.UserForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.biz.usermanager.web.form.UserForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * 
  * <p>标题: —— 用户管理action类</p>
  * <p>描述: —— 负责处理页面请求，如显示用户，删除，修改，增加用户</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-2-23 下午04:40:19

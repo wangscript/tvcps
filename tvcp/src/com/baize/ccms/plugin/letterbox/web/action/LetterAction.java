@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.plugin.letterbox.web.action;
+package com.j2ee.cms.plugin.letterbox.web.action;
 
 import java.util.Date;
 import java.util.List;
@@ -10,24 +10,24 @@ import java.util.Map;
 
 import org.apache.struts.action.ActionForm;
 
-import com.baize.ccms.biz.usermanager.domain.Organization;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.plugin.letterbox.domain.Letter;
-import com.baize.ccms.plugin.letterbox.domain.LetterCategory;
-import com.baize.ccms.plugin.letterbox.domain.LetterReply;
-import com.baize.ccms.plugin.letterbox.domain.TransferRecord;
-import com.baize.ccms.plugin.letterbox.web.form.LetterForm;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.web.GeneralAction;
-import com.baize.common.core.web.event.RequestEvent;
-import com.baize.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.biz.usermanager.domain.Organization;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.plugin.letterbox.domain.Letter;
+import com.j2ee.cms.plugin.letterbox.domain.LetterCategory;
+import com.j2ee.cms.plugin.letterbox.domain.LetterReply;
+import com.j2ee.cms.plugin.letterbox.domain.TransferRecord;
+import com.j2ee.cms.plugin.letterbox.web.form.LetterForm;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.web.GeneralAction;
+import com.j2ee.cms.common.core.web.event.RequestEvent;
+import com.j2ee.cms.common.core.web.event.ResponseEvent;
 
 /**
  * <p>标题: 信件Action</p>
  * <p>描述: 管理信件的不同操作，封装请求对象</p>
  * <p>模块: 信件箱</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-6-14 下午02:32:22 

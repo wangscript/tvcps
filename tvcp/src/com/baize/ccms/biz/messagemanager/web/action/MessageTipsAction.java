@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.messagemanager.web.action;
+package com.j2ee.cms.biz.messagemanager.web.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,15 +13,15 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
-import com.baize.ccms.biz.messagemanager.service.MessageTipsService;
-import com.baize.ccms.biz.messagemanager.web.form.SiteMessageForm;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.messagemanager.service.MessageTipsService;
+import com.j2ee.cms.biz.messagemanager.web.form.SiteMessageForm;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: 消息弹出框Action</p>
  * <p>描述: 管理消息的不同操作，封装请求对象</p>
  * <p>模块: 消息管理</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 杨信
  * @version 1.0
  * @since 2009-6-30 下午02:32:16 

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.articlemanager.service.impl;
+package com.j2ee.cms.biz.articlemanager.service.impl;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,48 +24,48 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleDao;
-import com.baize.ccms.biz.articlemanager.dao.ArticleFormatDao;
-import com.baize.ccms.biz.articlemanager.dao.EnumerationDao;
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.articlemanager.domain.Enumeration;
-import com.baize.ccms.biz.articlemanager.service.ArticleService;
-import com.baize.ccms.biz.articlemanager.web.form.ArticleForm;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.GeneralSystemSetDao;
-import com.baize.ccms.biz.configmanager.dao.InformationFilterDao;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.configmanager.domain.GeneralSystemSet;
-import com.baize.ccms.biz.configmanager.domain.InformationFilter;
-import com.baize.ccms.biz.publishmanager.dao.ArticleBuildListDao;
-import com.baize.ccms.biz.publishmanager.dao.ArticlePublishListDao;
-import com.baize.ccms.biz.publishmanager.domain.ArticleBuildList;
-import com.baize.ccms.biz.publishmanager.service.Publisher;
-import com.baize.ccms.biz.publishmanager.service.remotepublish.client.FtpSender;
-import com.baize.ccms.biz.sitemanager.dao.SiteDao;
-import com.baize.ccms.biz.sitemanager.domain.Site;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateInstance;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.usermanager.dao.RightDao;
-import com.baize.ccms.biz.usermanager.dao.UserDao;
-import com.baize.ccms.biz.usermanager.domain.Operation;
-import com.baize.ccms.biz.usermanager.domain.Resource;
-import com.baize.ccms.biz.usermanager.domain.Right;
-import com.baize.ccms.biz.usermanager.domain.User;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
+import com.j2ee.cms.biz.articlemanager.dao.EnumerationDao;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.articlemanager.domain.Enumeration;
+import com.j2ee.cms.biz.articlemanager.service.ArticleService;
+import com.j2ee.cms.biz.articlemanager.web.form.ArticleForm;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.GeneralSystemSetDao;
+import com.j2ee.cms.biz.configmanager.dao.InformationFilterDao;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.configmanager.domain.GeneralSystemSet;
+import com.j2ee.cms.biz.configmanager.domain.InformationFilter;
+import com.j2ee.cms.biz.publishmanager.dao.ArticleBuildListDao;
+import com.j2ee.cms.biz.publishmanager.dao.ArticlePublishListDao;
+import com.j2ee.cms.biz.publishmanager.domain.ArticleBuildList;
+import com.j2ee.cms.biz.publishmanager.service.Publisher;
+import com.j2ee.cms.biz.publishmanager.service.remotepublish.client.FtpSender;
+import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
+import com.j2ee.cms.biz.sitemanager.domain.Site;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateInstance;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.usermanager.dao.RightDao;
+import com.j2ee.cms.biz.usermanager.dao.UserDao;
+import com.j2ee.cms.biz.usermanager.domain.Operation;
+import com.j2ee.cms.biz.usermanager.domain.Resource;
+import com.j2ee.cms.biz.usermanager.domain.Right;
+import com.j2ee.cms.biz.usermanager.domain.User;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 
 /**
  * <p>
@@ -78,7 +78,7 @@ import com.baize.common.core.util.StringUtil;
  * 模块: 文章管理
  * </p>
  * <p>
- * 版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * 版权: Copyright (c) 2009  
  * 
  * @author 杨信
  * @version 1.0

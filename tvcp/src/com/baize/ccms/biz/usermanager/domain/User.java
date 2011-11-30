@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.usermanager.domain;
+package com.j2ee.cms.biz.usermanager.domain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,9 +10,9 @@ import java.util.List;
 
 /**
  * <p>标题: 用户</p>
- * <p>描述: 操作ccms的用户</p>
+ * <p>描述: 操作cps的用户</p>
  * <p>模块: 用户管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-2-16 下午04:30:13

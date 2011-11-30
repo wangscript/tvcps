@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.usermanager.domain;
+package com.j2ee.cms.biz.usermanager.domain;
 
 import java.io.Serializable;
 
@@ -10,7 +10,7 @@ import java.io.Serializable;
  * <p>标题: 操作</p>
  * <p>描述: 对资源的操作，对资源是多对多，对权限是一对多</p>
  * <p>模块: 通用平台</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 杨信
  * @version 1.0
  * @since 2009-2-23 下午02:03:23

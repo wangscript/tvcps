@@ -1,19 +1,19 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.biz.templatemanager.service;
+package com.j2ee.cms.biz.templatemanager.service;
 
 import java.util.List;
 
-import com.baize.ccms.biz.templatemanager.domain.TemplateCategory;
-import com.baize.common.core.dao.Pagination;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateCategory;
+import com.j2ee.cms.common.core.dao.Pagination;
 
 /**
  * <p>标题: 模板类别的服务类</p>
  * <p>描述: 主要是模块中的模板类别的一些功能的实现的调用，这里是接口</p>
  * <p>模块: 模板管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 郑荣华
  * @version 1.0
  * @since 2009-4-27 下午06:50:33

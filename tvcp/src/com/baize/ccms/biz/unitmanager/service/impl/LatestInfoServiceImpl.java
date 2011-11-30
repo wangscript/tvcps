@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.unitmanager.service.impl;
+package com.j2ee.cms.biz.unitmanager.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,33 +10,33 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.baize.ccms.biz.articlemanager.dao.ArticleAttributeDao;
-import com.baize.ccms.biz.columnmanager.dao.ColumnDao;
-import com.baize.ccms.biz.columnmanager.domain.Column;
-import com.baize.ccms.biz.configmanager.dao.SystemLogDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitCategoryDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitDao;
-import com.baize.ccms.biz.templatemanager.dao.TemplateUnitStyleDao;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnit;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitCategory;
-import com.baize.ccms.biz.templatemanager.domain.TemplateUnitStyle;
-import com.baize.ccms.biz.unitmanager.service.LatestInfoService;
-import com.baize.ccms.biz.unitmanager.web.form.LatestInfoForm;
-import com.baize.ccms.sys.GlobalConfig;
-import com.baize.ccms.sys.SiteResource;
-import com.baize.common.core.util.CollectionUtil;
-import com.baize.common.core.util.FileUtil;
-import com.baize.common.core.util.IDFactory;
-import com.baize.common.core.util.SqlUtil;
-import com.baize.common.core.util.StringUtil;
-import com.baize.common.core.util.XmlUtil;
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
+import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
+import com.j2ee.cms.biz.columnmanager.domain.Column;
+import com.j2ee.cms.biz.configmanager.dao.SystemLogDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitCategoryDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitDao;
+import com.j2ee.cms.biz.templatemanager.dao.TemplateUnitStyleDao;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnit;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitCategory;
+import com.j2ee.cms.biz.templatemanager.domain.TemplateUnitStyle;
+import com.j2ee.cms.biz.unitmanager.service.LatestInfoService;
+import com.j2ee.cms.biz.unitmanager.web.form.LatestInfoForm;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
+import com.j2ee.cms.common.core.util.CollectionUtil;
+import com.j2ee.cms.common.core.util.FileUtil;
+import com.j2ee.cms.common.core.util.IDFactory;
+import com.j2ee.cms.common.core.util.SqlUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.common.core.util.XmlUtil;
 
 /**
  * 
  * <p>标题: —— 最新信息业务逻辑处理类</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 模板单元管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author 娄伟峰
  * @version 1.0
  * @since 2009-6-3 上午10:38:55
@@ -174,22 +174,22 @@ public class LatestInfoServiceImpl implements LatestInfoService {
 	private void setXmlData(String filePath,String newFilePath,LatestInfoForm latestInfoForm){
 		log.debug("latestInfoForm.getRow()==================="+latestInfoForm.getRow());
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
-		xmlUtil.setNodeCDATAText("baize/latest-info/unitType",latestInfoForm.getUnitType());
-		xmlUtil.setNodeCDATAText("baize/latest-info/chooseColumn",latestInfoForm.getChooseColumn());
-		xmlUtil.setNodeCDATAText("baize/latest-info/allColumn",latestInfoForm.getAllColumn());
-		xmlUtil.setNodeCDATAText("baize/latest-info/selectCol",latestInfoForm.getSelectCol());
-		xmlUtil.setNodeCDATAText("baize/latest-info/page",latestInfoForm.getPage());
-		xmlUtil.setNodeCDATAText("baize/latest-info/col",latestInfoForm.getCol());
-		xmlUtil.setNodeCDATAText("baize/latest-info/row",latestInfoForm.getRow());	
-		xmlUtil.setNodeCDATAText("baize/latest-info/count",latestInfoForm.getCount());
-		xmlUtil.setNodeCDATAText("baize/latest-info/pageCount",latestInfoForm.getPageCount());
-		xmlUtil.setNodeCDATAText("baize/latest-info/titleWordCount",latestInfoForm.getTitleWordCount());
-		xmlUtil.setNodeCDATAText("baize/latest-info/htmlContent",latestInfoForm.getHtmlContent());	
-		xmlUtil.setNodeCDATAText("baize/latest-info/titleEnd",latestInfoForm.getTitleEnd());
-		xmlUtil.setNodeCDATAText("baize/latest-info/titleEndPic",latestInfoForm.getTitleEndPic());
-		xmlUtil.setNodeCDATAText("baize/latest-info/titleHead",latestInfoForm.getTitleHead());
-		xmlUtil.setNodeCDATAText("baize/latest-info/titleHeadPic",latestInfoForm.getTitleHeadPic());
-		xmlUtil.setNodeCDATAText("baize/latest-info/moreLinkColumn",latestInfoForm.getMoreLinkColumn());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/unitType",latestInfoForm.getUnitType());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/chooseColumn",latestInfoForm.getChooseColumn());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/allColumn",latestInfoForm.getAllColumn());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/selectCol",latestInfoForm.getSelectCol());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/page",latestInfoForm.getPage());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/col",latestInfoForm.getCol());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/row",latestInfoForm.getRow());	
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/count",latestInfoForm.getCount());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/pageCount",latestInfoForm.getPageCount());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/titleWordCount",latestInfoForm.getTitleWordCount());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/htmlContent",latestInfoForm.getHtmlContent());	
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/titleEnd",latestInfoForm.getTitleEnd());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/titleEndPic",latestInfoForm.getTitleEndPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/titleHead",latestInfoForm.getTitleHead());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/titleHeadPic",latestInfoForm.getTitleHeadPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/moreLinkColumn",latestInfoForm.getMoreLinkColumn());
 		String columnIdAndName = latestInfoForm.getMoreLinkColumn();
 		String url = "";
 		if(!StringUtil.isEmpty(columnIdAndName) && !columnIdAndName.equals("null")) {
@@ -199,10 +199,10 @@ public class LatestInfoServiceImpl implements LatestInfoService {
 				url = column.getUrl();
 			}
 		}
-		xmlUtil.setNodeCDATAText("baize/latest-info/moreLinkColumnUrl",url);
-		xmlUtil.setNodeCDATAText("baize/latest-info/moreLink",latestInfoForm.getMoreLink());
-		xmlUtil.setNodeCDATAText("baize/latest-info/moreLinkPic",latestInfoForm.getMoreLinkPic());
-		xmlUtil.setNodeCDATAText("baize/latest-info/pageSite",latestInfoForm.getPageSite());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/moreLinkColumnUrl",url);
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/moreLink",latestInfoForm.getMoreLink());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/moreLinkPic",latestInfoForm.getMoreLinkPic());
+		xmlUtil.setNodeCDATAText("j2ee.cms/latest-info/pageSite",latestInfoForm.getPageSite());
 		xmlUtil.save(newFilePath);
 	}
 	
@@ -214,35 +214,35 @@ public class LatestInfoServiceImpl implements LatestInfoService {
 	 */
 	private LatestInfoForm setXmlData(String filePath ,LatestInfoForm latestInfoForm){
 		XmlUtil xmlUtil = XmlUtil.getInstance(filePath);
-		latestInfoForm.setUnitType((xmlUtil.getNodeText("baize/latest-info/unitType")));
-		latestInfoForm.setChooseColumn((xmlUtil.getNodeText("baize/latest-info/chooseColumn")));	
-		latestInfoForm.setAllColumn((xmlUtil.getNodeText("baize/latest-info/allColumn")));
-		latestInfoForm.setSelectCol((xmlUtil.getNodeText("baize/latest-info/selectCol")));
-		latestInfoForm.setPage((xmlUtil.getNodeText("baize/latest-info/page")));
-		latestInfoForm.setRow((xmlUtil.getNodeText("baize/latest-info/row")));
-		latestInfoForm.setCol((xmlUtil.getNodeText("baize/latest-info/col")));
-		latestInfoForm.setCount((xmlUtil.getNodeText("baize/latest-info/count")));
-		latestInfoForm.setPageCount((xmlUtil.getNodeText("baize/latest-info/pageCount")));
-		latestInfoForm.setTitleWordCount((xmlUtil.getNodeText("baize/latest-info/titleWordCount")));
-		latestInfoForm.setHtmlContent((xmlUtil.getNodeText("baize/latest-info/htmlContent")));
-		latestInfoForm.setTitleEnd((xmlUtil.getNodeText("baize/latest-info/titleEnd")));
-		latestInfoForm.setTitleEndPic((xmlUtil.getNodeText("baize/latest-info/titleEndPic")));
-		latestInfoForm.setTitleHead((xmlUtil.getNodeText("baize/latest-info/titleHead")));
-		latestInfoForm.setTitleHeadPic((xmlUtil.getNodeText("baize/latest-info/titleHeadPic")));
-		latestInfoForm.setMoreLinkColumn((xmlUtil.getNodeText("baize/latest-info/moreLinkColumn")));
-		latestInfoForm.setMoreLink((xmlUtil.getNodeText("baize/latest-info/moreLink")));
-		latestInfoForm.setMoreLinkPic((xmlUtil.getNodeText("baize/latest-info/moreLinkPic")));
-		latestInfoForm.setPageSite((xmlUtil.getNodeText("baize/latest-info/pageSite")));
+		latestInfoForm.setUnitType((xmlUtil.getNodeText("j2ee.cms/latest-info/unitType")));
+		latestInfoForm.setChooseColumn((xmlUtil.getNodeText("j2ee.cms/latest-info/chooseColumn")));	
+		latestInfoForm.setAllColumn((xmlUtil.getNodeText("j2ee.cms/latest-info/allColumn")));
+		latestInfoForm.setSelectCol((xmlUtil.getNodeText("j2ee.cms/latest-info/selectCol")));
+		latestInfoForm.setPage((xmlUtil.getNodeText("j2ee.cms/latest-info/page")));
+		latestInfoForm.setRow((xmlUtil.getNodeText("j2ee.cms/latest-info/row")));
+		latestInfoForm.setCol((xmlUtil.getNodeText("j2ee.cms/latest-info/col")));
+		latestInfoForm.setCount((xmlUtil.getNodeText("j2ee.cms/latest-info/count")));
+		latestInfoForm.setPageCount((xmlUtil.getNodeText("j2ee.cms/latest-info/pageCount")));
+		latestInfoForm.setTitleWordCount((xmlUtil.getNodeText("j2ee.cms/latest-info/titleWordCount")));
+		latestInfoForm.setHtmlContent((xmlUtil.getNodeText("j2ee.cms/latest-info/htmlContent")));
+		latestInfoForm.setTitleEnd((xmlUtil.getNodeText("j2ee.cms/latest-info/titleEnd")));
+		latestInfoForm.setTitleEndPic((xmlUtil.getNodeText("j2ee.cms/latest-info/titleEndPic")));
+		latestInfoForm.setTitleHead((xmlUtil.getNodeText("j2ee.cms/latest-info/titleHead")));
+		latestInfoForm.setTitleHeadPic((xmlUtil.getNodeText("j2ee.cms/latest-info/titleHeadPic")));
+		latestInfoForm.setMoreLinkColumn((xmlUtil.getNodeText("j2ee.cms/latest-info/moreLinkColumn")));
+		latestInfoForm.setMoreLink((xmlUtil.getNodeText("j2ee.cms/latest-info/moreLink")));
+		latestInfoForm.setMoreLinkPic((xmlUtil.getNodeText("j2ee.cms/latest-info/moreLinkPic")));
+		latestInfoForm.setPageSite((xmlUtil.getNodeText("j2ee.cms/latest-info/pageSite")));
 		return latestInfoForm;
 	}
 	
 	private String findLatestInfoColumnIds(String configFile, String siteId){
 		String columnIds = "";
 		XmlUtil xmlUtil = XmlUtil.getInstance(GlobalConfig.appRealPath + configFile);
-		String unitType = xmlUtil.getNodeText("/baize/latest-info/unitType");
-		String allColumn = xmlUtil.getNodeText("/baize/latest-info/allColumn");
-		String selectCol = xmlUtil.getNodeText("/baize/latest-info/selectCol");
-		String chooseColumn = xmlUtil.getNodeText("/baize/latest-info/chooseColumn");
+		String unitType = xmlUtil.getNodeText("/j2ee.cms/latest-info/unitType");
+		String allColumn = xmlUtil.getNodeText("/j2ee.cms/latest-info/allColumn");
+		String selectCol = xmlUtil.getNodeText("/j2ee.cms/latest-info/selectCol");
+		String chooseColumn = xmlUtil.getNodeText("/j2ee.cms/latest-info/chooseColumn");
 		// 指定栏目（只有一个）
 		if(unitType.equals("1")) {
 			if(!StringUtil.isEmpty(chooseColumn)) {

@@ -4,11 +4,11 @@
 
 	<form-beans>
 		<!-- 登录业务实体bean start-->  
-        <form-bean name="loginbean" type="com.baize.ccms.biz.usermanager.web.form.LoginForm"/>      
-		<form-bean name="userForm" type="com.baize.ccms.biz.usermanager.web.form.UserForm" />
-		<form-bean name="organizationForm" type="com.baize.ccms.biz.usermanager.web.form.OrganizationForm" />
-		<form-bean name="roleForm" type="com.baize.ccms.biz.usermanager.web.form.RoleForm" />
-		<form-bean name="menuForm" type="com.baize.ccms.biz.usermanager.web.form.MenuForm" />
+        <form-bean name="loginbean" type="com.j2ee.cms.biz.usermanager.web.form.LoginForm"/>      
+		<form-bean name="userForm" type="com.j2ee.cms.biz.usermanager.web.form.UserForm" />
+		<form-bean name="organizationForm" type="com.j2ee.cms.biz.usermanager.web.form.OrganizationForm" />
+		<form-bean name="roleForm" type="com.j2ee.cms.biz.usermanager.web.form.RoleForm" />
+		<form-bean name="menuForm" type="com.j2ee.cms.biz.usermanager.web.form.MenuForm" />
 	</form-beans>
 	<global-exceptions />
 	<action-mappings>

@@ -1,8 +1,8 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
 */
-package com.baize.ccms.biz.articlemanager.tld;
+package com.j2ee.cms.biz.articlemanager.tld;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,21 +14,21 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import com.baize.ccms.biz.articlemanager.domain.Article;
-import com.baize.ccms.biz.articlemanager.domain.ArticleAttribute;
-import com.baize.ccms.biz.articlemanager.domain.ArticleFormat;
-import com.baize.ccms.biz.articlemanager.service.impl.ArticleAttributeServiceImpl;
-import com.baize.ccms.biz.configmanager.domain.GeneralSystemSet;
-import com.baize.common.core.util.BeanUtil;
-import com.baize.common.core.util.DateUtil;
-import com.baize.common.core.util.StringUtil;
+import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
+import com.j2ee.cms.biz.articlemanager.service.impl.ArticleAttributeServiceImpl;
+import com.j2ee.cms.biz.configmanager.domain.GeneralSystemSet;
+import com.j2ee.cms.common.core.util.BeanUtil;
+import com.j2ee.cms.common.core.util.DateUtil;
+import com.j2ee.cms.common.core.util.StringUtil;
 import org.apache.log4j.Logger;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
  * <p>描述: —— 简要描述类的职责、实现方式、使用注意事项等</p>
  * <p>模块: 文章管理</p>
- * <p>版权: Copyright (c) 2009 南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009  
  * @author <a href="mailto:xinyang921@gmail.com">杨信</a>
  * @version 1.0
  * @since 2009-4-7 下午05:28:03
@@ -326,7 +326,7 @@ public class ArticleForm extends BodyTagSupport {
 	 * @return
 	 */
 	private Object getArticleFieldValue(String fieldName) {
-		return BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", fieldName);
+		return BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", fieldName);
 	}
 	
 	
@@ -552,7 +552,7 @@ public class ArticleForm extends BodyTagSupport {
 					&& !attribute.getFieldName().equals("keyFilter")){
 				
 				if (article != null && (article.getId() != null && article.getId() != "")) {
-					fieldValue = BeanUtil.getFieldValue(article, "com.baize.ccms.biz.articlemanager.domain.Article", fieldName);
+					fieldValue = BeanUtil.getFieldValue(article, "com.j2ee.cms.biz.articlemanager.domain.Article", fieldName);
 				}
 				
 				fieldName = "article." + fieldName;

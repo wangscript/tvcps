@@ -1,4 +1,4 @@
-package com.baize.ccms.biz.publishmanager.service.remotepublish.client;
+package com.j2ee.cms.biz.publishmanager.service.remotepublish.client;
 
 /*
  * 本程序用于实现文件夹的复制

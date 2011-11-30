@@ -1,19 +1,19 @@
 /**
  * project：通用内容管理系统
- * Company: 南京百泽网络科技有限公司
+ * Company:  
  */
-package com.baize.ccms.plugin.onlinesurvey.service.impl;
+package com.j2ee.cms.plugin.onlinesurvey.service.impl;
 
-import com.baize.ccms.plugin.onlinesurvey.dao.OnlinefeedbackContentDao;
-import com.baize.ccms.plugin.onlinesurvey.service.OnlinefeedbackContentService;
-import com.baize.common.core.dao.Pagination;
-import com.baize.common.core.util.SqlUtil;
+import com.j2ee.cms.plugin.onlinesurvey.dao.OnlinefeedbackContentDao;
+import com.j2ee.cms.plugin.onlinesurvey.service.OnlinefeedbackContentService;
+import com.j2ee.cms.common.core.dao.Pagination;
+import com.j2ee.cms.common.core.util.SqlUtil;
 
 /**
  * <p>标题: 网上调查业务类</p>
  * <p>描述: 网上调查的内容,答案，等业务</p>
  * <p>模块: 网上调查</p>
- * <p>版权: Copyright (c) 2009南京百泽网络科技有限公司
+ * <p>版权: Copyright (c) 2009 
  * @author 包坤涛
  * @version 1.0
  * @since 2009-6-14 下午02:30:23 
