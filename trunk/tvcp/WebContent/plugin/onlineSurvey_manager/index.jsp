@@ -108,7 +108,7 @@
 <body>          
 <p style="line-height:36px;padding:3px; font-weight:700;">
 	<img src="images/onlineSurvey/b_03.gif" alt="" class="img_a"/>模块桌面</p>
-	<p>模块说明：网上调查CCMS是一个扩展功能，用于在网站前台实现在线调查功能。访问者对正在进行的调查表进行填写和提交，并可以看到投票结果<br>
+	<p>模块说明：网上调查CPS是一个扩展功能，用于在网站前台实现在线调查功能。访问者对正在进行的调查表进行填写和提交，并可以看到投票结果<br>
 	
 	<a href onclick="button_add_onclick()" class="bu">&nbsp;&nbsp;一般调查&nbsp;&nbsp;</a>&nbsp;&nbsp;
 	<a href onclick="button_add_onclick2()" class="bu">&nbsp;&nbsp;问卷调查&nbsp;&nbsp;</a>&nbsp;&nbsp;

@@ -47,7 +47,7 @@
     <tr>
 		<td class="td_left">公告内容：</td> 
 		<td>
-			<FCK:editor basePath="/script/fckeditor" instanceName="onlineBulletin.context" value=" " toolbarSet="Ccms_font" height="160" width="85%"></FCK:editor>
+			<FCK:editor basePath="/script/fckeditor" instanceName="onlineBulletin.context" value=" " toolbarSet="CPS_font" height="160" width="85%"></FCK:editor>
 		</td>
     </tr>
     <tr>
@@ -135,7 +135,7 @@
 				<input type="button" class="btn_normal" onclick="back()" value="返回"/>
 			</td>
 		</tr>
-	</table><a href="" target=""
+	</table><a href="" target=""/>
 </form>
 </body>
 </html>

@@ -54,7 +54,7 @@
 	</tr>
     <tr> 
 		<td colspan="2" class="td_left" >    
-	    	<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value="${onlineSurveyContentForm.styleContent}" toolbarSet="Ccms_font" height="210" ></FCK:editor>
+	    	<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value="${onlineSurveyContentForm.styleContent}" toolbarSet="CPS_font" height="210" ></FCK:editor>
      	</td> 
 	</tr>
 	<tr>
