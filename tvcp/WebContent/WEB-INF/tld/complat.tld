@@ -7,7 +7,7 @@
 	<info>Project Tag Library</info>
 	<tag>
 		<name>button</name>
-		<tagclass>com.baize.common.core.tld.Button</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.Button</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>type</name>
@@ -47,7 +47,7 @@
 	</tag>
 	<tag>
 		<name>tree</name>
-		<tagclass>com.baize.common.core.tld.TreeNew</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.TreeNew</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>unique</name>
@@ -97,7 +97,7 @@
 	</tag>
 	<tag>
 		<name>treexml</name>
-		<tagclass>com.baize.common.core.tld.XmlTree</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.XmlTree</tagclass>
 		<bodycontent>JSP</bodycontent>	
 		<attribute>
 			<name>entityName</name>
@@ -107,7 +107,7 @@
 	</tag>
 	<tag>
 		<name>grid</name>
-		<tagclass>com.baize.common.core.tld.GridNew</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.GridNew</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>unique</name>
@@ -167,7 +167,7 @@
 	</tag>
 	<tag>
 		<name>checkbox</name>
-		<tagclass>com.baize.common.core.tld.CheckBox</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.CheckBox</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>ids</name>
@@ -197,7 +197,7 @@
 	</tag>
 	<tag>
 		<name>json</name>
-		<tagclass>com.baize.common.core.tld.Json</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.Json</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>classname</name>
@@ -228,7 +228,7 @@
 	<!-- 一级树形结构checkbox标签 -->
 	<tag>
 		<name>treecheckbox</name>
-		<tagclass>com.baize.common.core.tld.TreeCheckBox</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.TreeCheckBox</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>ids</name>
@@ -259,7 +259,7 @@
 	
 	<tag>
 		<name>guide</name>
-		<tagclass>com.baize.common.core.tld.Guide</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.Guide</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>className</name>
@@ -280,7 +280,7 @@
 	
 	<tag>
 		<name>ajaxpage</name>
-		<tagclass>com.baize.common.core.tld.AjaxPage</tagclass>
+		<tagclass>com.j2ee.cms.common.core.tld.AjaxPage</tagclass>
 		<bodycontent>JSP</bodycontent>	
 		<attribute>
 			<name>page</name>

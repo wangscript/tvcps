@@ -3,11 +3,11 @@
 <taglib>
 	<tlibversion>1.0</tlibversion>
 	<jspversion>1.1</jspversion>
-	<shortname>ccms</shortname>
+	<shortname>cps</shortname>
 	<info>Project Tag Library</info>
 	<tag>
 		<name>form</name>
-		<tagclass>com.baize.ccms.biz.articlemanager.tld.ArticleForm</tagclass>
+		<tagclass>com.j2ee.cms.biz.articlemanager.tld.ArticleForm</tagclass>
 		<bodycontent>JSP</bodycontent>
 		<attribute>
 			<name>article</name>
