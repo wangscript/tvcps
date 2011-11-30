@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>CCMS后台管理</title>
+<title>CPS后台管理</title>
 <link href="<%=request.getContextPath() %>/images/setupimages/setup.css" type="text/css" rel="stylesheet" />
 
 </head>

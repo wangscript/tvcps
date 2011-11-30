@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*"
 	contentType="text/html; charset=utf-8"  errorPage="error.jsp"%>
 <%@include file="/templates/headers/header.jsp"%>
-<jsp:useBean id="regInfo" class="com.baize.common.core.domain.RegInfo" scope="session">
+<jsp:useBean id="regInfo" class="com.j2ee.cms.common.core.domain.RegInfo" scope="session">
 </jsp:useBean>
 <c:if test="${sessionScope.uname eq null}">
 <% response.sendRedirect(request.getContextPath()+"/setup/error.jsp");%>
@@ -165,7 +165,7 @@ function lastname(fileName){
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
-						<td height="24" class="tips"><font style="font-size:13px; margin-left:20px;">CCMS版本信息</font></td>
+						<td height="24" class="tips"><font style="font-size:13px; margin-left:20px;">CPS版本信息</font></td>
 					</tr>
 					<tr>
 						<td>

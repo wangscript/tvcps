@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"  errorPage="error.jsp"%>
 <%@include file="/templates/headers/header.jsp"%>
 <jsp:useBean id="sinit"
-	class="com.baize.ccms.biz.setupmanager.domain.SysInit" scope="session">
+	class="com.j2ee.cms.biz.setupmanager.domain.SysInit" scope="session">
 </jsp:useBean>
 <c:if test="${sinit.dataBaseName eq null}">
 <% response.sendRedirect(request.getContextPath()+"/setup/error.jsp");%>
@@ -24,25 +24,25 @@
 	//判断数据是否合法
 	function submitForm() {
 		var main_dbname = document.getElementById("dataBaseNameID").value;
-		var main_port = document.getElementById("ccms_port").value;
+		var main_port = document.getElementById("cps_port").value;
 		var main_pwd1 = document.getElementById("dbPassword").value;
 		var main_pwd2 = document.getElementById("dbPassword1").value;
-		var main_ip = document.getElementById("ccms_ip").value;
+		var main_ip = document.getElementById("cps_ip").value;
 		var main_user = document.getElementById("dbUser").value;
 		
 		if( main_ip == "" ) {
 			alert("请输入数据库服务器IP");
-			 document.initForm.ccms_ip.focus();
+			 document.initForm.cps_ip.focus();
 			return false;
 
 			//这个是验证IP是否输入正确
 		}else if(!testIP(main_ip)){
 				alert("请输入正确的IP");
-				document.initForm.ccms_ip.focus();
+				document.initForm.cps_ip.focus();
 				return false;
 		}else if( main_port == "" ) {
 			alert("请输入数据库连接端口");
-			document.initForm.ccms_port.focus();
+			document.initForm.cps_port.focus();
 			return false;
 		}else if(isNaN(main_port)){
 			alert("请输入正确的端口号");
@@ -159,7 +159,7 @@
 				<font style="font-size:13px; margin-left:10px;">数据库服务器IP</font>
 			</td>
 			<td>
-				<input type="text"  name="ccms_ip" id="ccms_ip" style="width: 444px" value="${sinit.serverIP}" />
+				<input type="text"  name="cps_ip" id="cps_ip" style="width: 444px" value="${sinit.serverIP}" />
 			</td>
 		</tr>
 		<tr>
@@ -167,7 +167,7 @@
 				<font style="font-size:13px; margin-left:10px;">数据库连接端口</font>
 			</td>
 			<td>
-				<input type="text" name="ccms_port" onKeyPress="checkPort();" id="ccms_port" style="width: 444px" value="${sinit.dataPort}" />
+				<input type="text" name="cps_port" onKeyPress="checkPort();" id="cps_port" style="width: 444px" value="${sinit.dataPort}" />
 			</td>
 		</tr>
 		<tr>
