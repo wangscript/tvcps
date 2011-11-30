@@ -2,4 +2,4 @@
 taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@ 
 taglib uri="http://java.fckeditor.net" prefix="FCK" %><%@
 taglib uri="/WEB-INF/tld/complat.tld" prefix="complat"%><%@
-taglib uri="/WEB-INF/tld/ccms.tld" prefix="ccms"%>
+taglib uri="/WEB-INF/tld/cps.tld" prefix="cps"%>

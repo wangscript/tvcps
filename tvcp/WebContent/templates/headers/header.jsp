@@ -1,6 +1,6 @@
 <%@ page language="java"  pageEncoding="UTF-8" contentType="text/html; charset=utf-8"%>
 <%@ include file="taglibs.jsp"%>
-<link rel="shortcut icon" href="<c:url value='/images/main/baize.ico'/>">
+<link rel="shortcut icon" href="<c:url value='/images/main/j2ee.cms.ico'/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/pagination.css"/>">
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css"/>" >
 <link rel="stylesheet" type="text/css" href="<c:url value="/script/jquery-tooltip/css/tooltip.css"/>" >
