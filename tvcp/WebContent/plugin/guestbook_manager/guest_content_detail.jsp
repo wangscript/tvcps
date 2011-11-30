@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.Date,com.baize.common.core.util.DateUtil" contentType="text/html; charset=utf-8"%>
+<%@ page language="java" import="java.util.Date,com.j2ee.cms.common.core.util.DateUtil" contentType="text/html; charset=utf-8"%>
 <%@include file="/templates/headers/header.jsp"%>
 <html>
 <head>

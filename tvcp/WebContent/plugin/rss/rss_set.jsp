@@ -97,7 +97,7 @@
 	<legend style="color:blue">RSS显示样式设置</legend>
 	栏目名称：<input type="text" name="columnName"  class="input_text_normal" value="<!--columnName-->" readonly="readonly"/>
     <p>Rss地址：<input type="text" name="columnUrl"  class="input_text_normal" value="<!--rssUrl-->" readonly="readonly"/>
-	<FCK:editor basePath="/script/fckeditor" instanceName="staticContent" value=" " toolbarSet="Ccms_openbasic" height="300"></FCK:editor>
+	<FCK:editor basePath="/script/fckeditor" instanceName="staticContent" value=" " toolbarSet="CPS_openbasic" height="300"></FCK:editor>
 	<p><br>
 	参考样式：(提示：修改图片地址后可以使用)<p>
 	<textarea rows="6" cols="110" readonly><span id="fck_dom_range_temp_1260261984375_162" /></p><table cellspacing="0" cellpadding="0" width="100%" border="0" style="line-height: 30px"><tbody><tr><td align="center" width="40"><a href="<!--rssUrl-->"><img height="14" alt="" width="36" border="0" src="" /></a></td><td align="left"><a class="bt_link" href="<!--rssUrl-->"><!--columnName--></a></td><td align="center" width="120"><a href="javascript:void(0);%20onclick=rsstry('rssfeed://<!--rssUrl-->')"><img height="19" alt="" width="99" border="0" src="" /></a></td></tr></tbody></table></textarea>

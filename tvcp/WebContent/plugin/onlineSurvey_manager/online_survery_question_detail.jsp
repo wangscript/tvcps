@@ -112,7 +112,7 @@
 			是否显示：
 		</td>
 		<td>
-			<input type="checkbox" name="onlineSurveyContent.view" id="view" value="${onlineSurveyContentForm.onlineSurveyContent.view}"/>
+			<input type="checkbox" name="onlineSurveyContent.viewed" id="view" value="${onlineSurveyContentForm.onlineSurveyContent.viewed}"/>
 		</td>
 	</tr>
 	<tr>

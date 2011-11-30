@@ -78,7 +78,7 @@
     <tr>
 		<td class="td_left">公告内容：</td> 
 		<td>
-			<FCK:editor basePath="/script/fckeditor" instanceName="onlineBulletin.context" value=" ${onlineBulletinForm.onlineBulletin.context}" toolbarSet="Ccms_font" height="160" width="85%"></FCK:editor>
+			<FCK:editor basePath="/script/fckeditor" instanceName="onlineBulletin.context" value=" ${onlineBulletinForm.onlineBulletin.context}" toolbarSet="CPS_font" height="160" width="85%"></FCK:editor>
 		</td>
     </tr>
 	<tr>

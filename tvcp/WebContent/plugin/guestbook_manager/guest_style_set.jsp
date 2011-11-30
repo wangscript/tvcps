@@ -34,7 +34,7 @@
 		</textarea>
 	 </fieldset>    
 </div>
-<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value="${guestBookForm.styleContent}" toolbarSet="Ccms_openbasic" height="300"></FCK:editor>
+<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value="${guestBookForm.styleContent}" toolbarSet="CPS_openbasic" height="300"></FCK:editor>
 <center><input type="submit" value="保存" class="btn_normal"/></center>
 </form>
 </body>

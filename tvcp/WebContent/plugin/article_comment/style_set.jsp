@@ -36,10 +36,10 @@
 	 </fieldset>    
 </div>
 <c:if test="${articleCommentForm.styleContent != ''}">
-<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value="${articleCommentForm.styleContent}" toolbarSet="Ccms_openbasic" height="300"></FCK:editor>
+<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value="${articleCommentForm.styleContent}" toolbarSet="CPS_openbasic" height="300"></FCK:editor>
 </c:if>
 <c:if test="${articleCommentForm.styleContent == ''}">
-<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value=" " toolbarSet="Ccms_openbasic" height="300"></FCK:editor>
+<FCK:editor basePath="/script/fckeditor" instanceName="styleContent" value=" " toolbarSet="CPS_openbasic" height="300"></FCK:editor>
 </c:if>
 <center><input type="submit" value="保存"></center>
 </form>
