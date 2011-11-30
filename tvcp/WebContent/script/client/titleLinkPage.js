@@ -113,7 +113,7 @@
 		if(moz) { 
 			
 		} else {
-			var xmlfile = xmlDoc.selectNodes("/baize/title-link-page");
+			var xmlfile = xmlDoc.selectNodes("/j2ee.cms/title-link-page");
 			TunitStyle = xmlfile[0].getElementsByTagName("viewStyle")[0].firstChild.nodeValue;
 			Tsource = xmlfile[0].getElementsByTagName("contextFrom")[0].firstChild.nodeValue;
 			TfixedColumn = xmlfile[0].getElementsByTagName("fixedColumn")[0].firstChild.nodeValue;
@@ -441,9 +441,9 @@
 		var arr = new Array();	
 		var xmlfile = null;
 		if(flag == "titleLinkPage") {
-			xmlfile = xmlDoc.selectSingleNode("/baize/article-page");
+			xmlfile = xmlDoc.selectSingleNode("/j2ee.cms/article-page");
 		} else {
-			xmlfile = xmlDoc.selectSingleNode("/baize/article-page");
+			xmlfile = xmlDoc.selectSingleNode("/j2ee.cms/article-page");
 		}
 		var articles = xmlfile.childNodes;
 		var articleArray = new Array();

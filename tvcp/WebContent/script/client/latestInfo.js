@@ -79,7 +79,7 @@
 		if(moz) { 
 				
 		} else {
-			var xmlfile = xmlDoc.selectNodes("/baize/latest-info");
+			var xmlfile = xmlDoc.selectNodes("/j2ee.cms/latest-info");
 			unitType = xmlfile[0].getElementsByTagName("unitType")[0].firstChild.nodeValue;
 			allColumn = xmlfile[0].getElementsByTagName("allColumn")[0].firstChild.nodeValue;
 			selectCol = xmlfile[0].getElementsByTagName("selectCol")[0].firstChild.nodeValue;
