@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@page import="com.baize.ccms.biz.usermanager.web.action.LoginAction"%>
-<%@page import="com.baize.ccms.sys.GlobalConfig"%>
+<%@page import="com.j2ee.cms.biz.usermanager.web.action.LoginAction"%>
+<%@page import="com.j2ee.cms.sys.GlobalConfig"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Iterator"%>
 <%

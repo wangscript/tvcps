@@ -22,7 +22,7 @@
 			<td colspan="2" align="center"><img src="../images/main/help_03.gif" width="410"/></td>
 		</tr>
 		<tr>
-			<td align="center" width="50%">版本：CCMS 2.0</td>
+			<td align="center" width="50%">版本：CPS 2.0</td>
 			<td align="left" width="50%">发布日期：2008-07-03</td> 
 		</tr> 
 		<tr>
@@ -37,8 +37,8 @@
 				<img src="../images/main/help_02.gif"/>
 			</td>
 			<td align="left" width="80%" valign="baseline">
-				Copyright&copy;2008 Baizeweb.com lnc. All Rights Reserved.<br>
-				南京百泽网络科技有限公司,版权所有
+				Copyright&copy;2008 j2ee.cmsweb.com lnc. All Rights Reserved.<br>
+				 ,版权所有
 			</td>
 		</tr>
 	</table> 

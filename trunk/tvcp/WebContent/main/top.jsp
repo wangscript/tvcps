@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>CCMS系统管理页面</title>	
+	<title>CPS系统管理页面</title>	
 	<script type="text/javascript" src="<c:url value='/script/jquery-1.2.6.js'/>" ></script>
 	<script type="text/javascript" src="<c:url value="/module/message_manager/class_msn_message.js"/>"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/main.css"/>"/>

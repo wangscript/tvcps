@@ -4,7 +4,7 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>百泽CCMS管理系统</title>
+	<title>CPS管理系统</title>
 	<%@include file="/templates/headers/header.jsp"%>
 	<c:if test="${sessionScope.sessionid eq null}">
 		<%
@@ -31,7 +31,7 @@
 
 		var tmp = '${siteForm.loginMessage}';
 		if(tmp != null && tmp != "") {		
-			parent.window.location.href = "/"+"${appName}"+"/main/ccms.jsp?name=${siteForm.siteloginname}&password=${siteForm.siteloginpassword}";
+			parent.window.location.href = "/"+"${appName}"+"/main/cps.jsp?name=${siteForm.siteloginname}&password=${siteForm.siteloginpassword}";
 		}
 
 		function logout() {
@@ -169,7 +169,7 @@
 		}
 
 		function help() {
-			win = showWindow("help", "关于CCMS--网页对话框", "<c:url value='/main/help.jsp'/>",0, 0,500,370);
+			win = showWindow("help", "关于CPS--网页对话框", "<c:url value='/main/help.jsp'/>",0, 0,500,370);
 		}
 	  
 	</script>

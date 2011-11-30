@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>CCMS系统管理页面</title>	
+	<title>CPS系统管理页面</title>	
 	<%@include file="/templates/headers/header.jsp"%>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/main.css"/>"/>
 	<script type="text/javascript" src="<c:url value="/script/ext/myjs/tree/tree.js"/>"></script>	
@@ -68,7 +68,7 @@
 		/**
 		 * 左侧设置(b)
 		 */	
-		dhxLayout.cells("b").setText("CCMS系统管理");
+		dhxLayout.cells("b").setText("CPS系统管理");
 		dhxLayout.cells("b").setWidth(180);
 	//	dhxLayout.cells("b").fixSize(true, true);
 		dhxLayout.cells("b").setHeight(10);
