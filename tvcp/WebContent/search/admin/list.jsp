@@ -12,11 +12,11 @@ javascript:window.history.forward(1);
 </c:if>
 <html>
 	<head>
-		<title>全文检索 -百泽检索系统后台管理</title>
+		<title>全文检索 -检索系统后台管理</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta name="description" content="南京百泽,搜索引擎,全文检索、百泽搜索">
-		<meta name="keywords" content="网页搜索,图片搜索,全文检索,新闻搜索,百泽搜索,搜索引擎,搜索">
-		<meta name="author" content="百泽网络">
+		<meta name="description" content="搜索引擎,全文检索、搜索">
+		<meta name="keywords" content="网页搜索,图片搜索,全文检索,新闻搜索,搜索,搜索引擎,搜索">
+		<meta name="author" content="网络">
 		<link href="<c:url value="/css/search.css"/>" type="text/css"	rel="stylesheet">	
 		<link href="<c:url value="/css/style.css"/>" type="text/css"	rel="stylesheet">
 		<script type="text/javascript" src="<c:url value='/script/jquery-1.2.6.js'/>" ></script>
@@ -59,7 +59,7 @@ javascript:window.history.forward(1);
 <table width="1002" height="26" border="0" align="center" cellpadding="0" cellspacing="0" background="<c:url value="/images/search/bg.jpg"/>">
   <tr> 
     <td width="60"></td>
-	<td align="left" valign="top" ><img src="<c:url value="/images/search/banner.gif"/>"  height="80" alt="百泽全文检索系统"></td>
+	<td align="left" valign="top" ><img src="<c:url value="/images/search/banner.gif"/>"  height="80" alt="全文检索系统"></td>
 	<td width="60" style="color:#ffffff;">[帮助]</td>
   </tr>
 </table><br>
@@ -140,7 +140,7 @@ javascript:window.history.forward(1);
     <td align="center" bgcolor="#eeeeee" height="5"></td>
   </tr>
   <tr> 
-    <td align="center">Copyright&nbsp;1999-2005 www.baizeweb.com All Rights Reserved<br>南京百泽网络科技有限公司版权所有 </td>
+    <td align="center">Copyright&nbsp;1999-2005 www.j2ee.cmsweb.com All Rights Reserved<br> 版权所有 </td>
   </tr>
 </table>
 </body>
