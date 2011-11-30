@@ -30,7 +30,7 @@
 
 <body>
 
-<FCK:editor basePath="/script/fckeditor" instanceName="vc_Content" value="Gov" toolbarSet="Ccms_openbasic" height="300"></FCK:editor>
+<FCK:editor basePath="/script/fckeditor" instanceName="vc_Content" value="Gov" toolbarSet="CPS_openbasic" height="300"></FCK:editor>
 
 <input type="text" onClick="WdatePicker()" class="Wdate">
 
