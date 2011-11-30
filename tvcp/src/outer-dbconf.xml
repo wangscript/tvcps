@@ -3,17 +3,16 @@
   <proxool> 
     <alias>outerPool</alias> 
       
-   <!--
-    <driver-url>jdbc:oracle:thin:@192.168.1.100:1521:ora9</driver-url>
+   
+    <driver-url>jdbc:oracle:thin:@192.168.106.128:1521:orcl</driver-url>
     <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>  
-    -->
-    
-    <driver-url>jdbc:mysql://127.0.0.1:3306/ccms?characterEncoding=utf8</driver-url>
+    <!--
+    <driver-url>jdbc:mysql://127.0.0.1:3306/tvcp?characterEncoding=utf8</driver-url>
     <driver-class>com.mysql.jdbc.Driver</driver-class> 
-    
+    -->
     <driver-properties> 
-      <property name="user" value="root"/>
-      <property name="password" value=""/> 
+      <property name="user" value="cps"/>
+      <property name="password" value="cps"/> 
     </driver-properties>  
     <house-keeping-sleep-time>90000</house-keeping-sleep-time>  
     <proxool.simultaneous-build-throttle>200</proxool.simultaneous-build-throttle>  

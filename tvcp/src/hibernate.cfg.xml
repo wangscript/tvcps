@@ -14,68 +14,64 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>		
 		<!-- 导入各个模块的 hibernate配置文件--> 
 
-	 	<mapping resource="com/baize/ccms/biz/usermanager/domain/Organization.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/User.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Member.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Role.hbm.xml" />		
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Assignment.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Authority.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/MenuAuthority.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/MenuFunction.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Right.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Resource.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Operation.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/usermanager/domain/Menu.hbm.xml" /> 	
-		<mapping resource="com/baize/ccms/biz/columnmanager/domain/Column.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/sitemanager/domain/Site.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/articlemanager/domain/ArticleAttribute.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/articlemanager/domain/ArticleFormat.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/articlemanager/domain/Article.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/articlemanager/domain/Enumeration.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/templatemanager/domain/Template.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/templatemanager/domain/TemplateCategory.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/templatemanager/domain/TemplateInstance.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/templatemanager/domain/TemplateUnit.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/templatemanager/domain/TemplateUnitCategory.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/templatemanager/domain/TemplateUnitStyle.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/documentmanager/domain/Document.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/documentmanager/domain/breviary.hbm.xml"/>
-		<mapping resource="com/baize/ccms/biz/documentmanager/domain/Watermark.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/documentmanager/domain/DocumentCategory.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/messagemanager/domain/SiteMessage.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/messagemanager/domain/Contact.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/publishmanager/domain/ArticleBuildList.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/publishmanager/domain/ArticlePublishList.hbm.xml" />
+	 	<mapping resource="com/j2ee/cms/biz/usermanager/domain/Organization.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/User.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Member.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Role.hbm.xml" />		
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Assignment.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Authority.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/MenuAuthority.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/MenuFunction.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Right.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Resource.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Operation.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/usermanager/domain/Menu.hbm.xml" /> 	
+		<mapping resource="com/j2ee/cms/biz/columnmanager/domain/Column.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/sitemanager/domain/Site.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/ArticleAttribute.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/ArticleFormat.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/Article.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/Enumeration.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/templatemanager/domain/Template.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/templatemanager/domain/TemplateCategory.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/templatemanager/domain/TemplateInstance.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/templatemanager/domain/TemplateUnit.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/templatemanager/domain/TemplateUnitCategory.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/templatemanager/domain/TemplateUnitStyle.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/documentmanager/domain/Document.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/documentmanager/domain/breviary.hbm.xml"/>
+		<mapping resource="com/j2ee/cms/biz/documentmanager/domain/Watermark.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/documentmanager/domain/DocumentCategory.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/messagemanager/domain/SiteMessage.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/messagemanager/domain/Contact.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/publishmanager/domain/ArticleBuildList.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/publishmanager/domain/ArticlePublishList.hbm.xml" />
 		
-		<mapping resource="com/baize/ccms/biz/configmanager/domain/ModuleCategory.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/configmanager/domain/SystemLog.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/configmanager/domain/ModuleCategory.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/configmanager/domain/SystemLog.hbm.xml" />
 		
-		<mapping resource="com/baize/ccms/plugin/rss/domain/Rss.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/articlecomment/domain/ArticleCommentsReplace.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/articlecomment/domain/ArticleComment.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/guestbookmanager/domain/GuestBookAutority.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/guestbookmanager/domain/GuestBookCategory.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/guestbookmanager/domain/GuestBookContent.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/guestbookmanager/domain/GuestBookRevert.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/guestbookmanager/domain/GuestBookSensitiveWord.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/rss/domain/Rss.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/articlecomment/domain/ArticleCommentsReplace.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/articlecomment/domain/ArticleComment.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/guestbookmanager/domain/GuestBookAutority.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/guestbookmanager/domain/GuestBookCategory.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/guestbookmanager/domain/GuestBookContent.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/guestbookmanager/domain/GuestBookRevert.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/guestbookmanager/domain/GuestBookSensitiveWord.hbm.xml" />
 		
-		<mapping resource="com/baize/ccms/plugin/letterbox/domain/Letter.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/letterbox/domain/LetterCategory.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/letterbox/domain/LetterReply.hbm.xml" />
-		<mapping resource="com/baize/ccms/plugin/letterbox/domain/TransferRecord.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/configmanager/domain/GeneralSystemSet.hbm.xml" />
-		<mapping resource="com/baize/ccms/biz/configmanager/domain/ReneralSystemSetCategory.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/letterbox/domain/Letter.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/letterbox/domain/LetterCategory.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/letterbox/domain/LetterReply.hbm.xml" />
+		<mapping resource="com/j2ee/cms/plugin/letterbox/domain/TransferRecord.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/configmanager/domain/GeneralSystemSet.hbm.xml" />
+		<mapping resource="com/j2ee/cms/biz/configmanager/domain/ReneralSystemSetCategory.hbm.xml" />
 		                   
-	    <mapping resource="com/baize/ccms/biz/configmanager/domain/FilterCategory.hbm.xml" />
-	    <mapping resource="com/baize/ccms/biz/configmanager/domain/InformationFilter.hbm.xml"/>
-	    <mapping resource="com/baize/ccms/plugin/onlinesurvey/domain/OnlineSurvey.hbm.xml"/>
-	    <mapping resource="com/baize/ccms/plugin/onlinesurvey/domain/OnlineSurveyContent.hbm.xml"/>
-	    <mapping resource="com/baize/ccms/plugin/onlinesurvey/domain/OnlineSurveyContentAnswer.hbm.xml"/>            
-	    <mapping resource="com/baize/ccms/plugin/onlinesurvey/domain/OnlinefeedbackContent.hbm.xml"/>
-	    <mapping resource="com/baize/ccms/plugin/onlineBulletin/domain/OnlineBulletin.hbm.xml"/>  
-	                       
-	    
-	               
-	
+	    <mapping resource="com/j2ee/cms/biz/configmanager/domain/FilterCategory.hbm.xml" />
+	    <mapping resource="com/j2ee/cms/biz/configmanager/domain/InformationFilter.hbm.xml"/>
+	    <mapping resource="com/j2ee/cms/plugin/onlinesurvey/domain/OnlineSurvey.hbm.xml"/>
+	    <mapping resource="com/j2ee/cms/plugin/onlinesurvey/domain/OnlineSurveyContent.hbm.xml"/>
+	    <mapping resource="com/j2ee/cms/plugin/onlinesurvey/domain/OnlineSurveyContentAnswer.hbm.xml"/>            
+	    <mapping resource="com/j2ee/cms/plugin/onlinesurvey/domain/OnlinefeedbackContent.hbm.xml"/>
+	    <mapping resource="com/j2ee/cms/plugin/onlineBulletin/domain/OnlineBulletin.hbm.xml"/>  
     </session-factory>
 </hibernate-configuration>
