@@ -7,7 +7,7 @@
   <meta   http-equiv="Expires"   CONTENT="0">     
   <meta   http-equiv="Cache-Control"   CONTENT="no-cache">     
   <meta   http-equiv="Pragma"   CONTENT="no-cache">  
-<title>百泽ccms系统登录页面</title>
+<title>CMS系统登录页面</title>
 <script type="text/javascript" src="<c:url value='/script/jquery-1.2.6.js'/>" ></script>
 
 <script type="text/javascript" src="<c:url value='/script/global.js'/>" ></script>
@@ -142,7 +142,7 @@ $(function(){
 			 密码:       <input type="password" name="password" id="password" class="infomation " /> 
  			验证码:     <input type="text" name="rand" id="rand" class="test "  onkeypress="SubmitKey()" />
 			<img id="newrand" src="public/image.jsp" onclick="change()" alt="点击获取验证码"/><br/><br/></p>
-		  <div class="proc">Copyright &copy; 2008 Baizeweb.com Inc. All rights reserved.  百泽网络  版权所有</div>			　
+		  <div class="proc">Copyright &copy; 2008 j2ee.cmsweb.com Inc. All rights reserved.   版权所有</div>			　
 		  <input name="loginbutton" type="button" class="submit" value="登录"  onclick="check()"/>
 		  <input name="reset" type="reset" class="submit" value="重置"/>
 		</div>
