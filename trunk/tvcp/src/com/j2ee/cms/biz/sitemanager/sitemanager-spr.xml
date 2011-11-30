@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 网站  start -->
+	<bean name="/site" class="com.j2ee.cms.biz.sitemanager.web.action.SiteAction" scope="prototype">
+		<property name="baseBiz" ref="sitemanager-siteBiz" />
+	</bean>
+	<bean id="sitemanager-siteBiz" class="com.j2ee.cms.biz.sitemanager.service.SiteBiz" scope="singleton">
+		<property name="siteService" ref="sitemanager-siteService" />
+	</bean>
+	<bean id="sitemanager-siteService" class="com.j2ee.cms.biz.sitemanager.service.impl.SiteServiceImpl" scope="singleton">
+		<property name="siteDao" ref="sitemanager-siteDao" />
+		<property name="menuDao" ref="usermanager-menuDao"/>
+		<property name="userDao" ref="usermanager-userDao"/>
+		<property name="resourceDao" ref="usermanager-resourceDao"/>
+		<property name="operationDao" ref="usermanager-operationDao"/>
+		<property name="authorityDao" ref="usermanager-authorityDao"/>
+		<property name="assignmentDao" ref="usermanager-assignmentDao"/>
+		<property name="roleDao" ref="usermanager-roleDao"/>	
+		<property name="templateCategoryDao" ref="usermanager-templateCategoryDao"/>
+		<property name="templateDao" ref="usermanager-templateDao"/>
+		<property name="categoryDao" ref="documentmanager-categoryDao"/>
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="menuFunctionDao" ref="usermanager-menuFunctionDao"/>
+		
+	</bean>
+	<bean id="sitemanager-siteDao" class="com.j2ee.cms.biz.sitemanager.dao.impl.SiteDaoImpl" parent="genericDaoImpl" />
+	<bean id="usermanager-templateCategoryDao" class="com.j2ee.cms.biz.templatemanager.dao.impl.TemplateCategoryDaoImpl" parent="genericDaoImpl" />
+	<bean id="usermanager-templateDao" class="com.j2ee.cms.biz.templatemanager.dao.impl.TemplateDaoImpl" parent="genericDaoImpl" />
+	<!-- 网站  end -->
+	
+</beans>

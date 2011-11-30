@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.columnmanager.domain">
+	<class name="Column" table="columns">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="name" />
+		<property name="url" />
+		<property name="description" type="text"/>
+		<property name="selfShowPage" />
+		<property name="showInFront" />
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
+		<property name="updateTime" type="com.j2ee.cms.common.core.util.DateString" />
+		<property name="deleted" />
+		<property name="audited" />
+		<property name="orders" />
+		<property name="linkAddress" />
+		<property name="leaf" />
+		<property name="checked" />
+		<property name="initUrl" />
+		<property name="infoScore" />
+		<property name="picScore" />
+		<property name="sendMenu" />
+		<property name="receiveMenu" />
+		<property name="allowModify" />
+		<property name="refColumnIds" />
+		<property name="parentSiteColumnId" />
+		<property name="publishWay" />
+		<property name="timeSetting" />
+		<property name="columnType" />
+		<many-to-one name="creator" column="creator_id" not-null="true"/>
+		<many-to-one name="site" column="site_id" not-null="true"/>
+		<many-to-one name="parent" column="pid"/>
+		<many-to-one name="columnTemplate" column="column_template_id"/>
+		<many-to-one name="articleTemplate" column="article_template_id"/>
+		<many-to-one name="articleFormat" column="article_format_id"/>
+		<set name="children" lazy="false" inverse="true" cascade="delete" where="deleted=0">
+			<key column="pid"/>
+			<one-to-many class="Column"/>
+		</set>
+	</class>
+	
+	<!-- 查询第一级栏目 -->
+	<query name="findFirstColumnByColumnIdsPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE column.deleted = 0 
+			   AND parentColumn.id IS NULL
+			   AND column.site.deleted = 0
+			   AND column.id IN (:columnIds)
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 查询非第一级栏目  -->
+	<query name="findColumnByColumnIdsPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE column.deleted = 0 
+			   AND parentColumn.id = :nodeId
+			   AND column.site.deleted = 0
+			   AND column.id IN (:columnIds)
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	
+	
+	
+	<!-- 超级管理员登陆查找栏目并分页显示 -->
+	<query name="findFirstColumnBySuperAdminPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE column.deleted = 0 
+			   AND parentColumn.id IS NULL
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 系统管理员登陆查找栏目并分页显示 -->
+	<query name="findFirstColumnBySystemAdminPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE column.deleted = 0
+			   AND column.site.id = :siteId 
+			   AND parentColumn.id IS NULL
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 普通用户登陆查找栏目并分页显示 -->
+	<query name="findFirstColumnByNormalUserPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE column.deleted = 0
+			   AND column.site.id = :siteID 
+			   AND column.creator.id = :creatorID 
+			   AND parentColumn.id IS NULL
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 超级管理员登陆查找栏目 -->
+	<query name="findFirstColumnBySuperAdmin"><![CDATA[
+			  FROM Column column
+			 WHERE column.parent.id IS NULL
+			   AND column.deleted = 0
+			  AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 系统管理员登陆查找栏目  -->
+	<query name="findFirstColumnBySystemAdmin"><![CDATA[
+			  FROM Column column
+		     WHERE column.parent.id IS NULL
+			   AND column.site.id = :siteId
+			   AND column.deleted = 0 
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 普通用户登陆查找栏目 -->
+	<query name="findFirstColumnByNormalUser"><![CDATA[
+			  FROM Column column
+		     WHERE column.parent.id IS NULL
+			   AND column.site.id = :siteId
+			   AND column.creator.id = :creatorId
+			   AND column.deleted = 0
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目的id查找非第一级栏目并分页显示 -->
+	<query name="findColumnByColumnIdPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE parentColumn.id = :columnId
+			   AND column.deleted = 0
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目的id和网站id查找非第一级栏目并分页显示                 	caomingke-->
+	<query name="findColumnByColumnIdAndSiteId"><![CDATA[
+			FROM Column column
+			 WHERE column.id = :columnId
+			   AND column.site.id = :siteId
+			   AND column.deleted = 0
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目的id和网站id查找非第一级栏目并分页显示 -->
+	<query name="findColumnByColumnIdAndSiteIdPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE parentColumn.id = :columnId
+			   AND column.site.id = :siteId
+			   AND column.deleted = 0
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目的id和网站id以及用户id查找非第一级栏目并分页显示 -->
+	<query name="findColumnByColumnIdAndSiteIdAndCreatorIdPage"><![CDATA[
+			SELECT column.id, column.name, parentColumn.name, column.site.name, creatorColumn.name, column.createTime
+			  FROM Column column
+		 LEFT JOIN column.parent parentColumn
+		 LEFT JOIN column.creator creatorColumn
+			 WHERE parentColumn.id = :columnId
+			   AND column.site.id = :siteId
+			   AND column.creator.id = :creatorId
+			   AND column.deleted = 0
+			   AND column.site.deleted = 0
+		  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据节点id查找要导出的栏目 -->
+	<query name="findExportColumnByColumnId"><![CDATA[
+		     FROM Column column 
+		    WHERE column.parent.id = :columnId
+		      AND column.deleted = 0
+		      AND column.site.deleted = 0
+		 ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 修改上级栏目的leaf字段 -->
+	<query name="updateParentLeaf"><![CDATA[
+	     UPDATE Column column
+	        SET column.leaf = :columnLeaf
+	      WHERE column.id = :parentId
+	        AND column.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id列出栏目-->
+	<query name="findColumnByColumnId"><![CDATA[
+		   FROM Column column
+		  WHERE column.id = :columnId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id和网站id列出栏目树-->
+	<query name="findColumnTreeBySiteIdAndColumnId"><![CDATA[
+		 SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		   FROM Column column
+		  WHERE column.parent.id = :columnId
+		    AND column.site.id = :siteId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id和网站id以及用户id列出栏目树-->
+	<query name="findColumnTreeBySiteIdAndColumnIdAndCreatorId"><![CDATA[
+		 SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.parent.id = :columnId
+		    AND column.creator.id = :creatorId 
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id和网站id以及用户id列出栏目树-->
+	<query name="findColumnBySiteIdAndColumnIdAndCreatorId"><![CDATA[
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.parent.id = :columnId
+		    AND column.creator.id = :creatorId 
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id和网站id列出栏目树-->
+	<query name="findColumnBySiteIdAndColumnId"><![CDATA[
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.parent.id = :columnId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id和网站id列出栏目树-->
+	<query name="findColumnBySiteIdAndCurColumnId"><![CDATA[
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.id= :columnId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	
+	<!-- 选择上级栏目 -->
+	<query name="findParentColumn"><![CDATA[
+		 SELECT column.id, column.name
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+
+	<!-- 根据网站id查找栏目 -->
+	<query name="findColumnBySiteId"><![CDATA[
+	    SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+	      FROM Column column 
+	     WHERE column.site.id = :siteId
+	       AND column.deleted = 0
+	       AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据网站id查找根节点栏目 -->
+	<query name="findParentColumnBySiteId"><![CDATA[
+	    SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+	      FROM Column column 
+	     WHERE column.site.id = :siteId
+	       AND column.deleted = 0
+	       AND column.site.deleted = 0
+	       AND column.parent.id is null
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id列出栏目-->
+	<query name="findColumnByChooseId"><![CDATA[
+		 SELECT column.id, column.name, column.site.id
+		   FROM Column column
+		  WHERE column.parent.id IS NULL
+		    AND column.site.id = :siteId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照网站id查找树 -->
+	<query name="findColumnTreeBySiteId"><![CDATA[
+		   SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		     FROM Column column 
+		    WHERE column.site.id = :siteId
+		      AND column.parent.id IS NULL
+		      AND column.deleted = 0
+		      AND column.site.deleted = 0
+		 ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照栏目id查找树 -->
+	<query name="findColumnTreeByColumnId"><![CDATA[
+		   SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		     FROM Column column 
+		    WHERE column.parent.id = :columnId
+		      AND column.deleted = 0
+		      AND column.site.deleted = 0
+		 ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+		<!-- 按照栏目id查找树 -->
+	<query name="findColumnTreeByColumnIdAndSiteId"><![CDATA[
+		   SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		     FROM Column column 
+		    WHERE column.parent.id = :columnId
+		      AND column.site.id = :siteId
+		      AND column.deleted = 0
+		      AND column.site.deleted = 0
+		 ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	 <!-- 按照栏目id查找树 -->
+	<query name="findColumnTreeAndPidByColumnIdAndSiteId"><![CDATA[
+		   SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id, pcolumn.id
+		     FROM Column column 
+	    LEFT JOIN column.parent pcolumn   
+		    WHERE column.parent.id = :columnId
+		      AND column.site.id = :siteId
+		      AND column.deleted = 0
+		      AND column.site.deleted = 0
+		 ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 超级管理员获得所有数据-->
+	<query name="findColumnBySystemAdmin"><![CDATA[
+		  SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+			FROM Column column
+		   WHERE column.parent.id IS NULL	
+		     AND column.deleted = 0    
+		     AND column.site.deleted = 0
+	    ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 普通用户按照网站id和创建者id查询数据-->
+	<query name="findColumnByNormalUser"><![CDATA[
+		  SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		    FROM Column column
+		   WHERE column.site.id = :siteId
+		     AND column.creator.id = :creatorId
+		     AND column.parent.id IS NULL
+		     AND column.deleted = 0
+		     AND column.site.deleted = 0
+	    ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 普通用户按照网站id和创建者id查询数据-->
+	<query name="findSelfColumnByNormalUser"><![CDATA[
+		  SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id, pcolumn.id
+		    FROM Column column
+	   LEFT JOIN column.parent pcolumn 
+		   WHERE column.site.id = :siteId
+		     AND column.creator.id = :creatorId
+		     AND pcolumn.id = :columnId
+		     AND column.deleted = 0
+		     AND column.site.deleted = 0
+	    ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 普通用户按照网站id和创建者id查询第一级栏目数据-->
+	<query name="findSelfColumnByNormalUserAndPidIsNull"><![CDATA[
+		  SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id, pcolumn.id
+		    FROM Column column
+	   LEFT JOIN column.parent pcolumn 
+		   WHERE column.site.id = :siteId
+		     AND column.creator.id = :creatorId
+		     AND pcolumn.id IS NULL
+		     AND column.deleted = 0
+		     AND column.site.deleted = 0
+	    ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 系统管理员按照网站id查询数据-->
+	<query name="findColumnBySiteAdmin"><![CDATA[
+		  SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		    FROM Column column
+		   WHERE column.site.id = :siteId
+		     AND column.parent.id IS NULL
+		     AND column.deleted = 0
+		     AND column.site.deleted = 0
+	    ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+		
+	<!-- 系统管理员按照网站id查询数据-->
+	<query name="findColumnAndPidBySiteAdmin"><![CDATA[
+		  SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id, pcolumn.id
+		    FROM Column column
+	   LEFT JOIN column.parent pcolumn 
+		   WHERE column.site.id = :siteId		     
+		     AND column.deleted = 0
+		     AND column.site.deleted = 0
+	    ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 查询最后一行数据  -->
+	<query name="findLastRowDate"><![CDATA[
+		   FROM Column column
+		  WHERE column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.createTime 
+	]]>		
+	</query>
+	
+	<!-- 查找栏目的最大顺序orders字段值  -->
+	<query name="findMaxColumnOrders"><![CDATA[
+	    SELECT MAX(column.orders)
+		  FROM Column column
+		 WHERE column.deleted = 0
+		   AND column.site.deleted = 0
+	]]>		
+	</query>
+	
+	<!-- 查找栏目的子节点 -->
+	<query name="findChildren"><![CDATA[		
+		  FROM Column column 
+	 	  LEFT JOIN column.children child  
+		 WHERE column.id = :id
+		   AND column.deleted = 0
+		   AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照id查询栏目中的模板信息 -->
+	<query name="findTemplateByColumnId"><![CDATA[		
+		SELECT articleTemplate.id, articleTemplate.name, columnTemplate.id, columnTemplate.name
+		  FROM Column column
+     LEFT JOIN column.articleTemplate articleTemplate
+	 LEFT JOIN column.columnTemplate  columnTemplate
+		 WHERE column.id = :columnId
+		   AND column.deleted = 0
+		   AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照模板实例id查询栏目中的栏目信息 -->
+	<query name="findColumnByTemplateInstanceId"><![CDATA[		
+	   SELECT column.id, articleTemplate.id, columnTemplate.id
+		  FROM Column column
+	 LEFT JOIN column.articleTemplate articleTemplate
+	 LEFT JOIN column.columnTemplate  columnTemplate
+		 WHERE (articleTemplate.id = :templateInstanceId
+		    OR columnTemplate.id = :templateInstanceId)
+		   AND column.deleted = 0
+		   AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照网站id查询栏目信息 -->
+	<query name="findColumnByCurrentSite"><![CDATA[	  
+		  FROM Column column
+	     WHERE column.site.id = :siteId
+	       AND column.deleted = 0
+	       AND column.site.deleted = 0
+	  ORDER BY column.createTime ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目父id递归查找 -->
+	<query name="findColumnByParentId"><![CDATA[
+	     FROM Column column 
+	    WHERE column.parent.id = :pid
+	      AND column.deleted = 0
+	      AND column.site.deleted = 0
+	 ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目父id及网站ID递归查找 -->
+	<query name="findColumnByParentIdAndSiteId"><![CDATA[
+	     FROM Column column 
+	    WHERE column.parent.id = :pid
+	      AND column.deleted = 0
+	      AND column.site.id = :siteId
+	      AND column.site.deleted = 0
+	 ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	
+	<!-- 根据主键查询栏目用于页面导航 -->
+	<query name="findColumnUseCurrentLocation"><![CDATA[
+		  SELECT column.id,column.name,parentColumn.id,column.url,column.columnType
+		    FROM Column column 
+	   LEFT JOIN column.parent parentColumn
+    	   WHERE column.id = :columnId
+    	     AND column.deleted = 0
+    	     AND column.site.deleted = 0
+    	ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目的id查找父栏目名字 -->
+	<query name="findColumnNameByColumnId"><![CDATA[
+		SELECT column.name
+		  FROM Column column
+		 WHERE column.id = :columnId
+		   AND column.deleted = 0
+		   AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据格式id查询栏目 -->
+	<query name="findColumnByFormatId"><![CDATA[
+		  FROM Column column
+		 WHERE column.articleFormat.id = :formateId
+		   AND column.deleted = 0
+		   AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目名称和栏目的父栏目查询栏目 -->
+	<query name="findColumnByColumnNameAndColumnPid"><![CDATA[
+		  FROM Column column
+		 WHERE column.parent.id = :pid
+		   AND column.name = :name
+		   AND column.deleted = 0
+		   AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目名称查询第一级栏目 -->
+	<query name="findFirstColumnBySiteIdAndColumnName"><![CDATA[
+		  FROM Column column
+		 WHERE column.parent.id IS NULL
+		   AND column.name = :name
+		   AND column.site.id = :siteId
+		   AND column.deleted = 0
+		   AND column.site.deleted = 0
+	  ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	
+	<!-- 将栏目的deleted字段设置为true  -->
+	<query name="updateColumnAsDeleted"><![CDATA[
+		UPDATE Column column
+		   SET column.deleted = :deleted,
+		       column.columnTemplate.id = NULL,
+		       column.articleTemplate.id = NULL,
+		       column.articleFormat.id = NULL
+	     WHERE column.id in (:ids)
+	      
+	]]>		
+	</query>
+	
+	<!-- 按照网站id和用户id已经父栏目id查找栏目 -->
+	<query name="findColumnBySiteIdAndCreatorIdAndPid"><![CDATA[
+		FROM Column column
+	   WHERE column.parent.id = :pid
+		 AND column.creator.id = :creatorId
+		 AND column.site.id = :siteId
+		 AND column.deleted = 0
+		 AND column.site.deleted = 0
+	ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!--  查找不在指定范围内的栏目 -->
+	<query name="findColumnAndColumnIdsNotInFixedIds"><![CDATA[
+		FROM Column column
+	   WHERE column.deleted = 0
+	     AND column.id NOT IN (:ids)
+	     AND column.site.id = :siteId
+	     AND column.site.deleted = 0
+	ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id和网站id列出栏目 (有父节点的栏目排序) -->
+	<query name="findColumnOrdersHasParentBySiteIdAndColumnId"><![CDATA[
+		   FROM Column column
+		  WHERE column.parent.id = :columnId
+		    AND column.site.id = :siteId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目id和网站id以及用户id列出栏目树 (有父节点的栏目排序)-->
+	<query name="findColumnOrdersHasParentBySiteIdAndColumnIdAndCreatorId"><![CDATA[
+		 SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.parent.id = :columnId
+		    AND column.creator.id = :creatorId 
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据网站id查询没有被删除的栏目 -->
+	<query name="findColumnBySiteIdAndDeleted"><![CDATA[
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 查询本网站下和文章格式不相同的栏目id-->
+	<query name="findSameFormatColumnsByFormatId"><![CDATA[
+		 SELECT column.id
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+		    AND column.articleFormat.id != :articleFormatId
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 查询本网站下默认格式的栏目-->
+	<query name="findColumnByDefaultFormatIdAndSiteId"><![CDATA[
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.deleted = 0
+		    AND column.articleFormat.id = :formatId
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照网站id和栏目模版实例id查询栏目 -->
+	<query name="findColumnByColumnTemplateInstanceIdAndSiteId"><![CDATA[
+		   FROM Column column
+		  WHERE column.columnTemplate.id = :templateInstanceId
+		    AND column.site.id = :siteId
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照网站id和栏目文章模版实例id查询栏目 -->
+	<query name="findColumnByArticleTemplateInstanceIdAndSiteId"><![CDATA[
+		   FROM Column column
+		  WHERE column.articleTemplate.id = :templateInstanceId
+		    AND column.site.id = :siteId
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 根据栏目ids列出栏目树-->
+	<query name="findColumnTreeByColumnIds"><![CDATA[
+		 SELECT column.id, column.name, column.linkAddress, column.leaf, column.checked, column.articleFormat.id
+		   FROM Column column
+		  WHERE column.id in (:columnIds) 
+		    AND column.deleted = 0
+		    AND column.site.deleted = 0
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照栏目ids绑定栏目模版 -->
+	<query name="bindColumnTemplateInstanceByColumnIds"><![CDATA[
+		 UPDATE Column column
+		    SET column.columnTemplate.id = :templateInstanceId 
+		  WHERE column.id IN  (:columnIds)
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照栏目ids绑定栏目文章模版 -->
+	<query name="bindColumnArticleTemplateInstanceByColumnIds"><![CDATA[
+		 UPDATE Column column
+		    SET column.articleTemplate.id = :templateInstanceId 
+		  WHERE column.id IN  (:columnIds)
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 按照栏目id查找引用它的栏目 -->
+	<query name="findSonColumnByParentColumnId"><![CDATA[
+		 SELECT column.id
+		   FROM Column column
+		  WHERE column.parentSiteColumnId = :columnId
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+	<!-- 查找不包含所选栏目 -->
+	<query name="findColumnAndColumnIdsNotInFixedIdsAndSiteId"><![CDATA[
+		   FROM Column column
+		  WHERE column.site.id = :siteId
+		    AND column.id NOT IN (:ids)
+	   ORDER BY column.orders ASC
+	]]>		
+	</query>
+	
+</hibernate-mapping>
