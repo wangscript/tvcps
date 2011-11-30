@@ -3,11 +3,11 @@
  
 <html>
 	<head>
-		<title>全文检索 -百泽检索系统后台管理</title>
+		<title>全文检索 -检索系统后台管理</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta name="description" content="南京百泽,搜索引擎,全文检索、百泽搜索">
-		<meta name="keywords" content="网页搜索,图片搜索,全文检索,新闻搜索,百泽搜索,搜索引擎,搜索">
-		<meta name="author" content="百泽网络">
+		<meta name="description" content="搜索引擎,全文检索、搜索">
+		<meta name="keywords" content="网页搜索,图片搜索,全文检索,新闻搜索,搜索,搜索引擎,搜索">
+		<meta name="author" content="网络">
 		<link href="<c:url value="/css/search.css"/>" type="text/css"	rel="stylesheet">
 		<link href="<c:url value="/css/style.css"/>" type="text/css"	rel="stylesheet">	 
 		<script type="text/javascript" src="<c:url value='/script/jquery-1.2.6.js'/>" ></script>
