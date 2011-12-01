@@ -12,7 +12,7 @@
 		<appName>cps</appName>
 	</sysParamset>
 	<dataInitialize>
-		<serverIP>192.168.106.128</serverIP>
+		<serverIP>127.0.0.1</serverIP>
 		<!-- <dataPort>3306</dataPort> -->
 		<dataPort>1521</dataPort>
 		<dataBaseName>orcl</dataBaseName>

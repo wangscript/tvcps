@@ -4,7 +4,7 @@
     <alias>innerPool</alias>  
     
     
-    <driver-url>jdbc:oracle:thin:@192.168.106.128:1521:orcl</driver-url>
+    <driver-url>jdbc:oracle:thin:@127.0.0.1:1521:orcl</driver-url>
     <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>  
     
     <!--
