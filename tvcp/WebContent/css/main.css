@@ -52,8 +52,10 @@ div br{
 #menu{
 	float:left;
 	width:100%;
-	margin:0px; padding:0px;
+	margin:0px; 
+	padding:0px;
 	background:url(../images/main/mainbody_03.gif) repeat-x;
+	background-position: left bottom;
 }
 /*
 #menu ul{
@@ -71,39 +73,45 @@ div br{
 	display:block;
 	margin:0px;
 	text-decoration:none;
+	color:#0000FF;
 	/*background:url(../images/main/menu.jpg) repeat-x;*/
 }
 #menu a:link {
 	display:block;
 	margin:0px;
 	text-decoration:none;
-	color:#000;
-	
+	color:#FFFFFF;
 }
 
 #menu a:visited{
 	display:block;
 	margin:0px;
 	text-decoration:none;
-	color:#000;
+	color:#FFFFFF;
 }
 
 #menu a:hover {
 	display:block;
 	height:23px;
-	color:#fff;
+	color:#0000FF;
 	line-height:23px;
 	text-decoration:none;
+	background-color:#D5D5D5;
+	/*
+	color:#fff;
 	background:url(../images/main/mainbody_05.gif) no-repeat center center;
+	*/
 }
 
 #menu .border_left {border-left:1px solid #ccc;}
 
-.active { 
+.active {
 	line-height:23px;
 	display:block;
-	color:#fff;
-	background:url(../images/main/mainbody_05.gif) no-repeat center center; 
+	color:#0000FF;
+	/*background:url(../images/main/mainbody_05.gif) no-repeat center center; 
+	*/
+	background-color:#D5D5D5;
 	height:23px;
 }
 .normal { 
