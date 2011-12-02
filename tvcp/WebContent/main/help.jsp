@@ -15,15 +15,15 @@
 	 <table width="100%" cellpadding="3" cellspacing="5">
 		<tr>
 			<td colspan="2" align="center"> 
-				<img src="../images/main/help_01.gif"/>
+				<img src="../images/main/help_01.png"/>
 			</td>
 		</tr>
 		<tr style="width:350px;"> 
 			<td colspan="2" align="center"><img src="../images/main/help_03.gif" width="410"/></td>
 		</tr>
 		<tr>
-			<td align="center" width="50%">版本：CPS 2.0</td>
-			<td align="left" width="50%">发布日期：2008-07-03</td> 
+			<td align="center" width="50%">版本：CPS 1.0</td>
+			<td align="left" width="50%">发布日期：2011-07-03</td> 
 		</tr> 
 		<tr>
 			<td colspan="2" align="center">
@@ -34,10 +34,10 @@
 	<table  width="100%" cellpadding="3" cellspacing="5">
 		<tr>
 			<td align="center" width="20%">
-				<img src="../images/main/help_02.gif"/>
+				<!-- <img src="../images/main/help_02.gif"/> -->
 			</td>
 			<td align="left" width="80%" valign="baseline">
-				Copyright&copy;2008 j2ee.cmsweb.com lnc. All Rights Reserved.<br>
+				Copyright&copy;2011 cps lnc. All Rights Reserved.<br>
 				 ,版权所有
 			</td>
 		</tr>

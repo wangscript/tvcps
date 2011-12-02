@@ -16,34 +16,81 @@
 			font-family: "宋体",Arial;
 	    }
 		#head {
-			height:59px;
+			height:60px;
 			background:url("../images/main/head/tu_10.gif") repeat-x;
 		}
 		#right {
 			width:130px;
+			height:60px;
 			background:url("../images/main/head/tu_10.gif") repeat-x;
 		}
 
 		#left1 {
 			margin:0 0 10px 30px;
-			margin:0 0 10px 25px;
 		}
 		#left2 {
 			margin:0 0 0 45px;
-			margin:0 0 0 40px;
 		}
 
 		#left3 {
 			margin:0 0 0 40px;
-			margin:0 0 0 35px;
 		}
 		
 	   .padbottom {
-	     padding-bottom:12px;
-	     cursor:pointer;
-		padding-left:5px;}
-	a.twhite {color:#FFFFFF;  text-decoration:none; padding:10px; white-space:nowrap;}
-	a.twhite hover{color:#FFFFFF;  text-decoration:none; white-space:nowrap;}
+	        padding-bottom:0px;
+	        cursor:pointer;
+		    padding-left:0px;
+		}
+	    a.twhite {color:#000000;  text-decoration:none; padding:15px auto auto 0; white-space:nowrap;}
+	    a.twhite hover{color:#000000;  text-decoration:none; white-space:nowrap;}
+
+		.logo {
+			background-image:url(../images/main/head/tu_02.png)!important;
+			background-image:url(../images/main/head/tu_10.gif);
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='../images/main/head/tu_02.png');
+			width:182px;
+			height:63px;
+			margin:0 0 10px 30px;
+		}	
+		
+		.logo1 {
+			background-image:url(../images/main/head/tu_04.png)!important;
+			background-image:url(../images/main/head/tu_10.gif);
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='../images/main/head/tu_04.png');
+			WIDTH: 45px;height:70px;
+			margin:0 0 0 45px;
+		}
+		
+		.logo2 {
+			background-image:url(../images/main/head/tu_06.png)!important;
+			background-image:url(../images/main/head/tu_10.gif);
+			FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='../images/main/head/tu_06.png');
+			WIDTH: 45px;height:70px;
+			margin:0 0 0 40px;
+		}
+		
+		.logo3 {
+			background-image:url(../images/main/head/tu_08.png)!important;
+			background-image:url(../images/main/head/tu_10.gif);
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='../images/main/head/tu_08.png');
+			WIDTH: 45px;height:70px;
+			margin:0 0 0 40px;
+		}
+		
+		.logo4 {
+			background-image:url(../images/main/head/tu_14.png)!important;
+			background-image:url(../images/main/head/tu_10.gif);
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='../images/main/head/tu_14.png');
+			WIDTH: 45px;height:70px;
+			margin:0 0 0 40px;
+		}
+		
+		.logo5 {
+			background-image:url(../images/main/head/tu_12.png)!important;
+			background-image:url(../images/main/head/tu_10.gif);
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='../images/main/head/tu_12.png');
+			WIDTH: 45px;height:70px;
+		}
 	</style>
 	<%
 		//当前页面地址
@@ -210,17 +257,17 @@
 <table id="head" width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td align=left valign="top" id="left" width="80%">
-			<table width="580" height="46" align="left" cellpadding="0" cellspacing="0"  border="0">
+			<table width="580" height="60" align="left" cellpadding="0" cellspacing="0"  border="0">
 				<tr>
-					<td width="300" align="left" valign="middle" id="left1" ><img src="../images/main/head/tu_02.gif" width="136" height="43" border="0" id="left1"/></td>
-					<td width="21"valign="top"><img src="../images/main/head/tu_04.gif" width="22" height="41" id="left2"/></td>
-					<td width="100"  id="topm111"   align="left" valign="bottom" class="padbottom" onClick="parent.changeSite()"><a href="#" class="twhite">系统切换</a></td>
-					<td width="28" id="topm112"   valign="top" ><img src="../images/main/head/tu_06.gif" width="28" height="44" id="left3"/></td>						
-					<td width="100" id="topm101" style="display: none" align="left" valign="bottom" class="padbottom" onClick="parent.systemSet()"><a href="#" class="twhite">系统设置</a></td>
-					<td width="26" id="topm102" style="display: none" valign="top" ><img src="../images/main/head/tu_08.gif" width="25" height="42" id="left3"/></td>
-					<td width="100" align="left" valign="bottom"  class="padbottom" onClick="parent.messageManager()"><a class="twhite" ><div id="message">短信(0)</div></a></td>
-					<td width="30" id="topm103"  valign="middle"><img src="../images/main/head/tu_14.gif" id="left3"/></td>
-					<td width="100" align="left" valign="bottom"  class="padbottom" onClick="parent.currentLineUser()"><a class="twhite" ><div id="message">在线用户</div></a></td>
+					<td width="300" align="left" valign="middle" id="left1" ><div class="logo"></div></td>
+					<td width="21" valign="top" align="right"><div class="logo1" id="left2"></div></td>
+					<td width="100" id="topm111" align="left" valign="middle" class="padbottom" onClick="parent.changeSite()"><a href="#" class="twhite">系统切换</a></td>
+					<td width="28" id="topm112"   valign="top" ><div class="logo2" id="left3"></div></td>						
+					<td width="100" id="topm101" style="display: none" align="left" valign="middle" class="padbottom" onClick="parent.systemSet()"><a href="#" class="twhite">系统设置</a></td>
+					<td width="26" id="topm102" style="display: none" valign="top" ><div class="logo3" id="left3"></div></td>
+					<td width="100" align="left" valign="middle"  class="padbottom" onClick="parent.messageManager()"><a class="twhite" ><div id="message">短信(0)</div></a></td>
+					<td width="30" id="topm103"  valign="middle"><div class="logo4" id="left3"></div></td>
+					<td width="100" align="left" valign="middle"  class="padbottom" onClick="parent.currentLineUser()"><a class="twhite" ><div id="message">在线用户</div></a></td>
 					<td>&nbsp;</td>
 				</tr>
 	  		</table>
@@ -228,31 +275,26 @@
 		<td width="3%" align="left" valign="top"  id="right">
 			<table  border="0" cellpadding="0" style="padding-top: 5px"  cellspacing="0">
 			  <tr>
-				<td valign="top" align="left">
-					<img src="../images/main/head/tu_12.gif" width="31" height="46">
-			    </td>
+				<td valign="top" align="left"><div class="logo5"></div></td>
 			  </tr>
 			</table>
 	  	</td>
-		<td width="17%">
-			<table  border="0" cellpadding="0" style="padding-top: 5px"  cellspacing="0">
+		<td width="17%" valign="top">
+			<table  border="0" cellpadding="0" style="padding-top: 11px"  cellspacing="0">
 				<tr align="left">
-					<td align="left" style="padding-top: 5px" >				 
-						<a class="twhite">
-							您好:<b><span id="personalName" style="line-height:10px;margin-top:20px;"></span></b>
-						</a>				 						
+					<td align="left" style="padding-top: 15px" >
+						<a class="twhite">您好:<b><span id="personalName" style="line-height:10px;padding-top:11px;"></span></b></a>
 					</td>	
-					<td  style="padding-top:5px">
+					<!-- <td  style="padding-top:8px">
 						<a class="twhite" style="cursor:hand;" onClick="parent.menuManager()" ><font color="#ffde00">【个人设置】</font></a>
-					</td>	
+					</td>
+					 -->
 			 	</tr>
 				<tr align="left">			
-					<td align="left" valign="middle" style="padding-top:5px" >
-						<a class="twhite">
-							&nbsp;&nbsp;<span style="line-height:10px;margin-top:20px;" id="systemDate"></span> <span id="roleName" style="display:none"></span>
-						</a>	
+					<td align="left" valign="middle" style="padding-top:11px" >
+						<a class="twhite"><span style="line-height:10px;padding-top:11px;" id="systemDate"></span><span id="roleName" style="display:none"></span></a>
 					</td>
-					<td style="padding-top: 5px" >&nbsp;</td>
+					<td style="padding-top: 11px" >&nbsp;</td>
 				</tr>
 			</table> 
 		</td>
