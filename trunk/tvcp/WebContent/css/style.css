@@ -37,12 +37,12 @@ table{
 
 
 .currLocation {
-	margin:5px 0px;
-	border:1px solid #488ac6;
+	margin:0px 0px;
+	border:0px solid #488ac6;
 	padding-left:30px;
 	padding-top:1px;
-	height:20px;
-	line-height:20px;
+	height:30px;
+	line-height:30px;
 	background:transparent url(../images/main/arrow.gif) no-repeat 10px center;
 	text-align:left;
 }
@@ -54,12 +54,17 @@ table{
    	border-bottom: none;
    	text-align:left;
 }
-#allbuttonDiv{width:100%;clear:both;padding:3px 0;
-	/*height:30px;*/
-    background:#c1e6f9;
+#allbuttonDiv{
+	width:100%;
+	clear:both;
+	padding:5px;
+	height:28px;
+	line-height:28px;
+    background:#75CDE5;
     border:1px solid #7BAEDB;
    	border-bottom: none;
-   	text-align:left;}
+   	text-align:left;
+}
 #buttonDiv{width:100%;float:left;}
 #searchDiv{width:100%;float:right;margin-right:10px;}
 .searchnormal{padding: 2 4 0 4;font-size:12px;height:23;background-color:#ece9d8;border-width:1;}

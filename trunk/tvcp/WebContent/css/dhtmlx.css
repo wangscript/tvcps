@@ -23,11 +23,11 @@ div.dhx_acc_item_hidden_dhx_blue {
 /* label */
 div.dhx_acc_item_dhx_blue div.dhx_acc_item_label_dhx_blue {
 	position: relative;
-	color: black;
+	color: #FFFFFF;
 	font-family: Tahoma;
 	font-size: 12px;
 	font-weight: normal;
-	height: 22px;
+	height: 26px;
 	line-height: 20px;
 	border: #C2D5DC 1px solid;
 	vertical-align: middle;
