@@ -71,7 +71,7 @@ input.submit {
 					cellspacing="0">
 					<tr>
 						<td width="160"><img
-							src="<%=request.getContextPath()%>/images/setupimages/stup_03.jpg"
+							src="<%=request.getContextPath()%>/images/setupimages/stup_03.png"
 							width="160" height="64" /></td>
 						<td width="290"><img
 							src="<%=request.getContextPath()%>/images/setupimages/stup_04.jpg"
