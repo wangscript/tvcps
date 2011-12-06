@@ -217,29 +217,41 @@
     </tr>
     <tr>
         <td height="30" valign="top">
-            <table id="menu" width="100%" border="0" cellspacing="0" cellpadding="0" height="20">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" height="25">
                 <tr>
-                    <c:forEach var="menu" items="${menuList}">
-                        <c:if test="${menu.id != 'm010'}">
-                            <td align="center" width="95"><a id="${menu.id}" onFocus="this.blur()" style=" font-weight:900;" href="javascript:loadIndex('${menu.id}','${menu.name}','${menu.indexPage}','${menu.contentPage}')" >${menu.name}</a></td>
-                            <td align="center" width="2"><img src="images/main/line.gif"/></td>
-                        </c:if>
-	                    <c:if test="${menu.id == 'm010'}">
-	                        <input type="hidden" name="m010" id="m010" value="m010"/>
-	                    </c:if> 
-                    </c:forEach>
-                    <td align="right" style="padding:0px 115px;">
-                        <table width="160" height="18" border="0" cellpadding="0" cellspacing="0">
+                   <td valign="top">
+	                    <table id="menu" align="left" width="100%" border="0" cellspacing="0" cellpadding="0" height="25">
+	                        <tr>
+			                    <c:forEach var="menu" items="${menuList}">
+			                        <c:if test="${menu.id != 'm010'}">
+			                            <td align="center" width="87px" height="20">
+			                            <a id="${menu.id}" onFocus="this.blur()" 
+		                                   style="font-weight:900;" 
+		                                   href="javascript:loadIndex('${menu.id}','${menu.name}','${menu.indexPage}','${menu.contentPage}')" >${menu.name}
+		                                </a>
+			                            </td>
+			                            <td align="center" height="20" width="1px"><img src="images/main/line.gif"/></td>
+			                        </c:if>
+				                    <c:if test="${menu.id == 'm010'}">
+				                        <input type="hidden" name="m010" id="m010" value="m010"/>
+				                    </c:if> 
+			                    </c:forEach>
+		                    	<td align="center">&nbsp;</td>
+		                    </tr>
+	                    </table>
+                    </td>
+                    <td valign="top" width="249" align="center" id="menu1">
+                        <table width="200" height="30" border="0" cellpadding="0" cellspacing="0" align="center">
                           <tr>
-                            <td width="80" align="right" style="cursor:pointer;" onClick="parent.personSetManager()" ><font color="#D47903">个人设置&nbsp;|&nbsp;</font></td>
+                            <td width="100" align="right"  valign="middle" style="cursor:pointer;font-weight:900;" onClick="parent.personSetManager()" ><font color="#D47903">个人设置&nbsp;&nbsp;|&nbsp;&nbsp;</font></td>
                             <!-- 
                             <td width="20" align="right"><img src="images/main/3_27.gif" width="14" height="14" onclick="help();"></td>
                              -->
-                            <td width="45" align="center" style="cursor:pointer;" onclick="help();"><font color="#D47903">关于&nbsp;|</font></td>
+                            <td width="55" align="center"  valign="middle" style="cursor:pointer;font-weight:900;" onclick="help();"><font color="#D47903">关于&nbsp;&nbsp;|</font></td>
                             <!-- 
                             <td width="25" align="right" class="border_left"><img src="images/main/3_29.gif" width="14" height="14" style="cursor:pointer;" onclick="logout();"></td>
                              -->
-                            <td width="35"  align="center" style="cursor:pointer;" onclick="logout();"><font color="#D47903">&nbsp;退出</font></td>
+                            <td width="45"  align="center"  valign="middle" style="cursor:pointer;font-weight:900;" onclick="logout();"><font color="#D47903">&nbsp;&nbsp;退出</font></td>
                           </tr>
                         </table>
                     </td>

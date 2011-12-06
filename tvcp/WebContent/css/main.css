@@ -51,11 +51,15 @@ div br{
 
 #menu{
 	float:left;
-	width:100%;
 	margin:0px; 
 	padding:0px;
-	background:url(../images/main/mainbody_03.gif) repeat-x;
-	background-position: left bottom;
+	height:25px;
+	background:url(../images/main/menu_0.gif) repeat-x;
+}
+
+#menu1{
+	height:27px;
+	background: url(../images/main/menu_1.gif) no-repeat;
 }
 /*
 #menu ul{
