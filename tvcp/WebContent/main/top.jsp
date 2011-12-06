@@ -273,10 +273,10 @@
 	  		</table>
 	  	</td>
 		<td width="3%" align="left" valign="top"  id="right">
-			<table  border="0" cellpadding="0" style="padding-top: 5px"  cellspacing="0">
-			  <tr>
-				<td valign="top" align="left"><div class="logo5"></div></td>
-			  </tr>
+			<table  border="0" cellpadding="0" style="padding-top:5px" cellspacing="0">
+		        <tr>
+				    <td valign="top" align="left"><div class="logo5"></div></td>
+			    </tr>
 			</table>
 	  	</td>
 		<td width="17%" valign="top">
