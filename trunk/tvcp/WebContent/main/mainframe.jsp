@@ -240,8 +240,8 @@
 		                    </tr>
 	                    </table>
                     </td>
-                    <td valign="top" width="249" align="center" id="menu1">
-                        <table width="200" height="30" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <td valign="middle" width="249" align="center" id="menu1">
+                        <table width="200" height="25" border="0" cellpadding="0" cellspacing="0" align="center">
                           <tr>
                             <td width="100" align="right"  valign="middle" style="cursor:pointer;font-weight:900;" onClick="parent.personSetManager()" ><font color="#D47903">个人设置&nbsp;&nbsp;|&nbsp;&nbsp;</font></td>
                             <!-- 
