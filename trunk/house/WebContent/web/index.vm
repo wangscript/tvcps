@@ -1,0 +1,25 @@
+
+业主钟点工需求
+#set($size = $list.size())
+#foreach($obj in $list)
+  #if($velocityCount == 1)
+    this is first value
+  #end
+  #if($velocityCount == $size)
+    this is last value
+  #end
+  $obj.name
+#end
+
+
+家政服务人员列表
+#set($size = $list.size())
+#foreach($obj in $list)
+  #if($velocityCount == 1)
+    this is first value
+  #end
+  #if($velocityCount == $size)
+    this is last value
+  #end
+  $obj.name
+#end
