@@ -20,7 +20,7 @@ public class IndexAction extends GenericAction {
     }
     
     public String queryServicePerson() throws Exception{
-    	servicePersonList = servicePersonService.queryServicePerson();
+        servicePersonList = servicePersonService.queryServicePerson();
         return SUCCESS;
     }
     
@@ -36,15 +36,15 @@ public class IndexAction extends GenericAction {
         this.demandApplyEntityList = demandApplyEntityList;
     }
 
-	public void setServicePersonService(ServicePersonService servicePersonService) {
-		this.servicePersonService = servicePersonService;
-	}
+    public void setServicePersonService(ServicePersonService servicePersonService) {
+        this.servicePersonService = servicePersonService;
+    }
 
-	public List<ServicePersonEntity> getServicePersonList() {
-		return servicePersonList;
-	}
+    public List<ServicePersonEntity> getServicePersonList() {
+        return servicePersonList;
+    }
 
-	public void setServicePersonList(List<ServicePersonEntity> servicePersonList) {
-		this.servicePersonList = servicePersonList;
-	}
+    public void setServicePersonList(List<ServicePersonEntity> servicePersonList) {
+        this.servicePersonList = servicePersonList;
+    }
 }
