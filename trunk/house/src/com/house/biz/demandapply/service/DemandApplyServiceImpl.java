@@ -1,5 +1,7 @@
 package com.house.biz.demandapply.service;
 
+import java.util.List;
+
 import com.house.biz.demandapply.dao.DemandApplyDao;
 import com.house.biz.entity.DemandApplyEntity;
 import com.house.biz.entity.ServicePersonEntity;
@@ -42,6 +44,10 @@ public class DemandApplyServiceImpl extends GenericServiceImpl<DemandApplyEntity
 	
 	public void setDemandApplyDao(DemandApplyDao demandApplyDao) {
 		this.demandApplyDao = demandApplyDao;
+	}
+
+	public List<DemandApplyEntity> queryDemandApply() {
+		return demandApplyDao.queryObjectsByObject(new DemandApplyEntity());
 	}
 
 	

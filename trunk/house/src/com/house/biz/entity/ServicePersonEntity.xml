@@ -92,5 +92,8 @@
 		select * from T_SERVICEPERSON where SERVICEPERSON_ID=#servicePersonId#
 	</select>
 	
-	
+	<!-- 查询所有的家政服务人员列表 -->
+	<select id="selectByObject" resultMap="servicePerson" parameterClass="servicePersonEntity">
+		select * from T_SERVICEPERSON
+	</select>
 </sqlMap>

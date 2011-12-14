@@ -100,4 +100,9 @@
 	<select id="selectById" resultMap="demandApply" parameterClass="String">
 		select * from T_DEMAND_APPLY where DEMAND_APPLY_ID =  #value#
 	</select>
+	
+	<!-- 查询所有的业主钟点工需求列表 -->
+	<select id="selectByObject" resultMap="demandApply" parameterClass="demandApplyEntity">
+		select * from T_DEMAND_APPLY
+	</select>
 </sqlMap>
