@@ -10,17 +10,16 @@ import com.house.core.action.GenericAction;
 public class IndexAction extends GenericAction {
     private DemandApplyService demandApplyService;
     private ServicePersonService servicePersonService;
-    
-    private List<DemandApplyEntity> demandApplyEntityList; 
-    private List<ServicePersonEntity> servicePersonList; 
+    private List<DemandApplyEntity> demandApplyEntityList;
+    private List<ServicePersonEntity> servicePersonList;
 
-    public String queryDemandApply() throws Exception{
-        demandApplyEntityList = demandApplyService.queryDemandApply();
-        return SUCCESS;
-    }
-    
-    public String queryServicePerson() throws Exception{
-        servicePersonList = servicePersonService.queryServicePerson();
+    /**
+     * 首页->查询业主钟点工需求列表和家政服务人员列表
+     * @return
+     */
+    public String index(){
+    	demandApplyEntityList = demandApplyService.queryDemandApply();
+    	servicePersonList = servicePersonService.queryServicePerson();
         return SUCCESS;
     }
     

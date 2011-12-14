@@ -4,11 +4,8 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 <package name="index" extends="struts-common" namespace="/index">
-    <action name="queryDemandApply" class="indexAction" method="queryDemandApply">
-        <result name="success">/front/demand_apply_list.jsp</result>
-    </action>
-    <action name="queryServicePerson" class="indexAction" method="queryServicePerson">
-        <result name="success">/front/service_person_list.jsp</result>
+    <action name="index" class="indexAction" method="index">
+        <result name="success">/web/index.vm</result>
     </action>
 </package>
 </struts>

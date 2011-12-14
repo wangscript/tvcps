@@ -1,25 +1,46 @@
-
-业主钟点工需求
-#set($size = $list.size())
-#foreach($obj in $list)
-  #if($velocityCount == 1)
-    this is first value
-  #end
-  #if($velocityCount == $size)
-    this is last value
-  #end
-  $obj.name
-#end
+业主钟点工需求列表
+<table width="80%" align="center" style="margin:20px" border="1">
+    <tr>
+        <td>联系人</td>
+        <td>用户名</td>
+        <td>联系电话</td>
+        <td>频次</td>
+        <td>时长(H/次)</td>
+        <td>居家面积</td>
+        <td>进展情况</td>
+        <td>主要需求说明</td>
+    </tr>
+    #foreach($demand in $demandApplyEntityList)
+    <tr>
+        <td>$demand.linkman</td>
+        <td>$demand.loginName</td>
+        <td>$demand.tel</td>
+        <td>$demand.rate</td>
+        <td>$demand.hourLength</td>
+        <td>$demand.houseArea</td>
+        <td>$demand.evolveStatus</td>
+        <td>$demand.demandExplain</td>
+    </tr>
+    #end
+</table>
 
 
 家政服务人员列表
-#set($size = $list.size())
-#foreach($obj in $list)
-  #if($velocityCount == 1)
-    this is first value
-  #end
-  #if($velocityCount == $size)
-    this is last value
-  #end
-  $obj.name
-#end
+<table width="80%" align="center" style="margin:20px" border="1">
+    <tr>
+        <td>钟点工名字</td>
+        <td>服务人员联系方式</td>
+        <td>服务人员年龄</td>
+        <td>籍贯地址</td>
+        <td>备注</td>
+    </tr>
+    #foreach($person in $servicePersonList)
+    <tr>
+        <td>$person.servicePersonName</td>
+        <td>$person.contactMethod</td>
+        <td>$person.age</td>
+        <td>$person.nativePlace</td>
+        <td>$person.comment1</td>
+    </tr>
+    #end
+</table>
