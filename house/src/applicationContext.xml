@@ -84,6 +84,7 @@
 	 <import resource="com/house/biz/housekeeping/houseKeeping-spring.xml" />
 	 <import resource="com/house/biz/serviceperson/servicePerson-spring.xml" />
 	 <import resource="com/house/biz/demandapply/demandApply-spring.xml" />
+	 <import resource="com/house/web/index/index-spring.xml" />
 	
 	 
 </beans>

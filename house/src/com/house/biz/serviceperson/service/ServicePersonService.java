@@ -1,6 +1,8 @@
 package com.house.biz.serviceperson.service;
 
 
+import java.util.List;
+
 import com.house.biz.entity.ServicePersonEntity;
 import com.house.core.service.GenericService;
 
@@ -25,5 +27,7 @@ public interface ServicePersonService extends GenericService<ServicePersonEntity
 	 */
 	public String saveServicePerson(ServicePersonEntity servicePersonEntity)throws Exception;
 
+	
+	public List<ServicePersonEntity> queryServicePerson();
 	
 }

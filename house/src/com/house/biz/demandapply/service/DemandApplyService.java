@@ -1,8 +1,9 @@
 package com.house.biz.demandapply.service;
 
 
+import java.util.List;
+
 import com.house.biz.entity.DemandApplyEntity;
-import com.house.biz.entity.ServicePersonEntity;
 import com.house.core.service.GenericService;
 
 
@@ -26,5 +27,6 @@ public interface DemandApplyService extends GenericService<DemandApplyEntity,Str
 	 */
 	public String saveDemandApply(DemandApplyEntity demandApplyEntity)throws Exception;
 
+	public List<DemandApplyEntity> queryDemandApply();
 	
 }

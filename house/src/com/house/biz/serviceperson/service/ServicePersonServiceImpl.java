@@ -1,5 +1,7 @@
 package com.house.biz.serviceperson.service;
 
+import java.util.List;
+
 import com.house.biz.entity.ServicePersonEntity;
 import com.house.biz.serviceperson.dao.ServicePersonDao;
 import com.house.core.service.GenericServiceImpl;
@@ -41,6 +43,11 @@ public class ServicePersonServiceImpl extends GenericServiceImpl<ServicePersonEn
 
 	public void setServicePersonDao(ServicePersonDao servicePersonDao) {
 		this.servicePersonDao = servicePersonDao;
+	}
+
+	@Override
+	public List<ServicePersonEntity> queryServicePerson() {
+		return servicePersonDao.queryObjectsByObject(new ServicePersonEntity());
 	}
 
 	
