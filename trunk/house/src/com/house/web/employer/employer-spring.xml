@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+   "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>	
+	
+	<!-- action 开始  -->	
+	<bean id="employerAction" class="com.house.web.employer.action.EmployerAction"  parent="genericAction"  scope="prototype">
+	 <property name="employerService">
+			<ref bean="employerService"/>
+		</property> 	
+	</bean>
+	<bean id="employerDemandsAction" class="com.house.web.employer.action.EmployerDemandsAction"  parent="genericAction"  scope="prototype">
+	 <property name="employerDemandsService">
+			<ref bean="employerDemandsService"/>
+		</property> 	
+	</bean>
+	
+	<!-- service 开始  -->
+	<bean id="employerService" class="com.house.web.employer.service.EmployerServiceImpl"  init-method="setDao" parent="genericService" scope="prototype">
+	   	<property name="employerDao">
+			<ref bean="employerDao"/>
+		</property>
+	</bean>
+	<bean id="employerDemandsService" class="com.house.web.employer.service.EmployerDemandsServiceImpl"  init-method="setDao" parent="genericService" scope="prototype">
+	   	<property name="employerDemandsDao">
+			<ref bean="employerDemandsDao"/>
+		</property>
+	</bean>
+	
+	<!-- dao 开始   -->
+	<bean id="employerDao" class="com.house.web.employer.dao.EmployerDaoImpl" parent="genericDao" scope="prototype"></bean>
+	<bean id="employerDemandsDao" class="com.house.web.employer.dao.EmployerDemandsDaoImpl" parent="genericDao" scope="prototype"></bean>	
+</beans>

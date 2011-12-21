@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="employer" extends="struts-common" namespace="/employer">
+		<action name="loginEmployer" class="employerAction" method="loginEmployer">
+			<result name="success" type="redirectAction">/listEmployer.shtml</result>
+			<result name="input" type="redirect">/index/index.shtml</result>
+		</action>
+		<action name="regEmployer" class="employerAction" method="regEmployer">
+			<result name="success">/web/employer/employer_register.vm</result>
+		</action>
+		<action name="saveEmployer" class="employerAction" method="saveEmployer">
+			<result name="success" type="redirect">/index/index.shtml</result>
+		</action>
+		<action name="listEmployer" class="employerAction" method="listEmployer">
+			<result name="success">/web/employer/employer_list.vm</result>
+		</action>
+		<action name="queryEmployer" class="employerAction" method="queryEmployer">
+			<result name="success">/module/employer/employer_list.jsp</result>
+		</action>
+	</package>
+	
+	<package name="employerDemands" extends="struts-common" namespace="/employerDemands">
+		<action name="queryEmployerDemands" class="employerDemandsAction" method="queryEmployerDemands">
+			<result name="success">/module/employer/employer_demands_list.jsp</result>
+		</action>
+	</package>
+</struts>
