@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="employerentity">
+    <typeAlias alias="employerEntity" type="com.house.biz.entity.EmployerEntity" />
+    <resultMap id="employer" class="employerEntity">
+        <result property="employerId" column="EMPLOYER_ID" nullValue="" />
+        <result property="loginName" column="LOGIN_NAME" />
+        <result property="passWord" column="PASS_WORD" />
+        <result property="tel" column="TEL" />
+        <result property="linkMan" column="LINK_MAN" />
+    </resultMap>
+    
+    <!-- 查询所有记录 -->
+    <select id="selectByObjectForPagination" resultMap="employer"  parameterClass="employerEntity">
+        select * from T_EMPLOYER c where 1=1
+        <dynamic>
+            <isNotEmpty prepend="and" property="linkMan">
+                <![CDATA[ 
+                    c.LINK_MAN like '$linkMan$%' 
+                ]]>
+            </isNotEmpty>
+        </dynamic>
+        <![CDATA[
+        limit #rowscount#, #rowsPerPage#
+        ]]>
+    </select>
+    
+    <!-- 查询总条数 -->
+	<select id="countByObject" resultClass="Long"  parameterClass="employerEntity">
+		<![CDATA[
+			select count(*) from T_EMPLOYER c where 1=1
+		]]>
+		<dynamic>
+			<isNotEmpty prepend="and" property="linkMan">
+			    	<![CDATA[ 
+						c.LINK_MAN like '$linkMan$%' 
+					]]>
+	        </isNotEmpty>  
+        </dynamic>
+	</select>
+    
+    <!-- 通过主键ID 查询记录 -->
+	<select id="selectByObject" resultMap="employer" parameterClass="employerEntity">
+		    select * from T_EMPLOYER where 1=1
+		    <isNotEmpty prepend="and" property="loginName">
+				LOGIN_NAME = #loginName#  
+            </isNotEmpty>
+            <isNotEmpty prepend="and" property="passWord">
+				PASS_WORD = #passWord#  
+            </isNotEmpty>
+	</select>
+    
+    <!-- 添加服务人员状态记录 -->
+    <insert id="insert" parameterClass="employerEntity" >
+        insert into T_EMPLOYER (EMPLOYER_ID,LOGIN_NAME,PASS_WORD,TEL,LINK_MAN) values (#employerId#,#loginName#,#passWord#,#tel#,#linkMan#)
+    </insert>
+</sqlMap>
