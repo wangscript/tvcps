@@ -44,6 +44,8 @@
 	 <include file="com/house/biz/serviceperson/servicePerson-struts.xml"></include> 
 	 <include file="com/house/biz/demandapply/demandApply-struts.xml"></include> 
 	 <include file="com/house/web/index/index-struts.xml"></include> 
+	 
+	 <include file="com/house/web/employer/employer-struts.xml"></include> 
 	 <!-- velocity例子 -->
 	 <package name="test" extends="struts-common" namespace="/test">
 		<action name="test" class="test.Test" method="test">
