@@ -21,4 +21,6 @@ PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
 	 <sqlMap resource="com/house/biz/entity/ServicePersonEntity.xml" />
      <sqlMap resource="com/house/biz/entity/DemandApplyEntity.xml" />
        
+     <sqlMap resource="com/house/biz/entity/EmployerEntity.xml" />
+     <sqlMap resource="com/house/biz/entity/EmployerDemandsEntity.xml" />
 </sqlMapConfig>
