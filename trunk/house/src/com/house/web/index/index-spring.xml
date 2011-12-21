@@ -9,5 +9,8 @@
         <property name="servicePersonService">
             <ref bean="servicePersonService"/>
         </property>
+        <property name="employerDemandsService">
+            <ref bean="employerDemandsService"/>
+        </property>
     </bean>
 </beans>
