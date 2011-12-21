@@ -27,7 +27,11 @@
 		var zNodes =[
 		 			{ id:1, pId:0, name:"家政服务平台", open:true},		 		
 		 			{ id:11, pId:1, name:"业务管理", open:true},
-		 			{ id:111, pId:11, name:"业主钟点工需求", url:"<c:url value="/demandApply/queryDemandApply.shtml"/>",target:"rightFrame"},
+		 			//{ id:111, pId:11, name:"业主钟点工需求", url:"<c:url value="/demandApply/queryDemandApply.shtml"/>",target:"rightFrame"},
+
+		 			{ id:1111, pId:11, name:"雇主管理", url:"<c:url value="/employer/queryEmployer.shtml"/>",target:"rightFrame"},
+		 			{ id:11111, pId:11, name:"雇主需求管理", url:"<c:url value="/employerDemands/queryEmployerDemands.shtml"/>",target:"rightFrame"},
+		 			
 		 			{ id:112, pId:11, name:"家政服务人员管理 ", url:"<c:url value="/servicePerson/queryServicePerson.shtml"/>",target:"rightFrame"},
 		 			{ id:113, pId:11, name:"家政公司管理", url:"<c:url value="/houseKeeping/queryHouseKeeping.shtml"/>",target:"rightFrame"},
 		 			{ id:12, pId:1, name:"系统管理", open:true},
