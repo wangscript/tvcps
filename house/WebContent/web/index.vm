@@ -1,5 +1,6 @@
 #if(!$null.isNull($employer))
 	欢迎你：$employer.loginName
+	<a href="#">发布需求</a>
 #end
 #set($layout = "layout.vm")
 雇主需求列表
