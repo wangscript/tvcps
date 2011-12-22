@@ -17,9 +17,12 @@ public class EmployerAction extends GenericAction {
     
     public String loginEmployer(){
         employer = employerService.checkLogin(loginName, passWord);
+    
         if(employer == null){
             addActionMessage(GlobalConfig.getConfProperty("100001"));
             return INPUT;
+        }else{
+            this.getHttpSession().setAttribute("employer", employer);
         }
         return SUCCESS;
     }
