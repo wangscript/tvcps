@@ -1,3 +1,6 @@
+#if(!$null.isNull($employer))
+	欢迎你：$employer.loginName
+#end
 #set($layout = "layout.vm")
 雇主需求列表
 <table width="80%" align="center" style="margin:20px" border="1">
