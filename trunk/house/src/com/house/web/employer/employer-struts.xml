@@ -5,7 +5,7 @@
 <struts>
 	<package name="employer" extends="struts-common" namespace="/employer">
 		<action name="loginEmployer" class="employerAction" method="loginEmployer">
-			<result name="success" type="redirectAction">/listEmployer.shtml</result>
+			<result name="success" type="redirect">/index/index.shtml</result>
 			<result name="input" type="redirect">/index/index.shtml</result>
 		</action>
 		<action name="regEmployer" class="employerAction" method="regEmployer">
