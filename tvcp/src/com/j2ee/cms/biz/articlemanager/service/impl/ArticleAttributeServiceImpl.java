@@ -1,7 +1,4 @@
-/**
- * project：通用内容管理系统
- * Company:  
-*/
+
 package com.j2ee.cms.biz.articlemanager.service.impl;
 
 import java.util.List;
