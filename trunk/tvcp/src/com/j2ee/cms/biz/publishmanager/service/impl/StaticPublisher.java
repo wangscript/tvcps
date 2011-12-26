@@ -279,7 +279,7 @@ public class StaticPublisher implements Publisher {
 			}
 			m.appendTail(sb);*/
 			
-			FileUtil.write(buildTemplateFile,content.replace("images",  File.separator+"template_instance"+File.separator+ templateInstance.getId() + File.separator+"images" ));
+			FileUtil.write(buildTemplateFile,content.replace("images",  "/template_instance/"+ templateInstance.getId() + "/images" ));
 			
 			String latestInfConf = SiteResource.getBuildStaticDir(siteId, false) + File.separator +"latestInfo";
 			if(!FileUtil.isExist(latestInfConf)) {
