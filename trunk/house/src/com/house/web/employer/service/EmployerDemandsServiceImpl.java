@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.house.biz.entity.EmployerDemandsEntity;
 import com.house.core.service.GenericServiceImpl;
+import com.house.core.util.IDFactory;
 import com.house.web.employer.dao.EmployerDemandsDao;
 
 public class EmployerDemandsServiceImpl extends GenericServiceImpl<EmployerDemandsEntity, String> implements EmployerDemandsService {
@@ -25,6 +26,15 @@ public class EmployerDemandsServiceImpl extends GenericServiceImpl<EmployerDeman
     @Override
     public List<EmployerDemandsEntity> queryEmployerDemands() {
         return employerDemandsDao.queryObjectsByObject(new EmployerDemandsEntity()); 
+    }
+    
+    public String saveEmployerDemands(EmployerDemandsEntity employerDemandsEntity){
+        if(employerDemandsEntity.getEmDemandId() != null && !employerDemandsEntity.getEmDemandId().equals("")){
+            return updateObject(employerDemandsEntity);
+        }else{
+            employerDemandsEntity.setEmDemandId(IDFactory.getId());
+            return saveObject(employerDemandsEntity);
+        }
     }
     
 }
