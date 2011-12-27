@@ -49,9 +49,44 @@
 				PASS_WORD = #passWord#  
             </isNotEmpty>
 	</select>
+	
+	<!-- 根据ID查询出服务人员状态 -->
+	<select id="selectById" resultMap="employer" parameterClass="String">
+		select * from T_EMPLOYER where EMPLOYER_ID =  #value#
+	</select>
     
-    <!-- 添加服务人员状态记录 -->
+    <!-- 添加雇员记录 -->
     <insert id="insert" parameterClass="employerEntity" >
         insert into T_EMPLOYER (EMPLOYER_ID,LOGIN_NAME,PASS_WORD,TEL,LINK_MAN) values (#employerId#,#loginName#,#passWord#,#tel#,#linkMan#)
     </insert>
+    
+    <!-- 删除雇员记录 -->
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from T_EMPLOYER
+		where EMPLOYER_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<!-- 修改雇员信息 -->
+	<update id="updateByObject" parameterClass="employerEntity" >
+		update T_EMPLOYER
+		set EMPLOYER_ID=#employerId#
+		<dynamic>
+			<isNotEmpty prepend="," property="loginName">
+				LOGIN_NAME = #loginName#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="passWord">
+				PASS_WORD = #passWord#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="tel">
+				TEL = #tel#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="linkMan">
+				LINK_MAN = #linkMan#
+			</isNotEmpty>
+		</dynamic>
+		where EMPLOYER_ID=#employerId#
+	</update>
 </sqlMap>

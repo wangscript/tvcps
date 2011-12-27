@@ -17,14 +17,45 @@
 		<action name="listEmployer" class="employerAction" method="listEmployer">
 			<result name="success">/web/employer/employer_list.vm</result>
 		</action>
+		
 		<action name="queryEmployer" class="employerAction" method="queryEmployer">
 			<result name="success">/module/employer/employer_list.jsp</result>
+		</action>
+		<action name="chooseEmployer" class="employerAction" method="chooseEmployer">
+			<result name="success">/module/employer/choose_employer.jsp</result>
+		</action>
+		<action name="addEmployer" class="employerAction" method="addEmployer">
+			<result name="success" type="redirect">/employer/queryEmployer.shtml</result>
+		</action>
+		<action name="findEmployerById" class="employerAction" method="findEmployerById">
+			<result name="success">/module/employer/employer_detail.jsp</result>
+		</action>
+		<action name="detailEmployer" class="employerAction" method="detailEmployer">
+			<result name="success">/module/employer/employer_detail.jsp</result>
+		</action>
+		<action name="deleteEmployerByIds" class="employerAction" method="deleteEmployerByIds">
+			<result name="success" type="redirect">
+				<param name="location">/employer/queryEmployer.shtml?errorMessage=${errorMessage}</param>
+	    		<param name="encode">true</param>
+			</result>
 		</action>
 	</package>
 	
 	<package name="employerDemands" extends="struts-common" namespace="/employerDemands">
 		<action name="queryEmployerDemands" class="employerDemandsAction" method="queryEmployerDemands">
 			<result name="success">/module/employer/employer_demands_list.jsp</result>
+		</action>
+		<action name="addEmployerDemands" class="employerDemandsAction" method="addEmployerDemands">
+			<result name="success" type="redirect">/employerDemands/queryEmployerDemands.shtml</result>
+		</action>
+		<action name="findEmployerDemandsById" class="employerDemandsAction" method="findEmployerDemandsById">
+			<result name="success">/module/employer/employer_demands_detail.jsp</result>
+		</action>
+		<action name="detailEmployerDemands" class="employerDemandsAction" method="detailEmployerDemands">
+			<result name="success">/module/employer/employer_demands_detail.jsp</result>
+		</action>
+		<action name="deleteEmployerDemandsByIds" class="employerDemandsAction" method="deleteEmployerDemandsByIds">
+			<result name="success" type="redirect">/employerDemands/queryEmployerDemands.shtml</result>
 		</action>
 	</package>
 </struts>

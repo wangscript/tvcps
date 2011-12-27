@@ -1,5 +1,8 @@
 package com.house.web.employer.action;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 import com.house.biz.entity.EmployerEntity;
 import com.house.core.action.GenericAction;
 import com.house.core.sys.GlobalConfig;
@@ -17,7 +20,6 @@ public class EmployerAction extends GenericAction {
     
     public String loginEmployer(){
         employer = employerService.checkLogin(loginName, passWord);
-    
         if(employer == null){
             addActionMessage(GlobalConfig.getConfProperty("100001"));
             return INPUT;
@@ -33,7 +35,7 @@ public class EmployerAction extends GenericAction {
     
     public String saveEmployer(){
         employer.setEmployerId(IDFactory.getId()); 
-        employerService.saveObject(employer);
+        addActionMessage(employerService.saveEmployer(employer));
         return SUCCESS;
     }
     
@@ -46,6 +48,41 @@ public class EmployerAction extends GenericAction {
             employer = new EmployerEntity();
         }
         pagination = employerService.queryObjectsByPaginationAndObject(employer, pagination);
+        try {
+            errorMessage = URLDecoder.decode(errorMessage, "UTF-8");
+        } catch (Exception e) {
+            errorMessage = null;
+        }
+        return SUCCESS;
+    }
+    
+    public String chooseEmployer() throws Exception {
+        if(employer == null){
+            employer = new EmployerEntity();
+        }
+        pagination = employerService.queryObjectsByPaginationAndObject(employer, pagination);
+        return SUCCESS;
+    }
+    
+    public String findEmployerById(){
+        employer = employerService.findObjectById(strChecked);
+        return SUCCESS;
+    }
+    public String detailEmployer(){
+        return SUCCESS;
+    }
+    
+    public String deleteEmployerByIds(){
+        errorMessage = employerService.deleteObjectByIds(strChecked);
+        try {
+            errorMessage = URLEncoder.encode(errorMessage, "UTF-8");
+        } catch (Exception e) {
+            errorMessage = null;
+        }
+        return SUCCESS;
+    }
+    public String addEmployer(){
+        addActionMessage(employerService.saveEmployer(employer));
         return SUCCESS;
     }
     

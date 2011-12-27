@@ -24,6 +24,23 @@ public class EmployerDemandsAction extends GenericAction {
         return SUCCESS;
     }
     
+    public String findEmployerDemandsById(){
+        employerDemandsEntity = employerDemandsService.findObjectById(strChecked);
+        return SUCCESS;
+    }
+    public String detailEmployerDemands(){
+        return SUCCESS;
+    }
+    
+    public String deleteEmployerDemandsByIds(){
+        addActionMessage(employerDemandsService.deleteObjectByIds(strChecked));
+        return SUCCESS;
+    }
+    public String addEmployerDemands(){
+        addActionMessage(employerDemandsService.saveEmployerDemands(employerDemandsEntity));
+        return SUCCESS;
+    }
+    
     public EmployerDemandsService getEmployerDemandsService() {
         return employerDemandsService;
     }
