@@ -46,49 +46,55 @@
 				<td class="textTd">
 					<span>
 					    <input type="text"  class="required" id="linkMan" name="employerDemandsEntity.employer.linkMan" value= "${employerDemandsEntity.employer.linkMan }" />
-					    <input type="button" class="buttonStyle" value="选择联系人" onclick="showDialog()"/>
+					 
 					</span>
+				</td>
+				<td>
+				   <input type="button" class="buttonStyle" value="选择联系人" onclick="showDialog()"/>
 				</td>
 			</tr>
 			<tr>
 				<td class="labelTd">小区：</td>
 				<td class="textTd">
 					<input type="text" class="required" id="villageName" name="employerDemandsEntity.village.villageName" value= "${employerDemandsEntity.village.villageName}" />
-					<input type="button" class="buttonStyle" value="选择小区" onclick="showVillageDialog()"/>
+					
+				</td>
+				<td>
+				<input type="button" class="buttonStyle" value="选择小区" onclick="showVillageDialog()"/>
 				</td>
 			</tr>
 			<tr>
 				<td class="labelTd">频次：</td>
-				<td class="textTd">
+				<td class="textTd" colspan="2">
 					<input type="text"  class="required"   name="employerDemandsEntity.rate" value= "${employerDemandsEntity.rate}" />
 				</td>
 			</tr>
 			<tr>
 				<td class="labelTd">时长：</td>
-				<td class="textTd">
+				<td class="textTd" colspan="2">
 					<input type="text"  class="required"   name="employerDemandsEntity.hourLength" value= "${employerDemandsEntity.hourLength}" />
 				</td>
 			</tr>
 			<tr>
 				<td class="labelTd">居家面积：</td>
-				<td class="textTd">
+				<td class="textTd" colspan="2">
 					<input type="text"  class="required"   name="employerDemandsEntity.houseArea" value= "${employerDemandsEntity.houseArea}" />
 				</td>
 			</tr>
 			<tr>
 				<td class="labelTd">进展说明：</td>
-				<td class="textTd">
+				<td class="textTd" colspan="2">
 					<input type="text"  class="required"   name="employerDemandsEntity.evolveStatus" value= "${employerDemandsEntity.evolveStatus}" />
 				</td>
 			</tr>
 			<tr>
 				<td class="labelTd">主需求说明：</td>
-				<td class="textTd">
+				<td class="textTd" colspan="2">
 					<textarea  rows="6"  name="employerDemandsEntity.demandExplain">${employerDemandsEntity.demandExplain}</textarea>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
+				<td colspan="3">
 					 <input type="submit" name="saveButton" id="saveButton" value="保存"  class="buttonStyle" validatorType="disable"/> 
 				     <input type="reset" name="resetButton" id="resetButton" value="重置" class="buttonStyle" />
 				</td>
