@@ -7,4 +7,5 @@ import com.house.core.service.GenericService;
 
 public interface EmployerDemandsService extends GenericService<EmployerDemandsEntity, String> {
     public List<EmployerDemandsEntity> queryEmployerDemands();
+    public String saveEmployerDemands(EmployerDemandsEntity employerDemandsEntity);
 }

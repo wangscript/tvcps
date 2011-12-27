@@ -6,6 +6,7 @@ import org.apache.commons.lang.xwork.StringUtils;
 
 import com.house.biz.entity.EmployerEntity;
 import com.house.core.service.GenericServiceImpl;
+import com.house.core.util.IDFactory;
 import com.house.web.employer.dao.EmployerDao;
 
 public class EmployerServiceImpl extends GenericServiceImpl<EmployerEntity, String> implements EmployerService {
@@ -24,6 +25,15 @@ public class EmployerServiceImpl extends GenericServiceImpl<EmployerEntity, Stri
             return list.get(0);
         }
         return null;
+    }
+    
+    public String saveEmployer(EmployerEntity employerEntity){
+        if(employerEntity.getEmployerId() != null && !employerEntity.getEmployerId().equals("")){
+            return updateObject(employerEntity);
+        }else{
+            employerEntity.setEmployerId(IDFactory.getId());
+            return saveObject(employerEntity);
+        }
     }
 
     /**
