@@ -53,7 +53,10 @@
 <form id="employerDemandsForm" action="<c:url value="/employerDemands/queryEmployerDemands.shtml"/>" method="post">
     <input type="hidden" name="strChecked" id="strChecked" />
 	<div class="currentLocationStyle"><img src="<c:url value='/images/common/currentLocation.png'/>"/>当前位置>>
-		<span>雇主需求管理</span>
+		<a href="<c:url value="/employer/queryEmployer.shtml"/>">雇主管理</a>>>
+		<c:if test="${employer.linkMan}!=null">
+			<span>[${employer.linkMan}]雇主需求管理</span>
+		</c:if>
 	</div>
 	<div class="findText">
 		<li><span>联系人：</span><input type="text" name="employer.linkMan" value="${employer.linkMan}"/></li>

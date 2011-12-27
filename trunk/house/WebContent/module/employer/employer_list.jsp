@@ -69,7 +69,7 @@
 	<input type="hidden" name="errorMessage" id="errorMessage" value="${errorMessage}"/>
 	<input type="hidden" name="strChecked" id="strChecked" />
 	<div class="currentLocationStyle"><img src="<c:url value='/images/common/currentLocation.png'/>"/>当前位置>>
-		<span>雇主管理</span>
+		<a href="<c:url value="/employer/queryEmployer.shtml"/>"><span>雇主管理</span></a>
 	</div>
 	<div class="findText">
 		<li><span>联系人：</span><input type="text" id="linkMan" name="employer.linkMan" value="${employer.linkMan}"/></li>
@@ -88,6 +88,7 @@
 	    <th>密码</th>
 	    <th>联系电话</th>
 	    <th>联系人</th>
+	    <th>需求信息</th>
 	  </tr>
 	  <c:forEach items="${pagination.data}" var="employerEntity">
 	  <tr>
