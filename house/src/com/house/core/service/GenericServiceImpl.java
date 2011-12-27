@@ -65,16 +65,22 @@ public class GenericServiceImpl<T extends Serializable, PK extends Serializable>
 
 	@Override
 	public String deleteObjectByIds(String ids) {
-		// TODO Auto-generated method stub		
-		if (null != ids && !"".equals(ids.trim())) {
-			int count = genericDao.deleteByIds(this.stringToArray(ids));
-			if(count > 0){
-				log.info("删除"+ids+"id集合成功，删除总记录数为"+count+"条!");
-				return GlobalConfig.getConfProperty("100002");
-			}			
-		}
-		log.info("删除失败!");
-		return GlobalConfig.getConfProperty("900002");
+	    try{
+    		// TODO Auto-generated method stub		
+    		if (null != ids && !"".equals(ids.trim())) {
+    			int count = genericDao.deleteByIds(this.stringToArray(ids));
+    			if(count > 0){
+    				log.info("删除"+ids+"id集合成功，删除总记录数为"+count+"条!");
+    				return GlobalConfig.getConfProperty("100002");
+    			}			
+    		}
+    		log.info("删除失败!");
+    		return GlobalConfig.getConfProperty("900002");
+	    }catch(Exception e){
+	        log.info("删除失败!该数据下还包含子数据！");
+	        return GlobalConfig.getConfProperty("900002");
+	        
+	    }
 	}
 	
 	 /**

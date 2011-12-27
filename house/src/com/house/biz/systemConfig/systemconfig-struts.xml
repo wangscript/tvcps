@@ -26,6 +26,9 @@
 			<result name="success">/module/systemConfig/village/village_list.jsp</result> 
 			<!-- <result name="success" >/module/test/test.vm</result> -->	
 		</action>	
+		<action name="chooseVillage" class="villageAction" method="chooseVillage">
+			<result name="success">/module/employer/choose_village.jsp</result>
+		</action>
 		<action name="saveVillage" class="villageAction" method="saveVillage">
 			<result name="success" type= "redirect">/village/queryVillage.shtml</result>	
 		</action>	

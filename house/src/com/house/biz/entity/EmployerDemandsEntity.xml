@@ -3,6 +3,7 @@
 <sqlMap namespace="employerdemandsentity">
     <typeAlias alias="employerDemandsEntity" type="com.house.biz.entity.EmployerDemandsEntity" />
     <typeAlias alias="employerEntity" type="com.house.biz.entity.EmployerEntity" />
+    <typeAlias alias="villageEntity" type="com.house.biz.entity.VillageEntity" />
     <resultMap id="employer" class="employerEntity">
         <result property="employerId" column="EMPLOYER_ID" nullValue="" />
         <result property="loginName" column="LOGIN_NAME" />
@@ -10,16 +11,26 @@
         <result property="tel" column="TEL" />
         <result property="linkMan" column="LINK_MAN" />
     </resultMap>
+    <resultMap id="village" class="villageEntity">
+		<result property="villageId" column="VILLAGE_ID" nullValue="" />
+		<result property="villageName" column="VILLAGE_NAME" nullValue="" />
+	</resultMap>
     
     <select id="getEmployerById" parameterClass="java.lang.String" resultMap="employer" fetchSize="1">
         <![CDATA[
             select * from T_EMPLOYER c where c.EMPLOYER_ID = #value#
         ]]>
     </select>
+    <select id="getVillageById" parameterClass="java.lang.String" resultMap="village" fetchSize="1">
+        <![CDATA[
+            select * from C_VILLAGE v where v.VILLAGE_ID = #value#
+        ]]>
+    </select>
     
     <resultMap id="employerDemands" class="employerDemandsEntity">
         <result property="emDemandId" column="EM_DEMAND_ID" nullValue="" />
         <result property="village.villageId" column="VILLAGE_ID" nullValue="" />
+        <result property="village" column="VILLAGE_ID" select="employerdemandsentity.getVillageById"/>
         <result property="employer.employerId" column="EMPLOYER_ID" nullValue="" />
         <result property="employer" column="EMPLOYER_ID" select="employerdemandsentity.getEmployerById"/>
         <result property="evolvecaseId" column="EVOLVECASE_ID" />
@@ -29,12 +40,19 @@
         <result property="evolveStatus" column="EVOLVE_STATUS" />
         <result property="demandExplain" column="DEMAND_EXPLAIN" />
     </resultMap>
- 
-    <!-- 分页查询所有记录 -->
+
+    <!-- 添加雇员需求记录 -->
+    <insert id="insert" parameterClass="employerDemandsEntity" >
+        insert into T_EMPLOYER_DEMANDS(EM_DEMAND_ID,VILLAGE_ID,EMPLOYER_ID,RATE,HOUR_LENGTH,HOUSE_AREA,EVOLVE_STATUS,DEMAND_EXPLAIN) 
+        values (#emDemandId#,#village.villageId#,#employer.employerId#,#rate#,#hourLength#,#houseArea#,#evolveStatus#,#demandExplain#)
+    </insert>
+
+    <!-- 分页查询所有雇员需求记录 -->
     <select id="selectByObjectForPagination" resultMap="employerDemands" parameterClass="employerDemandsEntity">
-        select c.*,t.LINK_MAN linkMan from T_EMPLOYER_DEMANDS c 
-        left join T_EMPLOYER t
-        on c.employer_id=t.employer_id
+        select c.*,t.LINK_MAN linkMan,v.VILLAGE_NAME villageName 
+        from T_EMPLOYER_DEMANDS c 
+        left join T_EMPLOYER t on c.EMPLOYER_ID=t.EMPLOYER_ID
+        left join C_VILLAGE v on v.VILLAGE_ID=c.VILLAGE_ID
         where 1=1
         <dynamic>
             <isNotEmpty prepend="and" property="employer.linkMan">
@@ -48,12 +66,11 @@
         ]]>
     </select>
     
-    <!-- 查询总条数 -->
+    <!-- 查询雇员需求总条数 -->
     <select id="countByObject" resultClass="Long" parameterClass="employerDemandsEntity">
         <![CDATA[
             select count(*) from T_EMPLOYER_DEMANDS c 
-            left join T_EMPLOYER t
-            on c.employer_id=t.employer_id
+            left join T_EMPLOYER t on c.employer_id=t.employer_id
             where 1=1
         ]]>
         <dynamic>
@@ -65,10 +82,55 @@
         </dynamic>
     </select>
     
-    <!-- 查询所有的业主钟点工需求列表 -->
+    <!-- 查询所有的雇员需求列表 -->
 	<select id="selectByObject" resultMap="employerDemands" parameterClass="employerDemandsEntity">
-		select c.*,t.LINK_MAN linkMan from T_EMPLOYER_DEMANDS c 
-        left join T_EMPLOYER t
-        on c.employer_id=t.employer_id
+        select c.*,t.LINK_MAN linkMan,v.VILLAGE_NAME villageName 
+        from T_EMPLOYER_DEMANDS c 
+        left join T_EMPLOYER t on c.EMPLOYER_ID=t.EMPLOYER_ID
+        left join C_VILLAGE v on v.VILLAGE_ID=c.VILLAGE_ID
 	</select>
+	
+	<!-- 根据ID查询出雇员需求 -->
+	<select id="selectById" resultMap="employerDemands" parameterClass="String">
+		select * from T_EMPLOYER_DEMANDS where EM_DEMAND_ID = #value#
+	</select>
+	
+	<!-- 删除雇员需求记录 -->
+	<delete id="deleteByIds" parameterClass="java.util.List" >
+		delete from T_EMPLOYER_DEMANDS
+		where EM_DEMAND_ID in
+		<iterate open="(" close=")" conjunction=",">
+   			#value[]#
+  		</iterate>
+	</delete>
+	
+	<!-- 修改雇员需求信息 -->
+	<update id="updateByObject" parameterClass="employerDemandsEntity" >
+		update T_EMPLOYER_DEMANDS
+		set EM_DEMAND_ID=#emDemandId#
+		<dynamic>
+		    <isNotEmpty prepend="," property="village.villageId">
+				VILLAGE_ID = #village.villageId#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="employer.employerId">
+				EMPLOYER_ID = #employer.employerId#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="rate">
+				RATE = #rate#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="houseArea">
+				HOUSE_AREA = #houseArea#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="hourLength">
+				HOUR_LENGTH = #hourLength#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="evolveStatus">
+				EVOLVE_STATUS = #evolveStatus#
+			</isNotEmpty>		
+			<isNotEmpty prepend="," property="demandExplain">
+				DEMAND_EXPLAIN = #demandExplain#
+			</isNotEmpty>
+		</dynamic>
+		where EM_DEMAND_ID=#emDemandId#
+	</update>
 </sqlMap>

@@ -2,6 +2,7 @@ package com.house.biz.systemConfig.action;
 
 import org.apache.catalina.connector.Request;
 
+import com.house.biz.entity.EmployerEntity;
 import com.house.biz.entity.VillageEntity;
 import com.house.biz.systemConfig.service.VillageService;
 import com.house.core.action.GenericAction;
@@ -59,6 +60,11 @@ public class VillageAction extends GenericAction{
 		villageEntity = villageService.findObjectById(strChecked);
 		return SUCCESS;
 	}
+	
+	public String chooseVillage() throws Exception {
+	    pagination = villageService.queryObjectsByPaginationAndObject(villageEntity, pagination);
+        return SUCCESS;
+    }
 	
 	public void setVillageService(VillageService villageService) {
 		this.villageService = villageService;
