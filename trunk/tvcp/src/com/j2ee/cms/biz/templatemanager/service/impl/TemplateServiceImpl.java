@@ -299,7 +299,7 @@ public class TemplateServiceImpl implements TemplateService {
 			templateDao.deleteByKey(templateId);
 			String localPath = GlobalConfig.appRealPath + template.getLocalPath();
 			// 将路径以"/"隔开
-			String[] str = localPath.split(File.separator);
+			String[] str = localPath.split("/");
 			// 获得最后的目录
 			String folder =File.separator + str[str.length-1];
 			String newFolder = StringUtil.delete(localPath, folder);
@@ -417,7 +417,7 @@ public class TemplateServiceImpl implements TemplateService {
 					// 判断上传的文件名是否与要更新的文件名一致
 					UploadedFile uploadedFile = list.get(0);
 					String name = uploadedFile.getFileName();
-					String str[] = template.getLocalPath().split(File.separator);
+					String str[] = template.getLocalPath().split("/");
 					// 获得模版html所在的文件目录 :  release/..../template/12345678
 			    	String localPath = StringUtil.delete(template.getLocalPath(), File.separator + str[str.length-1]);
 			    	// 模版图片路径
@@ -782,7 +782,8 @@ public class TemplateServiceImpl implements TemplateService {
 	 */
 	public String findTemplateLocalPath(Template template) {
 		String localPath = "";
-		String str[] = template.getLocalPath().split(File.separator);
+		String tempLocalPath = template.getLocalPath();
+		String str[] = tempLocalPath.split("//");
 		// 获得模板所在的目录名
 		String folder = GlobalConfig.appRealPath + StringUtil.delete(template.getLocalPath(), File.separator + str[str.length-1]); 
 		// 获得压缩后的包名
