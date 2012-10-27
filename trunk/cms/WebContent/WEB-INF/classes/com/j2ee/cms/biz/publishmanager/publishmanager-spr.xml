@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean name="/publish" class="com.j2ee.cms.biz.publishmanager.web.action.PublishAction" scope="prototype">
+		<property name="baseBiz" ref="publishmanager-publishBiz" />
+	</bean>
+	<bean id="publishmanager-publishBiz" class="com.j2ee.cms.biz.publishmanager.service.PublishBiz">
+		<property name="publishService" ref="publishmanager-templateUnitService" />
+	</bean>
+	<bean id="publishmanager-templateUnitService" class="com.j2ee.cms.biz.publishmanager.service.impl.PublishServiceImpl">
+		<property name="publisher" ref="publishmanager-staticPublisher"/>
+		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao" />
+		<property name="articleDao" ref="articlemanager-articleDao" />
+	</bean>
+	<bean id="publishmanager-articlePublishListDao" class="com.j2ee.cms.biz.publishmanager.dao.impl.ArticlePublishListDaoImpl" parent="genericDaoImpl"/>
+	<bean id="publishmanager-articleBuildListDao" class="com.j2ee.cms.biz.publishmanager.dao.impl.ArticleBuildListDaoImpl" parent="genericDaoImpl"/>
+	<bean id="publishmanager-staticPublisher" class="com.j2ee.cms.biz.publishmanager.service.impl.StaticPublisher">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+		<property name="templateCategoryDao" ref="templatemanager-templateCategoryDao" />
+		<property name="templateDao" ref="templatemanager-templateDao" />
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao" />
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="articleBuildListDao" ref="publishmanager-articleBuildListDao" />
+		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="staticUnitAnalyzer" ref="staticUnitAnalyzer" />
+		<property name="titleLinkAnalyzer" ref="titleLinkAnalyzer" />
+		<property name="columnLinkAnalyzer" ref="columnLinkAnalyzer" />
+		<property name="currentLocationAnalyzer" ref="currentLocationAnalyzer" />	
+		<property name="pictureNewsAnalyzer" ref="pictureNewsAnalyzer" />	
+		<property name="latestInfoAnalyzer" ref="latestInfoAnalyzer" />
+		<property name="articleTextAnalyzer" ref="articleTextAnalyzer" />
+		<property name="titleLinkPageAnalyzer" ref="titleLinkPageAnalyzer" />
+		<property name="magazineCategoryAnalyzer" ref="magazineCategoryAnalyzer" />
+		<property name="onlineSurverySetAnalyzer" ref="onlineSurverySetAnalyzer" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="onlineBulletinDao"  ref="onlineBulletin-onlineBulletinDao"/>
+	</bean>
+	
+	<!-- 生成列表管理  start-->
+	<bean name="/build" class="com.j2ee.cms.biz.publishmanager.web.action.BuildAction" scope="prototype">
+		<property name="baseBiz" ref="publishmanager-buildBiz" />
+	</bean>
+	<bean id="publishmanager-buildBiz" class="com.j2ee.cms.biz.publishmanager.service.BuildBiz">
+		<property name="buildService" ref="publishmanager-buildService" />
+	</bean>
+	<bean id="publishmanager-buildService" class="com.j2ee.cms.biz.publishmanager.service.impl.BuildServiceImpl"> 
+		<property name="articleBuildListDao" ref="publishmanager-articleBuildListDao"/>
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<!-- 生成列表管理  end-->
+</beans>

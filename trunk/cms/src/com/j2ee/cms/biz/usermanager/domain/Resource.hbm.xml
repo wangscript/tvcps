@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.usermanager.domain">
+	<class name="Resource" table="resources">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="identifier" />
+		<property name="type" />
+		<many-to-one name="site" column="site_id" />
+	</class>	
+	
+	<!-- 根据资源类型，资源标识查询所有数据  -->
+	<query name="findResourceByTypeAndIdentifier"><![CDATA[
+		  FROM Resource resource 
+		  WHERE resource.identifier = :identifier 
+		  AND resource.site.id = :siteid 
+		  AND resource.site.deleted = 0
+		  AND resource.type = :type	  
+	
+	]]>	
+		
+	</query>
+	<!-- 根据资源类型，资源标识和网站ID查询所有数据  -->
+	<query name="findResourceByTypeAndSiteId"><![CDATA[
+		  FROM Resource resource 
+			WHERE  resource.site.id = :siteid 
+	  		AND resource.type = :type	
+	  		AND resource.site.deleted = 0
+	]]>		
+	</query>
+	
+	<!-- 根据资源类型，资源标识和网站ID查询所有数据  -->
+	<query name="findResourceByIdentifierAndTypeAndSiteId"><![CDATA[
+		   FROM Resource resource 
+		  WHERE resource.site.id = :siteid 
+	  		AND resource.type = :type	
+	  		AND resource.identifier = :identifier
+	  		AND resource.site.deleted = 0
+	]]>		
+	</query>
+	
+	<!-- 根据资源类型，资源标识和网站ID查询资源id  -->
+	<query name="findResourceIdByColumnId"><![CDATA[
+		 SELECT resource.id
+		   FROM Resource resource 
+		  WHERE resource.site.id = :siteid 
+	  		AND resource.type = :type	
+	  		AND resource.identifier = :identifier
+	  		AND resource.site.deleted = 0
+	]]>		
+	</query>
+	
+</hibernate-mapping>	

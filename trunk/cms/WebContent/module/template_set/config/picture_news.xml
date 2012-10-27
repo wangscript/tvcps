@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
+	<picture-news>
+		<viewStyle>0</viewStyle>
+		<contextFrom>1</contextFrom>
+		<columnName></columnName>
+		<start>0</start>
+		<col>10</col>
+		<row>1</row>
+		<titleLimit>20</titleLimit>
+		<moreLink></moreLink>
+		<moreLinkPic>0</moreLinkPic>
+		<allLink>0</allLink>
+		<allLinkWay>0</allLinkWay>
+		<titleHead></titleHead>
+		<titleHeadPic>0</titleHeadPic>
+		<titleHeadValidity>-1</titleHeadValidity>	
+		<titleEnd></titleEnd>
+		<titleEndValidity>-1</titleEndValidity>
+		<titleEndPic>0</titleEndPic>
+	</picture-news>
+</j2ee.cms>

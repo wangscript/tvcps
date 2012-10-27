@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
+	<column-link>
+		<column-style>0</column-style>
+		<column-type>2</column-type>
+		<fixedColumn></fixedColumn>
+		<display-column-row>10</display-column-row>
+		<display-column-col>1</display-column-col>
+		<column-prefix></column-prefix>
+		<column-prefix-date>-1</column-prefix-date>
+		<column-prefix-picture>0</column-prefix-picture>
+		<column-suffix></column-suffix>
+		<column-suffix-date>-1</column-suffix-date>
+		<column-suffix-picture>0</column-suffix-picture>
+	</column-link>
+</j2ee.cms>

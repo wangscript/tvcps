@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.templatemanager.domain">
+    <class name="TemplateCategory" table="template_categories">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="name" />   
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
+        <many-to-one name="site" column="site_id" not-null="true"/>
+        <many-to-one name="creator" column="creator_id" not-null="true"/>             
+    </class>
+   
+    <!-- 查询所有模板类别数据 -->
+    <query name="findAllTemplateCategory"><![CDATA[
+	          FROM TemplateCategory templateCategory
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照网站id查询模板类别数据 -->
+    <query name="findTemplateCategoryBySiteId"><![CDATA[
+	          FROM TemplateCategory templateCategory
+	         WHERE templateCategory.site.id = :siteId
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照网站id和创建者id查询模板类别数据 -->
+    <query name="findTemplateCategoryBySiteIdAndCreatorId"><![CDATA[
+	          FROM TemplateCategory templateCategory
+	         WHERE templateCategory.creator.id = :creatorId
+	           AND templateCategory.site.id = :siteId
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照模板id查询模板类别数据 -->
+    <query name="findTemplateCategoryByTempalteCategoryId"><![CDATA[
+	          FROM TemplateCategory templateCategory
+	         WHERE templateCategory.id = :templateCategoryId
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 查询所有模板类别数据并分页 -->
+    <query name="findAllTemplateCategoryPage"><![CDATA[
+	        SELECT templateCategory.id, templateCategory.name, creator.name, site.name 
+	     	  FROM TemplateCategory templateCategory
+	     LEFT JOIN templateCategory.site site
+	     LEFT JOIN templateCategory.creator creator
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照网站id查询模板类别数据并分页-->
+    <query name="findTemplateCategoryBySiteIdPage"><![CDATA[
+	        SELECT templateCategory.id, templateCategory.name, creator.name, site.name 
+	          FROM TemplateCategory templateCategory
+	     LEFT JOIN templateCategory.site site
+	     LEFT JOIN templateCategory.creator creator
+	         WHERE templateCategory.site.id = :siteId
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 按照网站id和创建者id查询模板类别数据并分页 -->
+    <query name="findTemplateCategoryBySiteIdAndCreatorIdPage"><![CDATA[
+	        SELECT templateCategory.id, templateCategory.name, creator.name, site.name 
+	          FROM TemplateCategory templateCategory
+	     LEFT JOIN templateCategory.site site
+	     LEFT JOIN templateCategory.creator creator
+	         WHERE templateCategory.creator.id = :creatorId
+	           AND templateCategory.site.id = :siteId
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 判断新增的模板类别名称是否存在 -->
+    <query name="findTemplateCategoryName"><![CDATA[
+	          FROM TemplateCategory templateCategory
+	         WHERE templateCategory.name = :templateCategoryName
+	           AND templateCategory.site.id = :siteId
+	      ORDER BY templateCategory.createTime DESC
+    ]]>
+    </query>
+    
+</hibernate-mapping>

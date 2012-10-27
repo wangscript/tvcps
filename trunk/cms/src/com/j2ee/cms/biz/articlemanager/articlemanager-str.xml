@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+	<form-beans>
+		<form-bean name="articleFormatForm" type="com.j2ee.cms.biz.articlemanager.web.form.ArticleFormatForm" />
+		<form-bean name="articleAttributeForm" type="com.j2ee.cms.biz.articlemanager.web.form.ArticleAttributeForm" />
+		<form-bean name="articleForm" type="com.j2ee.cms.biz.articlemanager.web.form.ArticleForm" />
+		<form-bean name="enumerationForm" type="com.j2ee.cms.biz.articlemanager.web.form.EnumerationForm" />
+	</form-beans>
+	<global-exceptions />
+	<action-mappings>
+		
+		<!-- 文章格式  -->
+	    <action path="/articleFormat"
+	         	type="org.springframework.web.struts.DelegatingActionProxy"  
+	            scope="request"
+	            name="articleFormatForm"
+	    >
+	    	<forward name="detail"  path="/module/article_manager/format/format_detail.jsp"/>
+	    	<forward name="success" path="/module/article_manager/format/format_list.jsp"/>
+	    	<forward name="article" path="/module/article_manager/article/article_detail.jsp"/>
+	    	<forward name="delete"  path="/articleFormat.do?dealMethod="/>
+	    	<forward name="import"  path="/module/article_manager/format/format_import.jsp"/>
+	    </action>	
+	    
+	    <!-- 文章属性 -->
+	    <action path="/articleAttribute"
+	         	type="org.springframework.web.struts.DelegatingActionProxy"  
+	            scope="request"
+	            name="articleAttributeForm"
+	    >
+	    	<forward name="detail"  			path="/module/article_manager/attribute/attribute_detail.jsp"/>
+	    	<forward name="ajaxmsg" 			path="/module/article_manager/attribute/get_ajax_msg.jsp"/>
+	    	<forward name="success" 			path="/module/article_manager/attribute/attribute_list.jsp"/>
+	    	<forward name="delete"  			path="/articleAttribute.do?dealMethod="/>
+	    	<forward name="sortAttribute" 		path="/module/article_manager/attribute/sort_attribute.jsp"/>
+	    	<forward name="deleteSuccess"  		path="/articleAttribute.do?dealMethod="/>
+	    </action>	
+	    
+	     <!-- 文章 -->
+	    <action path="/article"
+	         	type="org.springframework.web.struts.DelegatingActionProxy"  
+	            scope="request"
+	            name="articleForm"
+	    >
+	    	<forward name="form"            	path="/module/article_manager/article/get_form.jsp"/>
+	    	<forward name="recycle"         	path="/module/article_manager/article/recycle_list.jsp"/>
+	    	<forward name="detail"          	path="/module/article_manager/article/article_detail.jsp"/>
+            <forward name="allArticles"     	path="/module/article_manager/article/article_all_list.jsp"/>
+	    	<forward name="success" 	    	path="/module/article_manager/article/article_column_list.jsp"/>
+	    	<forward name="operateSuccess" 		path="/module/article_manager/article/article_success.jsp"/>
+	    	<forward name="sort" 				path="/module/article_manager/article/sort_article.jsp"/>
+	    	<forward name="findPresentFormat" 	path="/module/article_manager/article/present_article.jsp"/>
+	    	<forward name="findMoveFormat" 		path="/module/article_manager/article/move_article.jsp"/>
+	    	<forward name="addSucess" 			path="/article.do?dealMethod="/>
+	    	<forward name="import"  			path="/module/article_manager/article/article_import.jsp"/>
+	    </action>
+	    
+	    <!-- 枚举类型 -->
+	    <action path="/enumeration"
+	    		type="org.springframework.web.struts.DelegatingActionProxy"  
+	            scope="request"
+	            name="enumerationForm"
+	    >
+	    	<forward name="success"            				path="/module/article_manager/format/enumeration_list.jsp"/>
+	    	<forward name="delete"             				path="/enumeration.do?dealMethod="/>
+	    	<forward name="detail"             				path="/module/article_manager/format/enumeration_detail.jsp"/>
+	    	<forward name="findEnumValues"              	path="/module/article_manager/format/enumValues_list.jsp"/>
+	    	<forward name="addOrModifyEnumValuesSuccess"    path="/module/article_manager/format/enumeration_detail.jsp"/>
+	    	<forward name="import"  						path="/module/article_manager/format/enumeration_import.jsp"/>
+	    </action>
+        
+        <!-- 文章业务外网action配置  end -->
+        <action path="/articleOut"
+             	type="org.springframework.web.struts.DelegatingActionProxy"   
+                name="articleForm"
+                scope="request"
+                parameter="dealMethod" >	
+            <forward name="findArticleHitsSuccess"          path="/module/article_manager/article/out/show_article_hits.jsp"/>
+            <forward name="addArticleHitsSuccess"           path="/module/article_manager/article/out/add_article_hits.jsp"/>			
+        </action>
+	</action-mappings>
+	
+</struts-config>
+

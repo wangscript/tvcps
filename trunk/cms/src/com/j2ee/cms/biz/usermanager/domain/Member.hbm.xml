@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.usermanager.domain">
+	<class name="Member" table="members">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="loginName" />
+		<property name="password" />
+		<property name="name" />
+		<property name="mobileTel" />
+		<property name="homeTel" /> 
+		<property name="registerDate" not-null="true"/>
+		<property name="residence" /> 
+		<property name="personHomePage" />
+		<property name="email" />
+		<property name="deleted" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<systemSetting>
+	<system>
+		<nodeId>menu</nodeId>
+		<nodeName>菜单管理</nodeName> 
+		<nodeUrl>menu.do?dealMethod=findMenu</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>
+	<system>
+		<nodeId>user</nodeId>
+		<nodeName>个人信息</nodeName>
+		<nodeUrl>user.do?dealMethod=personalInfoDetail</nodeUrl>
+		<nodeLeaf>true</nodeLeaf>
+		<nodePid>0</nodePid>
+	</system>		
+</systemSetting>
+

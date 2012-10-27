@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--消息类型 start -->
+	<bean name="/sitemessage" class="com.j2ee.cms.biz.messagemanager.web.action.SiteMessageAction" scope="prototype">
+		<property name="baseBiz" ref="messagemanager-sitemessageBiz"/>
+	</bean>
+	<bean id="messagemanager-sitemessageBiz" class="com.j2ee.cms.biz.messagemanager.service.SiteMessageBiz" scope="singleton">		
+		<property name="siteMessageService" ref="messagemanager-sitemessageService"/>
+	</bean>
+	<bean id="messagemanager-sitemessageService" class="com.j2ee.cms.biz.messagemanager.service.impl.SiteMessageServiceImpl" scope="singleton">
+		<property name="siteMessageDao" ref="messagemanager-sitemessageDao"/>
+		<property name="contactDao" ref="messagemanager-contactDao"/>
+		<property name="userDao" ref="messagemanager-userDao"/>
+		<property name="organizationDao" ref="messagemanager-organizationDao"/>
+		<property name="assignmentDao" ref="messagemanager-assignmentDao" />	
+	</bean>
+	<bean id="messagemanager-sitemessageDao" class="com.j2ee.cms.biz.messagemanager.dao.impl.SiteMessageDaoImpl" parent="genericDaoImpl"/>
+	<bean id="messagemanager-contactDao" class="com.j2ee.cms.biz.messagemanager.dao.impl.ContactDaoImpl" parent="genericDaoImpl"/>
+	<bean id="messagemanager-userDao" class="com.j2ee.cms.biz.usermanager.dao.impl.UserDaoImpl" parent="genericDaoImpl"/>
+	<bean id="messagemanager-organizationDao" class="com.j2ee.cms.biz.usermanager.dao.impl.OrganizationDaoImpl" parent="genericDaoImpl"/>
+	<bean id="messagemanager-assignmentDao" class="com.j2ee.cms.biz.usermanager.dao.impl.AssignmentDaoImpl" parent="genericDaoImpl"/>
+	<!-- 消息 类型end -->
+	
+	<!-- 消息弹出框 start -->
+	<bean name="/messageTips" class="com.j2ee.cms.biz.messagemanager.web.action.MessageTipsAction" scope="singleton">  
+    	<property name="messageTipsService" ref="message-messageTipsService" />
+  	</bean>  
+  	<bean id="message-messageTipsService" class="com.j2ee.cms.biz.messagemanager.service.impl.MessageTipsServiceImpl" scope="singleton">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />				
+	</bean>
+	<!-- 消息弹出框end -->	
+
+</beans>

@@ -1,0 +1,47 @@
+*
+{
+	font-family: "宋体",Arial;
+	font-size:12px;
+}
+.textRight{text-align:right;}
+.textLeft{text-align:left;}
+.textIndent{text-indent:1em;}
+.lineHeight{line-height:23px;}
+.textColor{color:#0000ff;}
+.contentSize{font-size:14px;}
+
+table
+{
+	width:651px;
+	height:116px;
+	margin:0px auto;
+	border:1px;
+	border-style:solid;
+	border-color:#350F0F;
+	padding-left:5px;
+	padding-right:8px;
+}
+
+img
+{
+	vertical-align:middle;
+	border:0px;
+}
+.td_height
+{
+	height:30px;
+	line-height:30px;
+}
+
+a,a:visited,a:link
+{
+	color:#0000ff;
+	text-decoration:none;
+	border:0px;
+}
+a:hover
+{
+	position:relative;
+	top:1px;
+	left:1px;
+}

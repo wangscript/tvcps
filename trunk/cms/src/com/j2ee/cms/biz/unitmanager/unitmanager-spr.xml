@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 静态单元 -->
+	<bean name="/staticUnit" class="com.j2ee.cms.biz.unitmanager.web.action.StaticUnitAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-staticUnitBiz" />
+	</bean>
+	<bean id="unitmanager-staticUnitBiz" class="com.j2ee.cms.biz.unitmanager.service.StaticUnitBiz">
+		<property name="staticUnitService" ref="unitmanager-staticUnitService" />
+	</bean>
+	<bean id="unitmanager-staticUnitService" class="com.j2ee.cms.biz.unitmanager.service.impl.StaticUnitServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="staticUnitAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.StaticUnitAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao"/>
+	</bean>
+	
+	<!-- 栏目链接 -->
+	<bean name="/columnLink" class="com.j2ee.cms.biz.unitmanager.web.action.ColumnLinkAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-columnLinkBiz" />
+	</bean>
+	<bean id="unitmanager-columnLinkBiz" class="com.j2ee.cms.biz.unitmanager.service.ColumnLinkBiz">
+		<property name="columnLinkService" ref="unitmanager-columnLinkService" />
+	</bean>
+	<bean id="unitmanager-columnLinkService" class="com.j2ee.cms.biz.unitmanager.service.impl.ColumnLinkServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="columnLinkAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.ColumnLinkAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="siteDao" ref="sitemanager-siteDao" />
+	</bean>
+		
+	<!-- 标题链接 -->
+	<bean name="/titleLink" class="com.j2ee.cms.biz.unitmanager.web.action.TitleLinkAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-titleLinkBiz" />
+	</bean>
+	<bean id="unitmanager-titleLinkBiz" class="com.j2ee.cms.biz.unitmanager.service.TitleLinkBiz">
+		<property name="titleLinkService" ref="unitmanager-titleLinkService" />
+	</bean>
+	<bean id="unitmanager-titleLinkService" class="com.j2ee.cms.biz.unitmanager.service.impl.TitleLinkServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="titleLinkAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.TitleLinkAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />	
+		<property name="siteDao" ref="sitemanager-siteDao" />	
+	</bean>
+	
+	<!-- 当前位置 -->
+	<bean name="/currentLocation" class="com.j2ee.cms.biz.unitmanager.web.action.CurrentLocationAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-currentLocationBiz" />
+	</bean>
+	<bean id="unitmanager-currentLocationBiz" class="com.j2ee.cms.biz.unitmanager.service.CurrentLocationBiz">
+		<property name="currentLocationService" ref="unitmanager-currentLocationService" />
+	</bean>
+	<bean id="unitmanager-currentLocationService" class="com.j2ee.cms.biz.unitmanager.service.impl.CurrentLocationServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="currentLocationAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.CurrentLocationAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="columnDao" ref="columnmanager-columnDao"/>		
+		<property name="siteDao" ref="sitemanager-siteDao" />
+		<property name="articleDao" ref="articlemanager-articleDao" />	
+	</bean>
+	
+	<!-- 图片新闻 -->
+	<bean name="/pictureNews" class="com.j2ee.cms.biz.unitmanager.web.action.PictureNewsAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-pictureNewsBiz" />
+	</bean>
+	<bean id="unitmanager-pictureNewsBiz" class="com.j2ee.cms.biz.unitmanager.service.PictureNewsBiz">
+		<property name="pictureNewsService" ref="unitmanager-pictureNewsService" />
+	</bean>
+	<bean id="unitmanager-pictureNewsService" class="com.j2ee.cms.biz.unitmanager.service.impl.PictureNewsServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="pictureNewsAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.PictureNewsAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="userDao" ref="usermanager-userDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />		
+		<property name="categoryDao" ref="documentmanager-categoryDao"/>
+		<property name="documentDao" ref="documentmanager-documentDao"/>
+		<property name="siteDao" ref="sitemanager-siteDao" />	
+	</bean>
+	
+	<!-- 最新信息 -->
+	<bean name="/latestInfo" class="com.j2ee.cms.biz.unitmanager.web.action.LatestInfoAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-latestInfoBiz" />
+	</bean>
+	<bean id="unitmanager-latestInfoBiz" class="com.j2ee.cms.biz.unitmanager.service.LatestInfoBiz">
+		<property name="latestInfoService" ref="unitmanager-latestInfoService" />
+	</bean>
+	<bean id="unitmanager-latestInfoService" class="com.j2ee.cms.biz.unitmanager.service.impl.LatestInfoServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="latestInfoAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.LatestInfoAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />	
+	</bean>
+	
+	<!-- 文章正文 -->
+	<bean name="/articleText" class="com.j2ee.cms.biz.unitmanager.web.action.ArticleTextAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-articleTextBiz" />
+	</bean>
+	<bean id="unitmanager-articleTextBiz" class="com.j2ee.cms.biz.unitmanager.service.ArticleTextBiz">
+		<property name="articleTextService" ref="unitmanager-articleTextService" />
+	</bean>
+	<bean id="unitmanager-articleTextService" class="com.j2ee.cms.biz.unitmanager.service.impl.ArticleTextServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="articleTextAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.ArticleTextAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="siteDao" ref="sitemanager-siteDao" />	
+		<property name="userDao" ref="usermanager-userDao"/>
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+	</bean>
+	
+	
+	<!-- 期刊（按分类） -->
+	<bean name="/magazineCategory" class="com.j2ee.cms.biz.unitmanager.web.action.MagazineCategoryAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-magazineCategoryBiz" />
+	</bean>
+	<bean id="unitmanager-magazineCategoryBiz" class="com.j2ee.cms.biz.unitmanager.service.MagazineCategoryBiz">
+		<property name="magazineCategoryService" ref="unitmanager-magazineCategoryService" />
+	</bean>
+	<bean id="unitmanager-magazineCategoryService" class="com.j2ee.cms.biz.unitmanager.service.impl.MagazineCategoryServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+		<property name="enumerationDao" ref="articlemanager-enumerationDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	<bean id="magazineCategoryAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.MagazineCategoryAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="siteDao" ref="sitemanager-siteDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+	</bean>
+	
+	<!-- 标题链接分页 -->
+	<bean name="/titleLinkPage" class="com.j2ee.cms.biz.unitmanager.web.action.TitleLinkPageAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-titleLinkPageBiz" />
+	</bean>
+	<bean id="unitmanager-titleLinkPageBiz" class="com.j2ee.cms.biz.unitmanager.service.TitleLinkPageBiz">
+		<property name="titleLinkPageService" ref="unitmanager-titleLinkPageService" />
+	</bean>
+	<bean id="unitmanager-titleLinkPageService" class="com.j2ee.cms.biz.unitmanager.service.impl.TitleLinkPageServiceImpl">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="templateUnitStyleDao" ref="templatemanager-templateUnitStyleDao"/>
+		<property name="templateUnitCategoryDao" ref="templatemanager-templateUnitCategoryDao" />
+		<property name="systemLogDao" ref="configmanager-systemLogDao"/>
+	</bean>
+	
+	<bean id="titleLinkPageAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.TitleLinkPageAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+		<property name="columnDao" ref="columnmanager-columnDao"/>
+		<property name="articleDao" ref="articlemanager-articleDao" />	
+		<property name="siteDao" ref="sitemanager-siteDao" />	
+	</bean>
+	
+	<!--网上调查-->
+	<bean name="/onlineSurverySet" class="com.j2ee.cms.biz.unitmanager.web.action.OnlineSurverySetAction" scope="prototype">
+		<property name="baseBiz" ref="unitmanager-onlineSurverySetBiz" />
+	</bean>	                                                 
+	<bean id="unitmanager-onlineSurverySetBiz" class="com.j2ee.cms.biz.unitmanager.service.OnlineSurverySetBiz">
+		<property name="onlineSurverySetService" ref="unitmanager-onlineSurverySetService" />
+	</bean>                                           
+	<bean id="unitmanager-onlineSurverySetService" class="com.j2ee.cms.biz.unitmanager.service.impl.OnlineSurverySetServiceImpl">
+		<property name="onlineSurveyDao"  ref="onlineSurver-onlineSurveyDao"/>
+		<property name="templateUnitDao"  ref="templatemanager-templateUnitDao" />
+		<property name="onlineSurveyContentDao"  ref="onlineSurver-onlineSurveyContentDao"/>
+	</bean>
+	<bean id="onlineSurver-onlineSurveyDao"	class="com.j2ee.cms.plugin.onlinesurvey.dao.imp.OnlineSurveyDaoImpl" parent="genericDaoImpl" />
+	<bean id="onlineSurver-onlineSurveyContentDao" class="com.j2ee.cms.plugin.onlinesurvey.dao.imp.OnlineSurveyContentDaoImpl" parent="genericDaoImpl" />
+	
+	<bean id="onlineSurverySetAnalyzer" class="com.j2ee.cms.biz.unitmanager.analyzer.OnlineSurverySetAnalyzer">
+		<property name="templateUnitDao" ref="templatemanager-templateUnitDao" />	
+		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
+		<property name="siteDao" ref="sitemanager-siteDao" />	
+		<property name="onlineSurveyDao"  ref="onlineSurver-onlineSurveyDao"/>
+		<property name="onlineSurveyContentDao"  ref="onlineSurver-onlineSurveyContentDao"/>
+	</bean>
+</beans>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.articlemanager.domain">
+    <class name="Article" table="articles">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="title" />
+        <property name="url" />
+        <property name="initUrl" />
+        <property name="subtitle" />
+        <property name="leadingTitle" />
+        <property name="infoSource" />
+        <property name="author" />
+        <property name="orders" />
+        <property name="hits" />
+        <property name="brief" />
+        <property name="keyword" />
+        <property name="deleted" />
+        <property name="audited" />
+        <property name="publishState" />
+        <property name="ref" />
+        <property name="toped" />
+        <property name="keyFilter" />
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="displayTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="invalidTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="publishTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="auditTime" type="com.j2ee.cms.common.core.util.DateString"/>   
+        <property name="pic"/>
+        <property name="attach"/>
+        <property name="media"/>        
+        <property name="textArea" type="text" />
+        <many-to-one name="referedArticle" column="refered_article_id"/>
+        <many-to-one name="column" column="column_id" not-null="true"/>
+        <many-to-one name="site" column="site_id" not-null="true"/>
+        <many-to-one name="creator" column="creator_id" not-null="true"/>
+        <many-to-one name="auditor" column="auditor_id"/>        
+      
+       
+    </class>
+    
+    <!-- 普通用户下文章 -->
+    <query name="findArticleByColumnIdsAndSiteIdAndDeletedPage"><![CDATA[
+    	SELECT article.id, article.ref, article.title, article.displayTime, article.column.name, 
+    	       article.creator.name, auditor.name, article.toped, article.audited, article.publishState 
+    	  FROM Article article
+     LEFT JOIN article.auditor auditor
+    	 WHERE article.column.id IN (:columnIds)
+    	   AND article.deleted = :deleted
+    	   AND article.site.id = :siteId
+    	   AND article.site.deleted = 0 
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    <!-- 查询文章分页 -->
+    <query name="findArticlePageByColumnId"><![CDATA[
+    	SELECT article.id, article.ref, article.title, article.displayTime, article.column.name, 
+    	       article.creator.name, auditor.name, article.toped, article.audited, article.publishState
+    	  FROM Article article
+     LEFT JOIN article.auditor auditor
+    	 WHERE article.column.id = :columnId
+    	   AND article.deleted = :deleted
+    	   AND article.site.id = :siteId
+    	   AND article.site.deleted = 0 
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+   
+	<!-- 查找所有所有文章并分页 -->
+    <query name="findAllArticlePage"><![CDATA[
+    	SELECT article.id, article.ref, article.title, article.displayTime,article.column.name, 
+    	       article.creator.name, auditor.name, article.toped, article.audited, article.publishState
+    	  FROM Article article
+     LEFT JOIN article.auditor auditor
+    	 WHERE article.deleted = :deleted
+    	   AND article.site.id = :siteId
+    	   AND article.column.deleted = :columnDeleted
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    <!-- 通过文章ids更新一批文章deleted属性 -->
+    <query name="updateArticleDeletedByIds"><![CDATA[
+    	UPDATE Article article 
+    	   SET article.deleted = :deleted
+    	 WHERE article.id IN (:ids)
+    	   
+    ]]></query>
+    
+    <!-- 通过文章ids更新一批文章audited属性 -->
+    <query name="updateArticleAuditedByIds"><![CDATA[
+    	UPDATE Article article 
+    	   SET article.audited = :audited,
+    	       article.auditor.id = :auditorId,
+    	       article.auditTime = :auditTime,
+    	       article.publishState = :publishState 
+    	 WHERE article.id IN (:ids)
+    	   
+    ]]></query>
+    
+    <!-- 通过文章ids更新一批文章publishState属性 -->
+    <query name="updateArticlePublishStateByIds"><![CDATA[
+    	UPDATE Article article 
+    	   SET article.publishState = :publishState,
+    	       article.publishTime = :publishTime 
+    	 WHERE article.id IN (:ids)
+    	 
+    ]]></query>
+    
+    <!-- 根据栏目ID查询文章 -->
+    <query name="findArticleByColumnId"><![CDATA[  
+    	  FROM Article article
+    	 WHERE article.column.id = :columnId
+    	   AND article.deleted = 0
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+        <!-- 根据栏目ID查询文章 -->
+    <query name="findArticleByColumnIds"><![CDATA[  
+    	  FROM Article article
+    	 WHERE article.column.id in (:columnId)
+    	   AND article.deleted = 0
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    <!-- 根据栏目ID查询文章   条件不同 -->
+    <query name="findArticleByColumnIds1"><![CDATA[  
+    	  FROM Article article
+    	 WHERE article.column.id in (:columnId)
+    	   AND article.deleted = 0
+    	   AND article.audited=1
+    	   AND article.publishState=:isState
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    <!-- 查找文章的最大顺序orders字段值(降序排序)  -->
+	<query name="findMaxArticleOrders"><![CDATA[
+		  FROM Article article
+		 WHERE article.site.deleted = 0
+	  ORDER BY article.orders DESC
+	  	   TOP 1
+	]]></query>
+	
+	<!-- 查询要排序的文章-->
+    <query name="findSortArticle"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.column.id = :columnId
+    	   AND article.deleted = :deleted
+    	   AND article.site.id = :siteId
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    <!-- 按照被引用的文章id查询文章-->
+    <query name="findArticleByReferedArticleId"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.referedArticle IS NOT NULL 
+    	   AND article.referedArticle.id = :refId
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    <!-- 按照格式id查找文章 -->
+    <query name="findArticleByArticleFormatId"><![CDATA[
+    	  FROM Article article
+     LEFT JOIN article.column column
+    	 WHERE  
+    	    article.deleted = :deleted 
+    	   AND column.deleted = :deleted
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    
+    
+    
+    
+    <!-- 按照用户名和网站以及未被删除的文章并分页 -->
+    <query name="findArticleByCreatorIdAndSiteIdPage"><![CDATA[
+    	SELECT article.id, article.ref, article.title, article.displayTime, 
+    	       article.creator.name, auditor.name, article.toped, article.audited, article.publishState
+    	  FROM Article article
+     LEFT JOIN article.auditor auditor
+   	 LEFT JOIN article.column column
+    	 WHERE article.deleted = :deleted
+    	   AND article.site.id = :siteId
+    	   AND column.deleted = :columnDeleted
+		   AND article.creator.id = :creatorId	
+		   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    
+    <!--  按照用户名和网站以及栏目、未被删除并分页  -->
+    <query name="findArticleByCreatorIdAndSiteIdAndColumnIdPage"><![CDATA[
+    	SELECT article.id, article.ref, article.title, article.displayTime, 
+    	       article.creator.name, auditor.name, article.toped, article.audited, article.publishState
+    	  FROM Article article
+     LEFT JOIN article.auditor auditor
+    	 WHERE article.deleted = :deleted
+    	   AND article.site.id = :siteId
+    	   AND article.creator.id = :creatorId
+    	   AND article.column.id = :columnId
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    <!-- 普通用户查询要排序的文章-->
+    <query name="findSortArticleByNormalUser"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.column.id = :columnId
+    	   AND article.deleted = :deleted
+    	   AND article.site.id = :siteId
+    	   AND article.creator.id = :creatorId
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.createTime DESC
+    ]]></query>
+    
+    <!-- 根据栏目ID查询所有文章 -->
+    <query name="findAllArticleByColumnId"><![CDATA[  
+    	  FROM Article article
+    	 WHERE article.column.id = :columnId
+    	   AND article.site.deleted = 0
+    ]]></query>
+    
+     <!-- 根据网站ID查询文章 -->
+    <query name="findArticleBySiteId"><![CDATA[  
+    	  FROM Article article
+    	 WHERE article.site.id = :siteId
+    	   AND article.deleted = 0 
+    	   AND article.site.deleted = 0  
+      ORDER BY article.toped DESC, article.orders DESC, article.createTime DESC   
+    ]]></query>
+    
+	<!-- 根据栏目ids查询文章 -->
+    <query name="findArticlesByColumnIds"><![CDATA[  
+    	  FROM Article article
+    	 WHERE article.column.id IN (:columnIds)
+    	   AND article.deleted = 0 
+    	   AND article.site.deleted = 0 
+      ORDER BY article.createTime  DESC 
+    ]]></query>
+     
+    <!-- 通过文章ids查找文章 -->
+    <query name="findArticlesByArticleIds"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.id IN (:articleIds)
+    	   AND article.site.deleted = 0
+    ]]></query>
+    
+    <!-- 通过文章ids查找导出文章 -->
+    <query name="findExportArticlesByIds"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.id IN (:ids)
+    	   AND article.site.deleted = 0
+    ]]></query>
+    
+    
+    <!-- 通过被引用的文章id查找出哪篇文章引用此文章 -->
+    <query name="findArticlesByReferedArticleIdAndSiteId"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.referedArticle.id = :id    
+    	   AND article.deleted = 0 
+    	   AND article.site.deleted = 0
+    ]]></query>
+    
+    <!-- 按照栏目id查找被审核的文章 -->
+    <query name="findAuditedArticlesByColumnId"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.column.id = :columnId
+    	   AND article.audited = 1  
+    	   AND article.deleted = 0 
+    	   AND article.site.deleted = 0
+    	   AND article.publishState != 3
+    	
+      ORDER BY article.toped DESC,article.orders DESC,article.displayTime DESC, article.publishTime DESC, article.createTime DESC
+    ]]></query>
+    
+    <!-- 按照栏目ids查找被审核的文章 -->
+    <query name="findAuditedArticlesByColumnIds"><![CDATA[
+    	  FROM Article article
+    	 WHERE article.column.id in (:columnId)
+    	   AND article.audited = 1    	  
+    	   AND article.publishState !=0 
+    	   AND article.deleted = 0 
+    	   AND article.site.deleted = 0
+      ORDER BY article.toped DESC,article.orders DESC,article.displayTime DESC, article.publishTime DESC, article.createTime DESC
+    ]]></query>
+    
+    <!-- 按照格式id查找文章 -->
+    <query name="findAuditArticleByColumnFormatId"><![CDATA[
+    	  FROM Article article
+     LEFT JOIN article.column column
+    	 WHERE   article.deleted = 0
+    	   AND column.deleted = 0
+    	   AND column.articleFormat.id = :articleFormatId
+    	   AND article.site.deleted = 0
+    	   AND article.audited = 1
+    	   AND article.publishState != 3
+    	   
+    	 
+      ORDER BY article.toped DESC,article.orders DESC,article.displayTime DESC, article.publishTime DESC, article.createTime DESC
+    ]]></query>
+    
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+BODY {
+	FONT-SIZE: 10.5pt;
+	margin:0;
+}
+TD {
+	FONT-SIZE: 10.5pt
+}
+U {
+	COLOR: #ff0000
+}
+A {
+	FONT-SIZE: 10.5pt
+}
+.tip {
+	FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+P {
+	FONT-SIZE: 10pt; LINE-HEIGHT: 150%
+}
+.subject {
+	FONT-SIZE: 12pt; LINE-HEIGHT: 120%
+}
+.active {
+	WIDTH: 120px; PADDING-TOP: 3px; HEIGHT: 20px; TEXT-ALIGN: center
+}
+.inactive {
+	WIDTH: 120px; PADDING-TOP: 3px; HEIGHT: 20px; TEXT-ALIGN: center
+}
+.active {
+	FONT-WEIGHT: bold; COLOR: white; BACKGROUND-COLOR: #3366cc
+}
+.inactive {
+	COLOR: blue; BACKGROUND-COLOR: #efefef
+}
+.totalleft {
+	COLOR: white; PADDING-TOP: 3px; HEIGHT: 20px; BACKGROUND-COLOR: #3366cc
+}
+.totalright {
+	COLOR: white; PADDING-TOP: 3px; HEIGHT: 20px; BACKGROUND-COLOR: #3366cc
+}
+.totalleft {
+	WIDTH: 30%; TEXT-ALIGN: left
+}
+.totalright {
+	WIDTH: 70%; TEXT-ALIGN: right
+}
+.green {
+	FONT-SIZE: 9pt; COLOR: green; FONT-FAMILY: 'Courier New','Arial','Verdana'
+}
+.gray {
+	FONT-SIZE: 10.5pt; COLOR: gray; FONT-FAMILY: 'Courier New','Arial','Verdana'
+}
+.nowPage {
+	FONT-WEIGHT: bold; COLOR: #ff0000
+}
+.copyright {
+	TEXT-DECORATION: none
+}
+form
+{
+	margin:0;
+}
+td,table{
+	font-size: 9pt;
+	text-decoration: none;
+    }
+a { text-decoration: none; color:#000000;}
+a:hover { color:#ff0000;text-decoration:none;}

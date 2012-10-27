@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.configmanager.domain">
+        <class name="InformationFilter" table="information_Filter">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+	<!--替换前字段1-->
+		<property name="field1" />
+	<!-- 替换前字段2 -->
+	   <property name="field2" />
+    <!-- 替换后字段1-->
+       <property name="replaceField1" />
+     <!--替换后字段2 -->  
+        <property name="replaceField2" />
+     <!--状态-->
+       <property name="status" />
+     <!--创建时间-->   
+      <property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />  
+      <!--过滤类别id-->   
+      <many-to-one name="filterCategory" column="filterCategoryId"/>	
+      <!--网站id-->
+      <many-to-one name="site" column="site_id" />
+      <!--用户id-->
+      <many-to-one name="user" column="user_id" />
+	</class>
+	
+	
+	<!--管理员分页================查寻所有内容-->      
+
+  <query name="findUser"><![CDATA[
+		  FROM  InformationFilter  gen
+		  WHERE gen.user.id='u1'
+     	  order by gen.createTime  desc    	      
+	]]>		
+	</query>
+  
+
+
+
+
+
+
+
+
+	                    
+	<query name="findInformationFilterPage"><![CDATA[
+		 SELECT gen.id,gen.field1 ,gen.field2,gen.replaceField1,gen.replaceField2,
+		   gen.status ,gen.createTime
+		  FROM  InformationFilter  gen
+     	  order by gen.createTime  desc    	      
+	]]>		
+	</query>
+	 <!--普通用户根据用户栏目查询内容-->
+	 	<query name="findInformationSessionIdFilterPage"><![CDATA[
+		 SELECT info.id,info.field1 ,info.field2,info.replaceField1,info.replaceField2,
+		   info.status ,info.createTime
+		  FROM  InformationFilter  info
+		  WHERE info.user.id = :sessionID
+		     and info.site.id=:siteId
+     	     order by info.createTime  desc  
+     	      
+	]]>		
+	</query>
+	 
+	 <!--用户根据用户栏目,管理员身份查询当前 过滤内容是否重复-->
+  <query name="findInformationFilterCount"><![CDATA[
+      FROM  InformationFilter  info
+      WHERE info.user.id = :sessionID 
+         and info.site.id=:siteId
+         and info.field1=:field1
+         order by info.createTime  desc        
+	]]>		
+	</query>
+	
+	<query name="findInformationFilterCount2"><![CDATA[
+      FROM  InformationFilter  info
+      WHERE info.user.id = :sessionID 
+         and info.site.id=:siteId
+         and info.field1=:field1
+         and info.field2=:field2
+         order by info.createTime  desc        
+	]]>		
+	</query>
+   <!--用户根据用户栏目,管理员身份查询当前 过滤内容是否重复-->
+    <query name="findInformationFilterCount1"><![CDATA[
+      FROM  InformationFilter  info
+      WHERE info.user.id = :sessionID 
+         and info.site.id=:siteId
+         and info.replaceField1=:replaceField1
+         order by info.createTime  desc        
+	]]>		
+	</query>
+  
+  	 <!--用户根据用户栏目,管理员身份查询当前文档需要完全过滤的内容集合-->
+  <query name="findFilterReplaceField1"><![CDATA[
+       FROM  InformationFilter  info
+      WHERE  info.site.id=:siteId
+         order by info.createTime  desc        
+	]]>		
+	</query>
+  
+  
+  
+  
+</hibernate-mapping>	
+
+
+
+
+
+
+

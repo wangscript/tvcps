@@ -1,0 +1,10 @@
+<!-- 栏目ID -->
+<input type="hidden" name="columnId">
+<!-- 网站ID -->
+<input type="hidden" name="siteId">
+<!-- 模板实例ID -->
+<input type="hidden" name="templateInstanceId">
+<!-- 文章ID -->
+<input type="hidden" name="articleId">
+<!-- 单元ID -->
+<input type="hidden" name="unitId">

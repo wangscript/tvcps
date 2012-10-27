@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin> 
+   <guestbookplugin> 
+    <openType>1</openType>  
+	<openHour>3</openHour>
+	<openMinute>40</openMinute>
+	<openHour1>2</openHour1>
+	<openMinute1>60</openMinute1>
+	<leaveCount>30</leaveCount>
+	<leaveMsg>留言已经满了</leaveMsg>
+	<isAudit>1</isAudit>
+    <isPublish>1</isPublish>  
+    <sessionId></sessionId> 
+  </guestbookplugin> 
+  <style>
+  	<styleContent><![CDATA[
+  	<table>
+  	<tr>
+  	<td class="textIndent td_height">
+  	发表作者：<!--author-->&nbsp;&nbsp;&nbsp;显示IP：【<!--ip-->】
+  	</td>
+  	<td class="textRight td_heightt">
+  	发表时间:<!--date--></td>
+  	</tr>
+  	<tr>
+  	<td colspan="2" class="textIndent lineHeight contentSize">
+  	发表主题:
+  	<!--title--></td>
+  	</tr>
+  	<tr>
+  	<td colspan="2" class="textIndent lineHeight contentSize">
+  	发表内容:
+  	<!--content--></td>
+  	</tr>
+  	<tr>
+  	<td colspan="2" class="textRight td_height">
+	  回复状态:<!--replyState-->
+  	</td></tr>
+  	</table>
+  	]]></styleContent>
+  </style>
+</plugin>

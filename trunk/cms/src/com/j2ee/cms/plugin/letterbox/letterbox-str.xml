@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+	       <form-bean name="letterForm"             		type="com.j2ee.cms.plugin.letterbox.web.form.LetterForm"></form-bean>
+	       <form-bean name="letterCategoryForm"             type="com.j2ee.cms.plugin.letterbox.web.form.LetterCategoryForm"></form-bean>
+	</form-beans>
+	<global-exceptions />
+	<action-mappings>
+          
+          <!-- 信件处理action配置  start-->
+          <action path="/letter"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="letterForm"
+                scope="request"
+                validate="false">
+                <forward name="success"  					    path="/plugin/letterbox_manager/letter/allLetter_list.jsp"/>
+                <forward name="showDepartmentSuccess"  		    path="/plugin/letterbox_manager/letter/transferOrg_list.jsp"/>
+                <forward name="showWaittingAcceptLetter"  		path="/plugin/letterbox_manager/letter/waitForAcceptLetter_list.jsp"/>
+                <forward name="acceptSuccess"  					path="/letter.do?dealMethod=waitForDealwith"/>
+                <forward name="deleteAcceptLetterSuccess"  		path="/letter.do?dealMethod=waitForAccept"/>
+                <forward name="deleteDealwithLetterSuccess"  	path="/letter.do?dealMethod=waitForDealwith"/>
+                <forward name="deleteDoneLetterSuccess"  		path="/letter.do?dealMethod=done"/>
+                <forward name="deleteAllLetterSuccess"  		path="/letter.do?dealMethod=all"/>
+                <forward name="showWaittingDealwithLetter"  	path="/plugin/letterbox_manager/letter/waitForDealwithLetter_list.jsp"/>
+                <forward name="transferSuccess"  				path="/plugin/letterbox_manager/letter/transferLetter_detail.jsp"/>
+                <forward name="transferRecordSuccess"  			path="/letter.do?dealMethod=waitForDealwith"/>
+                <forward name="beforReplySuccess"  				path="/plugin/letterbox_manager/letter/replyLetter_detail.jsp"/>
+                <forward name="replySuccess"  					path="/letter.do?dealMethod=done"/>
+                <forward name="findDoneLetterSuccess"  			path="/plugin/letterbox_manager/letter/doneLetter_list.jsp"/>
+                <forward name="findAllLetterSuccess"  			path="/plugin/letterbox_manager/letter/allLetter_list.jsp"/>
+                <forward name="findRecordSuccess"  				path="/plugin/letterbox_manager/letter/record_detail.jsp"/>
+                <forward name="showLetterDetail"  				path="/plugin/letterbox_manager/letter/showLetter_detail.jsp"/>
+                <forward name="showCategorySuccess"     	 	path="/plugin/letterbox_manager/letter/modifyCategory_list.jsp"/>
+                <forward name="modifyCategorySuccess"     	 	path="/plugin/letterbox_manager/save_letter_msg.jsp"/>
+                <forward name="findDealedLetterSuccess"     	path="/plugin/letterbox_manager/letter/dealedLetter_detail.jsp"/>
+                <forward name="publishSuccess"                  path="/plugin/letterbox_manager/letter/letter_publish_success.jsp"/>
+          </action>	
+          <!-- 信件处理action配置  end -->
+          
+          <!-- 信件类别action配置  start-->
+          <action path="/letterCategory"
+             	type="org.springframework.web.struts.DelegatingActionProxy"  
+                name="letterCategoryForm"
+                scope="request"
+                validate="false">
+                <forward name="success"  					 	path="/plugin/letterbox_manager/letterCategory/letterCategory_list.jsp"/>
+                <forward name="addSuccess" 					 	path="/plugin/letterbox_manager/letterCategory/letterCategory_detail.jsp"/>
+                <forward name="deleteSuccess"            	 	path="/plugin/letterbox_manager/letterCategory/letterCategory_list.jsp"/>
+                <forward name="showCatrgorySuccess"     	 	path="/plugin/letterbox_manager/write_letter.jsp"/>
+                <forward name="findCatrgoryNameSuccess"     	path="/plugin/letterbox_manager/letterCategory/letterCategory_detail.jsp"/>
+                <forward name="findCatrgoryDetailSuccess"     	path="/plugin/letterbox_manager/letterCategory/letterCategory_detail.jsp"/>
+                <forward name="modifySuccess" 					path="/plugin/letterbox_manager/letterCategory/letterCategory_detail.jsp"/>
+          </action>	
+          <!-- 信件类别action配置  end -->
+          
+          <!-- 外网用户信件action配置  start-->
+          <action path="/userLetter"
+             	type="org.springframework.web.struts.DelegatingActionProxy"   
+                name="letterForm"
+                scope="request"
+                parameter="dealMethod">
+           		<forward name="success" 						path="/plugin/letterbox_manager/userLetter_list.jsp"/>
+           		<forward name="list"  							path="/plugin/letterbox_manager/userLetter_list.jsp"/>
+           		<forward name="list_msg"  						path="/plugin/letterbox_manager/userLetter_list_msg.jsp"/>
+           		<forward name="writeLetter"  					path="/plugin/letterbox_manager/write_letter.jsp"/>
+           		<forward name="notfound"  						path="/plugin/letterbox_manager/error.jsp"/>
+           		<forward name="showUserLetterDetailSuccess"  	path="/plugin/letterbox_manager/userLetter_detail.jsp"/>
+           		<forward name="notAllowedShowLetterDetail"  	path="/plugin/letterbox_manager/notFound_msg.jsp"/>
+           		<forward name="forward"  						path="/plugin/letterbox_manager/default.jsp"/>
+          </action>	
+          <!-- 外网用户信件action配置  end -->
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.usermanager.domain">
+	<class name="Menu" table="menus">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<property name="identifier" unique="true" />
+		<property name="name" />
+		<property name="description" />
+		<property name="indexPage" />
+		<property name="contentPage" />
+	</class>	
+		<!-- 根据菜单ID查询 -->
+		<query name="findMenuDataByIdentifier"><![CDATA[
+  			SELECT menu.identifier,menu.name   			
+  				   FROM Menu menu  			
+ 			WHERE menu.identifier = :identifier
+		]]>	
+	   </query>
+	   
+	   <!-- 通过菜单ID集合查找菜单列表 -->
+	   <query name="findMenuByIds"><![CDATA[
+	   		FROM Menu menu 
+	   	   WHERE menu.id
+	   	      IN (:ids)
+	   ]]></query>
+	   
+	   <!-- 通过菜单名称查找菜单 -->
+	   <query name="findMenuByName"><![CDATA[
+	   		FROM Menu menu 
+	   	   WHERE menu.name = (:name)
+	   ]]></query>
+	   
+	   <!--查找所有id-->
+	   <query name="findAllMenus"><![CDATA[
+	   		SELECT menu.id  From  Menu menu
+	   ]]></query>
+</hibernate-mapping>	

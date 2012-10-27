@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<!-- 全文 检索form -->
+        <form-bean name="searchForm" type="com.j2ee.cms.search.form.SearchForm"/>   
+	</form-beans>
+	<global-forwards>
+		<forward name="index" path="/index.jsp"/>
+		<forward name="success" path="/success.jsp"/>
+		<forward name="failure" path="/failure.jsp"/>
+		<forward name="timeispass" path="/failure.jsp"/>
+		<forward name="timeout" path="/failure.jsp"/>
+		<forward name="webClient" path="/webClient"/>
+		<forward name="tree" path="/main/get_treedata.jsp"/>
+		<forward name="default_success" path="/success.jsp"/>
+		<forward name="default_error" path="/failure.jsp"/>
+	</global-forwards>
+	<action-mappings>
+		<!-- 全文 检索action start -->
+		<action path="/searchAction" type="com.j2ee.cms.search.action.SearchAction" name="searchForm" scope="request">
+	         <forward name="list" path="/search/list.jsp"/>
+	         <forward name="search" path="/search/index.jsp"/>
+	         <forward name="listmsg" path="/search/list_msg.jsp"/>
+	    </action>
+	    <action path="/searchAdminAction" type="com.j2ee.cms.search.action.SearchAdminAction" name="searchForm" scope="request">
+	         <forward name="login" path="/search/admin/index.jsp"/>
+	         <forward name="list" path="/search/admin/list.jsp"/> 
+	         <forward name="changePassWord" path="/search/admin/changePassword.jsp"/>
+   		</action>
+       	<!-- 全文 检索action end -->
+	</action-mappings>
+	<controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
+    <message-resources parameter="conf.ApplicationResources"/>
+	<message-resources key="complat_exception" parameter="com/j2ee/cms/conf/complat_exception"/>
+	<message-resources key="common_exception" parameter="com/j2ee/cms/conf/common_exception"/>
+	<plug-in className="com.j2ee.cms.common.core.web.ConverterPlugIn"/>
+</struts-config>
+

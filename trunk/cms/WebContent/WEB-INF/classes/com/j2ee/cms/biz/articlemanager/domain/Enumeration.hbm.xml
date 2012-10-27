@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.articlemanager.domain">
+	<class name="Enumeration" table="enumerations">
+		<id name="id">
+		</id>
+		<property name="name" not-null="true"/>
+		<property name="enumValues" type="com.j2ee.cms.common.core.util.CommaList" length="1000"/>
+		<many-to-one name="creator" column="creator_id" not-null="true"/>
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
+	</class>
+	
+	<!-- 查询枚举分页 -->
+	<query name="findEnumerationPage"><![CDATA[
+		SELECT enum.id, enum.name, enum.creator.name, enum.enumValues, enum.createTime
+		  FROM Enumeration enum
+	  ORDER BY enum.createTime DESC
+	]]></query>
+	
+	<!-- 查询所有枚举类别名称-->
+	<query name="findAllEnumNameOfAdd"><![CDATA[
+		SELECT enum.name		   
+		  FROM Enumeration enum
+	]]></query>
+	
+	<!-- 查询所有枚举类别名称-->
+	<query name="findAllEnumNameOfModify"><![CDATA[
+		SELECT enum.name		   
+		  FROM Enumeration enum
+		 WHERE enum.id != :enumerationId
+	]]></query>
+	
+	<!-- 通过枚举ids查找导出枚举型 -->
+    <query name="findExportEnumsByIds"><![CDATA[
+    	  FROM Enumeration enum
+    	 WHERE enum.id IN (:ids)
+    	   
+    ]]></query>
+    
+    <!-- 通过枚举id查找要导入的枚举型 -->
+    <query name="findImportEnumsById"><![CDATA[
+    	  FROM Enumeration enum
+    	 WHERE enum.id = :id
+    ]]></query>
+	
+</hibernate-mapping>

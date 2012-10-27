@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.documentmanager.domain">
+	<class name="Document" table="documents">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<discriminator column="type" type="string"/>
+		<property name="name" />
+		<property name="fileName" />
+		<property name="fileSuffix" />
+		<property name="fileSize" />
+		<property name="url" />
+		<property name="localPath" />
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
+		<property name="deleted" />
+		<property name="description" />
+		<property name="picDirectoryPath"></property>
+		<many-to-one name="documentCategory" column="category_id"/>
+		<many-to-one name="creator" column="creator_id"/>
+		<many-to-one name="site" column="site_id"/>
+		<subclass name="Picture" discriminator-value="P">
+		</subclass>
+		<subclass name="Attachment" discriminator-value="A">
+		</subclass>
+		<subclass name="Flash" discriminator-value="F">
+		</subclass>
+		<subclass name="Js" discriminator-value="J">
+		</subclass>
+	</class>
+    
+    <!-- 查询文档表中属于图片的内容并分页显示  管理员-->
+    <query name="findPictureByCategoryIdPage"><![CDATA[
+            SELECT picture.id, picture.localPath, picture.name, picture.fileSuffix, picture.fileSize, picture.createTime, picture.description, picture.url, picture.localPath
+              FROM Picture picture
+             WHERE picture.documentCategory.id = :categoryid
+          ORDER BY picture.createTime DESC
+    ]]>
+    </query>
+    <!-- 查询文档表中属于图片的内容并分页显示  普通用户-->
+	<query name="findPictureByCategoryIdBySiteIdPage"><![CDATA[
+            SELECT picture.id, picture.localPath, picture.name, picture.fileSuffix, picture.fileSize, picture.createTime, picture.description, picture.url, picture.localPath
+              FROM Picture picture
+             WHERE picture.documentCategory.id = :categoryid 
+             AND picture.site.id=:siteId
+          ORDER BY picture.createTime DESC
+    ]]>
+    </query>
+    <!-- 查询文档表中属于flash的内容并分页显示 -->
+    <query name="findFlashByCategoryIdPage"><![CDATA[
+            SELECT flash.id, flash.name, flash.fileSize, flash.createTime, flash.description, flash.localPath
+              FROM Flash flash
+             WHERE flash.documentCategory.id = :categoryid  
+          ORDER BY flash.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 查询文档表中属于附件的内容并分页显示 -->
+    <query name="findAttachmentByCategoryIdPage"><![CDATA[
+            SELECT attachment.id, attachment.name, attachment.fileSuffix, attachment.fileSize, attachment.createTime, attachment.description, attachment.url
+              FROM Attachment attachment
+             WHERE attachment.documentCategory.id = :categoryid  
+          ORDER BY attachment.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 查询文档表中属于js脚本的内容并分页显示 -->
+    <query name="findJsByCategoryIdPage"><![CDATA[
+            SELECT js.id, js.name, js.fileSuffix, js.fileSize, js.createTime, js.description, js.url, js.localPath
+              FROM Js js
+             WHERE js.documentCategory.id = :categoryid  
+          ORDER BY js.createTime DESC
+    ]]>
+    </query>
+    
+    <!-- 查询文档中的类别以便查询类别的总数 -->
+	<query name="dcoumentCount"><![CDATA[
+			  SELECT COUNT(*)
+			    FROM Document document
+			   WHERE document.documentCategory.id = :categoryid 
+	]]>
+	</query>
+	
+	<!-- 查询图片分页 -->
+	<query name="findPicturePage"><![CDATA[
+			SELECT picture.id, picture.url, picture.fileName, picture.fileSize, picture.createTime  
+              FROM Picture picture
+          ORDER BY picture.createTime DESC
+	]]>
+	</query>
+	
+	<!-- 查询flash分页 -->
+	<query name="findflashPage"><![CDATA[
+			SELECT flash.id, flash.fileName, flash.fileSize, flash.createTime, flash.url 
+              FROM Flash flash
+          ORDER BY flash.createTime DESC
+	]]>
+	</query>
+	
+	<!-- 按照类别id查询附件 -->
+	<query name="findAttachmentListByCategoryId"><![CDATA[
+              FROM Attachment attachment
+             WHERE attachment.documentCategory.id = :categoryid
+          ORDER BY attachment.createTime DESC
+	]]>
+	</query>
+	
+	<!-- 按照类别id查询附件 -->
+	<query name="findScriptListByCategoryId"><![CDATA[
+              FROM Js js
+             WHERE js.documentCategory.id = :categoryid
+          ORDER BY js.createTime DESC
+	]]>
+	</query>
+	
+</hibernate-mapping>

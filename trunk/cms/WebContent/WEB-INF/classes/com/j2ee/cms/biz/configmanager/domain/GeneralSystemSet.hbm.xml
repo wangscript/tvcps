@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.configmanager.domain">
+	<class name="GeneralSystemSet" table="generalSystemSets">
+		<id name="id">
+			<generator class="uuid" />
+		</id>
+		<!--系统参数类别-->
+		<property name="setContent" />
+		<!-- 是否设置为 默认 -->
+		<property name="defaultSet" />
+		<!--创建时间-->
+		<property name="createTime" type="com.j2ee.cms.common.core.util.DateString" />
+	    <!--参数设置的url-->
+		<property name="url" />	
+	    <!--网站id-->
+		<many-to-one name="site" column="site_id" />
+        <!--用户id-->
+		<many-to-one name="user" column="user_id" />
+		<many-to-one name="reneralSystemSetCategory" column="categoryid" />
+	</class>
+	<!--管理员   查询GeneralSystemSet对象进行分页-->
+	<!--
+		<query name="findGeneralSystemSetPage"><![CDATA[ SELECT
+		gen.id,gen.setContent,gen.defaultSet,gen.createTime FROM
+		GeneralSystemSet gen WHERE gen.reneralSystemSetCategory.id =
+		:categoryId order by gen.createTime desc ]]> </query>
+	-->
+	<query name="findGeneralSystemSetPage"><![CDATA[
+		  SELECT gen.id, gen.setContent, gen.defaultSet, gen.createTime, sit.name
+		    FROM GeneralSystemSet gen
+	   LEFT JOIN gen.site sit
+	       WHERE gen.reneralSystemSetCategory.id = :categoryId
+	    ORDER BY gen.createTime DESC  
+	]]></query>
+	
+ 
+	<!--查 找启用的默认的对象-->
+	<query name="findSystemSetDefault"><![CDATA[
+	      FROM GeneralSystemSet gen
+	     WHERE gen.reneralSystemSetCategory.id = :categoryId
+	       AND gen.defaultSet = '1'
+	  ORDER BY gen.createTime DESC  
+	]]></query>
+	
+	<!--根据类别ID查询设置的内容-->
+	<query name="findSystemSetByCategoryId"><![CDATA[
+	      FROM GeneralSystemSet gen
+	     WHERE gen.reneralSystemSetCategory.id = :categoryId	       
+	  ORDER BY gen.createTime DESC  
+	]]></query>
+	
+	<!--查询GeneralSystemSet对象-->
+	<!--普通用户根据用户栏目查询内容并进行分页-->
+	<query name="findGeneralSystemSessionIdSetPage"><![CDATA[
+		SELECT gen.id, gen.setContent, gen.defaultSet, gen.createTime, sit.name
+	      FROM GeneralSystemSet gen
+	 LEFT JOIN gen.site sit
+	     WHERE gen.reneralSystemSetCategory.id = :categoryId
+	       AND gen.user.id = :sessionID
+	       AND gen.site.id = :siteId
+	  ORDER BY gen.createTime DESC        	      
+	]]></query>
+	
+	<!--  查询列表对象进行分页-->
+	<!--
+		<query name="findLinkGeneralSystemSetPage"><![CDATA[ SELECT
+		gen.id,gen.setContent,gen.url,gen.createTime FROM GeneralSystemSet gen
+		WHERE gen.reneralSystemSetCategory.id = :categoryId order by
+		gen.createTime desc ]]> </query>
+	-->
+	<query name="findLinkGeneralSystemSetPage"><![CDATA[
+		SELECT gen.id, gen.setContent, gen.url, gen.createTime, sit.name
+		  FROM GeneralSystemSet gen
+     LEFT JOIN gen.site sit
+		 WHERE gen.reneralSystemSetCategory.id = :categoryId
+      ORDER BY gen.createTime DESC       
+	]]></query>
+	
+	<!--  查询默认设置数量-->
+	<query name="findCountByGeneralSystemSet"><![CDATA[
+	    SELECT gen.defaultSet 
+	      FROM GeneralSystemSet  gen
+	     WHERE gen.reneralSystemSetCategory.id = :categoryId 
+	       AND gen.defaultSet = '1'
+	  ORDER BY gen.createTime DESC       
+  	]]></query>
+	
+	<!--  查询默认设置对象-->
+	<query name="findOverDefaultsByGeneralSystemSet"><![CDATA[ 
+         FROM GeneralSystemSet gen
+        WHERE gen.reneralSystemSetCategory.id = :categoryId 
+          AND gen.defaultSet = '1'
+     ORDER BY gen.createTime DESC       
+  	]]></query>
+	
+	<!--  查询作者对象是否重复-->
+	<query name="findNumbers"><![CDATA[ 
+       SELECT gen.setContent 
+         FROM GeneralSystemSet gen
+        WHERE gen.reneralSystemSetCategory.id = :categoryId 
+          AND gen.setContent = :setName
+     ORDER BY gen.createTime DESC       
+  	]]></query>
+	
+	<!--  查询没有分隔符时作者对象是否重复-->
+	<query name="findNumbersHave"><![CDATA[ 
+       SELECT gen.setContent 
+         FROM GeneralSystemSet gen
+        WHERE gen.reneralSystemSetCategory.id = :categoryId 
+          AND gen.setContent = :setNameHave
+     ORDER BY gen.createTime DESC       
+  	]]></query>
+</hibernate-mapping>

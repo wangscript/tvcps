@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">             
+<hibernate-mapping package="com.j2ee.cms.plugin.onlineBulletin.domain">
+    <class name="OnlineBulletin" table="onlineBulletin">
+       <id name="id">
+            <generator class="uuid" />
+        </id>     
+        <!--公告标题-->
+        <property name="name" />
+        <!--公告内容-->
+        <property name="context" type="text"/>
+        <!--截止日期-->
+       <property name="endTime" type="com.j2ee.cms.common.core.util.DateString" /> 
+        <!--创建时间-->
+       <property name="createTime" type="com.j2ee.cms.common.core.util.DateString" /> 
+        <!--窗口名称-->
+        <property name="windowName" />
+        <!--窗口大小(宽度)-->              
+        <property name="widowWidth" />
+        <!--窗口大小(高度)-->              
+        <property name="widowHeight" />
+        <!--窗口上下边界(上)-->              
+        <property name="windowTop" />
+        <!--窗口上下边界(左)-->              
+        <property name="windowLeft" />
+        <!--显示工具栏-->              
+        <property name="showTool" />
+        <!--显示菜单栏)-->              
+        <property name="showMenu" />
+        <!--显示滚动条-->              
+        <property name="showScroll" />
+        <!--可改变窗口大小-->              
+        <property name="changeSize" />
+          <!--显示地址栏-->              
+        <property name="showAddress" />
+          <!--显示状态信息-->              
+        <property name="showStatus" />
+		<!--网站id-->
+		<many-to-one name="site" column="site_id" />  
+		 <!--用户id-->
+		<many-to-one name="user" column="user_id" />
+		<!--可改变窗口大小-->              
+        <property name="columnIds" type="text"/>
+    </class>            
+    <query name="findOnlineBulletinFormPage"><![CDATA[
+			SELECT  online.id, online.name, online.user.name, online.createTime  
+			  FROM  OnlineBulletin  online
+	         WHERE  online.site.id=:siteID  
+    ]]></query>
+    
+    <query name="findOnlineBulletinByColumnId"><![CDATA[
+			  FROM  OnlineBulletin  online
+	         WHERE  online.columnIds LIKE (:columnId)  
+    ]]></query>
+</hibernate-mapping>  

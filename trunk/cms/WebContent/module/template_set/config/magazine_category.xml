@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
+	<magazine-category>
+		<magazineCategory-style>0</magazineCategory-style>
+		<magazineCategory-source>1</magazineCategory-source>
+		<fixedColumn></fixedColumn>
+		<infoCategory></infoCategory>
+		<titleSize>20</titleSize>
+		<title-prefix></title-prefix>
+		<title-prefix-picture></title-prefix-picture>
+		<title-suffix></title-suffix>
+		<title-suffix-picture></title-suffix-picture>
+	</magazine-category> 
+</j2ee.cms>
