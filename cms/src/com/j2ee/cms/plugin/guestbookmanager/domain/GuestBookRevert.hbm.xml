@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.plugin.guestbookmanager.domain">
+    <class name="GuestBookRevert" table="guestbook_Revert">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="revertContent" />   
+        <property name="revertTime" type="com.j2ee.cms.common.core.util.DateString" />
+        <many-to-one name="guestBookContent" column="guest_content_id"/>
+    </class>   
+    <!-- 删除留言回复的内容 -->
+    <query name="deleteReplyContentById"><![CDATA[
+	DELETE GuestBookRevert reply
+	where reply.guestBookContent.id in(:contentId)
+	]]></query> 
+	<!-- 根据留言ID 查询回复内容 -->
+	<query name="findByReplyById"><![CDATA[
+	FROM GuestBookRevert reply
+	where reply.guestBookContent.id in(:contentId)
+	]]></query> 
+	<!-- 修改留言回复 -->
+	<query name="updateByReplyByContentId"><![CDATA[
+	UPDATE GuestBookRevert reply
+	SET reply.revertContent=:content,reply.revertTime=:revertTime
+	where reply.guestBookContent.id in (:contentId)
+	]]></query> 
+</hibernate-mapping>

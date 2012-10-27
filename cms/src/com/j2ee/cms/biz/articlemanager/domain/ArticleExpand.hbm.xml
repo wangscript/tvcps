@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.articlemanager.domain">
+    <class name="ArticleExpand" table="article_Expand">
+        <id name="id">
+            <generator class="uuid" />
+        </id> 
+        <many-to-one name="article" column="article_id" />
+        <many-to-one name="column" column="column_id" />
+        <many-to-one name="articleFormat" column="article_format_id" not-null="true"/>
+    
+        
+        <property name="date1" />
+        <property name="date2" />
+        <property name="date3" />
+        <property name="date4" />
+        <property name="date5" />
+        <property name="date6" />
+        <property name="date7" />
+        <property name="date8" />
+        <property name="date9" />
+        <property name="date10" />
+        <property name="text1" />
+        <property name="text2" />
+        <property name="text3" />
+        <property name="text4" />
+        <property name="text5" />
+        <property name="text6" />
+        <property name="text7" />
+        <property name="text8" />
+        <property name="text9" />
+        <property name="text10" />
+        <property name="text11" />
+        <property name="text12" />
+        <property name="text13" />
+        <property name="text14" />
+        <property name="text15" />
+        <property name="text16" />
+        <property name="text17" />
+        <property name="text18" />
+        <property name="text19" />
+        <property name="text20" />
+        <property name="text21" />
+        <property name="text22" />
+        <property name="text23" />
+        <property name="text24" />
+        <property name="text25" />
+        <property name="textArea1" type="text" />
+        <property name="textArea2" type="text" />
+        <property name="textArea3" type="text" />
+        <property name="textArea4" type="text" />
+        <property name="textArea5" type="text" />
+        <property name="textArea6" type="text" />
+        <property name="textArea7" type="text" />
+        <property name="textArea8" type="text" />
+        <property name="textArea9" type="text" />
+        <property name="textArea10" type="text" />
+        <property name="integer1" />
+        <property name="integer2" />
+        <property name="integer3" />
+        <property name="integer4" />
+        <property name="integer5" />
+        <property name="integer6" />
+        <property name="integer7" />
+        <property name="integer8" />
+        <property name="integer9" />
+        <property name="integer10" />
+        <property name="float1" />
+        <property name="float2" />
+        <property name="float3" />
+        <property name="float04" />
+        <property name="float5" />
+        <property name="float6" />
+        <property name="float7" />
+        <property name="float08" />
+        <property name="float9" />
+        <property name="float10" />
+        <property name="bool1" />
+        <property name="bool2" />
+        <property name="bool3" />
+        <property name="bool4" />
+        <property name="bool5" />
+        <property name="bool6" />
+        <property name="bool7" />
+        <property name="bool8" />
+        <property name="bool9" />
+        <property name="bool10" />
+        <property name="pic1" />
+        <property name="pic2" />
+        <property name="pic3" />
+        <property name="pic4" />
+        <property name="pic5" />
+        <property name="pic6" />
+        <property name="pic7" />
+        <property name="pic8" />
+        <property name="pic9" />
+        <property name="pic10" />
+        <property name="attach1" />
+        <property name="attach2" />
+        <property name="attach3" />
+        <property name="attach4" />
+        <property name="attach5" />
+        <property name="attach6" />
+        <property name="attach7" />
+        <property name="attach8" />
+        <property name="attach9" />
+        <property name="attach10" />
+        <property name="media1" />
+        <property name="media2" />
+        <property name="media3" />
+        <property name="media4" />
+        <property name="media5" />
+        <property name="media6" />
+        <property name="media7" />
+        <property name="media8" />
+        <property name="media9" />
+        <property name="media10" />
+        <property name="enumeration1" />
+        <property name="enumeration2" />
+        <property name="enumeration3" />
+        <property name="enumeration4" />
+        <property name="enumeration5" />
+    </class>
+     
+    
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tree id="0">
+	<item text="短消息" id="site" >
+			<item text="发送短消息" id="sendMessage" >
+				<userdata name="url" >
+					sitemessage.do?dealMethod=sendMessage
+				</userdata>
+			</item>	
+			<item text="收件箱" id="receiveMessageBox" >
+				<userdata name="url" >
+					sitemessage.do?dealMethod=list
+				</userdata>
+			</item>	
+			<item text="发件箱" id="sendMessageBox" >
+				<userdata name="url" >
+					sitemessage.do?dealMethod=list
+				</userdata>
+			</item>
+			<item text="联系人管理" id="contacterManager" >
+				<userdata name="url" >
+					sitemessage.do?dealMethod=list
+				</userdata>
+			</item>
+	</item>	
+</tree> 

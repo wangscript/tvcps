@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--2.4	网上公告start -->      
+	         
+	<bean name="/onlineBulletin" class="com.j2ee.cms.plugin.onlineBulletin.web.action.OnlineBulletinAction" scope="prototype">
+		<property name="baseBiz" ref="onlineBulletin-onlineBulletinBiz"/>
+	</bean>                                           
+	<bean id="onlineBulletin-onlineBulletinBiz" class="com.j2ee.cms.plugin.onlineBulletin.service.OnlineBulletinBiz" scope="singleton">		
+		<property name="onlineBulletinService" ref="onlineBulletin-onlineBulletinService"/>
+	</bean>                                              
+	<bean id="onlineBulletin-onlineBulletinService" class="com.j2ee.cms.plugin.onlineBulletin.service.impl.OnlineBulletinServiceImpl" scope="singleton">
+	  	<property name="onlineBulletinDao"  ref="onlineBulletin-onlineBulletinDao"/>
+	  	<property name="siteDao" ref="sitemanager-siteDao"/>	
+	</bean>
+	<bean id="onlineBulletin-onlineBulletinDao"
+		   class="com.j2ee.cms.plugin.onlineBulletin.dao.imp.OnlineBulletinDaoImpl" 
+		   parent="genericDaoImpl" />
+		   
+	<!--网上公告end -->	
+	
+	<!-- 前台action -->
+	<bean name="/onlineBulletinOut" class="com.j2ee.cms.plugin.onlineBulletin.web.action.OnlineBulletinOutAction" scope="singleton">  
+    	<property name="onlineBulletinService" ref="onlineBulletin-onlineBulletinService"/>
+  	</bean>  
+	<!-- 管理 end -->	
+	
+</beans>

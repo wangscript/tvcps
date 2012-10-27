@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="onlineBulletinForm"
+			type="com.j2ee.cms.plugin.onlineBulletin.web.form.OnlineBulletinForm">
+		</form-bean>
+	</form-beans>
+	<global-exceptions />
+	<action-mappings>    
+        <!-- 网上公告action配置  start-->
+		<action path="/onlineBulletin"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="onlineBulletinForm"
+			scope="request" validate="false">
+			<forward name="list"	          path="/plugin/onlineBulletin_manager/onlineBulletin_list.jsp" />
+			<forward name="detail"	          path="/plugin/onlineBulletin_manager/onlineBulletin_detail.jsp" />
+			<forward name="update"	          path="/plugin/onlineBulletin_manager/onlineBulletin_update.jsp" />
+			<forward name="publishSuccess"    path="/plugin/onlineBulletin_manager/onlineBulletin_publish_success.jsp"/>
+			<forward name="bindSuccess"       path="/plugin/onlineBulletin_manager/bind_column_success.jsp"/>
+			<forward name="findBindSuccess"   path="/plugin/onlineBulletin_manager/bind_column.jsp"/>
+		</action>	                         
+	    <!--网上公告action配置 end -->
+	    
+	    <!-- 文章业务action配置  end -->
+        <action path="/onlineBulletinOut"
+             	type="org.springframework.web.struts.DelegatingActionProxy"   
+                name="onlineBulletinForm"
+                scope="request"
+                parameter="dealMethod" >
+			<forward name="findOnlineSuccess" path="/plugin/onlineBulletin_manager/find_online_success.jsp"/>
+        </action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.plugin.guestbookmanager.domain">
+    <class name="GuestBookContent" table="guestbook_contents">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="title" />
+        <property name="bookContent" />
+        <property name="email" />
+        <property name="bookName" />
+        <property name="phone" />
+        <property name="auditStatus" />
+        <property name="replyStatus" />
+        <property name="area" />
+        <property name="address" />
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="ip" />   
+        <property name="userId" />   
+        <many-to-one name="guestBookCategory" column="guest_category_id" not-null="true"/>
+    </class>    
+    <!-- 获取全部留言分页  网站管理员以上 -->
+    <query name="findAllContent"><![CDATA[
+	SELECT content.id,content.title,content.guestBookCategory.categoryName,
+	content.bookName,content.createTime,(SELECT u.name FROM User u WHERE content.userId=u.id) AS name,
+	content.replyStatus,content.auditStatus
+	FROM GuestBookContent content
+	WHERE content.guestBookCategory.sites.id=:siteid	
+	]]></query>
+	<!-- 获取全部留言分页  普通用户 -->
+    <query name="findAllContentByUserId"><![CDATA[
+	SELECT content.id,content.title,content.guestBookCategory.categoryName,
+	content.bookName,content.createTime,(SELECT u.name FROM User u WHERE content.userId=u.id) AS name,content.replyStatus,content.auditStatus
+	FROM GuestBookContent content	
+	WHERE content.guestBookCategory.sites.id=:siteid
+	AND content.userId=:userid
+	]]></query>
+	 <!-- 获取留言分页 根据审核状态  网站管理员以上-->
+    <query name="findContentByAudit"><![CDATA[
+	SELECT content.id,content.title,content.guestBookCategory.categoryName,
+	content.bookName,content.createTime,(SELECT u.name FROM User u WHERE content.userId=u.id) AS name,content.replyStatus,content.auditStatus
+	  FROM GuestBookContent content
+	  WHERE content.auditStatus=:auditStatus
+	  AND content.guestBookCategory.sites.id=:siteid
+	  ]]></query>
+	   <!-- 获取留言分页 根据审核状态  普通用户-->
+    <query name="findContentByAuditByUserId"><![CDATA[
+	SELECT content.id,content.title,content.guestBookCategory.categoryName,
+	content.bookName,content.createTime,(SELECT u.name FROM User u WHERE content.userId=u.id) AS name,content.replyStatus,content.auditStatus
+	  FROM GuestBookContent content
+	  WHERE content.auditStatus=:auditStatus
+	  AND content.userId=:userid
+	  AND content.guestBookCategory.sites.id=:siteid
+	  ]]></query>
+	  <!-- 获取留言分页 根据留言回复状态  网站管理员-->
+	 <query name="findContentByreplyStatus"><![CDATA[
+	SELECT content.id,content.title,content.guestBookCategory.categoryName,
+	content.bookName,content.createTime,(SELECT u.name FROM User u WHERE content.userId=u.id) AS name,content.replyStatus,content.auditStatus
+	  FROM GuestBookContent content
+	  WHERE content.replyStatus=:replyStatus
+	  AND content.guestBookCategory.sites.id=:siteid
+	   ]]></query>
+	    <!-- 获取留言分页 根据留言回复状态 普通用户-->
+	 <query name="findContentByreplyStatusByUserId"><![CDATA[
+	SELECT content.id,content.title,content.guestBookCategory.categoryName,
+	content.bookName,content.createTime,(SELECT u.name FROM User u WHERE content.userId=u.id) AS name,content.replyStatus,content.auditStatus
+	  FROM GuestBookContent content
+	  WHERE content.replyStatus=:replyStatus
+	  AND content.userId=:userid
+	  AND content.guestBookCategory.sites.id=:siteid	  
+	   ]]></query>
+	   <!-- 修改审核状态，回复状态,回复人 -->
+	   <query name="updateStatus"><![CDATA[
+		UPDATE GuestBookContent content
+		SET content.replyStatus='1',content.auditStatus='1',content.userId=:userId
+		WHERE content.id=:contentId
+	   ]]></query>
+	    <!-- 当前为不需要审核提交    调用此方法      修改回复状态,回复人 -->
+	   <query name="updateReplyStatus"><![CDATA[
+		UPDATE GuestBookContent content
+		SET content.replyStatus='1',content.userId=:userId
+		WHERE content.id=:contentId
+	   ]]></query>
+	    <!-- 审核留言 修改审核状态 -->
+	   <query name="updateAuditStatus"><![CDATA[
+		UPDATE GuestBookContent content
+		SET content.auditStatus=:auditStatus
+		WHERE content.id=:contentId
+	   ]]></query>
+	   <!-- 分发用户  根据ID修改回复人 -->
+	   <query name="updateReplyUser"><![CDATA[
+		UPDATE GuestBookContent content
+		SET content.userId=:userId
+		WHERE content.id in (:contentId)
+	   ]]></query>
+	   <!-- 根据类别ID查询当前类别是否有留言 -->
+	  <query name="findByCategoryId"><![CDATA[
+		SELECT content.bookName
+		FROM GuestBookContent content
+		WHERE content.guestBookCategory.id=:categoryId
+	   ]]></query>
+</hibernate-mapping>

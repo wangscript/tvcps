@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.templatemanager.domain">
+    <class name="TemplateUnitCategory" table="template_unit_categories">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="name" />
+        <property name="css" type="text"/>
+        <property name="configUrl" />
+        <property name="configFile" />
+    </class>
+    
+     <!-- 查找类别ID不是文章的模板单元类别  -->
+    <query name="findTemplateUnitCategoryNotArticle"><![CDATA[
+    	  FROM TemplateUnitCategory templateUnitCategory
+         WHERE templateUnitCategory.id != :categoryId
+    ]]>
+    </query>
+</hibernate-mapping>

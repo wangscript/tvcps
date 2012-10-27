@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 留言板敏感词和属性设置 start -->
+	<bean name="guestbookmanager-sensitiveWordDao" class="com.j2ee.cms.plugin.guestbookmanager.dao.impl.GuestBookSensitiveWordDaoImpl" parent="genericDaoImpl"/>
+	<bean id="guestbookmanager-guestbookService" class="com.j2ee.cms.plugin.guestbookmanager.service.impl.GuestBookServiceImpl" scope="singleton">
+		<property name="sensitiveWordDao" ref="guestbookmanager-sensitiveWordDao" />
+		<property name="siteDao" ref="sitemanager-siteDao"/>			
+	</bean>
+	<bean id="guestbookmanager-guestbookAttributeService" class="com.j2ee.cms.plugin.guestbookmanager.service.impl.GuestBookAttributeServiceImpl" scope="singleton">
+		<property name="siteDao" ref="sitemanager-siteDao"/>
+	</bean>
+	<!--  留言板敏感词和属性设置end -->	
+	
+	<!-- 分发权限设置 start -->
+	<bean id="usermanager-userDao" class="com.j2ee.cms.biz.usermanager.dao.impl.UserDaoImpl" parent="genericDaoImpl"/>
+	<bean name="guestbookmanager-autorityDao" class="com.j2ee.cms.plugin.guestbookmanager.dao.impl.GuestBookAutorityDaoImpl" parent="genericDaoImpl"/>
+	<bean id="guestbookmanager-autorityService"	class="com.j2ee.cms.plugin.guestbookmanager.service.impl.GuestBookAutorityServiceImpl" scope="singleton">
+		<property name="autorityDao" ref="guestbookmanager-autorityDao" />	
+		<property name="userDao" ref="usermanager-userDao" />	
+	</bean>
+	<!-- 分发权限设置 start -->
+	
+	<!-- 上面所有公用BIZ和action  start -->
+	<bean id="guestbookmanager-guestbookbiz" class="com.j2ee.cms.plugin.guestbookmanager.service.GuestBookBiz">
+		<property name="guestBookService" ref="guestbookmanager-guestbookService" />
+		<property name="attributeService" ref="guestbookmanager-guestbookAttributeService"/>
+		<property name="autorityService" ref="guestbookmanager-autorityService"/>	
+	</bean>
+	<bean name="/guestBook" class="com.j2ee.cms.plugin.guestbookmanager.web.action.GuestBookAction" scope="singleton">  
+    	<property name="baseBiz" ref="guestbookmanager-guestbookbiz"/>
+  	</bean> 
+  	<!-- 上面所有公用BIZ和action  end -->  	
+  	
+  	<!-- 留言类别管理  start -->
+  	<bean name="guestbookmanager-revertDao" class="com.j2ee.cms.plugin.guestbookmanager.dao.impl.GuestRevertDaoImpl" parent="genericDaoImpl"/>
+  	<bean name="guestbookmanager-categoryDao" class="com.j2ee.cms.plugin.guestbookmanager.dao.impl.GuestCategoryDaoImpl" parent="genericDaoImpl"/>
+  	<bean name="guestbookmanager-contentDao" class="com.j2ee.cms.plugin.guestbookmanager.dao.impl.GuestBookContentDaoImpl" parent="genericDaoImpl"/>
+  	<bean id="guestbookmanager-categoryService" class="com.j2ee.cms.plugin.guestbookmanager.service.impl.GuestCategoryServiceImpl" scope="singleton">
+		<property name="guestCategoryDao" ref="guestbookmanager-categoryDao" />	
+		<property name="guestContentDao" ref="guestbookmanager-contentDao" />	
+		<property name="revertDao" ref="guestbookmanager-revertDao" />	
+		<property name="userDao" ref="usermanager-userDao" />	
+	</bean>
+	<bean id="guestbookmanager-categorybiz" class="com.j2ee.cms.plugin.guestbookmanager.service.GuestCategoryBiz">
+		<property name="guestCategoryService" ref="guestbookmanager-categoryService" />	
+		<property name="autorityService" ref="guestbookmanager-autorityService"/>	
+	</bean>
+	<bean name="/guestCategory" class="com.j2ee.cms.plugin.guestbookmanager.web.action.GuestCategoryAction" scope="singleton">  
+    	<property name="baseBiz" ref="guestbookmanager-categorybiz"/>
+  	</bean> 
+  	<!-- 留言类别管理  end -->
+  	
+  	<!-- 留言前台管理 start -->
+  	<bean id="guestbookmanager-bookContentService" class="com.j2ee.cms.plugin.guestbookmanager.service.impl.GuestBookContentServiceImpl">
+  		<property name="jdbcTemplate" ref="jdbcTemplate" />		
+  	</bean>
+  	<bean name="/guestOuter" class="com.j2ee.cms.plugin.guestbookmanager.web.action.GuestOuterAction" scope="singleton">  
+    	<property name="contentService" ref="guestbookmanager-bookContentService"/>
+    	<property name="attributeSet" ref="guestbookmanager-guestbookAttributeService"></property>
+  	</bean> 
+  	<!-- 留言前台管理 end -->
+</beans>

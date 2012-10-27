@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.publishmanager.domain">
+    <class name="ArticleBuildList" table="build_articles">
+        <id name="id"  >
+            <generator class="assigned" />
+        </id>
+        <property name="title" />
+        <property name="url" />
+        <property name="subtitle" />
+        <property name="leadingTitle" />
+        <property name="infoSource" />
+        <property name="author" />
+        <property name="orders" />
+        <property name="hits" />
+        <property name="brief" />
+        <property name="keyword" />
+        <property name="deleted" />
+        <property name="audited" />
+        <property name="published" />
+        <property name="ref" />
+        <property name="status" />
+        <property name="createTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="displayTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="invalidTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="publishTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="auditTime" type="com.j2ee.cms.common.core.util.DateString"/>
+        <property name="pic"/>
+        <property name="attach"/>
+        <property name="media"/>        
+        <property name="textArea" type="text" />
+        <many-to-one name="referedArticle" column="refered_article_id"/>
+        <many-to-one name="column" column="column_id" not-null="true"/>
+        <many-to-one name="site" column="site_id" not-null="true"/>
+        <!-- <many-to-one name="articleFormat" column="article_format_id" not-null="true"/> -->
+        <many-to-one name="creator" column="creator_id" not-null="true"/>
+        <many-to-one name="auditor" column="auditor_id"/>
+         
+    </class>
+    
+ 	<!-- 查找未删除的文章 -->
+ 	<!-- 
+    <query name="findUndelatedArticles"><![CDATA[
+    	  FROM ArticlePublishList publishList
+      ORDER BY publishList.id
+    ]]></query>  
+     -->
+
+	<!-- 查找所有文章生成列表页 -->
+    <query name="findAllBuildArticleBySiteIdPage"><![CDATA[
+    	  SELECT buildList.id, buildList.title, buildList.createTime, buildList.column.name, buildList.site.name,buildList.status
+    	    FROM ArticleBuildList buildList
+    	   WHERE buildList.site.id = :siteId
+    	     AND buildList.site.deleted = 0 
+        ORDER BY buildList.id
+    ]]></query>
+    
+     <!-- 查询所有生成文章 -->
+    <query name="findAllBuildArticle"><![CDATA[  
+    	  FROM ArticleBuildList buildList
+    	 WHERE buildList.deleted = 0
+    	   AND buildList.site.deleted = 0
+      ORDER BY buildList.id DESC
+    ]]></query>
+</hibernate-mapping>

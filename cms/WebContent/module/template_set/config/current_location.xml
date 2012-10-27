@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j2ee.cms>
+	<copyright>j2ee.cms Net Work</copyright>
+	<current_location>
+		<viewStyle>1</viewStyle>
+		<contextFrom>1</contextFrom>
+		<columnName></columnName> 
+		<titleLimit>10</titleLimit>
+	</current_location>
+</j2ee.cms>

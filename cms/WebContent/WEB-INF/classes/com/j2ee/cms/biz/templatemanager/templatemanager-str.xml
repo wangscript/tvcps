@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+	<form-beans>
+		<form-bean name="templateCategoryForm"     type="com.j2ee.cms.biz.templatemanager.web.form.TemplateCategoryForm" />
+		<form-bean name="templateForm"             type="com.j2ee.cms.biz.templatemanager.web.form.TemplateForm" />
+		<form-bean name="templateInstanceForm"     type="com.j2ee.cms.biz.templatemanager.web.form.TemplateInstanceForm" />
+		<form-bean name="templateUnitForm"         type="com.j2ee.cms.biz.templatemanager.web.form.TemplateUnitForm" />
+		<form-bean name="templateUnitStyleForm"    type="com.j2ee.cms.biz.templatemanager.web.form.TemplateUnitStyleForm" />
+	</form-beans>
+	<global-exceptions />
+	
+	<action-mappings>
+		<!-- 模板类别 -->
+	    <action path="/templateCategory"
+         	type="org.springframework.web.struts.DelegatingActionProxy"  
+            scope="request"
+            name="templateCategoryForm">
+	    	<forward name="detail"         path="/module/template_manager/templateCategory/templateCategory_detail.jsp"/>
+	    	<forward name="success"        path="/module/template_manager/templateCategory/templateCategory_list.jsp"/>
+	    	<forward name="deleteSuccess"  path="/templateCategory.do?dealMethod="/>
+	    </action>
+	
+		<!-- 模板 -->
+	    <action path="/template"
+         	type="org.springframework.web.struts.DelegatingActionProxy"  
+            scope="request"
+            name="templateForm">
+	    	<forward name="detail"         path="/module/template_manager/template/template_detail.jsp"/>
+	    	<forward name="success"        path="/module/template_manager/template/template_list.jsp"/>
+	    	<forward name="deleteSuccess"  path="/template.do?dealMethod="/>
+	    	<forward name="pastesuccess"   path="/module/template_manager/template/choosePaste_template.jsp"/>
+	    	<forward name="importSuccess"  path="/module/template_manager/template/save_template_success.jsp"/>
+	    	<forward name="editTemplate"  path="/module/template_manager/template/edit_template.jsp"/>
+	    </action>	
+	    
+	    <!-- 模板实例 -->
+	    <action path="/templateInstance"
+         	type="org.springframework.web.struts.DelegatingActionProxy"  
+            scope="request"
+            name="templateInstanceForm">
+	    	<forward name="detail"              path="/module/template_manager/templateInstance/templateInstance_detail.jsp"/>
+	    	<forward name="success"             path="/module/template_manager/templateInstance/templateInstance_list.jsp"/>
+	    	<forward name="deleteSuccess"       path="/templateInstance.do?dealMethod="/>
+	    	<forward name="addInstanceSuccess"  path="/module/template_set/templateInstance_add_success.jsp"/>
+	    	<forward name="bind" 			    path="/module/template_manager/templateInstance/bind_templateInstance.jsp"/>
+	    	<forward name="bindSuccess"		    path="/module/template_manager/templateInstance/bind_templateInstance_success.jsp"/>
+	    </action>	
+	    
+	    <!-- 模板单元 -->
+	    <action path="/templateUnit"
+         	type="org.springframework.web.struts.DelegatingActionProxy"  
+            scope="session"
+            name="templateUnitForm">
+	    	<forward name="detail"              path="/module/article_manager/attribute/attribute_detail.jsp"/>
+	    	<forward name="success"        		path="/module/article_manager/attribute/attribute_list.jsp"/>
+	    	<forward name="listTemplate"   		path="/module/template_set/template_list.jsp"/>
+	    	<forward name="chooseTemplate" 		path="/module/template_set/template_choose.jsp"/>
+	    	<forward name="templateSet"    		path="/module/template_set/template_set.jsp" redirect="true"/>
+	    	<forward name="unitSet"        		path="/module/template_set/unit_set.jsp"/>
+	    	<forward name="cancelTemplate" 		path="/module/template_set/cancel_template_success.jsp"/>
+	    	<forward name="ajaxMsg"        		path="/module/template_set/ajax_msg.jsp"/>
+	    	<forward name="addTemplate"   		path="/module/template_set/template_add.jsp"/>
+	    	<forward name="addInstanceSuccess"  path="/module/template_set/templateInstance_add_success.jsp"/>
+	    </action>
+	    
+	    <!-- 单元样式 -->
+	    <action path="/templateUnitStyle"
+         	type="org.springframework.web.struts.DelegatingActionProxy"  
+            scope="session"
+            name="templateUnitStyleForm">
+            <forward name="success"              path="/module/template_manager/templateStyle/templateStyle_list.jsp"/>
+            <forward name="detail"               path="/module/template_manager/templateStyle/templateStyle_detail.jsp"/>
+            <forward name="findStyle" 		     path="/module/template_set/unit/find_Style.jsp"/>
+	    </action>
+	    
+	</action-mappings>
+	
+</struts-config>
+

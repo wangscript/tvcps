@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 文章评论管理 start -->
+	<bean id="pluginarticlecomment-articleCommentReplaceDao" class="com.j2ee.cms.plugin.articlecomment.dao.impl.ArticleCommentReplaceDaoImpl" parent="genericDaoImpl" />
+	<bean id="pluginarticlecomment-articleCommentDao" class="com.j2ee.cms.plugin.articlecomment.dao.impl.ArticleCommentDaoImpl" parent="genericDaoImpl" />
+	<bean id="articlemanager-articleDao" class="com.j2ee.cms.biz.articlemanager.dao.impl.ArticleDaoImpl" parent="genericDaoImpl" />
+	<bean id="pluginarticlecomment-articleCommentService" class="com.j2ee.cms.plugin.articlecomment.service.impl.ArticleCommentServiceImpl" scope="singleton">
+		<property name="articleCommentDao" ref="pluginarticlecomment-articleCommentDao" />	
+		<property name="jdbcTemplate" ref="jdbcTemplate" />		
+		<property name="articleDao" ref="articlemanager-articleDao" />	
+		<property name="siteDao" ref="sitemanager-siteDao"/>	
+		<property name="articleCommentReplaceDao" ref="pluginarticlecomment-articleCommentReplaceDao"/>
+	</bean>
+	 <bean id="pluginarticlecomment-articleCommentBiz" class="com.j2ee.cms.plugin.articlecomment.service.ArticleCommentBiz">
+	 	<property name="articleCommentService" ref="pluginarticlecomment-articleCommentService" />
+	 </bean>
+	 
+	<bean name="/articleComment" class="com.j2ee.cms.plugin.articlecomment.web.action.ArticleCommentAction" scope="singleton">  
+    	<property name="baseBiz" ref="pluginarticlecomment-articleCommentBiz"/>
+  	</bean> 
+  	<bean name="/commitComment" class="com.j2ee.cms.plugin.articlecomment.web.action.CommitCommentAction" scope="singleton">  
+    	<property name="articleCommentService" ref="pluginarticlecomment-articleCommentService" />
+  	</bean>  
+	<!-- 文章评论管理 end -->	
+
+</beans>

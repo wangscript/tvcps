@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin_style>
+	<style>
+		<stylename>网上调查样式</stylename>
+		<stylecontent><![CDATA[<TABLE width="100%" align="center"><TR><TD align="middle"><!--kindname--></TD></TR><TR><TD align="center"><!--for--><!--number-->.<!--question--><!--answer--><br><!--/for--></TD></TR><TR><TD align="middle"><TABLE><TR><TD><INPUT type="button" value="投票" onclick="commit()">  <INPUT type="button" value="查看" onclick="check()"></TD></TR></TABLE></TD></TR></TABLE>]]>
+		</stylecontent>
+		<listStyle><![CDATA[<table width="95%" align="center"><!--for--><tr><td><!--number-->. <a href='#' onclick='getJsp("<!--url-->")'><!--kindname--></a></td></tr><!--/for--></table>]]>
+		</listStyle>
+		<row>1</row>
+		<width>100</width>
+		<height>100</height>
+	</style>
+</plugin_style>
