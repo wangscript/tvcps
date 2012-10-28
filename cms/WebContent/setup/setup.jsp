@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="cache-control" canliontent="no-cache">
 <meta http-equiv="expires" content="0"> 
-<title>CPS后台管理</title>
+<title>内容管理系统后台管理</title>
 <link href="images/setupimages/setup.css" type="text/css"
 	rel="stylesheet" />
 </head>
