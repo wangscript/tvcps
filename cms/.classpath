@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v6.0"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ant-1.7.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/asm-attrs.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/asm.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/axis-ant.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/buildlist.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/chardet.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-chain-1.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-codec-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester-1.8.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang-2.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-net-1.4.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-resources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-validator-1.3.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/complat.jar" sourcepath="/complatnew"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cos.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/db2jcc_license_cisuz.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/db2jcc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dfbeans.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ezmorph-1.0.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fckeditor-java-core-2.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/itext-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/j2ssh-ant.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/j2ssh-common.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/j2ssh-core.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/j2ssh-dameon.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta-oro-2.0.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jaxen-1.1-beta-6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jbcl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jcommon-1.0.12.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jdom.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jfreechart-1.0.8a.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-lib-2.0-jdk15.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jta.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/junit-4.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ldapmd5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/LDAPpart.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene_cn.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-analyzers-2.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-core-2.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/lucene-highlighter-2.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/nntp.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/Oracle 10g 10.2.0.4 JDBC_classes12.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/paoding-analysis.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/platform.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/proxool-0.9.0RC3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/quartz-all-1.6.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/robase.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/search1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.5.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-simple-1.5.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sqljdbc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts-core-1.3.10.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts-extras-1.3.10.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-apis.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
