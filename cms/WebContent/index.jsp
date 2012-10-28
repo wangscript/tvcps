@@ -7,7 +7,7 @@
 <meta http-equiv="Expires" CONTENT="0">
 <meta http-equiv="Cache-Control" CONTENT="no-cache">
 <meta http-equiv="Pragma" CONTENT="no-cache">
-<title>CPS系统登录页面</title>
+<title>内容管理系统后台管理</title>
 <script type="text/javascript" src="<c:url value='/script/jquery-1.2.6.js'/>" ></script>
 <script type="text/javascript" src="<c:url value='/script/global.js'/>" ></script>
 <script type="text/javascript" src="<c:url value='/script/jquery.form.js'/>" ></script>
