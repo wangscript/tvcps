@@ -31,6 +31,9 @@
 		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/ArticleAttribute.hbm.xml" />
 		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/ArticleFormat.hbm.xml" />
 		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/Article.hbm.xml" />
+        
+        <mapping resource="com/j2ee/cms/biz/articlemanager/domain/ArticleAttach.hbm.xml" />
+        
 		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/ArticleExpand.hbm.xml" />
 		<mapping resource="com/j2ee/cms/biz/articlemanager/domain/Enumeration.hbm.xml" />
 		<mapping resource="com/j2ee/cms/biz/templatemanager/domain/Template.hbm.xml" />
