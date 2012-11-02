@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionMapping;
 
 import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttach;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
 import com.j2ee.cms.biz.configmanager.domain.GeneralSystemSet;
@@ -40,7 +41,12 @@ public class ArticleForm extends GeneralForm {
 	/** 所有格式 */
 	private List<ArticleFormat> formats = new ArrayList<ArticleFormat>();
 	
- 
+	private Integer maxPicCount;
+	private Integer maxMediaCount;
+	private Integer maxAttachCount;
+	private List<ArticleAttach> picList = new ArrayList<ArticleAttach>();
+	private List<ArticleAttach> mediaList = new ArrayList<ArticleAttach>();
+	private List<ArticleAttach> attachList = new ArrayList<ArticleAttach>();
 	
 	/** 文章ID */
 	private String articleId;
@@ -587,5 +593,53 @@ public class ArticleForm extends GeneralForm {
 	public void setFormatName(String formatName) {
 		this.formatName = formatName;
 	}
+
+    public Integer getMaxPicCount() {
+        return maxPicCount;
+    }
+
+    public void setMaxPicCount(Integer maxPicCount) {
+        this.maxPicCount = maxPicCount;
+    }
+
+    public Integer getMaxMediaCount() {
+        return maxMediaCount;
+    }
+
+    public void setMaxMediaCount(Integer maxMediaCount) {
+        this.maxMediaCount = maxMediaCount;
+    }
+
+    public Integer getMaxAttachCount() {
+        return maxAttachCount;
+    }
+
+    public void setMaxAttachCount(Integer maxAttachCount) {
+        this.maxAttachCount = maxAttachCount;
+    }
+
+    public List<ArticleAttach> getPicList() {
+        return picList;
+    }
+
+    public void setPicList(List<ArticleAttach> picList) {
+        this.picList = picList;
+    }
+
+    public List<ArticleAttach> getMediaList() {
+        return mediaList;
+    }
+
+    public void setMediaList(List<ArticleAttach> mediaList) {
+        this.mediaList = mediaList;
+    }
+
+    public List<ArticleAttach> getAttachList() {
+        return attachList;
+    }
+
+    public void setAttachList(List<ArticleAttach> attachList) {
+        this.attachList = attachList;
+    }
 
 }

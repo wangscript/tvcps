@@ -4,6 +4,7 @@
 */
 package com.j2ee.cms.biz.articlemanager.web.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionForm;
 
 import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttach;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
 import com.j2ee.cms.biz.articlemanager.web.form.ArticleForm;
@@ -24,6 +26,7 @@ import com.j2ee.cms.common.core.util.StringUtil;
 import com.j2ee.cms.common.core.web.GeneralAction;
 import com.j2ee.cms.common.core.web.event.RequestEvent;
 import com.j2ee.cms.common.core.web.event.ResponseEvent;
+import com.j2ee.cms.sys.Tools;
 
 /**
  * <p>标题: —— 要求能简洁地表达出类的功能和职责</p>
@@ -51,6 +54,11 @@ public class ArticleAction extends GeneralAction {
 		form.setColumnAudited(columnAudited);
 //		String formatId = (String) responseParam.get("formatId");
 //		form.setFormatId(formatId);
+		
+		form.setMaxPicCount(Integer.parseInt(Tools.getConfPropertyValueByParam("maxPicCount")));
+		form.setMaxMediaCount(Integer.parseInt(Tools.getConfPropertyValueByParam("maxMediaCount")));
+		form.setMaxAttachCount(Integer.parseInt(Tools.getConfPropertyValueByParam("maxAttachCount")));
+		
 		// 显示列表
 		if (dealMethod.equals("")) {
 			form.setPagination((Pagination) responseParam.get("pagination"));
@@ -148,6 +156,10 @@ public class ArticleAction extends GeneralAction {
 			}
 		    form.setFormatName((String)responseParam.get("formatName"));
 		    form.setFormatId((String)responseParam.get("formatId"));
+		    
+		    form.setPicList((List<ArticleAttach>)responseParam.get("picList"));
+		    form.setMediaList((List<ArticleAttach>)responseParam.get("mediaList"));
+		    form.setAttachList((List<ArticleAttach>)responseParam.get("attachList"));
 			this.setRedirectPage("detail", userIndr);
 			
 		// 显示回收站里的文章	
@@ -228,6 +240,7 @@ public class ArticleAction extends GeneralAction {
 			form.setInfoMessage("保存并继续添加文章成功");
 			List<ArticleFormat> formats = (List<ArticleFormat>) responseParam.get("formats");
 			form.setFormats(formats);
+			form.setArticle(null);
 			this.setRedirectPage("detail", userIndr);
 			
 		//文章保存并继续添加	(修改)
@@ -235,6 +248,7 @@ public class ArticleAction extends GeneralAction {
 			form.setInfoMessage("保存并继续添加文章成功");
 			List<ArticleFormat> formats = (List<ArticleFormat>) responseParam.get("formats");
 			form.setFormats(formats);
+			form.setArticle(null);
 			this.setRedirectPage("detail", userIndr);
 			
 		//发布	
@@ -275,7 +289,6 @@ public class ArticleAction extends GeneralAction {
 	protected void performTask(ActionForm actionForm,
 		RequestEvent requestEvent, String userIndr) throws Exception {
 		HttpServletRequest request = (HttpServletRequest) requestEvent.getReqMapParam().get("HttpServletRequest");
-		
 		ArticleForm articleForm = (ArticleForm) actionForm;
 		this.dealMethod = articleForm.getDealMethod();
 		Map<Object,Object> requestParam = requestEvent.getReqMapParam();
@@ -326,7 +339,7 @@ public class ArticleAction extends GeneralAction {
 		
 		// 显示所有格式
 		} else if (dealMethod.equals("getFormats")) {
-			String articleId = articleForm.getArticleDetailId(); 	 
+			String articleId = articleForm.getArticleDetailId();
 			requestParam.put("articleId", articleId);
 			requestParam.put("formatId", articleForm.getFormatId());
 			
@@ -338,6 +351,7 @@ public class ArticleAction extends GeneralAction {
 			article.setColumn(column);	 
 			requestParam.put("article", article);
 			
+			this.processArticleAttach(request, requestParam);
 		// 删除文章
 		} else if (dealMethod.equals("delete")) {
 			String isFromAll = articleForm.getIsfromAll();
@@ -382,6 +396,7 @@ public class ArticleAction extends GeneralAction {
 			} else {
 				article.setRef(true);
 			}
+			this.processArticleAttach(request, requestParam);
 			requestParam.put("article", article);
 			
 		// 文章明细
@@ -473,10 +488,10 @@ public class ArticleAction extends GeneralAction {
 				article.setRef(true);
 			}
 			
-			log.debug("columnId============"+article.getColumn().getId());
-			log.debug("sietid====="+article.getSite().getId());
-			log.debug("creatorId==========="+article.getCreator().getId());
-			
+//			log.debug("columnId============"+article.getColumn().getId());
+//			log.debug("sietid====="+article.getSite().getId());
+//			log.debug("creatorId==========="+article.getCreator().getId());
+			this.processArticleAttach(request, requestParam);
 			
 			
 			requestParam.put("article", article);
@@ -516,7 +531,7 @@ public class ArticleAction extends GeneralAction {
 			article.setColumn(column);
 	  
 			requestParam.put("article", article);
-		 
+			this.processArticleAttach(request, requestParam);
 			
 		//文章保存并继续添加	(修改)
 		} else if (dealMethod.equals("modifyAndAdd")) {
@@ -587,7 +602,37 @@ public class ArticleAction extends GeneralAction {
 		}
 		
 		requestParam.put("columnId", columnId);
-
 	}
-
+	
+	
+	private void processArticleAttach(HttpServletRequest request, Map<Object,Object> requestParam){
+	    List<String> picAttachList = new ArrayList<String>();
+        List<String> mediaAttachList = new ArrayList<String>();
+        List<String> attachAttachList = new ArrayList<String>();
+        Integer maxPicCount = Integer.parseInt(Tools.getConfPropertyValueByParam("maxPicCount"));
+        Integer maxMediaCount = Integer.parseInt(Tools.getConfPropertyValueByParam("maxMediaCount"));
+        Integer maxAttachCount = Integer.parseInt(Tools.getConfPropertyValueByParam("maxAttachCount"));
+        for(int i = 0; i < maxPicCount; i++){
+            String path = request.getParameter("pic"+i);
+            if(path != null && !path.equals("")){
+                picAttachList.add(path);
+            }
+        }
+        for(int i = 0; i < maxMediaCount; i++){
+            String path = request.getParameter("media"+i);
+            if(path != null && !path.equals("")){
+                mediaAttachList.add(path);
+            }
+        }
+        for(int i = 0; i < maxAttachCount; i++){
+            String path = request.getParameter("attach"+i);
+            if(path != null && !path.equals("")){
+                attachAttachList.add(path);
+            }
+        }
+        requestParam.put("picAttachList", picAttachList);
+        requestParam.put("mediaAttachList", mediaAttachList);
+        requestParam.put("attachAttachList", attachAttachList);
+        
+	}
 }

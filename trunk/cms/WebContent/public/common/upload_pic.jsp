@@ -214,10 +214,34 @@
 
 			// 文章图片链接	
 			}else if(columnLink == 4){
-				var articlePicture = $("#articlePicture").val();
-				rightFrame.document.getElementById(articlePicture).value = location;
-				rightFrame.document.getElementById(articlePicture).focus();
-				closeWindow(rightFrame.getWin());
+                var flag = true;
+                for(var i = 0; i < rightFrame.maxPicCount; i++){
+                    var articlePic = rightFrame.document.getElementById("article.pic"+i);
+                    if(articlePic != null){
+                        if(location == articlePic.value){
+                            flag = false;
+                            alert("该图片已经选择，不能重复选择！");
+                        }
+                    }
+                }
+                if(flag){
+                    var articlePicture = $("#articlePicture").val();
+                    rightFrame.document.getElementById(articlePicture).value = location;
+                    rightFrame.document.getElementById(articlePicture).focus();
+                    rightFrame.document.getElementById("imgPreview").innerHTML = "";
+                    rightFrame.document.getElementById("imgPreview").innerHTML;
+                    rightFrame.document.getElementById("displayPicPreview").style.display = "block";
+                    for(var i = 0; i < rightFrame.maxPicCount; i++){
+                        var articlePic = rightFrame.document.getElementById("article.pic"+i);
+                        if(articlePic != null){
+                            var a = articlePic.value;
+                            if(a != null && a != ""){
+                                rightFrame.document.getElementById("imgPreview").innerHTML += "<img src=\""+a.substring(1, a.length)+"\" width=\"50px\" height=\"50px\"/>&nbsp;&nbsp;";
+                            }
+                        }
+                    }
+                    closeWindow(rightFrame.getWin());
+                }
 				
 			// 模版设置前缀	
 			}else if(columnLink == 1){

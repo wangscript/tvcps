@@ -123,7 +123,7 @@ public class Article implements Serializable {
 	private boolean keyFilter;
 	
  
-	private String text;
+//	private String text;
 	/**
 	 * 文章内容
 	 */
@@ -131,15 +131,15 @@ public class Article implements Serializable {
 	/**
 	 * 图片
 	 */
-	private String pic;
+//	private String pic;
 	/**
 	 * 附件
 	 */
-	private String attach;
+//	private String attach;
 	/**
 	 * 媒体
 	 */
-	private String media;
+//	private String media;
  
 
 	public Article() {
@@ -340,132 +340,43 @@ public class Article implements Serializable {
 		this.ref = ref;
 	}
 
-	/**
-	 * @return the publishState
-	 */
 	public String getPublishState() {
 		return publishState;
 	}
 
-	/**
-	 * @param publishState the publishState to set
-	 */
 	public void setPublishState(String publishState) {
 		this.publishState = publishState;
 	}
 
-	/**
-	 * @return the toped
-	 */
 	public boolean isToped() {
 		return toped;
 	}
 
-	/**
-	 * @param toped the toped to set
-	 */
 	public void setToped(boolean toped) {
 		this.toped = toped;
 	}
 
-	/**
-	 * @return the initUrl
-	 */
 	public String getInitUrl() {
 		return initUrl;
 	}
 
-	/**
-	 * @param initUrl the initUrl to set
-	 */
 	public void setInitUrl(String initUrl) {
 		this.initUrl = initUrl;
 	}
 
-	/**
-	 * @return the keyFilter
-	 */
 	public boolean isKeyFilter() {
 		return keyFilter;
 	}
 
-	/**
-	 * @param keyFilter the keyFilter to set
-	 */
 	public void setKeyFilter(boolean keyFilter) {
 		this.keyFilter = keyFilter;
 	}
 
-	/**
-	 * @return the text
-	 */
-	public String getText() {
-		return text;
-	}
-
-	/**
-	 * @param text the text to set
-	 */
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	/**
-	 * @return the textArea
-	 */
 	public String getTextArea() {
 		return textArea;
 	}
 
-	/**
-	 * @param textArea the textArea to set
-	 */
 	public void setTextArea(String textArea) {
 		this.textArea = textArea;
 	}
-
-	/**
-	 * @return the pic
-	 */
-	public String getPic() {
-		return pic;
-	}
-
-	/**
-	 * @param pic the pic to set
-	 */
-	public void setPic(String pic) {
-		this.pic = pic;
-	}
-
-	/**
-	 * @return the attach
-	 */
-	public String getAttach() {
-		return attach;
-	}
-
-	/**
-	 * @param attach the attach to set
-	 */
-	public void setAttach(String attach) {
-		this.attach = attach;
-	}
-
-	/**
-	 * @return the media
-	 */
-	public String getMedia() {
-		return media;
-	}
-
-	/**
-	 * @param media the media to set
-	 */
-	public void setMedia(String media) {
-		this.media = media;
-	}
-	
-    
-
 }

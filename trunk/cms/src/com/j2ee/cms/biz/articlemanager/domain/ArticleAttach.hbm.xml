@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.j2ee.cms.biz.articlemanager.domain">
+    <class name="ArticleAttach" table="article_attachs">
+        <id name="id">
+            <generator class="uuid" />
+        </id>
+        <property name="path" />
+        <property name="type" />
+        <many-to-one name="article" column="article_id"/>
+    </class>
+
+    <!-- 根据文章ID查询文章附件 -->
+    <query name="findArticleAttachsByArticleId"><![CDATA[
+          FROM ArticleAttach articleAttach
+          WHERE articleAttach.article.id = :articleId
+    ]]></query>
+
+    <!-- 根据文章ID和附件类型查询文章附件 -->
+    <query name="findArticleAttachsByArticleIdAndAttachType"><![CDATA[
+          FROM ArticleAttach articleAttach
+          WHERE articleAttach.article.id = :articleId
+          AND articleAttach.type = :type
+    ]]></query>
+
+    <!-- 根据文章ID和删除文章附件 -->
+    <query name="deleteArticleAttachByArticleId"><![CDATA[
+          DELETE FROM ArticleAttach articleAttach
+          WHERE articleAttach.article.id IN(:articleId)
+    ]]></query>
+</hibernate-mapping>
