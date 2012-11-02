@@ -347,4 +347,7 @@ public interface ArticleService {
 	 * @return
 	 */
 	String findFormatNameById(String id);
+	
+	void addArticleAtach(Article article, List<String> picAttachList, List<String> mediaAttachList, List<String> attachAttachList);
+	void modifyArticleAtach(Article article, List<String> picAttachList, List<String> mediaAttachList, List<String> attachAttachList);
 }

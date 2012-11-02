@@ -11,6 +11,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -24,11 +25,13 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttachDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
 import com.j2ee.cms.biz.articlemanager.dao.EnumerationDao;
 import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttach;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
 import com.j2ee.cms.biz.articlemanager.domain.Enumeration;
@@ -57,8 +60,6 @@ import com.j2ee.cms.biz.usermanager.domain.Operation;
 import com.j2ee.cms.biz.usermanager.domain.Resource;
 import com.j2ee.cms.biz.usermanager.domain.Right;
 import com.j2ee.cms.biz.usermanager.domain.User;
-import com.j2ee.cms.sys.GlobalConfig;
-import com.j2ee.cms.sys.SiteResource;
 import com.j2ee.cms.common.core.dao.Pagination;
 import com.j2ee.cms.common.core.util.BeanUtil;
 import com.j2ee.cms.common.core.util.CollectionUtil;
@@ -66,6 +67,8 @@ import com.j2ee.cms.common.core.util.DateUtil;
 import com.j2ee.cms.common.core.util.FileUtil;
 import com.j2ee.cms.common.core.util.SqlUtil;
 import com.j2ee.cms.common.core.util.StringUtil;
+import com.j2ee.cms.sys.GlobalConfig;
+import com.j2ee.cms.sys.SiteResource;
 
 /**
  * <p>
@@ -91,6 +94,8 @@ public class ArticleServiceImpl implements ArticleService {
 
 	private final Logger log = Logger.getLogger(ArticleServiceImpl.class);
 
+	/** 注入文章附件dao */
+	private ArticleAttachDao articleAttachDao;
 	/** 注入文章dao */
 	private ArticleDao articleDao;
 
@@ -148,6 +153,109 @@ public class ArticleServiceImpl implements ArticleService {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	public void addArticleAtach(Article article, List<String> picAttachList, List<String> mediaAttachList, List<String> attachAttachList){
+	    if(article != null && article.getId() != null){
+	        ArticleAttach attach = null;
+	        for(int i = 0; i < picAttachList.size(); i++){
+	            attach = new ArticleAttach();
+	            attach.setArticle(article);
+	            attach.setPath(picAttachList.get(i));
+	            attach.setType("pic");
+	            articleAttachDao.save(attach);
+	        }
+	        for(int i = 0; i < mediaAttachList.size(); i++){
+                attach = new ArticleAttach();
+                attach.setArticle(article);
+                attach.setPath(mediaAttachList.get(i));
+                attach.setType("media");
+                articleAttachDao.save(attach);
+            }
+	        for(int i = 0; i < attachAttachList.size(); i++){
+                attach = new ArticleAttach();
+                attach.setArticle(article);
+                attach.setPath(attachAttachList.get(i));
+                attach.setType("attach");
+                articleAttachDao.save(attach);
+            }
+	    }
+	}
+
+	public void modifyArticleAtach(Article article, List<String> picAttachList, List<String> mediaAttachList, List<String> attachAttachList){
+        if(article != null && article.getId() != null){
+            String[] params = {"articleId", "type"};
+            Object[] values1 = {article.getId(), "pic"};
+            Object[] values2 = {article.getId(), "media"};
+            Object[] values3 = {article.getId(), "attach"};
+            List<ArticleAttach> picList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values1);
+            Map<String, ArticleAttach> picMap = new HashMap<String, ArticleAttach>();
+            for(int i = 0; i < picList.size(); i++){
+                picMap.put(picList.get(i).getPath(), picList.get(i));
+            }
+            List<ArticleAttach> mediaList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values2);
+            Map<String, ArticleAttach> mediaMap = new HashMap<String, ArticleAttach>();
+            for(int i = 0; i < mediaList.size(); i++){
+                mediaMap.put(mediaList.get(i).getPath(), mediaList.get(i));
+            }
+            List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values3);
+            Map<String, ArticleAttach> attachMap = new HashMap<String, ArticleAttach>();
+            for(int i = 0; i < attachList.size(); i++){
+                attachMap.put(attachList.get(i).getPath(), attachList.get(i));
+            }
+            ArticleAttach attach = null;
+            for(int i = 0; i < picAttachList.size(); i++){
+                if(picMap.get(picAttachList.get(i)) == null){
+                    attach = new ArticleAttach();
+                    attach.setArticle(article);
+                    attach.setPath(picAttachList.get(i));
+                    attach.setType("pic");
+                    articleAttachDao.save(attach);
+                }else{
+                    picMap.remove(picAttachList.get(i));
+                }
+            }
+            if(!picMap.isEmpty()){
+                Iterator itr = picMap.keySet().iterator();
+                while(itr.hasNext()) {
+                    articleAttachDao.delete(picMap.get(itr.next()));
+                }
+            }
+            for(int i = 0; i < mediaAttachList.size(); i++){
+                if(mediaMap.get(mediaAttachList.get(i)) == null){
+                    attach = new ArticleAttach();
+                    attach.setArticle(article);
+                    attach.setPath(mediaAttachList.get(i));
+                    attach.setType("media");
+                    articleAttachDao.save(attach);
+                }else{
+                    mediaMap.remove(mediaAttachList.get(i));
+                }
+            }
+            if(!mediaMap.isEmpty()){
+                Iterator itr = mediaMap.keySet().iterator();
+                while(itr.hasNext()) {
+                    articleAttachDao.delete(mediaMap.get(itr.next()));
+                }
+            }
+            for(int i = 0; i < attachAttachList.size(); i++){
+                if(attachMap.get(attachAttachList.get(i)) == null){
+                    attach = new ArticleAttach();
+                    attach.setArticle(article);
+                    attach.setPath(attachAttachList.get(i));
+                    attach.setType("attach");
+                    articleAttachDao.save(attach);
+                }else{
+                    attachMap.remove(attachAttachList.get(i));
+                }
+            }
+            if(!attachMap.isEmpty()){
+                Iterator itr = attachMap.keySet().iterator();
+                while(itr.hasNext()) {
+                    articleAttachDao.delete(attachMap.get(itr.next()));
+                }
+            }
+        }
+    }
+	
 	public Map addArticle(Article article, Boolean isUpSystemAdmin) {
 		// 定时发布的文章
 		String timeSettingArticleIds = "";
@@ -780,6 +888,10 @@ public class ArticleServiceImpl implements ArticleService {
 		if(!StringUtil.isEmpty(lastDeletedIds)){
 			lastDeletedIds = StringUtil.replaceFirst(lastDeletedIds, ",");
 		}
+		//删除文章的附件
+		articleDao.updateByDefine("deleteArticleAttachByArticleId", "articleId", SqlUtil.toSqlString(firstDeletedIds));
+		articleDao.updateByDefine("deleteArticleAttachByArticleId", "articleId", SqlUtil.toSqlString(lastDeletedIds));
+		
 		// 1.删除引用 的文章
 		articleDao.deleteByIds(SqlUtil.toSqlString(firstDeletedIds));
 		// 2.删除被引用的文章
@@ -1785,11 +1897,11 @@ public class ArticleServiceImpl implements ArticleService {
 				auditor_id = "" + article.getAuditor().getId();
 			}
 			elements.addContent(new Element("auditor_id").setText(auditor_id));
-			elements.addContent(new Element("text").setText(StringUtil.convert(article.getText())));
+			//elements.addContent(new Element("text").setText(StringUtil.convert(article.getText())));
 			elements.addContent(new Element("textArea").setText(StringUtil.convert(article.getTextArea())));
-			elements.addContent(new Element("pic").setText(StringUtil.convert(article.getPic())));
-			elements.addContent(new Element("attach").setText(StringUtil.convert(article.getAttach())));
-			elements.addContent(new Element("media").setText(StringUtil.convert(article.getMedia())));
+			//elements.addContent(new Element("pic").setText(StringUtil.convert(article.getPic())));
+			//elements.addContent(new Element("attach").setText(StringUtil.convert(article.getAttach())));
+			//elements.addContent(new Element("media").setText(StringUtil.convert(article.getMedia())));
 			
 /*			elements.addContent(new Element("date1").setText(DateUtil.toString(article.getDate1())));
 			elements.addContent(new Element("date2").setText(DateUtil.toString(article.getDate2())));
@@ -2069,18 +2181,18 @@ public class ArticleServiceImpl implements ArticleService {
 
 				newArticle.setAuditor(null);
 				
-				Element text1 = article.getChild("text");
-				String newText1 = "" + text1.getText();
-				newArticle.setText(newText1);
+//				Element text1 = article.getChild("text");
+//				String newText1 = "" + text1.getText();
+//				newArticle.setText(newText1);
 
 				
 				Element textArea1 = article.getChild("textArea");
 				String newTextArea1 = "" + textArea1.getText();
 				newArticle.setTextArea(newTextArea1);
 				
-				Element pic1 = article.getChild("pic");
-				String newPic1 = "" + pic1.getText();
-				newArticle.setPic(newPic1);
+//				Element pic1 = article.getChild("pic");
+//				String newPic1 = "" + pic1.getText();
+//				newArticle.setPic(newPic1);
 /*
 				Element date1 = article.getChild("date1");
 				String newDate1 = date1.getText();
@@ -3271,6 +3383,10 @@ public class ArticleServiceImpl implements ArticleService {
 	public void setTemplateUnitDao(TemplateUnitDao templateUnitDao) {
 		this.templateUnitDao = templateUnitDao;
 	}
+
+    public void setArticleAttachDao(ArticleAttachDao articleAttachDao) {
+        this.articleAttachDao = articleAttachDao;
+    }
 
 
 }

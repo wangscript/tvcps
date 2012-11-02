@@ -44,8 +44,10 @@
 	</bean>	
 	<bean name="articlemanager-articleBiz" class="com.j2ee.cms.biz.articlemanager.service.ArticleBiz">
 		<property name="articleService" ref="articlemanager-articleService" />
+        <property name="articleAttachService" ref="articlemanager-articleAttachService" />
 	</bean>
 	<bean name="articlemanager-articleService" class="com.j2ee.cms.biz.articlemanager.service.impl.ArticleServiceImpl">
+        <property name="articleAttachDao" ref="articlemanager-articleAttachDao" />
 		<property name="articleDao" ref="articlemanager-articleDao" />
 		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
 		<property name="articlePublishListDao" ref="publishmanager-articlePublishListDao" />
@@ -91,4 +93,11 @@
 	<bean id="articlemanager-userDao" class="com.j2ee.cms.biz.usermanager.dao.impl.UserDaoImpl" parent="genericDaoImpl"/>
 	
 	<bean id="articlemanager-articleExpandDao" class="com.j2ee.cms.biz.articlemanager.dao.impl.ArticleExpandDaoImpl" parent="genericDaoImpl" />
+    
+    
+    <bean id="articlemanager-articleAttachService" class="com.j2ee.cms.biz.articlemanager.service.impl.ArticleAttachServiceImpl">
+        <property name="articleAttachDao" ref="articlemanager-articleAttachDao" />
+        <property name="articleDao" ref="articlemanager-articleDao" />
+    </bean>
+    <bean id="articlemanager-articleAttachDao" class="com.j2ee.cms.biz.articlemanager.dao.impl.ArticleAttachDaoImpl" parent="genericDaoImpl" />
 </beans>

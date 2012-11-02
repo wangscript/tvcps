@@ -28,9 +28,6 @@
         <property name="invalidTime" type="com.j2ee.cms.common.core.util.DateString"/>
         <property name="publishTime" type="com.j2ee.cms.common.core.util.DateString"/>
         <property name="auditTime" type="com.j2ee.cms.common.core.util.DateString"/>   
-        <property name="pic"/>
-        <property name="attach"/>
-        <property name="media"/>        
         <property name="textArea" type="text" />
         <many-to-one name="referedArticle" column="refered_article_id"/>
         <many-to-one name="column" column="column_id" not-null="true"/>
