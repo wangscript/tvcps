@@ -229,9 +229,8 @@
                     rightFrame.document.getElementById(articlePicture).value = location;
                     rightFrame.document.getElementById(articlePicture).focus();
                     rightFrame.document.getElementById("imgPreview").innerHTML = "";
-                    rightFrame.document.getElementById("imgPreview").innerHTML;
                     rightFrame.document.getElementById("displayPicPreview").style.display = "block";
-                    for(var i = 0; i < rightFrame.maxPicCount; i++){
+                    for(var i = 1; i <= rightFrame.maxPicCount; i++){
                         var articlePic = rightFrame.document.getElementById("article.pic"+i);
                         if(articlePic != null){
                             var a = articlePic.value;
