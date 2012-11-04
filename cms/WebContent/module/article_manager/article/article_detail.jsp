@@ -552,6 +552,9 @@
         if(picNum == 0){
             picNum = 1;
         }
+        if(picNum+1 > maxPicCount) {
+            return null;
+        }
         picNum += 1;
         var a = picNum-1;
         var b = "#pic" + a;
@@ -566,10 +569,14 @@
         if(picNum <= maxPicCount) {
             $(b).after(str);
         }
+        return "article.pic"+picNum;
     }
     function addMedia(){
         if(mediaNum == 0){
             mediaNum = 1;
+        }
+        if(mediaNum+1 > maxMediaCount) {
+            return null;
         }
         mediaNum += 1;
         var a = mediaNum-1;
@@ -585,10 +592,14 @@
         if(mediaNum <= maxMediaCount) {
             $(b).after(str);
         }
+        return "article.media"+mediaNum;
     }
     function addAttach() {
         if(attachNum == 0){
             attachNum = 1;
+        }
+        if(attachNum+1 > maxAttachCount) {
+            return null;
         }
         attachNum += 1;
         var a = attachNum-1;
@@ -604,15 +615,178 @@
         if(attachNum <= maxAttachCount) {
             $(b).after(str);
         }
+        return "article.attach"+attachNum;
     }
 
     function autoGetArticleTextAttach(){
         var fck = FCKeditorAPI.GetInstance("article.textArea");
         var text = fck.GetHTML().trim();
         var reg = /src="([^"]*)"/g;
+        var pics = new Array();
+        var attachs = new Array();
+        var medias = new Array();
         while(arr=reg.exec(text)){
-            alert(arr[1])
+            if(arr[1].startWith("/"+app)){
+                var flag = true;
+                var url = arr[1].substring(app.length+1, arr[1].length);
+                if(arr[1].endWith("jpg") || arr[1].endWith("gif") || arr[1].endWith("jpeg") || arr[1].endWith("png") || arr[1].endWith("bmp")){
+                    for(var i = 1; i <= maxPicCount; i++){
+                        var articlePic = document.getElementById("article.pic"+i);
+                        if(articlePic != null && articlePic.value != null && articlePic.value != ""){
+                            if(url == articlePic.value){
+                                flag = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(flag){
+                        pics[pics.length] = url;
+                    }
+                }else{
+                    for(var i = 1; i <= maxMediaCount; i++){
+                        var articleMedia = document.getElementById("article.media"+i);
+                        if(articleMedia != null && articleMedia.value != null && articleMedia.value != ""){
+                            if(url == articleMedia.value){
+                                flag = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(flag){
+                        medias[medias.length] = url;
+                    }
+                }
+            }
         }
+        reg = /href="([^"]*)"/g;
+        while(arr=reg.exec(text)){
+            if(arr[1].startWith("/"+app)){
+                var flag = true;
+                var url = arr[1].substring(app.length+1, arr[1].length);
+                for(var i = 1; i <= maxAttachCount; i++){
+                    var articleAttach = document.getElementById("article.attach"+i);
+                    if(articleAttach != null && articleAttach.value != null && articleAttach.value != ""){
+                        if(url == articleAttach.value){
+                            flag = false;
+                            break;
+                        }
+                    }
+                }
+                if(flag){
+                    attachs[attachs.length] = url;
+                }
+            }
+        }
+        //去重
+        pics = pics.delRepeat();
+        attachs = attachs.delRepeat();
+        medias = medias.delRepeat();
+        for(var i = 0; i < pics.length; i++){
+            var flag = true;
+            for(var j = 1; j <= maxPicCount; j++){
+                var articlePic = document.getElementById("article.pic"+j);
+                if(articlePic != null && (articlePic.value == null || articlePic.value == "")){
+                    flag = false;
+                    document.getElementById("article.pic"+j).value = pics[i];
+                    break;
+                }
+            }
+            if(flag){
+                var id = addPic();
+                if(id != null){
+                    document.getElementById(id).value = pics[i];
+                }
+            }
+        }
+        if(pics.length > 0){
+            displayPreviewPic();
+        }
+        for(var i = 0; i < attachs.length; i++){
+            var flag = true;
+            for(var j = 1; j <= maxAttachCount; j++){
+                var articleAttach = document.getElementById("article.attach"+j);
+                if(articleAttach != null && (articleAttach.value == null || articleAttach.value == "")){
+                    flag = false;
+                    document.getElementById("article.attach"+j).value = attachs[i];
+                    break;
+                }
+            }
+            if(flag){
+                var id = addAttach();
+                if(id != null){
+                    document.getElementById(id).value = attachs[i];
+                }
+            }
+        }
+        for(var i = 0; i < medias.length; i++){
+            var flag = true;
+            for(var j = 1; j <= maxMediaCount; j++){
+                var articleMedia = document.getElementById("article.media"+j);
+                if(articleMedia != null && (articleMedia.value == null || articleMedia.value == "")){
+                    flag = false;
+                    document.getElementById("article.media"+j).value = medias[i];
+                    break;
+                }
+            }
+            if(flag){
+                var id = addMedia();
+                if(id != null){
+                    document.getElementById(id).value = medias[i];
+                }
+            }
+        }
+    }
+
+    function displayPreviewPic(){
+        document.getElementById("imgPreview").innerHTML = "";
+        document.getElementById("displayPicPreview").style.display = "block";
+        for(var i = 1; i <= maxPicCount; i++){
+            var articlePic = document.getElementById("article.pic"+i);
+            if(articlePic != null){
+                var a = articlePic.value;
+                if(a != null && a != ""){
+                    document.getElementById("imgPreview").innerHTML += "<img src=\""+a.substring(1, a.length)+"\" width=\"50px\" height=\"50px\"/>&nbsp;&nbsp;";
+                }
+            }
+        }
+    }
+
+    Array.prototype.delRepeat = function(){
+        var newArray = new Array();
+        var len = this.length;
+        for (var i = 0; i < len; i++){
+            for(var j = i+1; j < len; j++){
+                if(this[i] === this[j]){
+                    j = ++i;
+                }
+            }
+            newArray.push(this[i]);
+        }
+        return newArray;
+    }
+
+    String.prototype.startWith = function(s){
+        if(s==null||s==""||this.length==0||s.length>this.length){
+            return false;
+        }
+        if(this.substr(0,s.length)==s){
+            return true;
+        }else{
+            return false;
+        }
+        return true;
+    }
+
+    String.prototype.endWith = function(s){
+        if(s==null||s==""||this.length==0||s.length>this.length){
+            return false;
+        }
+        if(this.substring(this.length-s.length)==s){
+            return true;
+        }else{
+            return false;
+        }
+        return true;
     }
 </script>
 </head>
