@@ -8,6 +8,7 @@
         </id>
         <property name="path" />
         <property name="type" />
+        <property name="major" />
         <many-to-one name="article" column="article_id"/>
     </class>
 
@@ -15,6 +16,7 @@
     <query name="findArticleAttachsByArticleId"><![CDATA[
           FROM ArticleAttach articleAttach
           WHERE articleAttach.article.id = :articleId
+          ORDER BY articleAttach.major DESC
     ]]></query>
 
     <!-- 根据文章ID和附件类型查询文章附件 -->
@@ -22,6 +24,7 @@
           FROM ArticleAttach articleAttach
           WHERE articleAttach.article.id = :articleId
           AND articleAttach.type = :type
+          ORDER BY articleAttach.major DESC
     ]]></query>
 
     <!-- 根据文章ID和删除文章附件 -->
