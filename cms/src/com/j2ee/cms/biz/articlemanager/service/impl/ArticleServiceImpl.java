@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -156,27 +157,42 @@ public class ArticleServiceImpl implements ArticleService {
 	public void addArticleAtach(Article article, List<String> picAttachList, List<String> mediaAttachList, List<String> attachAttachList){
 	    if(article != null && article.getId() != null){
 	        ArticleAttach attach = null;
-	        for(int i = 0; i < picAttachList.size(); i++){
-	            attach = new ArticleAttach();
-	            attach.setArticle(article);
-	            attach.setPath(picAttachList.get(i));
-	            attach.setType("pic");
-	            articleAttachDao.save(attach);
+	        if(picAttachList != null && picAttachList.size() > 0){
+    	        for(int i = 0; i < picAttachList.size(); i++){
+    	            attach = new ArticleAttach();
+    	            attach.setArticle(article);
+    	            attach.setPath(picAttachList.get(i));
+    	            attach.setType("pic");
+    	            if(i == 0){
+    	                attach.setMajor(1);
+    	            }
+    	            articleAttachDao.save(attach);
+    	        }
 	        }
-	        for(int i = 0; i < mediaAttachList.size(); i++){
-                attach = new ArticleAttach();
-                attach.setArticle(article);
-                attach.setPath(mediaAttachList.get(i));
-                attach.setType("media");
-                articleAttachDao.save(attach);
-            }
-	        for(int i = 0; i < attachAttachList.size(); i++){
-                attach = new ArticleAttach();
-                attach.setArticle(article);
-                attach.setPath(attachAttachList.get(i));
-                attach.setType("attach");
-                articleAttachDao.save(attach);
-            }
+	        if(mediaAttachList != null && mediaAttachList.size() > 0){
+    	        for(int i = 0; i < mediaAttachList.size(); i++){
+                    attach = new ArticleAttach();
+                    attach.setArticle(article);
+                    attach.setPath(mediaAttachList.get(i));
+                    attach.setType("media");
+                    if(i == 0){
+                        attach.setMajor(1);
+                    }
+                    articleAttachDao.save(attach);
+                }
+	        }
+	        if(attachAttachList != null && attachAttachList.size() > 0){
+                for(int i = 0; i < attachAttachList.size(); i++){
+                    attach = new ArticleAttach();
+                    attach.setArticle(article);
+                    attach.setPath(attachAttachList.get(i));
+                    attach.setType("attach");
+                    if(i == 0){
+                        attach.setMajor(1);
+                    }
+                    articleAttachDao.save(attach);
+                }
+	        }
 	    }
 	}
 
@@ -187,27 +203,51 @@ public class ArticleServiceImpl implements ArticleService {
             Object[] values2 = {article.getId(), "media"};
             Object[] values3 = {article.getId(), "attach"};
             List<ArticleAttach> picList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values1);
-            Map<String, ArticleAttach> picMap = new HashMap<String, ArticleAttach>();
+            Map<String, ArticleAttach> picMap = new LinkedHashMap<String, ArticleAttach>();
             for(int i = 0; i < picList.size(); i++){
                 picMap.put(picList.get(i).getPath(), picList.get(i));
             }
             List<ArticleAttach> mediaList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values2);
-            Map<String, ArticleAttach> mediaMap = new HashMap<String, ArticleAttach>();
+            Map<String, ArticleAttach> mediaMap = new LinkedHashMap<String, ArticleAttach>();
             for(int i = 0; i < mediaList.size(); i++){
                 mediaMap.put(mediaList.get(i).getPath(), mediaList.get(i));
             }
             List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values3);
-            Map<String, ArticleAttach> attachMap = new HashMap<String, ArticleAttach>();
+            Map<String, ArticleAttach> attachMap = new LinkedHashMap<String, ArticleAttach>();
             for(int i = 0; i < attachList.size(); i++){
                 attachMap.put(attachList.get(i).getPath(), attachList.get(i));
             }
             ArticleAttach attach = null;
+            if(picAttachList.size() > 0 && picMap.get(picAttachList.get(0)) != null){
+                attach = picMap.get(picAttachList.get(0));
+                if(attach.getMajor() != 1){
+                    attach.setMajor(1);
+                    articleAttachDao.updateAndClear(attach);
+                }
+            }
+            if(mediaAttachList.size() > 0 && mediaMap.get(mediaAttachList.get(0)) != null){
+                attach = mediaMap.get(mediaAttachList.get(0));
+                if(attach.getMajor() != 1){
+                    attach.setMajor(1);
+                    articleAttachDao.updateAndClear(attach);
+                }
+            }
+            if(attachAttachList.size() > 0 && attachMap.get(attachAttachList.get(0)) != null){
+                attach = attachMap.get(attachAttachList.get(0));
+                if(attach.getMajor() != 1){
+                    attach.setMajor(1);
+                    articleAttachDao.updateAndClear(attach);
+                }
+            }
             for(int i = 0; i < picAttachList.size(); i++){
                 if(picMap.get(picAttachList.get(i)) == null){
                     attach = new ArticleAttach();
                     attach.setArticle(article);
                     attach.setPath(picAttachList.get(i));
                     attach.setType("pic");
+                    if(i == 0){
+                        attach.setMajor(1);
+                    }
                     articleAttachDao.save(attach);
                 }else{
                     picMap.remove(picAttachList.get(i));
@@ -225,6 +265,9 @@ public class ArticleServiceImpl implements ArticleService {
                     attach.setArticle(article);
                     attach.setPath(mediaAttachList.get(i));
                     attach.setType("media");
+                    if(i == 0){
+                        attach.setMajor(1);
+                    }
                     articleAttachDao.save(attach);
                 }else{
                     mediaMap.remove(mediaAttachList.get(i));
@@ -242,6 +285,9 @@ public class ArticleServiceImpl implements ArticleService {
                     attach.setArticle(article);
                     attach.setPath(attachAttachList.get(i));
                     attach.setType("attach");
+                    if(i == 0){
+                        attach.setMajor(1);
+                    }
                     articleAttachDao.save(attach);
                 }else{
                     attachMap.remove(attachAttachList.get(i));
