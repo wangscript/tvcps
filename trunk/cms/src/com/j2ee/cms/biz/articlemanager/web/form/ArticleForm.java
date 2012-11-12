@@ -47,6 +47,9 @@ public class ArticleForm extends GeneralForm {
 	private List<ArticleAttach> picList = new ArrayList<ArticleAttach>();
 	private List<ArticleAttach> mediaList = new ArrayList<ArticleAttach>();
 	private List<ArticleAttach> attachList = new ArrayList<ArticleAttach>();
+	private String majorPicPath;
+	private String majorAttachPath;
+	private String majorMediaPath;
 	
 	/** 文章ID */
 	private String articleId;
@@ -640,6 +643,30 @@ public class ArticleForm extends GeneralForm {
 
     public void setAttachList(List<ArticleAttach> attachList) {
         this.attachList = attachList;
+    }
+
+    public String getMajorPicPath() {
+        return majorPicPath;
+    }
+
+    public void setMajorPicPath(String majorPicPath) {
+        this.majorPicPath = majorPicPath;
+    }
+
+    public String getMajorAttachPath() {
+        return majorAttachPath;
+    }
+
+    public void setMajorAttachPath(String majorAttachPath) {
+        this.majorAttachPath = majorAttachPath;
+    }
+
+    public String getMajorMediaPath() {
+        return majorMediaPath;
+    }
+
+    public void setMajorMediaPath(String majorMediaPath) {
+        this.majorMediaPath = majorMediaPath;
     }
 
 }

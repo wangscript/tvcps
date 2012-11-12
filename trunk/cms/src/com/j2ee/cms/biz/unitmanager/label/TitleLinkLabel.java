@@ -86,6 +86,11 @@ public final class TitleLinkLabel {
 	/**  信息访问次数 */
 	public static final String ARTICLEHITS  = "<!--articlehits-->";
 	
+	public static final String PIC = "<!--pic-->";
+	public static final String ATTACH = "<!--attach-->";
+	public static final String MEDIA = "<!--media-->";
+	
+	
 	/** 所有标题链接的List */
 	public final static List titleLinkLabels = new ArrayList();
 	
@@ -157,6 +162,10 @@ public final class TitleLinkLabel {
 		map.put("栏目链接", COLUMN_LINK);
 		/**文章ID*/
 		map.put("文章ID", ARTICLEID);
+		map.put("图片", PIC);
+		map.put("附件", ATTACH);
+		map.put("视频", MEDIA);
+		
 		
 		titleLinkLabels.add(map);
 	}
