@@ -792,7 +792,7 @@
 </head>
 <body>
 <form id="articleForm" name="articleForm" action="<c:url value="/article.do"/>" method="post" enctype="multipart/form-data">
-     <input type="hidden" name="dealMethod" id="dealMethod" />
+    <input type="hidden" name="dealMethod" id="dealMethod" />
     <input type="hidden" name="operationType" id="operationType" value="article"/>
     <input type="hidden" name="columnId"   id="columnId"  value="${articleForm.columnId}" />
     <input type="hidden" name="formatId"   id="formatId"  value="${articleForm.formatId}" />
@@ -811,6 +811,11 @@
     <input type="hidden" name="refId"      id="refId"    value="${articleForm.refId}" />
     <input type="hidden" name="isref"      id="isref"    value="${articleForm.isref}" />
     <input type="hidden" name="auditorId" id="auditorId" value="${articleForm.auditorId }"/> 
+    
+    <input type="hidden" name="majorPicPath"    id="majorPicPath"    value="${articleForm.majorPicPath}" />
+    <input type="hidden" name="majorAttachPath" id="majorAttachPath" value="${articleForm.majorAttachPath}" />
+    <input type="hidden" name="majorMediaPath"  id="majorMediaPath"  value="${articleForm.majorMediaPath}" />
+    
      <!-- 
         <table style="width:150px;">
             <tr>
@@ -1010,6 +1015,13 @@
                 id="article.invalidTime" class="Wdate" style="width: 140px"
                 onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  value="<fmt_rt:formatDate value="${articleForm.article.invalidTime}"  pattern="yyyy-MM-dd:HH:mm:ss" />" />
             </td> 
+        </tr>
+        <tr>
+            <td class="td_left">点击量：</td>
+            <td>
+                <input name="article.hits" type="text" id="hits" 
+                class="input_text_normal" style="width:50px" empty="true" valid="num" value="${articleForm.article.hits}" />
+            </td>
         </tr>
         <tr>
             <td class="td_left">置顶：</td>
