@@ -10,6 +10,7 @@ public class ArticleAttach implements Serializable{
     private Article article;
     private String path;
     private String type;//（pic,media,attach）
+    private Integer major = 0; //是否默认显示
 
     public String getId() {
         return id;
@@ -34,6 +35,12 @@ public class ArticleAttach implements Serializable{
     }
     public void setType(String type) {
         this.type = type;
+    }
+    public Integer getMajor() {
+        return major;
+    }
+    public void setMajor(Integer major) {
+        this.major = major;
     }
 
     
