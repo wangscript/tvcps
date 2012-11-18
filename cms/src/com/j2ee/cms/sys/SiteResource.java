@@ -536,10 +536,11 @@ public final class SiteResource {
 	 */
 	public static String getUrl(String url, boolean withAppName) {
 		log.debug("url==========================="+url);
+		if(url == null || url.equals("") || url.equals("null")){
+		    return "";
+		}
 		String appName = withAppName ? "/"+GlobalConfig.appName : "";
-		if(url.startsWith("http://")) {
-		//	return url;
-		} else {
+		if(!url.startsWith("http://")) {
 			url = new StringBuilder().append(appName).append(url).toString();
 		}
 		log.debug("new url====================="+url);

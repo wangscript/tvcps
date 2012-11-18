@@ -62,8 +62,9 @@
 		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
 		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
 		<property name="columnDao" ref="columnmanager-columnDao"/>
-		<property name="articleDao" ref="articlemanager-articleDao" />	
-		<property name="siteDao" ref="sitemanager-siteDao" />	
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="siteDao" ref="sitemanager-siteDao" />
+        <property name="articleAttachDao" ref="articlemanager-articleAttachDao" />
 	</bean>
 	
 	<!-- 当前位置 -->
@@ -113,7 +114,8 @@
 		<property name="articleDao" ref="articlemanager-articleDao" />		
 		<property name="categoryDao" ref="documentmanager-categoryDao"/>
 		<property name="documentDao" ref="documentmanager-documentDao"/>
-		<property name="siteDao" ref="sitemanager-siteDao" />	
+		<property name="siteDao" ref="sitemanager-siteDao" />
+        <property name="articleAttachDao" ref="articlemanager-articleAttachDao" />
 	</bean>
 	
 	<!-- 最新信息 -->
@@ -164,6 +166,7 @@
 		<property name="siteDao" ref="sitemanager-siteDao" />	
 		<property name="userDao" ref="usermanager-userDao"/>
 		<property name="articleFormatDao" ref="articlemanager-articleFormatDao" />
+        <property name="articleAttachDao" ref="articlemanager-articleAttachDao" />
 	</bean>
 	
 	
@@ -189,6 +192,7 @@
 		<property name="articleDao" ref="articlemanager-articleDao" />
 		<property name="siteDao" ref="sitemanager-siteDao" />
 		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
+        <property name="articleAttachDao" ref="articlemanager-articleAttachDao" />
 	</bean>
 	
 	<!-- 标题链接分页 -->

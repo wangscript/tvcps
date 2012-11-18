@@ -13,9 +13,11 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttachDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
 import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttach;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleAttribute;
 import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
 import com.j2ee.cms.biz.columnmanager.domain.Column;
@@ -61,6 +63,9 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 	
 	/** 注入文章属性dao */
 	private ArticleAttributeDao articleAttributeDao;
+	
+	/** 注入文章附件dao */
+    private ArticleAttachDao articleAttachDao;
 	
 	/**
 	 * 解析期刊分类
@@ -328,6 +333,42 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 						String value = this.sub(label, columnId, siteId, xmlUtil, article, "");
 						matcher.appendReplacement(sb, value);
 					
+					}else if(label.equals(TitleLinkLabel.PIC)){
+		                String[] params = {"articleId", "type"};
+		                Object[] values = {article.getId(), "pic"};
+		                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+		                String path = "";
+		                if(attachList != null && attachList.size() > 0){
+		                    ArticleAttach attach = attachList.get(0);
+		                    if(attach.getMajor() != null && attach.getMajor() == 1){
+		                        path = attach.getPath();
+		                    }
+		                }
+                        matcher.appendReplacement(sb, SiteResource.getUrl(path, true));
+		            }else if(label.equals(TitleLinkLabel.MEDIA)){
+		                String[] params = {"articleId", "type"};
+		                Object[] values = {article.getId(), "media"};
+		                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+		                String path = "";
+		                if(attachList != null && attachList.size() > 0){
+                            ArticleAttach attach = attachList.get(0);
+                            if(attach.getMajor() != null && attach.getMajor() == 1){
+                                path = attach.getPath();
+                            }
+                        }
+		                matcher.appendReplacement(sb, SiteResource.getUrl(path, true));
+		            }else if(label.equals(TitleLinkLabel.ATTACH)){
+		                String[] params = {"articleId", "type"};
+		                Object[] values = {article.getId(), "attach"};
+		                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+		                String path = "";
+                        if(attachList != null && attachList.size() > 0){
+                            ArticleAttach attach = attachList.get(0);
+                            if(attach.getMajor() != null && attach.getMajor() == 1){
+                                path = attach.getPath();
+                            }
+                        }
+                        matcher.appendReplacement(sb, SiteResource.getUrl(path, true));
 					// 文章属性	
 					} else {
 						String reg = "<!--(.*)-->";
@@ -345,6 +386,7 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 									
 								} else {
 									data = String.valueOf(obj);
+									//暂停使用图片、附件、媒体 
 									// 是图片、附件、媒体 
 									if(fieldName.startsWith("pic")
 											|| fieldName.startsWith("attach")
@@ -438,5 +480,9 @@ public class MagazineCategoryAnalyzer implements TemplateUnitAnalyzer {
 	public void setArticleDao(ArticleDao articleDao) {
 		this.articleDao = articleDao;
 	}
+
+    public void setArticleAttachDao(ArticleAttachDao articleAttachDao) {
+        this.articleAttachDao = articleAttachDao;
+    }
 
 }

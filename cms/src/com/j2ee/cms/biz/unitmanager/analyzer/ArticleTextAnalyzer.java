@@ -19,10 +19,12 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttachDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleFormatDao;
 import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttach;
 import com.j2ee.cms.biz.articlemanager.domain.ArticleFormat;
 import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
 import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
@@ -75,6 +77,8 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 	private ArticleFormatDao articleFormatDao;
 	/** 注入用户dao*/
 	private UserDao userDao;
+	/** 注入文章附件dao */
+    private ArticleAttachDao articleAttachDao;
 	/**
 	 * 解析html代码并返回给页面
 	 * @param unitId
@@ -483,6 +487,42 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 					labelMatcher.appendReplacement(sb, "");
 				}
 				
+			}else if(label.equals(TitleLinkLabel.PIC)){
+                String[] params = {"articleId", "type"};
+                Object[] values = {article.getId(), "pic"};
+                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+                String path = "";
+                if(attachList != null && attachList.size() > 0){
+                    ArticleAttach attach = attachList.get(0);
+                    if(attach.getMajor() != null && attach.getMajor() == 1){
+                        path = attach.getPath();
+                    }
+                }
+                labelMatcher.appendReplacement(sb, SiteResource.getUrl(path, true));
+            }else if(label.equals(TitleLinkLabel.MEDIA)){
+                String[] params = {"articleId", "type"};
+                Object[] values = {article.getId(), "media"};
+                String path = "";
+                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+                if(attachList != null && attachList.size() > 0){
+                    ArticleAttach attach = attachList.get(0);
+                    if(attach.getMajor() != null && attach.getMajor() == 1){
+                        path = attach.getPath();
+                    }
+                }
+                labelMatcher.appendReplacement(sb, SiteResource.getUrl(path, true));
+            }else if(label.equals(TitleLinkLabel.ATTACH)){
+                String[] params = {"articleId", "type"};
+                Object[] values = {article.getId(), "attach"};
+                String path = "";
+                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+                if(attachList != null && attachList.size() > 0){
+                    ArticleAttach attach = attachList.get(0);
+                    if(attach.getMajor() != null && attach.getMajor() == 1){
+                        path = attach.getPath();
+                    }
+                }
+                labelMatcher.appendReplacement(sb, SiteResource.getUrl(path, true));
 			// 字段标签	
 			} else {
 				String other = "<!--(.*)-->";
@@ -502,6 +542,7 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 							this.proccessSubLabel(labelMatcher, sb, str);
 						} else {
 							String str = String.valueOf(obj);
+							//暂停使用图片、附件、媒体 
 							// 是图片、附件、媒体 
 							if(getOtherValue.startsWith("pic")
 									|| getOtherValue.startsWith("attach")
@@ -836,7 +877,7 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 			} else if(label.equals(TitleLinkLabel.ARTICLESORCE)) {
 				String infoSource = article.getInfoSource();
 				str = this.proccessLabel(labelMatcher, str, a, sb, infoSource);
-				
+			
 			// 文章评论
 			} else if(label.equals(ArticleTextLabel.ARTICLE_COMMENT)) {
 				str = this.proccessArticleComment(labelMatcher, str, a, sb, articleComment, articleCommentPic);
@@ -961,7 +1002,42 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 				} else {
 					labelMatcher.appendReplacement(sb, "");
 				}
-				
+			}else if(label.equals(TitleLinkLabel.PIC)){
+                String[] params = {"articleId", "type"};
+                Object[] values = {article.getId(), "pic"};
+                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+                String path = "";
+                if(attachList != null && attachList.size() > 0){
+                    ArticleAttach attach = attachList.get(0);
+                    if(attach.getMajor() != null && attach.getMajor() == 1){
+                        path = attach.getPath();
+                    }
+                }
+                str = this.proccessLabel(labelMatcher, str, a, sb, SiteResource.getUrl(path, true));
+            }else if(label.equals(TitleLinkLabel.MEDIA)){
+                String[] params = {"articleId", "type"};
+                Object[] values = {article.getId(), "media"};
+                String path = "";
+                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+                if(attachList != null && attachList.size() > 0){
+                    ArticleAttach attach = attachList.get(0);
+                    if(attach.getMajor() != null && attach.getMajor() == 1){
+                        path = attach.getPath();
+                    }
+                }
+                str = this.proccessLabel(labelMatcher, str, a, sb, SiteResource.getUrl(path, true));
+            }else if(label.equals(TitleLinkLabel.ATTACH)){
+                String[] params = {"articleId", "type"};
+                Object[] values = {article.getId(), "attach"};
+                String path = "";
+                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+                if(attachList != null && attachList.size() > 0){
+                    ArticleAttach attach = attachList.get(0);
+                    if(attach.getMajor() != null && attach.getMajor() == 1){
+                        path = attach.getPath();
+                    }
+                }
+                str = this.proccessLabel(labelMatcher, str, a, sb, SiteResource.getUrl(path, true));	
 			// 单元标签	
 			} else {
 				String other = "<!--(.*)-->";
@@ -980,6 +1056,7 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 							str = this.proccessLabel(labelMatcher, str, a, sb, data);
 						} else {
 							String data = String.valueOf(obj);
+							//暂停使用
 							// 是图片、附件、媒体 
 							if(getOtherValue.startsWith("pic")
 									|| getOtherValue.startsWith("attach")
@@ -1236,4 +1313,8 @@ public class ArticleTextAnalyzer implements TemplateUnitAnalyzer {
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
+
+    public void setArticleAttachDao(ArticleAttachDao articleAttachDao) {
+        this.articleAttachDao = articleAttachDao;
+    }
 }
