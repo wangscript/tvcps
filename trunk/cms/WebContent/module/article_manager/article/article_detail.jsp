@@ -1002,10 +1002,10 @@
         <tr>
             <td class="td_left">显示时间：</td>
             <td><input type="text" empty="true" name="article.displayTime" id="article.displayTime" class="Wdate" style="width: 140px"
-                onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  value="<fmt_rt:formatDate value='${articleForm.article.displayTime}' pattern='yyyy-MM-dd:HH:mm:ss' />" /> 
+                onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  value="<fmt_rt:formatDate value='${articleForm.article.displayTime}' pattern='yyyy-MM-dd HH:mm:ss' />" /> 
               发布时间： <input type="text"
                 readonly="readonly" empty="true" name="article.publishTime"
-                id="article.publishTime" class="Wdate" style="width: 140px"   value="<fmt_rt:formatDate value="${articleForm.article.publishTime}"  pattern="yyyy-MM-dd:HH:mm:ss" />"/>
+                id="article.publishTime" class="Wdate" style="width: 140px"   value="<fmt_rt:formatDate value="${articleForm.article.publishTime}"  pattern="yyyy-MM-dd HH:mm:ss" />"/>
             </td>
         </tr>
         <tr>
@@ -1013,7 +1013,7 @@
             失效时间：</td><td> <input
                 type="text" empty="true" name="article.invalidTime"
                 id="article.invalidTime" class="Wdate" style="width: 140px"
-                onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  value="<fmt_rt:formatDate value="${articleForm.article.invalidTime}"  pattern="yyyy-MM-dd:HH:mm:ss" />" />
+                onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  value="<fmt_rt:formatDate value="${articleForm.article.invalidTime}"  pattern="yyyy-MM-dd HH:mm:ss" />" />
             </td> 
         </tr>
         <tr>
