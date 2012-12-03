@@ -474,16 +474,17 @@
 				<c:forEach var="commonMap" items="${titleLinkPageForm.commonMap}" >
 					<c:if test="${commonMap.value != '<!--appName-->' and commonMap.value != '<!--siteId-->'}">
 						<option value="<c:out value="${commonMap.value}" />"><c:out value="${commonMap.key}" /></option>
-					</c:if>	
+					</c:if>
 				</c:forEach>
-				<c:forEach var="titleMap" items="${titleLinkPageForm.titleLinkPageMap}" >									
-						<option value="<c:out value="${titleMap.value}" />"><c:out value="${titleMap.key}" /></option>						
+				<c:forEach var="titleMap" items="${titleLinkPageForm.titleLinkPageMap}" >
+						<option value="<c:out value="${titleMap.value}" />"><c:out value="${titleMap.key}" /></option>
 				</c:forEach>
 			</select>
-			<select name="fieldCode" id="fieldCode"  style="width:103px" onChange="insertAtCaret(htmlContent,this.value)">
+            <!-- 
+            <select name="fieldCode" id="fieldCode"  style="width:103px" onChange="insertAtCaret(htmlContent,this.value)">
 				<option value=''>---字段标签---</option>	
 				<c:forEach var="articleAttribute" items="${titleLinkPageForm.articleAttributeList}" varStatus="s" step="1">	
-					<c:if test="${articleAttribute.fieldName != 'title' 
+                    <c:if test="${articleAttribute.fieldName != 'title' 
 							  and articleAttribute.fieldName != 'subtitle'
 							  and articleAttribute.fieldName != 'leadingTitle'
 							  and articleAttribute.fieldName != 'url'
@@ -495,11 +496,11 @@
 							  and articleAttribute.fieldName != 'auditTime'
 							  and articleAttribute.fieldName != 'invalidTime'
 							  and articleAttribute.fieldName != 'publishTime'}">								
-						<option value="<!--${articleAttribute.fieldName}-->" >${articleAttribute.attributeName}</option>
-					</c:if>						
+						<option value="<--${articleAttribute.fieldName}->" >${articleAttribute.attributeName}</option>
+					</c:if>
 				</c:forEach>
 			</select>
-
+            -->
 			<input type="button" value="样式管理"  class="btn_small"  onClick="showStyleManager()">	
 			<input type="button" value="css管理"  class="btn_small"  onClick="managerCss()">		
 				<TEXTAREA id="htmlContent"  name="htmlContent" ROWS="11"  onselect="storePos(this);" onclick="storePos(this);" onkeyup="storePos(this);" COLS="37">${titleLinkPageForm.htmlContent}</TEXTAREA>

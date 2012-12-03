@@ -69,31 +69,25 @@ var Pager = function(totalRecordCount, pageSize) {
 	
 		if(currentPage == 0){
 			str = "";
-		}else if(currentPage > 1){
-			str = str + " <a href='#'  onclick='"+'pager.changePage("1" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">第一页</a>&nbsp;&nbsp;";
+		}else if(currentPage >= 1){
+			str = str + " <a href='#'  onclick='"+'pager.changePage("1" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">首页</a>&nbsp;&nbsp;";
 		}
 
 		if(currentPage == 0){
 			str = str + "";
-		}else if(currentPage > 1){
+		}else if(currentPage > 1){ 
 			str = str + " <a href='#'  onclick='"+'pager.changePage("'+(Number(currentPage)-1)+'" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">上一页</a>&nbsp;&nbsp;";
 		}
-		
 		if(currentPage == (this.totalPageCount)){
 			str = str + "";
 		}else{
 			str = str + "<a href='#'  onclick='"+'pager.changePage("'+(Number(currentPage)+1)+'" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">下一页</a>&nbsp;&nbsp;";
-
 		}
-
-		if(currentPage == (this.totalPageCount)){
-			str = str + "";
-		}
-		else{
-			str = str + " <a href='#'  onclick='"+'pager.changePage("'+(this.totalPageCount)+'" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">最后一页</a>&nbsp;";
-
-		}
-
+		//if(currentPage == (this.totalPageCount)){
+		//	str = str + "";
+		//}else{
+			str = str + " <a href='#'  onclick='"+'pager.changePage("'+(this.totalPageCount)+'" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">尾页</a>&nbsp;";
+		//}
 		str = str + "&nbsp;&nbsp;" + currentPage+"/"+this.totalPageCount;
  
 		document.getElementById(ele).innerHTML = "";
