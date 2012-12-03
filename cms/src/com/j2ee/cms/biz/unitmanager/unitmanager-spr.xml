@@ -216,8 +216,9 @@
 		<property name="templateInstanceDao" ref="templatemanager-templateInstanceDao" />
 		<property name="articleAttributeDao" ref="articlemanager-articleAttributeDao" />
 		<property name="columnDao" ref="columnmanager-columnDao"/>
-		<property name="articleDao" ref="articlemanager-articleDao" />	
-		<property name="siteDao" ref="sitemanager-siteDao" />	
+		<property name="articleDao" ref="articlemanager-articleDao" />
+		<property name="siteDao" ref="sitemanager-siteDao" />
+        <property name="articleAttachDao" ref="articlemanager-articleAttachDao" />
 	</bean>
 	
 	<!--网上调查-->
