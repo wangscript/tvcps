@@ -16,9 +16,11 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.XMLWriter;
 
+import com.j2ee.cms.biz.articlemanager.dao.ArticleAttachDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleAttributeDao;
 import com.j2ee.cms.biz.articlemanager.dao.ArticleDao;
 import com.j2ee.cms.biz.articlemanager.domain.Article;
+import com.j2ee.cms.biz.articlemanager.domain.ArticleAttach;
 import com.j2ee.cms.biz.columnmanager.dao.ColumnDao;
 import com.j2ee.cms.biz.columnmanager.domain.Column;
 import com.j2ee.cms.biz.sitemanager.dao.SiteDao;
@@ -60,6 +62,8 @@ public class TitleLinkPageAnalyzer implements TemplateUnitAnalyzer {
 	private ArticleDao articleDao;
 	/** 网站dao */
 	private SiteDao siteDao;
+	/** 注入文章附件dao */
+    private ArticleAttachDao articleAttachDao;
 	
 	/**
 	 * 解析html代码并返回给页面
@@ -99,9 +103,10 @@ public class TitleLinkPageAnalyzer implements TemplateUnitAnalyzer {
 		String path = "/" + GlobalConfig.appName + configFilePath;
 		String id = IDFactory.getId();
 		String dir = SiteResource.getLatestInfoPath(GlobalConfig.appName,siteId); 
+		
 		sb.append("<input type=\"hidden\" name=\"titleLinkPage\" value=\""+ columnId +"\" />");
-		sb.append("<div id=\""+ id +"_display\">无数据</div>");
-	//	sb.append("<div id=\"pager\"></div>");
+		sb.append("<div id=\""+ id +"_display\">无数据</div>"); 
+		sb.append("<div id=\"pager\"></div>");
 		sb.append("<SCRIPT LANGUAGE=\"JavaScript\">");
 		sb.append("	window.onload = function() {");
 		sb.append("		var a = document.getElementsByName(\"titleLinkPage\");");
@@ -144,8 +149,8 @@ public class TitleLinkPageAnalyzer implements TemplateUnitAnalyzer {
     	String columnId = "";
     	// 循环将文章的数据写入xml文件中
     	for(int p = 0; p < page; p++) {
-	    	Document document = DocumentHelper.createDocument();    
-			Element rootElement = document.addElement("j2ee.cms"); 
+	    	Document document = DocumentHelper.createDocument();
+			Element rootElement = document.addElement("j2ee.cms");
 			Element copyRight = rootElement.addElement("copyright");
 			copyRight.addCDATA("j2ee.cms Net Work");
 			Element latestInfo = rootElement.addElement("article-page");
@@ -154,11 +159,9 @@ public class TitleLinkPageAnalyzer implements TemplateUnitAnalyzer {
 				Article article = (Article) list.get(i);
 				if(article != null) {
 					Element articles = latestInfo.addElement("article");
-					
 					// 栏目名称
 					Element columnName = articles.addElement("columnName");
 					columnName.addCDATA(article.getColumn().getName());
-					
 					// 栏目链接
 					Element columnLink = articles.addElement("columnLink");
 					columnId = article.getColumn().getId();
@@ -175,41 +178,50 @@ public class TitleLinkPageAnalyzer implements TemplateUnitAnalyzer {
 						newUrl =  SiteResource.getUrl(article.getColumn().getUrl(), true);
 					}
 					columnLink.addCDATA(newUrl);
-					
 					// 标题
 					Element title = articles.addElement("articletitle");
 					title.addCDATA(article.getTitle());
 					// 链接
 					Element url = articles.addElement("articleurl");
 					url.addCDATA(article.getUrl());
-					
 					// 作者
 					Element articleauthor = articles.addElement("articleauthor");
 					articleauthor.addCDATA(article.getAuthor());
 					// 点击次数
 					Element articlehits = articles.addElement("articlehits");
 					articlehits.addCDATA(String.valueOf(article.getHits()));
-					
 					// 显示时间
 					Element displayTime = articles.addElement("displayTime");
 					displayTime.addCDATA(DateUtil.toString(article.getDisplayTime()));
-					
 					// 发布时间
 					Element publishTime = articles.addElement("publishTime");
 					publishTime.addCDATA(DateUtil.toString(article.getPublishTime()));
 					// 失效时间
 					Element invalidTime = articles.addElement("invalidTime");
 					invalidTime.addCDATA(DateUtil.toString(article.getInvalidTime()));
-			
-				
-					// 置顶
+					// 附件
+					String[] params = {"articleId", "type"};
+	                Object[] values = {article.getId(), "attach"};
+	                List<ArticleAttach> attachList = articleAttachDao.findByNamedQuery("findArticleAttachsByArticleIdAndAttachType", params, values);
+	                String attachPath = "";
+	                if(attachList != null && attachList.size() > 0){
+	                    ArticleAttach attach = attachList.get(0);
+	                    if(attach.getMajor() != null && attach.getMajor() == 1){
+	                        attachPath = attach.getPath();
+	                    }
+	                }
+                    Element attach = articles.addElement("attach");
+                    attach.addCDATA(attachPath);
+                    // 摘要
+                    Element brief = articles.addElement("brief");
+                    brief.addCDATA(article.getBrief());
+                    // 置顶
 					Element toped = articles.addElement("toped");
 					if(article.isToped()) {
-						toped.addCDATA("是");						
+					    toped.addCDATA("是");
 					} else {
-						toped.addCDATA("否");
+					    toped.addCDATA("否");
 					}
-				
 				}
 			}
 			a += count;
@@ -230,7 +242,7 @@ public class TitleLinkPageAnalyzer implements TemplateUnitAnalyzer {
 //				OutputFormat of = OutputFormat.createPrettyPrint();
 //				of.setEncoding("UTF-8");
 				output = new XMLWriter(new FileOutputStream(new File(titleLinkPageXml)));
-				output.write(document);      
+				output.write(document);
 				output.close();
 			//	System.out.println("写入标题链接分页文章成功");
 			} catch (Exception e) {
@@ -337,4 +349,8 @@ public class TitleLinkPageAnalyzer implements TemplateUnitAnalyzer {
 	public void setSiteDao(SiteDao siteDao) {
 		this.siteDao = siteDao;
 	}
+
+    public void setArticleAttachDao(ArticleAttachDao articleAttachDao) {
+        this.articleAttachDao = articleAttachDao;
+    }
 }
