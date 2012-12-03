@@ -67,7 +67,9 @@ public final class TitleLinkPageLabel {
 	/** 失效时间 */
 	private final static String INVALIDTIME = "<!--invalidTime-->";
 	/** 图片 */
-	private final static String PIC1 = "<!--pic1-->";
+	private final static String PIC = "<!--pic-->";
+	/** 附件 */
+    private final static String ATTACH = "<!--attach-->";
 	/** 标题前缀 */
 	private final static String TITLEPREFIX = "<!--titlePrefix-->";
 	/** 标题后缀 */
@@ -101,7 +103,8 @@ public final class TitleLinkPageLabel {
 		map.put("审核时间", AUDITTIME);
 		map.put("发布时间", PUBLISHTIME);
 		map.put("失效时间", INVALIDTIME);
-		map.put("图片", PIC1);
+		//map.put("图片", PIC);
+		map.put("附件", ATTACH);
 		map.put("标题前缀", TITLEPREFIX);
 		map.put("标题后缀", TITLESUFFIX);
 		titleLinkPageLabels.add(map);

@@ -19,7 +19,7 @@ var Pager = function(totalRecordCount, pageSize) {
 			return this.totalPageCount - this.pageSize + 1;
 		}else {
 			return Math.floor((this.currentPage - 1) / this.pageSize) * this.pageSize + 1;
-		}    
+		}     
 	};
 	this.getEndPageNum = function() {
 		var x = Math.floor((this.currentPage - 1) / this.pageSize) * this.pageSize + this.pageSize;
@@ -33,17 +33,12 @@ var Pager = function(totalRecordCount, pageSize) {
 	 * 
 	 */
 	this.init = function(htmlElementName, handlerMethod,currentPage,id,unitId,dir, appName,siteId) {
-
 		ele = htmlElementName;
 		handler = handlerMethod;
 		//var beginPageNum = this.getBeginPageNum();
-		 
-			
 		//var endPageNum = this.getEndPageNum();
- 
 		var str = "";
- 
-		handler(currentPage,id,unitId,dir, appName,siteId);	
+		handler(currentPage,id,unitId,dir, appName,siteId);
 	/**	if (this.totalRecordCount != -1) {
 			// 生成分页HTML字符串
 			if (this.currentPage > this.pageSize) {
@@ -69,8 +64,8 @@ var Pager = function(totalRecordCount, pageSize) {
 	
 		if(currentPage == 0){
 			str = "";
-		}else if(currentPage > 1){
-			str = str + " <a href='#'  onclick='"+'pager.changePage("1" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">第一页</a>&nbsp;&nbsp;";
+		}else if(currentPage >= 1){
+			str = str + " <a href='#'  onclick='"+'pager.changePage("1" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">首页</a>&nbsp;&nbsp;";
 		}
 
 		if(currentPage == 0){
@@ -83,22 +78,16 @@ var Pager = function(totalRecordCount, pageSize) {
 			str = str + "";
 		}else{
 			str = str + "<a href='#'  onclick='"+'pager.changePage("'+(Number(currentPage)+1)+'" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">下一页</a>&nbsp;&nbsp;";
-
 		}
-
-		if(currentPage == (this.totalPageCount)){
-			str = str + "";
-		}
-		else{
-			str = str + " <a href='#'  onclick='"+'pager.changePage("'+(this.totalPageCount)+'" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">最后一页</a>&nbsp;";
-
-		}
-
+		//if(currentPage == (this.totalPageCount)){
+		//	str = str + "";
+		//}else{
+			str = str + " <a href='#'  onclick='"+'pager.changePage("'+(this.totalPageCount)+'" ,"'+id+'","'+unitId+'","'+dir+'", "'+appName+'","'+siteId+'")'+"' style=\"cursor:pointer;\">尾页</a>&nbsp;";
+		//}
 		str = str + "&nbsp;&nbsp;" + currentPage+"/"+this.totalPageCount;
- 
 		document.getElementById(ele).innerHTML = "";
 		document.getElementById(ele).innerHTML = str;
-	 
+		
 	};
 	this.changePage = function(currentPage,id,unitId,dir, appName,siteId) {
 		this.currentPage = currentPage;		 
