@@ -4,13 +4,17 @@
  */
 package com.j2ee.cms.sys;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
-
-import com.j2ee.cms.common.core.util.FileUtil;
+import org.logicalcobwebs.proxool.configuration.PropertyConfigurator;
+ 
 
 /**
  * <p>
@@ -49,12 +53,15 @@ public class StartListener implements ServletContextListener {
 		// 初始化数据
 		log.info("init all sql");
 		if (!start.checkDate(event)) {//检查验证码是否有效，無效的話就不執行了
+	
 			// 先创建表，
 			if (start.createTable(event)) {
 				// 初始化应用路径
 				log.info("init appPath ...");
 				start.initAppRealPath(event);
-
+		 
+			
+				 
 				// 设置系统环境变量
 				log.info("set env ...");
 				start.setEnv();
@@ -74,6 +81,25 @@ public class StartListener implements ServletContextListener {
 				// 定义最大连接数
 				GlobalConfig.maxConnection = 20;
 				log.debug(GlobalConfig.appRealPath);
+				
+			
+			/*	File file = new File(GlobalConfig.appRealPath+"/WEB-INF/classes/db.properties");
+				  FileInputStream fis;
+					Properties properties = new Properties();
+					try {
+						fis = new FileInputStream(file);
+						  properties.load(fis);
+							System.setProperties(properties);
+							
+					//	  PropertyConfigurator.configure(properties);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}*/
+			
+		 
+			 
+				
 			}else{
 				System.out.println("数据初始化失败，程序将退出");
 				System.exit(0);
