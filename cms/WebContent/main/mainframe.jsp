@@ -4,7 +4,7 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>CPS管理系统</title>
+    <title>CMS管理系统</title>
     <%@include file="/templates/headers/header.jsp"%>
     <c:if test="${sessionScope.sessionid eq null}">
         <%
