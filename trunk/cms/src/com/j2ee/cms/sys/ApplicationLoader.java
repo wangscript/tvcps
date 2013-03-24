@@ -5,9 +5,11 @@
 package com.j2ee.cms.sys;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Properties;
 
 import javax.servlet.ServletContextEvent;
 
@@ -15,6 +17,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
+import org.logicalcobwebs.proxool.configuration.PropertyConfigurator;
 
 import com.j2ee.cms.biz.articlemanager.service.impl.ArticleServiceImpl;
 import com.j2ee.cms.biz.setupmanager.dao.SetDB;
@@ -171,6 +174,7 @@ public class ApplicationLoader implements Start {
 	 */
 	public void setEnv() {
 		System.setProperty("webapp.root", GlobalConfig.appRealPath);
+
 	}
 
 	/**
